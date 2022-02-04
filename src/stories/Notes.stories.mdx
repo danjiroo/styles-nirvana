@@ -1,28 +1,85 @@
-import { Meta } from '@storybook/addon-docs';
-import Code from './assets/code-brackets.svg';
-import Colors from './assets/colors.svg';
-import Comments from './assets/comments.svg';
-import Direction from './assets/direction.svg';
-import Flow from './assets/flow.svg';
-import Plugin from './assets/plugin.svg';
-import Repo from './assets/repo.svg';
-import StackAlt from './assets/stackalt.svg';
+import { Meta } from '@storybook/addon-docs'
+import Code from './assets/code-brackets.svg'
+import Colors from './assets/colors.svg'
+import Comments from './assets/comments.svg'
+import Direction from './assets/direction.svg'
+import Flow from './assets/flow.svg'
+import Plugin from './assets/plugin.svg'
+import Repo from './assets/repo.svg'
+import StackAlt from './assets/stackalt.svg'
 
-<Meta title="Notes" />
+<Meta title='Notes' />
+
+# Work in Progress
+
+We created a storybook to showcase components about how they look and work in our future projects. Also, these components are atomic components that are reusable across different projects that we will be creating soon. As of the moment, the storybook doesn't have any final component that we can share, however, here are some components that we are planning to put in the storybook:
+
+<ul className='todos'>
+  <li className='checked'>Button</li>
+  <li className=''>Card</li>
+  <li className=''>Collapsible</li>
+  <li className=''>Container</li>
+  <li className=''>Dropdown</li>
+  <li className=''>Footer</li>
+  <li className=''>Forms</li>
+  <li className=''>Header</li>
+  <li className=''>Icon</li>
+  <li className=''>Image</li>
+  <li className=''>Input</li>
+  <li className=''>Loader</li>
+  <li className=''>Logo</li>
+  <li className=''>Modal</li>
+  <li className=''>Navigation</li>
+  <li className=''>Pagination</li>
+  <li className=''>Progress Bars</li>
+  <li className=''>React Flow</li>
+  <li className=''>Search</li>
+  <li className=''>Select</li>
+  <li className=''>Table</li>
+  <li className=''>TextField</li>
+  <li className=''>Tooltip</li>
+</ul>
+
+<div class='box'>
+  <div class='percent'>
+    <svg>
+      <circle cx='70' cy='70' r='70'></circle>
+      <circle cx='70' cy='70' r='70'></circle>
+    </svg>
+    <div class='num'>
+      <h2>
+        5<span>%</span>
+      </h2>
+    </div>
+  </div>
+  <h2 class='text'>progress</h2>
+</div>
 
 <style>{`
   .todos {
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    padding: 0;
   }
 
   .todos li {
     padding: 0;
     margin: 0;
+    width: 33%;
+    list-style: none;
   }
 
-  .todos li {
-    width: 33%;
+  .todos li:before {
+    content: 'x';
+    color: tomato;
+    padding-right: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .todos li.checked:before {
+    content: '✓';
+    color: green;
   }
 
   .box {
@@ -103,47 +160,4 @@ import StackAlt from './assets/stackalt.svg';
     font-weight:700;
     letter-spacing:1px;
   }
-  
 `}</style>
-
-# Work in Progress
-
-We created a storybook to showcase components about how they look and work in our future projects. Also, these components are atomic components that are reusable across different projects that we will be creating soon. As of the moment, the storybook doesn't have any final component that we can share, however, here are some components that we are planning to put in the storybook:
-
-<ul className="todos">
-  <li>Button</li>
-  <li>Card</li>
-  <li>Collapsible</li>
-  <li>Container</li>
-  <li>Dropdown</li>
-  <li>Footer</li>
-  <li>Forms</li>
-  <li>Header</li>
-  <li>Icon</li>
-  <li>Image</li>
-  <li>Input</li>
-  <li>Logo</li>
-  <li>Modal</li>
-  <li>Navigation</li>
-  <li>Pagination</li>
-  <li>Progress Bars</li>
-  <li>Select</li>
-  <li>Table</li>
-  <li>TextField</li>
-  <li>Tooltip</li>
-</ul>
-
-<div class="box">
-  <div class="percent">
-    <svg>
-      <circle cx="70" cy="70" r="70"></circle>
-      <circle cx="70" cy="70" r="70"></circle>
-    </svg>
-    <div class="num">
-      <h2>
-        5<span>%</span>
-      </h2>
-    </div>
-  </div>
-  <h2 class="text">progress</h2>
-</div>

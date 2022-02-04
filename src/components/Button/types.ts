@@ -1,20 +1,52 @@
 export interface ButtonProps {
   /**
-   * Is this the principal call to action on the page?
+   * Button text
    */
-  primary?: boolean
+  label?: string
   /**
-   * What background color to use
+   * Used for bg-color, border-colors etc.
    */
-  backgroundColor?: string
+  btnColor?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
   /**
-   * How large should the button be?
+   * The size of the button
    */
-  size?: 'small' | 'medium' | 'large'
+  size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl'
   /**
-   * Button contents
+   * The surface layout of the button
    */
-  label: string
+  layout?: 'solid' | 'outline' | 'dashed' | 'dotted' | 'double'
+  /**
+   * Button surface or edges
+   */
+  rounded?: boolean
+  /**
+   * Is button currently loading?
+   */
+  isLoading?: boolean
+  /**
+   * Shows a custom text when isLoading is true
+   */
+  loadingLabel?: string
+  /**
+   * Button is not clickable
+   */
+  isDisabled?: boolean
+  /**
+   * Shows the button as a block (full width)
+   */
+  block?: boolean
+  /**
+   * Shows only one icon inside the button; defaults to left
+   */
+  icon?: string
+  /**
+   * Shows an icon inside the button, left aligned
+   */
+  iconLeft?: string
+  /**
+   * Shows an icon inside the button, right aligned
+   */
+  iconRight?: string
   /**
    * Optional click handler
    */

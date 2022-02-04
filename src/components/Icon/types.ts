@@ -11,14 +11,15 @@ enum IconColorEnum {
 }
 
 enum IconSizeEnum {
+  xs,
   sm,
-  md,
+  base,
   lg,
   xl,
 }
 
 export interface IconProps extends React.HTMLAttributes<HTMLLIElement> {
   iconName?: string
-  color?: keyof typeof IconColorEnum
+  color?: keyof typeof IconColorEnum | string
   size?: keyof typeof IconSizeEnum
 }
