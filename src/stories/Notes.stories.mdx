@@ -1,0 +1,149 @@
+import { Meta } from '@storybook/addon-docs';
+import Code from './assets/code-brackets.svg';
+import Colors from './assets/colors.svg';
+import Comments from './assets/comments.svg';
+import Direction from './assets/direction.svg';
+import Flow from './assets/flow.svg';
+import Plugin from './assets/plugin.svg';
+import Repo from './assets/repo.svg';
+import StackAlt from './assets/stackalt.svg';
+
+<Meta title="Notes" />
+
+<style>{`
+  .todos {
+    display: flex;
+    flex-wrap: wrap
+  }
+
+  .todos li {
+    padding: 0;
+    margin: 0;
+  }
+
+  .todos li {
+    width: 33%;
+  }
+
+  .box {
+    background:#fff;
+    width:100%;
+    height:300px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    flex-direction:column;
+    box-shadow:0 30px 60px rgba(0,0,0,.4);
+    transition: transform .2s;
+    margin-top: 50px
+  }
+
+  /* .box:hover {
+    transform:scale(1.1);
+  } */
+  
+  .box .percent {
+    width:150px;
+    height:150px;
+    position:relative;
+  }
+
+  .box .percent svg {
+    width:150px;
+    height:150px;
+    position:relative;
+  }
+  
+  .box .percent svg circle {
+    width:150px;
+    height:150px;
+    fill:none;
+    stroke-width:10;
+    stroke:#000;
+    transform:translate(5px,5px);
+    stroke-dasharray:440;
+    stroke-dashoffset:440;
+    stroke-linecap:round;
+  }
+
+  .box .percent svg circle:nth-child(1) {
+    stroke-dashoffset:0;
+    stroke:#f3f3f3;
+  }
+
+  .box .percent svg circle:nth-child(2) {
+    stroke-dashoffset:calc(440 - (440 * 5) / 100);
+    stroke:#03a9f4;
+  }
+
+  .box .percent .num {
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:absolute;
+    color:#111;
+  }
+
+  .box .percent .num h2 {
+    font-size:48px;
+  }
+
+  .box .percent .num h2 span {
+    font-size:24px;
+  }
+
+  .box .text {
+    padding 10px 0 0;
+    color:#999;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  
+`}</style>
+
+# Work in Progress
+
+We created a storybook to showcase components about how they look and work in our future projects. Also, these components are atomic components that are reusable across different projects that we will be creating soon. As of the moment, the storybook doesn't have any final component that we can share, however, here are some components that we are planning to put in the storybook:
+
+<ul className="todos">
+  <li>Button</li>
+  <li>Card</li>
+  <li>Collapsible</li>
+  <li>Container</li>
+  <li>Dropdown</li>
+  <li>Footer</li>
+  <li>Forms</li>
+  <li>Header</li>
+  <li>Icon</li>
+  <li>Image</li>
+  <li>Input</li>
+  <li>Logo</li>
+  <li>Modal</li>
+  <li>Navigation</li>
+  <li>Pagination</li>
+  <li>Progress Bars</li>
+  <li>Select</li>
+  <li>Table</li>
+  <li>TextField</li>
+  <li>Tooltip</li>
+</ul>
+
+<div class="box">
+  <div class="percent">
+    <svg>
+      <circle cx="70" cy="70" r="70"></circle>
+      <circle cx="70" cy="70" r="70"></circle>
+    </svg>
+    <div class="num">
+      <h2>
+        5<span>%</span>
+      </h2>
+    </div>
+  </div>
+  <h2 class="text">progress</h2>
+</div>
