@@ -8,6 +8,8 @@ import { ButtonProps } from './types'
 
 import { Icon, RaySpinner } from '../'
 
+import { buttonConfig } from './config'
+
 /**
  * Primary UI component for user interaction
  */
@@ -46,27 +48,33 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <StyledButton type='button' {...other} {...usedProps} disabled={isDisabled}>
       {IconLeft && (
-        <Icon
-          iconName={IconLeft}
-          color={layout === 'solid' ? '#fff' : btnColor}
-          size={size}
-        />
+        <div className='button-icon-div'>
+          <Icon
+            iconName={IconLeft}
+            color={layout === 'solid' ? '#fff' : btnColor}
+            size={size}
+          />
+        </div>
       )}
       {isLoading && (
-        <RaySpinner
-          color={layout === 'solid' ? '#fff' : btnColor}
-          size={20}
-          rayHeight={4}
-          rayWidth={2}
-        />
+        <div className='button-icon-div'>
+          <RaySpinner
+            color={layout === 'solid' ? '#fff' : btnColor}
+            size={buttonConfig.size[size].fontSize}
+            rayHeight={3}
+            rayWidth={2}
+          />
+        </div>
       )}
       <span>{isLoading ? loadingLabel : label}</span>
       {IconRight && (
-        <Icon
-          iconName={IconRight}
-          color={layout === 'solid' ? '#fff' : btnColor}
-          size={size}
-        />
+        <div className='button-icon-div'>
+          <Icon
+            iconName={IconRight}
+            color={layout === 'solid' ? '#fff' : btnColor}
+            size={size}
+          />
+        </div>
       )}
     </StyledButton>
   )

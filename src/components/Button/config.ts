@@ -44,23 +44,23 @@ export const buttonConfig = {
   colors,
   size: {
     xs: {
-      fontSize: '13px',
+      fontSize: 13,
       padding: '8px 18px',
     },
     sm: {
-      fontSize: '14px',
+      fontSize: 14,
       padding: '9px 19px',
     },
     base: {
-      fontSize: '15px',
+      fontSize: 15,
       padding: '10px 20px',
     },
     lg: {
-      fontSize: '16px',
+      fontSize: 16,
       padding: '10px 20px',
     },
     xl: {
-      fontSize: '17px',
+      fontSize: 17,
       padding: '10px 20px',
     },
   },

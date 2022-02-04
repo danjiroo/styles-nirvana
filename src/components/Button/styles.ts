@@ -24,7 +24,7 @@ const getDynamicStyles = (props: ButtonProps) => {
       : 'transparent'};
     border: 1.5px ${layout === 'outline' ? 'solid' : layout};
     border-radius: ${rounded ? buttonConfig.border.radius : 0};
-    font-size: ${buttonConfig.size[size].fontSize};
+    font-size: ${buttonConfig.size[size].fontSize}px;
     padding: ${buttonConfig.size[size].padding};
     opacity: ${!isDisabled ? 1 : 0.5};
 
@@ -41,11 +41,19 @@ const getDynamicStyles = (props: ButtonProps) => {
 export const StyledButton = styled.button<ButtonProps>`
   line-height: 1;
   transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   ${getDynamicStyles};
 
-  & > * {
-    vertical-align: middle;
+  .button-icon-div {
+    height: ${(props) => buttonConfig.size[props.size ?? 'base'].fontSize}px;
+  }
+
+  .button-icon-div > i,
+  .button-icon-div > div {
+    object-fit: contain;
   }
 
   & > span {
