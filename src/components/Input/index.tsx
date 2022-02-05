@@ -14,17 +14,20 @@ const Input: React.FC<FormInputProps> = (props) => {
     accessor,
     disabled,
     field_type,
-    theme,
+    customTheme,
   } = props
   const [is_input_active, setInputActive] = useState(false)
   const [is_label_click, setLabelClick] = useState(false)
 
+  const inputValueRef = useRef<string | null>()
   const handleInputChange = (event: any) => {
     const { value, name } = event.target
-
+    console.log('value:', value)
+    inputValueRef.current = value
     actions.handleChange?.({ value, name, accessor })
   }
 
+  console.log('IAM BEING CALLED:', inputValueRef)
   const handleLabelClick = () => {
     setLabelClick(() => true)
   }
@@ -53,9 +56,11 @@ const Input: React.FC<FormInputProps> = (props) => {
 
   return (
     <InputContainer>
-      <Label is_input_active={is_input_active} onClick={handleLabelClick}>
-        {label}
-      </Label>
+      {label && (
+        <Label is_input_active={is_input_active} onClick={handleLabelClick}>
+          {label}
+        </Label>
+      )}
       {type && type === 'text' && (
         <StyledInput
           type={field_type}
@@ -68,7 +73,7 @@ const Input: React.FC<FormInputProps> = (props) => {
           ref={inputRef}
           disabled={disabled}
           name={name}
-          theme={theme ? theme : 'none'}
+          customTheme={customTheme}
         />
       )}
       {type && type === 'textarea' && (

@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-
+import { useArgs } from '@storybook/client-api'
 import { Input } from '../'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -13,17 +13,22 @@ export default {
 } as ComponentMeta<typeof Input>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
+const Template: ComponentStory<typeof Input> = (args) => {
+  const [_, updateArgs] = useArgs()
 
+  const actionsProp: any = {
+    handleChange: (data: any) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { name, value } = data
+      updateArgs({ value })
+    },
+  }
+  return <Input {...args} actions={actionsProp} />
+}
+
+console.log('NAG DAGAN KO')
 export const Primary = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-
-const actionsProp: any = {
-  handleChange: (data: any) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { name, value } = data
-  },
-}
 
 Primary.args = {
   value: '',
@@ -34,10 +39,9 @@ Primary.args = {
   name: 'email',
   accessor: 'value',
   disabled: false,
-  actions: actionsProp ?? {},
-  // theme: {
-  //   // background_color: "gray",
-  //   outline_color: "yellow",
-  //   // border_radius: "25px",
+  // customTheme: {
+  //   background_color: '#DEDEFF',
+  //   outline_color: 'yellow',
+  //   border_radius: "25px",
   // },
 }

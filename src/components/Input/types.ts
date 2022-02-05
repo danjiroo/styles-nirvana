@@ -20,7 +20,7 @@ export interface FormInputProps {
   /**
    *Add a label for a more descriptive input
    */
-  label: string
+  label?: string
   name: string
   accessor?: string
   actions: {
@@ -36,5 +36,5 @@ export interface FormInputProps {
     - outline_color?: string;
     - border_radius?: string;
    */
-  theme?: Theme
+  customTheme?: Theme
 }

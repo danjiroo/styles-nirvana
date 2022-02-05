@@ -13,10 +13,15 @@ const default_input_styles = css`
   border-radius: 6px;
 `
 
-const GetStyledInputStyles = ({ theme }: any): any => {
-  const { background_color, outline_color, border_radius } = theme
-  if (theme === 'none') return default_input_styles
-  if (theme)
+interface StyledInputProps {
+  customTheme?: Theme
+}
+
+const GetStyledInputStyles = ({ customTheme }: StyledInputProps) => {
+  console.log('THERME:', customTheme)
+  if (!customTheme) return default_input_styles
+  const { background_color, outline_color, border_radius } = customTheme
+  if (customTheme)
     return css`
       background-color: ${background_color};
       outline-color: ${outline_color};
