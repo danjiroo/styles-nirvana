@@ -18,9 +18,7 @@ export default {
 const Template: ComponentStory<typeof Grid> = (args) => <Grid {...args} />
 
 export const Default = Template.bind({})
-Default.args = {
-  columns: [],
-}
+Default.args = {}
 Default.parameters = {
   xstate: {
     height: '1000px',
@@ -35,38 +33,28 @@ Default.parameters = {
           timeout_ms: 654123,
           columns: [
             {
-              Header: 'Name',
-              columns: [
-                {
-                  Header: 'FIRST NAME',
-                  accessor: 'firstName',
-                },
-                {
-                  Header: 'LAST NAME',
-                  accessor: 'lastName',
-                },
-              ],
+              Header: 'FIRST NAME',
+              accessor: 'firstName',
             },
             {
-              Header: 'Info',
-              columns: [
-                {
-                  Header: 'AGE',
-                  accessor: 'age',
-                },
-                {
-                  Header: 'VISITS',
-                  accessor: 'visits',
-                },
-                {
-                  Header: 'STATUS',
-                  accessor: 'status',
-                },
-                {
-                  Header: 'PROGRESS',
-                  accessor: 'progress',
-                },
-              ],
+              Header: 'LAST NAME',
+              accessor: 'lastName',
+            },
+            {
+              Header: 'AGE',
+              accessor: 'age',
+            },
+            {
+              Header: 'VISITS',
+              accessor: 'visits',
+            },
+            {
+              Header: 'STATUS',
+              accessor: 'status',
+            },
+            {
+              Header: 'PROGRESS',
+              accessor: 'progress',
             },
           ],
         },

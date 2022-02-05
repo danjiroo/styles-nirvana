@@ -3,7 +3,7 @@
 import styled, { css } from 'styled-components'
 
 import { ButtonProps } from './types'
-import { buttonConfig } from './config'
+import { theme } from '../../themes'
 
 const getDynamicStyles = (props: ButtonProps) => {
   const {
@@ -16,23 +16,19 @@ const getDynamicStyles = (props: ButtonProps) => {
 
   return css`
     cursor: ${!isDisabled ? 'pointer' : 'not-allowed'};
-    color: ${layout === 'solid'
-      ? '#fff'
-      : buttonConfig.colors[btnColor].DEFAULT};
+    color: ${layout === 'solid' ? '#fff' : theme.colors[btnColor].DEFAULT};
     background: ${layout === 'solid'
-      ? buttonConfig.colors[btnColor].DEFAULT
+      ? theme.colors[btnColor].DEFAULT
       : 'transparent'};
     border: 1.5px ${layout === 'outline' ? 'solid' : layout};
-    border-radius: ${rounded ? buttonConfig.border.radius : 0};
-    font-size: ${buttonConfig.size[size].fontSize}px;
-    padding: ${buttonConfig.size[size].padding};
+    border-radius: ${rounded ? theme.border.radius : 0};
+    font-size: ${theme.size[size].fontSize}px;
+    padding: ${theme.size[size].padding};
     opacity: ${!isDisabled ? 1 : 0.5};
 
     &:hover {
       color: ${layout !== 'solid' && '#fff'};
-      background: ${buttonConfig.colors[btnColor][
-        !isDisabled ? 'dark' : 'DEFAULT'
-      ]};
+      background: ${theme.colors[btnColor][!isDisabled ? 'dark' : 'DEFAULT']};
       opacity: ${!isDisabled && 1};
     }
   `
@@ -48,7 +44,7 @@ export const StyledButton = styled.button<ButtonProps>`
   ${getDynamicStyles};
 
   .button-icon-div {
-    height: ${(props) => buttonConfig.size[props.size ?? 'base'].fontSize}px;
+    height: ${(props) => theme.size[props.size ?? 'base'].fontSize}px;
   }
 
   .button-icon-div > i,

@@ -3,10 +3,18 @@ import cn from 'classnames'
 
 import { WithClassNames } from './types'
 
-const Cell: React.FC<WithClassNames> = (props) => {
-  const { className, children, ...other } = props
+interface CellProps extends WithClassNames {
+  header?: boolean
+}
 
-  return (
+const Cell: React.FC<CellProps> = (props) => {
+  const { className, children, header = false, ...other } = props
+
+  return header ? (
+    <th className={cn('th', className)} {...other}>
+      {children}
+    </th>
+  ) : (
     <td className={cn('td', className)} {...other}>
       {children}
     </td>

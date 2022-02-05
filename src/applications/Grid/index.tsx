@@ -11,7 +11,8 @@ import { GridApplicationConfig } from './types'
 
 const Grid: React.FC = () => {
   const [config, setConfig] = useState<GridApplicationConfig>({})
-  const data = useMemo(() => makeData(5), [])
+
+  const data = useMemo(() => makeData(50), [])
 
   console.log('@config', config)
 
@@ -93,47 +94,10 @@ const Grid: React.FC = () => {
   return (
     <div>
       <h3>Atomic Grid [Application]</h3>
-      <i>Possibly another component aside from the Table component.</i>
-      <hr />
-      <Table
-        columns={[
-          {
-            Header: 'Name',
-            columns: [
-              {
-                Header: 'FIRST Name',
-                accessor: 'firstName',
-              },
-              {
-                Header: 'LAST Name',
-                accessor: 'lastName',
-              },
-            ],
-          },
-          {
-            Header: 'Info',
-            columns: [
-              {
-                Header: 'AGE',
-                accessor: 'age',
-              },
-              {
-                Header: 'VISITS',
-                accessor: 'visits',
-              },
-              {
-                Header: 'STATUS',
-                accessor: 'status',
-              },
-              {
-                Header: 'PROFILE Progress',
-                accessor: 'progress',
-              },
-            ],
-          },
-        ]}
-        data={data}
-      />
+      <p style={{ paddingBottom: 15 }}>
+        <i>Possibly another component aside from the Table component.</i>
+      </p>
+      <Table columns={config?.data?.columns ?? []} data={data} />
     </div>
   )
 }

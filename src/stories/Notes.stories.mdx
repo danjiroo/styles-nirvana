@@ -15,6 +15,7 @@ import StackAlt from './assets/stackalt.svg'
 We created a storybook to showcase components about how they look and work in our future projects. Also, these components are atomic components that are reusable across different projects that we will be creating soon. As of the moment, the storybook doesn't have any final component that we can share, however, here are some components that we are planning to put in the storybook:
 
 <ul className='todos'>
+  <li className='wip'>Badge</li>
   <li className='checked'>Button</li>
   <li className=''>Card</li>
   <li className=''>Collapsible</li>
@@ -80,6 +81,12 @@ We created a storybook to showcase components about how they look and work in ou
   .todos li.checked:before {
     content: '✓';
     color: green;
+  }
+
+  .todos li.wip:before {
+    content: '⦾';
+    color: #4285F4;
+    font-size: 10px;
   }
 
   .box {
