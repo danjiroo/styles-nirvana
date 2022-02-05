@@ -22,7 +22,6 @@ const Button: React.FC<ButtonProps> = ({
   layout = 'solid',
   btnColor = 'primary',
   size = 'base',
-  theme,
   ...other
 }) => {
   // ! NOTE: Doing this since there's an issue in storybook,
@@ -39,7 +38,6 @@ const Button: React.FC<ButtonProps> = ({
     layout,
     btnColor,
     size,
-    theme,
   }
 
   const IconLeft = iconLeft || icon
@@ -60,7 +58,7 @@ const Button: React.FC<ButtonProps> = ({
         <div className='button-icon-div'>
           <RaySpinner
             color={layout === 'solid' ? '#fff' : btnColor}
-            size={theme?.loader[size].fontSize ?? 13}
+            size={size}
             rayHeight={3}
             rayWidth={2}
           />

@@ -3,8 +3,11 @@
 import styled, { css } from 'styled-components'
 
 import { ButtonProps } from './types'
+import { ThemeProvider } from '../../themes'
 
-const getDynamicStyles = (props: ButtonProps) => {
+interface Test extends ThemeProvider, ButtonProps {}
+
+const getDynamicStyles = (props: Test) => {
   const {
     btnColor = 'primary',
     rounded = true,
@@ -40,6 +43,12 @@ export const StyledButton = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  color: ${(props) => {
+    console.log('-------button', props)
+
+    return 'red'
+  }};
 
   ${getDynamicStyles};
 

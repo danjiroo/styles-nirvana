@@ -3,7 +3,7 @@ import { ThemeDefinition } from './types'
 export const baseTheme: ThemeDefinition = {
   bgColors: {
     card: '#f2f2f2',
-    container: '#f1f1f1',
+    container: 'red',
   },
   border: {
     width: 0,
@@ -89,19 +89,19 @@ export const baseTheme: ThemeDefinition = {
   },
   loader: {
     xs: {
-      fontSize: 13,
+      fontSize: 36,
     },
     sm: {
-      fontSize: 14,
+      fontSize: 38,
     },
     base: {
-      fontSize: 15,
+      fontSize: 40,
     },
     lg: {
-      fontSize: 16,
+      fontSize: 42,
     },
     xl: {
-      fontSize: 17,
+      fontSize: 44,
     },
   },
   table: {},
