@@ -12,7 +12,9 @@ const Badge: React.FC<BadgeProps> = (props) => {
     <StyledBadge {...props}>
       <span>{label || children}</span>
 
-      {!!closable && <Button icon='close-circle' onClick={onClick} />}
+      {!!closable && (
+        <Button onClick={onClick} label='' iconRight='close-circle' />
+      )}
     </StyledBadge>
   )
 }

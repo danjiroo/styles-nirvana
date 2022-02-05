@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import styled, {
   keyframes,
   css,
@@ -36,17 +37,33 @@ export const StyledSpinner = styled.div<RaySpinnerProps>`
   color: ${(props) => props.color};
   display: inline-block;
   position: relative;
-  width: ${(props) => `${props.size}px`};
-  height: ${(props) => `${props.size}px}`};
+  width: ${(props) => {
+    const { size = 'base', theme, inButton } = props
+
+    return `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`
+  }};
+  height: ${(props) => {
+    const { size = 'base', theme, inButton } = props
+
+    return `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`
+  }};
+
   div {
-    transform-origin: ${(props) => transformCalc(props.size)};
+    transform-origin: ${({ theme, size = 'base', inButton }) =>
+      transformCalc(
+        theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']
+      )};
     animation: ${frames} 1.2s linear infinite;
     &:after {
       content: ' ';
       display: block;
       position: absolute;
       top: ${(props) => topCalc(props.rayWidth)};
-      left: ${(props) => leftCalc(props.size, props.rayWidth)};
+      left: ${({ theme, size = 'base', rayWidth, inButton }) =>
+        leftCalc(
+          theme.loader[size][inButton ? 'inButtonSize' : 'fontSize'],
+          rayWidth
+        )};
       width: ${(props) => `${props.rayWidth}px`};
       height: ${(props) => `${props.rayHeight}px`};
       border-radius: ${(props) => `${props.rayRadius}%`};

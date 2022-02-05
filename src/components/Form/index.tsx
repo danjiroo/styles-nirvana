@@ -61,7 +61,7 @@ const Form: React.FC<FormProps> = (props) => {
                 disabled={submitting}
               />
             ))}
-          <Button onClick={handleSubmit} />
+          <Button onClick={handleSubmit} label='Submit' />
         </StyledFormWrapper>
       </StyledForm>
     </>

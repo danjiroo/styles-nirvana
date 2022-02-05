@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define */
-/* eslint-disable no-unused-vars */
 import React from 'react'
 import styled from 'styled-components'
 
@@ -12,25 +11,24 @@ interface IconReferenceProps {
 }
 
 interface ListProps {
-  iconName: string
+  name: string
   handleClick: (iconName: string) => void
 }
 
-const List: React.FC<ListProps> = ({ iconName, handleClick }) => (
-  <li onClick={() => handleClick(iconName)}>
-    <div className={`icon icon-${iconName}`}></div>
-    <StyledInput type='text' readOnly value={iconName} />
+const List: React.FC<ListProps> = ({ name, handleClick }) => (
+  <li onClick={() => handleClick(name)}>
+    <div className={`icon icon-${name}`}></div>
+    <StyledInput type='text' readOnly value={name} />
   </li>
 )
 
-// STILL NEED TO CLEAN THIS UP - TOO LONG
 const IconReference: React.FC<IconReferenceProps> = (props) => (
   <StyledDiv>
     <h1>Icon Reference</h1>
     <h2>CSS mapping</h2>
     <ul className='glyphs css-mapping'>
       {iconArray.map((name: string) => (
-        <List key={name} iconName={name} {...props} />
+        <List key={name} name={name} {...props} />
       ))}
     </ul>
   </StyledDiv>

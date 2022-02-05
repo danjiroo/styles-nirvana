@@ -8,13 +8,11 @@ import { ButtonProps } from './types'
 
 import { Icon, RaySpinner } from '../'
 
-import { theme } from '../../themes'
-
 /**
  * Primary UI component for user interaction
  */
 const Button: React.FC<ButtonProps> = ({
-  label = 'Save and Continue',
+  label,
   isLoading = false,
   loadingLabel = 'Loading...',
   isDisabled = false,
@@ -60,9 +58,10 @@ const Button: React.FC<ButtonProps> = ({
         <div className='button-icon-div'>
           <RaySpinner
             color={layout === 'solid' ? '#fff' : btnColor}
-            size={theme.size[size].fontSize}
+            size={size}
             rayHeight={3}
             rayWidth={2}
+            inButton
           />
         </div>
       )}

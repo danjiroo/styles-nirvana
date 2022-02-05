@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
+// import { ThemeProvider } from '../../themes'
 
 import { MouseEvent } from 'react'
 
+// export interface ButtonProps extends ThemeProvider {
 export interface ButtonProps {
   /**
    * Button text
    */
-  label?: string
+  label: string
   /**
    * Used for bg-color, border-colors etc.
    */
