@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+
+import { MouseEvent } from 'react'
+
 export interface ButtonProps {
   /**
    * Button text
@@ -50,5 +54,5 @@ export interface ButtonProps {
   /**
    * Optional click handler
    */
-  onClick?: () => void
+  onClick?: (data: MouseEvent<HTMLButtonElement>) => void
 }

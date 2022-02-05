@@ -19,10 +19,10 @@ const Input: React.FC<FormInputProps> = (props) => {
   const [is_input_active, setInputActive] = useState(false)
   const [is_label_click, setLabelClick] = useState(false)
 
-  const inputValueRef = useRef<string | null>()
   const handleInputChange = (event: any) => {
     const { value, name } = event.target
-    inputValueRef.current = value
+    console.log('INSIDE HANDLE INPUT value', value)
+    console.log('INSIDE HANDLE INPUT name', name)
     actions.handleChange?.({ value, name, accessor })
   }
 

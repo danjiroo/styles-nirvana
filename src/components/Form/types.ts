@@ -7,17 +7,29 @@ export interface IFields {
     name: string
     field_type?: 'text'
   }
-  user_name: {
+  username: {
     label: string
     required: true
     place_holder: string
     name: string
     field_type: 'text'
   }
+  family_name: {
+    label: string
+    required: boolean
+    place_holder: string
+    name: string
+    field_type: string
+  }
+}
+
+export interface State {
+  [key: string]: string
 }
 
 export interface FormProps {
   title: string
+  onSubmit?: (data: State) => void
 }
 
 export interface Data {
@@ -27,8 +39,4 @@ export interface Data {
 
 export interface ActionsProps {
   handleChange: (data: Data) => void
-}
-
-export interface State {
-  [key: string]: string
 }

@@ -10,17 +10,16 @@ import { Button } from '../'
 import { FormProps, ActionsProps, State } from './types'
 
 const Form: React.FC<FormProps> = (props) => {
-  const { title } = props
+  const { title, onSubmit } = props
+
   const submitting = false
 
-  const [state, setState] = useState<State>({
-    name: '',
-    value: '',
-  })
+  const [state, setState] = useState<State>({})
 
   const actionsProp: ActionsProps = {
     handleChange: (data) => {
       const { name, value } = data
+      console.log('value:', data)
       setState((prev) => ({
         ...prev,
         [name]: value,
@@ -28,8 +27,11 @@ const Form: React.FC<FormProps> = (props) => {
     },
   }
 
+  console.log('STATE:', state)
+
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault()
+    onSubmit && onSubmit(state)
   }
 
   return (
@@ -59,7 +61,7 @@ const Form: React.FC<FormProps> = (props) => {
                 disabled={submitting}
               />
             ))}
-          <Button />
+          <Button onClick={handleSubmit} />
         </StyledFormWrapper>
       </StyledForm>
     </>

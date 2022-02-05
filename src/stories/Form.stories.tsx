@@ -8,14 +8,18 @@ import { Form } from '../'
 export default {
   title: 'Components/Form',
   component: Form,
-  args: {
-    title: 'asdf',
-  },
+
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Form>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Form> = (args) => <Form {...args} />
+const Template: ComponentStory<typeof Form> = (args) => {
+  const someSideEffect = <T,>(data: T) => {
+    console.log('SOME SIDE EFFECTS: DO SOMETHING WITH THIS DATA', data)
+  }
+
+  return <Form {...args} onSubmit={someSideEffect} />
+}
 
 export const Primary = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

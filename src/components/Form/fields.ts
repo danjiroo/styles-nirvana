@@ -8,7 +8,14 @@ export const fields: IFields = {
     name: 'email',
     field_type: 'text',
   },
-  user_name: {
+  family_name: {
+    label: 'family name',
+    required: true,
+    place_holder: 'enter family name',
+    name: 'family_name',
+    field_type: 'text',
+  },
+  username: {
     label: 'user name',
     required: true,
     place_holder: 'enter username',
