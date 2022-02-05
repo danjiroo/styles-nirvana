@@ -9,7 +9,7 @@
     //   "ESNext"
     // ] /* Specify library files to be included in the compilation. */,
     "jsx": "react-jsx" /* Specify JSX code generation: 'preserve', 'react-native', 'react' or 'react-jsx'. */,
-    "noEmit": true /* Do not emit outputs. */,
+    // "noEmit": true /* Do not emit outputs. */,
     "isolatedModules": true /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */,
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
     "strict": true /* Enable all strict type-checking options. */,
@@ -20,11 +20,19 @@
     "paths": {
       "@sample/*": ["./components/sample/*"]
     },
-    "outDir": "dist",
+    "rootDirs": ["./src/*"],
+    "outDir": "./dist",
     "declaration": true,
     "sourceMap": true
     // "allowJs": true /* Allow javascript files to be compiled. Useful when migrating JS to TS */,
     // "checkJs": true /* Report errors in .js files. Works in tandem with allowJs. */,
   },
-  "include": ["src/**/*"]
+  "include": [
+    "src/applications",
+    "src/components",
+    "src/themes",
+    "src/utils",
+    "src/index.ts"
+  ],
+  "exclude": ["src/stories"]
 }

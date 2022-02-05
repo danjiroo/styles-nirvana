@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import cn from 'classnames'
 
@@ -27,4 +28,4 @@ export default Object.assign(Table, {
   Row,
   Cell,
   Footer,
-})
+}) as any // temp for build
