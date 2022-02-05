@@ -12,7 +12,6 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
-require("./styles.ts");
 const styles_1 = require("./styles");
 const __1 = require("../");
 /**

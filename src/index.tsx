@@ -1,11 +1,14 @@
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 
-import './styles.css'
+// import { StyledApp } from './styles'
 
-const App: React.FC = () => (
-  <div className='App'>
-    <p>Run `yarn storybook` instead.</p>
-  </div>
-)
+// const App: React.FC = () => (
+//   <StyledApp className='App'>
+//     <p>Run `yarn storybook` instead.</p>
+//   </StyledApp>
+// )
 
-ReactDOM.render(<App />, document.getElementById('root'))
+// ReactDOM.render(<App />, document.getElementById('root'))
+
+export * from './components'
+export * from './applications'

@@ -15,8 +15,7 @@ module.exports = {
   module: {
     rules: [
       {
-        // test: /\.(ts|js)x?$/,
-        test: /\.js$|.jsx$|.ts$|.tsx/,
+        test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         use: [
           {
@@ -29,11 +28,11 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg|css)$/i,
         type: 'asset/resource',
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        test: /\.(woff(2)?|eot|ttf|otf|css|svg|)$/,
         type: 'asset/inline',
       },
     ],

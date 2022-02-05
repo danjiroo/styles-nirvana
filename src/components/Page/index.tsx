@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Header } from '../'
-import './page.css'
+import { StyledPage } from './styles'
 
 import { PageProps } from './types'
 
@@ -11,7 +11,7 @@ const Page: React.FC<PageProps> = ({
   onLogout,
   onCreateAccount,
 }) => (
-  <article>
+  <StyledPage>
     <Header
       user={user}
       onLogin={onLogin}
@@ -85,7 +85,7 @@ const Page: React.FC<PageProps> = ({
         Viewports addon in the toolbar
       </div>
     </section>
-  </article>
+  </StyledPage>
 )
 
 export default Page
