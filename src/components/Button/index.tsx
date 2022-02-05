@@ -8,13 +8,11 @@ import { ButtonProps } from './types'
 
 import { Icon, RaySpinner } from '../'
 
-import { theme } from '../../themes'
-
 /**
  * Primary UI component for user interaction
  */
 const Button: React.FC<ButtonProps> = ({
-  label = 'Save and Continue',
+  label,
   isLoading = false,
   loadingLabel = 'Loading...',
   isDisabled = false,
@@ -24,6 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   layout = 'solid',
   btnColor = 'primary',
   size = 'base',
+  theme,
   ...other
 }) => {
   // ! NOTE: Doing this since there's an issue in storybook,
@@ -40,6 +39,7 @@ const Button: React.FC<ButtonProps> = ({
     layout,
     btnColor,
     size,
+    theme,
   }
 
   const IconLeft = iconLeft || icon
@@ -60,7 +60,7 @@ const Button: React.FC<ButtonProps> = ({
         <div className='button-icon-div'>
           <RaySpinner
             color={layout === 'solid' ? '#fff' : btnColor}
-            size={theme.size[size].fontSize}
+            size={theme?.loader[size].fontSize ?? 13}
             rayHeight={3}
             rayWidth={2}
           />

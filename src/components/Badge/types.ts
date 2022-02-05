@@ -1,6 +1,9 @@
 import React from 'react'
+import { ThemeProvider } from '@themes/types'
 
-export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface BadgeProps
+  extends React.HTMLAttributes<HTMLSpanElement>,
+    ThemeProvider {
   /**
    * Badge text
    */

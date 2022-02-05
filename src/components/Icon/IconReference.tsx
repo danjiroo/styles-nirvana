@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define */
-/* eslint-disable no-unused-vars */
 import React from 'react'
 import styled from 'styled-components'
 

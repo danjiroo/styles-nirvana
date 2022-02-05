@@ -1,4 +1,6 @@
-export interface ButtonProps {
+import { ThemeProvider } from '../../themes'
+
+export interface ButtonProps extends ThemeProvider {
   /**
    * Button text
    */
