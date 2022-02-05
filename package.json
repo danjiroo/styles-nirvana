@@ -2,7 +2,10 @@
   "name": "@pando-styles/nirvana",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
+  "files": [
+    "src/**/*"
+  ],
   "scripts": {
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
     "build:old": "webpack --config webpack/webpack.config.js --env env=prod tsc",
