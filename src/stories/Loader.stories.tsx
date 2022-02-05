@@ -15,8 +15,8 @@ const Template2: Story = (args) => <Spinner {...args} />
 export const Default = Template.bind({})
 Default.args = {}
 
-export const Custom = Template.bind({})
-Custom.args = {
+export const DotSpinner = Template.bind({})
+DotSpinner.args = {
   color: '#525252',
   size: 40,
   rayHeight: 5,

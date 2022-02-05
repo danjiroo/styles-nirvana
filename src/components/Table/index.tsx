@@ -4,10 +4,13 @@ import { useTable } from 'react-table'
 import ReactTable from './Shell/Table'
 
 import { TableProps } from './types'
+import { StyledTable } from './styles'
 
 const { Header, Row, Cell, Body } = ReactTable
 
-const Table: React.FC<TableProps> = ({ columns = [], data = [] }) => {
+const Table: React.FC<TableProps> = (props) => {
+  const { columns = [], data = [] } = props
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
       columns,
@@ -15,12 +18,12 @@ const Table: React.FC<TableProps> = ({ columns = [], data = [] }) => {
     })
 
   return (
-    <ReactTable {...getTableProps()}>
+    <StyledTable {...getTableProps()} {...props}>
       <Header>
         {headerGroups.map((headerGroup) => (
           <Row {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
-              <Cell className='th' {...column.getHeaderProps()}>
+              <Cell header {...column.getHeaderProps()}>
                 {column.render('Header')}
               </Cell>
             ))}
@@ -39,7 +42,7 @@ const Table: React.FC<TableProps> = ({ columns = [], data = [] }) => {
           )
         })}
       </Body>
-    </ReactTable>
+    </StyledTable>
   )
 }
 

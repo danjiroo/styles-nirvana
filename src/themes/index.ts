@@ -37,7 +37,7 @@ export const colors = {
   inherit: 'inherit',
 }
 
-export const buttonConfig = {
+export const theme = {
   border: {
     radius: '3em',
   },
