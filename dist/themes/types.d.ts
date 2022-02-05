@@ -61,3 +61,7 @@ export interface ThemeDefinition {
 export interface ThemeProvider {
     theme: ThemeDefinition;
 }
+export declare enum ThemesList {
+    BASE = "base",
+    DARK_MODE = "darkMode"
+}
