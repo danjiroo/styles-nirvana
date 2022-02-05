@@ -37,7 +37,7 @@ const Form: React.FC<FormProps> = (props) => {
   return (
     <>
       <Modifiers />
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit} className='margin--right'>
         <StyledFormWrapper>
           {submitting ? (
             <>
