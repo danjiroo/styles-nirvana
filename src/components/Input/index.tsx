@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useRef } from 'react'
-import { StyledInput, InputContainer, Label, TextArea } from './styles'
+import { StyledInput, InputContainer, Label } from './styles'
 import { FormInputProps } from './types'
 
 const Input: React.FC<FormInputProps> = (props) => {
@@ -22,12 +22,10 @@ const Input: React.FC<FormInputProps> = (props) => {
   const inputValueRef = useRef<string | null>()
   const handleInputChange = (event: any) => {
     const { value, name } = event.target
-    console.log('value:', value)
     inputValueRef.current = value
     actions.handleChange?.({ value, name, accessor })
   }
 
-  console.log('IAM BEING CALLED:', inputValueRef)
   const handleLabelClick = () => {
     setLabelClick(() => true)
   }
@@ -74,18 +72,6 @@ const Input: React.FC<FormInputProps> = (props) => {
           disabled={disabled}
           name={name}
           customTheme={customTheme}
-        />
-      )}
-      {type && type === 'textarea' && (
-        <TextArea
-          value={value}
-          placeholder={is_input_active ? placeholder : ''}
-          onChange={handleInputChange}
-          onFocus={() => setInputActive(true)}
-          onClick={() => setInputActive(true)}
-          onBlur={handleBlurInput}
-          ref={inputRef}
-          name={name}
         />
       )}
     </InputContainer>

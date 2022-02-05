@@ -18,7 +18,6 @@ interface StyledInputProps {
 }
 
 const GetStyledInputStyles = ({ customTheme }: StyledInputProps) => {
-  console.log('THERME:', customTheme)
   if (!customTheme) return default_input_styles
   const { background_color, outline_color, border_radius } = customTheme
   if (customTheme)
