@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Form } from '../'
+import { Form } from '../components'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
