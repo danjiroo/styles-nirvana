@@ -19,7 +19,10 @@
     "baseUrl": "./src",
     "paths": {
       "@sample/*": ["./components/sample/*"]
-    }
+    },
+    "outDir": "dist",
+    "declaration": true,
+    "sourceMap": true
     // "allowJs": true /* Allow javascript files to be compiled. Useful when migrating JS to TS */,
     // "checkJs": true /* Report errors in .js files. Works in tandem with allowJs. */,
   },
