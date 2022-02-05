@@ -90,18 +90,23 @@ export const baseTheme: ThemeDefinition = {
   loader: {
     xs: {
       fontSize: 36,
+      inButtonSize: 13,
     },
     sm: {
       fontSize: 38,
+      inButtonSize: 14,
     },
     base: {
       fontSize: 40,
+      inButtonSize: 15,
     },
     lg: {
       fontSize: 42,
+      inButtonSize: 16,
     },
     xl: {
       fontSize: 44,
+      inButtonSize: 17,
     },
   },
   table: {},

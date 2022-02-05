@@ -1,8 +1,4 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
 import React from 'react'
-import styled from 'styled-components'
 
 import { Button } from '../'
 
@@ -16,7 +12,9 @@ const Badge: React.FC<BadgeProps> = (props) => {
     <StyledBadge {...props}>
       <span>{label || children}</span>
 
-      {!!closable && <Button onClick={onClick} iconRight='close-circle' />}
+      {!!closable && (
+        <Button onClick={onClick} label='' iconRight='close-circle' />
+      )}
     </StyledBadge>
   )
 }

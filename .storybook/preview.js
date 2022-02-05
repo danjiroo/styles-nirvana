@@ -27,10 +27,10 @@ export const decorators = [
 
     return (
       <ThemeProvider theme={Themes[theme] ?? {}}>
-        <StyledDiv>
-          <button onClick={handleToggleTheme}>TOGGLE THEME</button>
-          <Story />
-        </StyledDiv>
+        {/* <StyledDiv> */}
+        {/* <button onClick={handleToggleTheme}>TOGGLE THEME</button> */}
+        <Story />
+        {/* </StyledDiv> */}
       </ThemeProvider>
     )
   },

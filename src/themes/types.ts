@@ -52,7 +52,9 @@ export interface ThemeDefinition {
     border: number
   }
   loader: {
-    [P in Sizes]: Pick<ButtonDefinition, 'fontSize'>
+    [P in Sizes]: {
+      inButtonSize?: number
+    } & Pick<ButtonDefinition, 'fontSize'>
   }
   list: {
     padding: number

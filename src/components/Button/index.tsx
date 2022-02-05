@@ -61,6 +61,7 @@ const Button: React.FC<ButtonProps> = ({
             size={size}
             rayHeight={3}
             rayWidth={2}
+            inButton
           />
         </div>
       )}

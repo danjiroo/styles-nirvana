@@ -8,7 +8,7 @@ export interface ButtonProps {
   /**
    * Button text
    */
-  label?: string
+  label: string
   /**
    * Used for bg-color, border-colors etc.
    */

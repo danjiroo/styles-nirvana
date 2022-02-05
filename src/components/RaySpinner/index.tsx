@@ -1,6 +1,6 @@
 import React from 'react'
 import { RaySpinnerProps } from './types'
-import { StyledSpinner } from './styled'
+import { StyledSpinner } from './styles'
 
 const RaySpinner: React.FC<RaySpinnerProps> = ({
   color = '#374152',
@@ -8,6 +8,7 @@ const RaySpinner: React.FC<RaySpinnerProps> = ({
   rayHeight = 9,
   rayWidth = 4,
   rayRadius = 30,
+  inButton = false,
   className,
 }) => {
   const rays: JSX.Element[] = []
@@ -24,6 +25,7 @@ const RaySpinner: React.FC<RaySpinnerProps> = ({
       rayWidth={rayWidth}
       rayRadius={rayRadius}
       className={className}
+      inButton={inButton}
     >
       {rays}
     </StyledSpinner>

@@ -53,7 +53,7 @@ export const StyledButton = styled.button<ButtonProps>`
   ${getDynamicStyles};
 
   .button-icon-div {
-    height: ${({ theme, size }) => theme?.size?.[size ?? 'base']?.fontSize}px;
+    height: ${({ theme, size }) => theme?.button?.[size ?? 'base']?.fontSize}px;
   }
 
   .button-icon-div > i,
