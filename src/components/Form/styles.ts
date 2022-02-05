@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 export const StyledForm = styled.div`
   position: relative;
@@ -25,9 +25,9 @@ export const StyledFormWrapper = styled.form`
   }
 `
 
-export const StyledLink = styled(Link)`
-  color: #80ca90;
-`
+// export const StyledLink = styled(Link)`
+//   color: #80ca90;
+// `
 
 export const HeroSection = styled.div`
   display: flex;
