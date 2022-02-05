@@ -1,4 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { ThemeProvider } from '../../themes'
+
+import { MouseEvent } from 'react'
 
 export interface ButtonProps extends ThemeProvider {
   /**
@@ -52,5 +55,5 @@ export interface ButtonProps extends ThemeProvider {
   /**
    * Optional click handler
    */
-  onClick?: () => void
+  onClick?: (data: MouseEvent<HTMLButtonElement>) => void
 }

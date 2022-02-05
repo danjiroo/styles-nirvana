@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-unused-vars */
 import React from 'react'
@@ -26,7 +27,6 @@ const Template: ComponentStory<typeof Input> = (args) => {
   return <Input {...args} actions={actionsProp} />
 }
 
-console.log('NAG DAGAN KO')
 export const Primary = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
@@ -35,8 +35,8 @@ Primary.args = {
   type: 'text',
   field_type: 'text',
   placeholder: 'enter',
-  label: 'email',
-  name: 'email',
+  label: 'sample label',
+  name: '',
   accessor: 'value',
   disabled: false,
   // customTheme: {

@@ -4,3 +4,6 @@ node_modules
 yarn.lock
 storybook-static
 build
+
+# JetBrains IDE
+.idea/
