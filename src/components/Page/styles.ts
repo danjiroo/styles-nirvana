@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const StyledPage = styled.article`
   section {
-    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 24px;
     padding: 48px 20px;

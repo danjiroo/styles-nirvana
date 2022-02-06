@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import cn from 'classnames'
 
 import { IconProps } from './types'
 
-// import { StyledIcon } from './styles'
+import { StyledIconDiv } from './styles'
 
 const Icon: React.FC<IconProps> = (props) => {
   const {
@@ -20,11 +22,14 @@ const Icon: React.FC<IconProps> = (props) => {
     },
     `icon--color-${color}`,
     `icon--size-${size}`,
-    // custom or override
     className
   )
 
-  return <i className={cls} {...other} />
+  return (
+    <StyledIconDiv>
+      <i className={cls} data-icon={className} {...other} />
+    </StyledIconDiv>
+  )
 }
 
 export default Icon

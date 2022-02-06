@@ -129,9 +129,6 @@ const StyledDiv = styled.div`
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-  body {
-    font-family: 'Dosis', 'Tahoma', sans-serif;
-  }
   .container {
     margin: 15px auto;
     width: 80%;

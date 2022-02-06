@@ -47,7 +47,6 @@ Default.args = {
 
 const StyledDiv = styled.div`
   box-sizing: border-box;
-  font-family: 'Calibri';
 `
 
 const StyledIconDivLeft = styled.div`
