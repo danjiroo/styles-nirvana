@@ -1,4 +1,4 @@
-# Storybook
+# <h1 style="color: #1abc9c; font-weight: bold; letter-spacing: 5px; text-transform: lowercase;">Pando Nirvana</h1>
 
 We created a storybook to showcase components about how they look and work in our future projects. Also, these components are atomic components that are reusable across different projects that we will be creating soon.
 
@@ -22,27 +22,26 @@ npm install @pando-styles/nirvana
 
 Import **ThemeProvider** from styled-components to your top level component.
 
-```
+```javascript
 // Parent Component or Top Level Component
 import { ThemeProvider } from 'styled-components'
 import { Themes } from '@pando-styles/nirvana'
 
 const App: React.FC = () => (
+  /*
+   * Add logic here to toggle between themes
+   * Note: Themes still have temporary values
+   */
 
-    /*
-     * Add logic here to toggle between themes
-     * Note: Themes still have temporary values
-     */
-
-    <ThemeProvider theme={Themes.base|darkMode}>
-      <div></div>
-    </ThemeProvider>
+  <ThemeProvider theme={Themes.base | darkMode}>
+    <div></div>
+  </ThemeProvider>
 )
 ```
 
 Importing **Atomic Components** from Pando Nirvana
 
-```
+```javascript
 // Sample Component
 import { Button } from '@pando-styles/nirvana'
 

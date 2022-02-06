@@ -17,7 +17,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const classnames_1 = __importDefault(require("classnames"));
 // import { StyledIcon } from './styles'
-// import './assets/styles.css'
 const Icon = (props) => {
     const { className, color = 'secondary', iconName, size = 'sm' } = props, other = __rest(props, ["className", "color", "iconName", "size"]);
     const cls = (0, classnames_1.default)({

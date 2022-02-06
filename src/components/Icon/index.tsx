@@ -4,7 +4,6 @@ import cn from 'classnames'
 import { IconProps } from './types'
 
 // import { StyledIcon } from './styles'
-// import './assets/styles.css'
 
 const Icon: React.FC<IconProps> = (props) => {
   const {
