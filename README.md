@@ -76,12 +76,12 @@ Accessing the global **theme** inside a styled component
 
 ```typescript
 // Sample Component
-import { SampleComponentProps } from 'styled-components'
+import { SampleComponentProps } from './types'
 import { ThemeProvider } from '@pando-styles/nirvana'
 
 type SampleComponentTypeDef = ThemeProvider & SampleComponentProps
 
-export const StyledSampleComponent = styled.button<SampleComponentTypeDef>`
+export const StyledSampleComponent = styled.p<SampleComponentTypeDef>`
   color: ${({ theme }) => theme.colors.primary.DEFAULT};
 `
 ```
