@@ -52,4 +52,38 @@ const SampleComponent: React.FC = () => (
 )
 ```
 
+Accessing the global **theme** from styled-components inside a react component
+
+```javascript
+// Sample Component
+import { useTheme } from 'styled-components'
+import { ThemeDefinition } from '@pando-styles/nirvana'
+
+const SampleComponent: React.FC = () => {
+  // or destruct what you only need
+  const theme = useTheme() as ThemeDefinition
+
+  return (
+    // inline style is only a sample, will not use in development
+    <div style={{ background: theme.bgColors.container}}>
+      <Button label='Submit'>
+    </div>
+  )
+}
+```
+
+Accessing the global **theme** inside a styled component
+
+```typescript
+// Sample Component
+import { SampleComponentProps } from 'styled-components'
+import { ThemeProvider } from '@pando-styles/nirvana'
+
+type SampleComponentTypeDef = ThemeProvider & SampleComponentProps
+
+export const StyledSampleComponent = styled.button<SampleComponentTypeDef>`
+  color: ${({ theme }) => theme.colors.primary.DEFAULT};
+`
+```
+
 > This documentation is still in progress.

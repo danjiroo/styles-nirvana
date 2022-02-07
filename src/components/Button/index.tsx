@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
     size,
   }
 
-  const theme = useTheme() as ThemeDefinition
+  const { colors } = useTheme() as ThemeDefinition
 
   const IconLeft = iconLeft || icon
   const IconRight = iconRight
@@ -61,8 +61,8 @@ const Button: React.FC<ButtonProps> = ({
           <RaySpinner
             color={
               layout === 'solid'
-                ? theme.colors['light'].DEFAULT
-                : theme.colors[btnColor].DEFAULT
+                ? colors['light'].DEFAULT
+                : colors[btnColor].DEFAULT
             }
             size={size}
             rayHeight={3}

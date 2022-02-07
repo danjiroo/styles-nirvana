@@ -5,9 +5,9 @@ import styled, { css } from 'styled-components'
 import { ButtonProps } from './types'
 import { ThemeProvider } from '../../themes'
 
-interface Test extends ThemeProvider, ButtonProps {}
+type ButtonWithThemeProvider = ThemeProvider & ButtonProps
 
-const getDynamicStyles = (props: Test) => {
+const getDynamicStyles = (props: ButtonWithThemeProvider) => {
   const {
     btnColor = 'primary',
     rounded = true,
