@@ -16,15 +16,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const classnames_1 = __importDefault(require("classnames"));
-// import { StyledIcon } from './styles'
+const styles_1 = require("./styles");
 const Icon = (props) => {
-    const { className, color = 'secondary', iconName, size = 'sm' } = props, other = __rest(props, ["className", "color", "iconName", "size"]);
+    const { className, color = 'primary', iconName, size = 'base' } = props, other = __rest(props, ["className", "color", "iconName", "size"]);
     const cls = (0, classnames_1.default)({
         [`icon-${iconName}`]: !!iconName,
-    }, `icon--color-${color}`, `icon--size-${size}`, 
-    // custom or override
-    className);
-    return (0, jsx_runtime_1.jsx)("i", Object.assign({ className: cls }, other), void 0);
+    }, `icon--color-${color}`, `icon--size-${size}`, className);
+    return ((0, jsx_runtime_1.jsx)(styles_1.StyledIconDiv, Object.assign({ size: size, color: color }, { children: (0, jsx_runtime_1.jsx)("i", Object.assign({ className: cls, "data-icon": iconName }, other), void 0) }), void 0));
 };
 exports.default = Icon;
 //# sourceMappingURL=index.js.map

@@ -81,6 +81,23 @@ exports.baseTheme = {
         },
         // todo
     },
+    icon: {
+        xs: {
+            fontSize: 13,
+        },
+        sm: {
+            fontSize: 15,
+        },
+        base: {
+            fontSize: 17,
+        },
+        lg: {
+            fontSize: 19,
+        },
+        xl: {
+            fontSize: 22,
+        },
+    },
     input: {
         border: 0,
     },

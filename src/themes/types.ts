@@ -44,9 +44,15 @@ export interface ThemeDefinition {
   }
   colors: {
     [P in ColorTypes]: ColorDefinition
+  } & {
+    light: Pick<ColorDefinition, 'DEFAULT'>
+    dark: Pick<ColorDefinition, 'DEFAULT'>
   }
   headers: {
     [P in Headers]?: HeaderDefinition
+  }
+  icon: {
+    [P in Sizes]: Pick<ButtonDefinition, 'fontSize'>
   }
   input: {
     border: number

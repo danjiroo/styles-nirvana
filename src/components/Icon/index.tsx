@@ -10,9 +10,9 @@ import { StyledIconDiv } from './styles'
 const Icon: React.FC<IconProps> = (props) => {
   const {
     className,
-    color = 'secondary',
+    color = 'primary',
     iconName,
-    size = 'sm',
+    size = 'base',
     ...other
   } = props
 
@@ -26,8 +26,8 @@ const Icon: React.FC<IconProps> = (props) => {
   )
 
   return (
-    <StyledIconDiv>
-      <i className={cls} data-icon={className} {...other} />
+    <StyledIconDiv size={size} color={color}>
+      <i className={cls} data-icon={iconName} {...other} />
     </StyledIconDiv>
   )
 }

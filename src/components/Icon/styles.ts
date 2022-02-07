@@ -1,40 +1,102 @@
+/* eslint-disable indent */
 import styled from 'styled-components'
+import { ThemeProvider } from 'themes/types'
 
-export const StyledIconDiv = styled.div`
-  i {
-    background: yellow;
-    font-size: 30px;
-  }
+import eot from './assets/fonts/temp-font.eot'
+import svg from './assets/fonts/temp-font.svg'
+import ttf from './assets/fonts/temp-font.ttf'
+import woff from './assets/fonts/temp-font.woff'
 
-  .icon--size-sm {
-    font-size: 0.7rem;
+import { IconProps } from './types'
+
+export const StyledIconReference = styled.div`
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
-  .icon--size-md {
-    font-size: 0.9rem;
+  h1 {
+    margin: 20px 0 20px;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 32px;
+    color: #fb565e;
   }
-  .icon--size-lg {
-    font-size: 1.15rem;
+  h2 {
+    font-size: 18px;
+    padding: 0 0 21px 5px;
+    margin: 25px 0 0 0;
+    text-transform: uppercase;
+    font-weight: 500;
   }
-  .icon--size-xl {
-    font-size: 1.25rem;
+  ul {
+    margin: 0 0 60px 0;
+    padding: 30px 0 20px 30px;
+    color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #d8e0e5;
+    border-radius: 3px;
   }
-  .icon--color-primary {
-    color: #1ea7fd;
+  ul li {
+    margin: 0 30px 20px 0;
+    padding: 0;
+    display: inline-block;
+    overflow: hidden;
   }
-  .icon--color-secondary {
-    color: #1b77b1;
+  ul .icon {
+    margin: 0;
+    margin-right: 10px;
+    padding: 13px;
+    height: 50px;
+    width: 50px;
+    color: #162a36 !important;
+    overflow: hidden;
+    float: left;
+    font-size: 24px;
   }
-  .icon--color-success {
-    color: #1bb173;
+  ul input {
+    margin: 0;
+    margin-top: 5px;
+    padding: 8px;
+    line-height: 16px;
+    font-size: 15px;
+    display: block;
+    width: 150px;
+    height: 40px;
+    border: 1px solid #bbbbbb;
+    border-radius: 5px;
+    background: #fff;
+    outline: 0;
+    float: right;
+    cursor: pointer;
   }
-  .icon--color-warning {
-    color: #d4af09;
+  ul input:focus {
+    border: 1px solid #fbde4a;
+    -webkit-box-shadow: inset 0 0 3px #fbde4a;
+    box-shadow: inset 0 0 3px #fbde4a;
   }
-  .icon--color-danger {
-    color: #c42c2c;
+  ul input:hover {
+    -webkit-box-shadow: inset 0 0 3px #fbde4a;
+    box-shadow: inset 0 0 3px #fbde4a;
+  }
+`
+
+type Test = IconProps & ThemeProvider
+
+export const StyledIconDiv = styled.div<Test>`
+  @charset "UTF-8";
+
+  @font-face {
+    font-family: 'temp-font';
+    src: url(${eot});
+    src: url(${eot}?#iefix) format('embedded-opentype'),
+      url(${woff}) format('woff'), url(${ttf}) format('truetype'),
+      url(${svg}#temp-font) format('svg');
+    font-weight: normal;
+    font-style: normal;
   }
 
   [data-icon]:before {
+    font-family: 'temp-font' !important;
     content: attr(data-icon);
     font-style: normal !important;
     font-weight: normal !important;
@@ -47,6 +109,7 @@ export const StyledIconDiv = styled.div`
 
   [class^='icon-']:before,
   [class*=' icon-']:before {
+    font-family: 'temp-font' !important;
     font-style: normal !important;
     font-weight: normal !important;
     font-variant: normal !important;
@@ -54,6 +117,9 @@ export const StyledIconDiv = styled.div`
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    font-size: ${({ size = 'base', theme }) => theme.icon[size].fontSize}px;
+    color: ${({ color = 'primary', theme }) => theme.colors[color].DEFAULT};
   }
 
   .icon-world-outline:before {

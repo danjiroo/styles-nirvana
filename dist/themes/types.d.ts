@@ -37,6 +37,9 @@ export interface ThemeDefinition {
     headers: {
         [P in Headers]?: HeaderDefinition;
     };
+    icon: {
+        [P in Sizes]: Pick<ButtonDefinition, 'fontSize'>;
+    };
     input: {
         border: number;
     };

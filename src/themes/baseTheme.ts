@@ -72,6 +72,12 @@ export const baseTheme: ThemeDefinition = {
       DEFAULT: '#DC2626',
       dark: '#B91C1C',
     },
+    light: {
+      DEFAULT: '#ffffff',
+    },
+    dark: {
+      DEFAULT: '#000000',
+    },
   },
   headers: {
     h1: {
@@ -79,6 +85,23 @@ export const baseTheme: ThemeDefinition = {
       padding: '5px 10px',
     },
     // todo
+  },
+  icon: {
+    xs: {
+      fontSize: 13,
+    },
+    sm: {
+      fontSize: 15,
+    },
+    base: {
+      fontSize: 17,
+    },
+    lg: {
+      fontSize: 19,
+    },
+    xl: {
+      fontSize: 22,
+    },
   },
   input: {
     border: 0,

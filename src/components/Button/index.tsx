@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = ({
         <div className='button-icon-div'>
           <Icon
             iconName={IconLeft}
-            color={layout === 'solid' ? '#fff' : btnColor}
+            color={layout === 'solid' ? 'light' : btnColor}
             size={size}
           />
         </div>
@@ -56,7 +56,7 @@ const Button: React.FC<ButtonProps> = ({
       {isLoading && (
         <div className='button-icon-div'>
           <RaySpinner
-            color={layout === 'solid' ? '#fff' : btnColor}
+            color={layout === 'solid' ? 'light' : btnColor}
             size={size}
             rayHeight={3}
             rayWidth={2}
@@ -69,7 +69,7 @@ const Button: React.FC<ButtonProps> = ({
         <div className='button-icon-div'>
           <Icon
             iconName={IconRight}
-            color={layout === 'solid' ? '#fff' : btnColor}
+            color={layout === 'solid' ? 'light' : btnColor}
             size={size}
           />
         </div>

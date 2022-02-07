@@ -7,16 +7,9 @@ declare enum IconColorEnum {
     warning = 4,
     danger = 5
 }
-declare enum IconSizeEnum {
-    xs = 0,
-    sm = 1,
-    base = 2,
-    lg = 3,
-    xl = 4
-}
 export interface IconProps extends React.HTMLAttributes<HTMLLIElement> {
     iconName?: string;
-    color?: keyof typeof IconColorEnum | string;
-    size?: keyof typeof IconSizeEnum;
+    color?: keyof typeof IconColorEnum;
+    size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
 }
 export {};

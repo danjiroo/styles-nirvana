@@ -43,5 +43,11 @@ export const darkModeTheme: ThemeDefinition = {
       DEFAULT: '#DC2626',
       dark: '#B91C1C',
     },
+    light: {
+      DEFAULT: '#ffffff',
+    },
+    dark: {
+      DEFAULT: '#000000',
+    },
   },
 }

@@ -12,7 +12,14 @@ export interface ButtonProps {
   /**
    * Used for bg-color, border-colors etc.
    */
-  btnColor?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
+  btnColor?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'light'
+    | 'dark'
   /**
    * The size of the button
    */
