@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react'
-import { StyledButton } from './styles'
-
-import { ButtonProps } from './types'
+import { useTheme } from 'styled-components'
 
 import { Icon, RaySpinner } from '../'
+import { StyledButton } from './styles'
+import { ThemeDefinition } from 'themes'
+import { ButtonProps } from './types'
 
 /**
  * Primary UI component for user interaction
@@ -39,6 +40,8 @@ const Button: React.FC<ButtonProps> = ({
     size,
   }
 
+  const theme = useTheme() as ThemeDefinition
+
   const IconLeft = iconLeft || icon
   const IconRight = iconRight
 
@@ -56,7 +59,11 @@ const Button: React.FC<ButtonProps> = ({
       {isLoading && (
         <div className='button-icon-div'>
           <RaySpinner
-            color={layout === 'solid' ? 'light' : btnColor}
+            color={
+              layout === 'solid'
+                ? theme.colors['light'].DEFAULT
+                : theme.colors[btnColor].DEFAULT
+            }
             size={size}
             rayHeight={3}
             rayWidth={2}

@@ -2,10 +2,7 @@
 import styled from 'styled-components'
 import { ThemeProvider } from 'themes/types'
 
-import eot from './assets/fonts/temp-font.eot'
-import svg from './assets/fonts/temp-font.svg'
 import ttf from './assets/fonts/temp-font.ttf'
-import woff from './assets/fonts/temp-font.woff'
 
 import { IconProps } from './types'
 
@@ -87,10 +84,7 @@ export const StyledIconDiv = styled.div<Test>`
 
   @font-face {
     font-family: 'temp-font';
-    src: url(${eot});
-    src: url(${eot}?#iefix) format('embedded-opentype'),
-      url(${woff}) format('woff'), url(${ttf}) format('truetype'),
-      url(${svg}#temp-font) format('svg');
+    src: url(${ttf}) format('truetype');
     font-weight: normal;
     font-style: normal;
   }

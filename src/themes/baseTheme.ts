@@ -73,10 +73,14 @@ export const baseTheme: ThemeDefinition = {
       dark: '#B91C1C',
     },
     light: {
-      DEFAULT: '#ffffff',
+      light: '#ffffff',
+      DEFAULT: '#eeeeee',
+      dark: '#dddddd',
     },
     dark: {
-      DEFAULT: '#000000',
+      light: '#222222',
+      DEFAULT: '#111111',
+      dark: '#000000',
     },
   },
   headers: {

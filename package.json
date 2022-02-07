@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o build",
-    "cf": "copyfiles -u 1 src/**/*.html src/**/*.css src/**/*.eot src/**/*.svg src/**/*.ttf src/**/*.woff src/**/*.d.ts dist/"
+    "cf": "copyfiles -u 1 src/**/*.html src/**/*.css src/**/*.eot src/**/*.svg src/**/*.ttf src/**/*.woff src/**/*.d.ts -e src/stories/assets/**/* dist/"
   },
   "keywords": [],
   "author": "",

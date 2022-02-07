@@ -6,10 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.StyledIconDiv = exports.StyledIconReference = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importDefault(require("styled-components"));
-const temp_font_eot_1 = __importDefault(require("./assets/fonts/temp-font.eot"));
-const temp_font_svg_1 = __importDefault(require("./assets/fonts/temp-font.svg"));
 const temp_font_ttf_1 = __importDefault(require("./assets/fonts/temp-font.ttf"));
-const temp_font_woff_1 = __importDefault(require("./assets/fonts/temp-font.woff"));
 exports.StyledIconReference = styled_components_1.default.div `
   * {
     -webkit-box-sizing: border-box;
@@ -85,10 +82,7 @@ exports.StyledIconDiv = styled_components_1.default.div `
 
   @font-face {
     font-family: 'temp-font';
-    src: url(${temp_font_eot_1.default});
-    src: url(${temp_font_eot_1.default}?#iefix) format('embedded-opentype'),
-      url(${temp_font_woff_1.default}) format('woff'), url(${temp_font_ttf_1.default}) format('truetype'),
-      url(${temp_font_svg_1.default}#temp-font) format('svg');
+    src: url(${temp_font_ttf_1.default}) format('truetype');
     font-weight: normal;
     font-style: normal;
   }

@@ -45,8 +45,8 @@ export interface ThemeDefinition {
   colors: {
     [P in ColorTypes]: ColorDefinition
   } & {
-    light: Pick<ColorDefinition, 'DEFAULT'>
-    dark: Pick<ColorDefinition, 'DEFAULT'>
+    light: Pick<ColorDefinition, 'DEFAULT' | 'light' | 'dark'>
+    dark: Pick<ColorDefinition, 'DEFAULT' | 'light' | 'dark'>
   }
   headers: {
     [P in Headers]?: HeaderDefinition
