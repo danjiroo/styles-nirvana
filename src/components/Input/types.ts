@@ -15,7 +15,7 @@ export interface FormInputProps {
   /**
    * The actual value that will be stored inside a state
    */
-  value: string
+  value?: string
   placeholder: string
   /**
    *Add a label for a more descriptive input

@@ -3,7 +3,7 @@ export interface ButtonProps {
     /**
      * Button text
      */
-    label: string;
+    label?: string;
     /**
      * Used for bg-color, border-colors etc.
      */
@@ -52,4 +52,8 @@ export interface ButtonProps {
      * Optional click handler
      */
     onClick?: (data: MouseEvent<HTMLButtonElement>) => void;
+    /**
+     * Custom classname
+     */
+    className?: string;
 }

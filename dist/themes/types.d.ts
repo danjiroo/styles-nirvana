@@ -26,6 +26,9 @@ export declare type Sizes = 'xs' | 'sm' | 'base' | 'lg' | 'xl';
 export declare type ColorTypes = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 export declare type Headers = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export interface ThemeDefinition {
+    badge: {
+        [P in Sizes]: ButtonDefinition;
+    };
     bgColors: BackgroundColor;
     border: Border;
     button: {

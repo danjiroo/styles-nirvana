@@ -33,38 +33,28 @@ exports.StyledIconReference = styled_components_1.default.div `
     color: rgba(0, 0, 0, 0.5);
     border: 1px solid #d8e0e5;
     border-radius: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
   ul li {
     margin: 0 30px 20px 0;
     padding: 0;
-    display: inline-block;
-    overflow: hidden;
-  }
-  ul .icon {
-    margin: 0;
-    margin-right: 10px;
-    padding: 13px;
-    height: 50px;
-    width: 50px;
-    color: #162a36 !important;
-    overflow: hidden;
-    float: left;
-    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
   ul input {
     margin: 0;
-    margin-top: 5px;
     padding: 8px;
     line-height: 16px;
     font-size: 15px;
-    display: block;
     width: 150px;
     height: 40px;
     border: 1px solid #bbbbbb;
     border-radius: 5px;
     background: #fff;
     outline: 0;
-    float: right;
     cursor: pointer;
   }
   ul input:focus {
