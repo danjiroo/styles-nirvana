@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import styled, { css } from 'styled-components'
 import { ThemeProvider } from '../../themes'
 
@@ -9,7 +10,7 @@ interface GetContainerStyles extends ThemeProvider, StyledContainerProps {}
 
 const getContainerStyles = (props: GetContainerStyles) => {
   const { theme, size = 'sm' } = props
-  const { size: new_size } = theme
+  const { size: new_size }: any = theme
   console.log('StyledContainer', props)
 
   if (size) {

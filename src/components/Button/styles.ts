@@ -43,6 +43,7 @@ export const StyledButton = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: ${({ block }) => (block ? '100%' : 'auto')};
 
   &.close_btn {
     padding: 0;
