@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { Theme } from './types'
 interface StyledInputProps {
   theme?: Theme | null
@@ -9,7 +9,7 @@ interface StyledInputProps {
 const default_input_styles = css`
   background-color: 'none';
   outline-color: #5cd176;
-  border-color: gray;
+  border-color: #c5c5c5;
   border-radius: 6px;
 `
 
@@ -31,11 +31,23 @@ const GetStyledInputStyles = ({ customTheme }: StyledInputProps) => {
 export const StyledInput = styled.input<StyledInputProps>`
   width: 100%;
   line-height: 40px;
-  padding-left: 1.4rem;
+  padding-left: 2rem;
   margin: 0;
   max-width: 100%;
   box-sizing: border-box;
+  border-style: solid;
+  -webkit-text-fill-color: none !important;
   ${GetStyledInputStyles}
+
+  input:-webkit-autofill {
+    background-color: white !important;
+  }
+  input:autofill-selected {
+    border: 3px solid blue;
+  }
+  input:-internal-autofill-selected {
+    background-color: red;
+  }
 `
 interface TextAreaProps {}
 export const TextArea = styled.textarea<TextAreaProps>`
@@ -52,23 +64,63 @@ export const TextArea = styled.textarea<TextAreaProps>`
 interface LabelProps {
   is_input_active: boolean
 }
+
+const move = keyframes`
+  0% { 
+    transform: translate(1.6rem, 0.5rem);
+    background-color: white;
+  }
+  20%{
+    opacity: .2;
+  }
+  40% {  
+    transform: translate(1.6rem, -.8rem);
+    background-color: white;
+  }
+  100% {  
+    transform: translate(1.6rem, -.5rem);
+    background-color: white;
+    opacity: 1;
+  }
+`
+
+const moveRerverse = keyframes`
+  0% { 
+    transform: translate(1.6rem, -.5rem);
+    background-color: white;
+    opacity: 1;
+  }
+  20%{
+    transform: translate(1.6rem, -.8rem);
+    background-color: white;
+  }
+  40% {  
+  }
+  100% {  
+    transform: translate(1.6rem, 0.7rem);
+    background-color: white;
+  }
+`
 const inactive_input = css`
-  background-color: none;
   font-size: medium;
   color: #a3a3a3;
+  transform: translate(1.6rem, 0.7rem);
+  padding-right: 1rem;
+  animation: ${moveRerverse} 0.8s cubic-bezier(0.25, 0, 0.01, 1) forwards;
 `
 
 const active_input = css`
   font-size: small;
   font-weight: 700;
-  background-color: #fff;
   color: #5c5c5c;
+  animation: ${move} 0.6s cubic-bezier(0.25, 0, 0.01, 1) forwards;
 `
 
 const getLabelStyles = ({ is_input_active }: any): any => {
   if (is_input_active) return active_input
   if (!is_input_active) return inactive_input
 }
+
 export const Label = styled.label<LabelProps>`
   position: absolute;
   display: flex;
@@ -76,12 +128,9 @@ export const Label = styled.label<LabelProps>`
   align-items: flex-start;
   outline: none;
   border: none;
-  padding: 0.2rem 0.6rem 0.2rem 0.6rem;
+  padding: 0rem 0.6rem 0 0.6rem;
   margin: 0;
   z-index: 1;
-  transform: ${({ is_input_active }) =>
-    is_input_active ? `translate(.8rem, -.7rem)` : `translate(1rem, .5rem)`};
-  transition: transform 0.4s cubic-bezier(0.23, 0, 0, 1.01);
   &:hover {
     cursor: text;
   }
@@ -97,6 +146,13 @@ export const InputContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  /* flex-basis: 1 1 50%; */
   margin: 0 1rem 1rem 0;
+`
+
+export const StyledIcon = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(10px, 14px);
 `

@@ -59,6 +59,7 @@ const Form: React.FC<FormProps> = (props) => {
                 name={value.name}
                 accessor='value'
                 disabled={submitting}
+                iconLeft={value.icon ? value.icon : ''}
               />
             ))
             : Object.entries(TestFields).map(([key, value], index: number) => (
@@ -73,6 +74,7 @@ const Form: React.FC<FormProps> = (props) => {
                 name={value.name}
                 accessor='value'
                 disabled={submitting}
+                iconLeft={value.icon ? value.icon : ''}
               />
             ))}
           <Button onClick={handleSubmit} label='Submit' />

@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useRef } from 'react'
-import { StyledInput, InputContainer, Label } from './styles'
+import { StyledInput, InputContainer, Label, StyledIcon } from './styles'
 import { FormInputProps } from './types'
+import { Icon } from '../'
 
 const Input: React.FC<FormInputProps> = (props) => {
   const {
@@ -15,6 +16,11 @@ const Input: React.FC<FormInputProps> = (props) => {
     disabled,
     field_type,
     customTheme,
+    iconLeft = 'search-thick',
+    icon,
+    layout = 'solid',
+    size = 'base',
+    btnColor = 'primary',
   } = props
   const [is_input_active, setInputActive] = useState(false)
   const [is_label_click, setLabelClick] = useState(false)
@@ -52,6 +58,10 @@ const Input: React.FC<FormInputProps> = (props) => {
     }
   }
 
+  const IconLeft = iconLeft || icon
+
+  console.log('base input:', props)
+
   return (
     <InputContainer>
       {label && (
@@ -59,6 +69,18 @@ const Input: React.FC<FormInputProps> = (props) => {
           {label}
         </Label>
       )}
+      {IconLeft && (
+        <StyledIcon>
+          <div className='button-icon-div'>
+            <Icon
+              iconName={IconLeft}
+              color={layout === 'solid' ? 'light' : btnColor}
+              size={size}
+            />
+          </div>
+        </StyledIcon>
+      )}
+
       {type && type === 'text' && (
         <StyledInput
           type={field_type}
