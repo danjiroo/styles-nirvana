@@ -37,6 +37,9 @@ export type ColorTypes =
 export type Headers = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 export interface ThemeDefinition {
+  badge: {
+    [P in Sizes]: ButtonDefinition
+  }
   bgColors: BackgroundColor
   border: Border
   button: {

@@ -71,7 +71,7 @@ const Button: React.FC<ButtonProps> = ({
           />
         </div>
       )}
-      <span>{isLoading ? loadingLabel : label}</span>
+      {isLoading ? <span>{loadingLabel}</span> : label && <span>{label}</span>}
       {IconRight && (
         <div className='button-icon-div'>
           <Icon

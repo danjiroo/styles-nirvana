@@ -9,6 +9,33 @@ export const baseTheme: ThemeDefinition = {
     width: 0,
     radius: '3em',
   },
+  badge: {
+    xs: {
+      fontSize: 13,
+      fontWeight: 300,
+      padding: '4px 8px',
+    },
+    sm: {
+      fontSize: 14,
+      fontWeight: 300,
+      padding: '5px 9px',
+    },
+    base: {
+      fontSize: 15,
+      fontWeight: 300,
+      padding: '6px 10px',
+    },
+    lg: {
+      fontSize: 16,
+      fontWeight: 300,
+      padding: '7px 11px',
+    },
+    xl: {
+      fontSize: 17,
+      fontWeight: 300,
+      padding: '8px 12px',
+    },
+  },
   button: {
     xs: {
       fontSize: 13,
