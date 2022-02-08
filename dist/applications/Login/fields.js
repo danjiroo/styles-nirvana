@@ -8,6 +8,7 @@ exports.fields = {
         place_holder: 'enter email',
         name: 'email',
         field_type: 'text',
+        icon: 'envelope',
     },
     username: {
         label: 'user name',
@@ -15,6 +16,7 @@ exports.fields = {
         place_holder: 'enter username',
         name: 'username',
         field_type: 'text',
+        icon: 'user-circle',
     },
 };
 //# sourceMappingURL=fields.js.map

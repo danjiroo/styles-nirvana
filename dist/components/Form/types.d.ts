@@ -5,6 +5,7 @@ export interface IFields {
         place_holder: string;
         name: string;
         field_type?: 'text';
+        icon: string;
     };
 }
 export interface State {
@@ -16,6 +17,7 @@ interface FieldValues {
     place_holder: string;
     name: string;
     field_type: string;
+    icon?: string;
 }
 interface Fields {
     [key: string]: FieldValues;
