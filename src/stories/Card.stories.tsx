@@ -19,6 +19,7 @@ const Template2: ComponentStory<typeof Card> = (args) => (
     <Image alt='' src='' />
     <Input
       type='text'
+      iconLeft='world-outline'
       value=''
       name='card-input'
       placeholder='Lorem ipsum...'

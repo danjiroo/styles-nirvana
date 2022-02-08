@@ -35,7 +35,7 @@ export interface FormInputProps {
       - border_radius?: string;
      */
     customTheme?: Theme;
-    iconLeft?: string;
+    iconLeft: string;
     icon?: string;
     layout?: 'solid' | 'outline' | 'dashed' | 'dotted' | 'double';
     size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
