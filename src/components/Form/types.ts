@@ -6,6 +6,7 @@ export interface IFields {
     place_holder: string
     name: string
     field_type?: 'text'
+    icon: string
   }
 }
 
@@ -19,6 +20,7 @@ interface FieldValues {
   place_holder: string
   name: string
   field_type: string
+  icon?: string
 }
 
 interface Fields {

@@ -7,6 +7,7 @@ export const fields: Fields = {
     place_holder: 'enter email',
     name: 'email',
     field_type: 'text',
+    icon: 'envelope',
   },
   username: {
     label: 'user name',
@@ -14,5 +15,6 @@ export const fields: Fields = {
     place_holder: 'enter username',
     name: 'username',
     field_type: 'text',
+    icon: 'user-circle',
   },
 }

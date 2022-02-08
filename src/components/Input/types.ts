@@ -15,7 +15,7 @@ export interface FormInputProps {
   /**
    * The actual value that will be stored inside a state
    */
-  value?: string
+  value: string
   placeholder: string
   /**
    *Add a label for a more descriptive input
@@ -37,4 +37,16 @@ export interface FormInputProps {
     - border_radius?: string;
    */
   customTheme?: Theme
+  iconLeft: string
+  icon?: string
+  layout?: 'solid' | 'outline' | 'dashed' | 'dotted' | 'double'
+  size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl'
+  btnColor?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'light'
+    | 'dark'
 }
