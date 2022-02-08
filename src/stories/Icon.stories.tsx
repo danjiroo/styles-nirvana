@@ -15,6 +15,9 @@ import IconReference from '../components/Icon/IconReference'
 export default {
   title: 'Components/Icon',
   component: Icon,
+  args: {
+    size: 'base',
+  },
 } as ComponentMeta<typeof Icon>
 
 const Template: ComponentStory<typeof Icon> = (args) => {
@@ -40,14 +43,12 @@ const Template: ComponentStory<typeof Icon> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  iconName: 'delete',
-  color: 'secondary',
-  size: 'lg',
+  iconName: 'world-outline',
+  color: 'primary',
 }
 
 const StyledDiv = styled.div`
   box-sizing: border-box;
-  font-family: 'Calibri';
 `
 
 const StyledIconDivLeft = styled.div`

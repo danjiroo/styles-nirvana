@@ -7,7 +7,6 @@ exports.StyledHeader = void 0;
 const styled_components_1 = __importDefault(require("styled-components"));
 exports.StyledHeader = styled_components_1.default.header `
   .wrapper {
-    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 15px 20px;
     display: flex;

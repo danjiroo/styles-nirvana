@@ -37,6 +37,9 @@ export type ColorTypes =
 export type Headers = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 export interface ThemeDefinition {
+  badge: {
+    [P in Sizes]: ButtonDefinition
+  }
   bgColors: BackgroundColor
   border: Border
   button: {
@@ -44,9 +47,15 @@ export interface ThemeDefinition {
   }
   colors: {
     [P in ColorTypes]: ColorDefinition
+  } & {
+    light: Pick<ColorDefinition, 'DEFAULT' | 'light' | 'dark'>
+    dark: Pick<ColorDefinition, 'DEFAULT' | 'light' | 'dark'>
   }
   headers: {
     [P in Headers]?: HeaderDefinition
+  }
+  icon: {
+    [P in Sizes]: Pick<ButtonDefinition, 'fontSize'>
   }
   input: {
     border: number

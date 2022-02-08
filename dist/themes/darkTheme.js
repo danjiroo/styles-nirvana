@@ -41,5 +41,15 @@ exports.darkModeTheme = Object.assign(Object.assign({}, baseTheme_1.baseTheme), 
             DEFAULT: '#DC2626',
             dark: '#B91C1C',
         },
+        light: {
+            light: '#ffffff',
+            DEFAULT: '#eeeeee',
+            dark: '#dddddd',
+        },
+        dark: {
+            light: '#222222',
+            DEFAULT: '#111111',
+            dark: '#000000',
+        },
     } });
 //# sourceMappingURL=darkTheme.js.map

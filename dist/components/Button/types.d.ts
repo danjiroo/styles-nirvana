@@ -3,11 +3,11 @@ export interface ButtonProps {
     /**
      * Button text
      */
-    label: string;
+    label?: string;
     /**
      * Used for bg-color, border-colors etc.
      */
-    btnColor?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+    btnColor?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'light' | 'dark';
     /**
      * The size of the button
      */
@@ -52,4 +52,8 @@ export interface ButtonProps {
      * Optional click handler
      */
     onClick?: (data: MouseEvent<HTMLButtonElement>) => void;
+    /**
+     * Custom classname
+     */
+    className?: string;
 }

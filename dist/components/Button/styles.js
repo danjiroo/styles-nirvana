@@ -51,10 +51,13 @@ exports.StyledButton = styled_components_1.default.button `
   align-items: center;
   justify-content: center;
 
-  color: ${(props) => {
-    console.log('-------button', props);
-    return 'red';
-}};
+  &.close_btn {
+    padding: 0;
+    display: inline-block;
+    border: 0;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
 
   ${getDynamicStyles};
 

@@ -14,4 +14,6 @@ export default {
 const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  onClick: () => alert('Close button clicked!'),
+}

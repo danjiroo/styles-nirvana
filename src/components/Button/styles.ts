@@ -5,9 +5,9 @@ import styled, { css } from 'styled-components'
 import { ButtonProps } from './types'
 import { ThemeProvider } from '../../themes'
 
-interface Test extends ThemeProvider, ButtonProps {}
+type ButtonWithThemeProvider = ThemeProvider & ButtonProps
 
-const getDynamicStyles = (props: Test) => {
+const getDynamicStyles = (props: ButtonWithThemeProvider) => {
   const {
     btnColor = 'primary',
     rounded = true,
@@ -44,11 +44,13 @@ export const StyledButton = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
 
-  color: ${(props) => {
-    console.log('-------button', props)
-
-    return 'red'
-  }};
+  &.close_btn {
+    padding: 0;
+    display: inline-block;
+    border: 0;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
 
   ${getDynamicStyles};
 

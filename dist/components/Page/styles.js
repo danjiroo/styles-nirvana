@@ -7,7 +7,6 @@ exports.StyledPage = void 0;
 const styled_components_1 = __importDefault(require("styled-components"));
 exports.StyledPage = styled_components_1.default.article `
   section {
-    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 24px;
     padding: 48px 20px;

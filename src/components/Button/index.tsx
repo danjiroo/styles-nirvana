@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react'
-import { StyledButton } from './styles'
-
-import { ButtonProps } from './types'
+import { useTheme } from 'styled-components'
 
 import { Icon, RaySpinner } from '../'
+import { StyledButton } from './styles'
+import { ThemeDefinition } from 'themes'
+import { ButtonProps } from './types'
 
 /**
  * Primary UI component for user interaction
@@ -39,6 +40,8 @@ const Button: React.FC<ButtonProps> = ({
     size,
   }
 
+  const { colors } = useTheme() as ThemeDefinition
+
   const IconLeft = iconLeft || icon
   const IconRight = iconRight
 
@@ -48,7 +51,7 @@ const Button: React.FC<ButtonProps> = ({
         <div className='button-icon-div'>
           <Icon
             iconName={IconLeft}
-            color={layout === 'solid' ? '#fff' : btnColor}
+            color={layout === 'solid' ? 'light' : btnColor}
             size={size}
           />
         </div>
@@ -56,7 +59,11 @@ const Button: React.FC<ButtonProps> = ({
       {isLoading && (
         <div className='button-icon-div'>
           <RaySpinner
-            color={layout === 'solid' ? '#fff' : btnColor}
+            color={
+              layout === 'solid'
+                ? colors['light'].DEFAULT
+                : colors[btnColor].DEFAULT
+            }
             size={size}
             rayHeight={3}
             rayWidth={2}
@@ -64,12 +71,12 @@ const Button: React.FC<ButtonProps> = ({
           />
         </div>
       )}
-      <span>{isLoading ? loadingLabel : label}</span>
+      {isLoading ? <span>{loadingLabel}</span> : label && <span>{label}</span>}
       {IconRight && (
         <div className='button-icon-div'>
           <Icon
             iconName={IconRight}
-            color={layout === 'solid' ? '#fff' : btnColor}
+            color={layout === 'solid' ? 'light' : btnColor}
             size={size}
           />
         </div>

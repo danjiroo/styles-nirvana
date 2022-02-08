@@ -10,6 +10,33 @@ exports.baseTheme = {
         width: 0,
         radius: '3em',
     },
+    badge: {
+        xs: {
+            fontSize: 13,
+            fontWeight: 300,
+            padding: '4px 8px',
+        },
+        sm: {
+            fontSize: 14,
+            fontWeight: 300,
+            padding: '5px 9px',
+        },
+        base: {
+            fontSize: 15,
+            fontWeight: 300,
+            padding: '6px 10px',
+        },
+        lg: {
+            fontSize: 16,
+            fontWeight: 300,
+            padding: '7px 11px',
+        },
+        xl: {
+            fontSize: 17,
+            fontWeight: 300,
+            padding: '8px 12px',
+        },
+    },
     button: {
         xs: {
             fontSize: 13,
@@ -73,6 +100,16 @@ exports.baseTheme = {
             DEFAULT: '#DC2626',
             dark: '#B91C1C',
         },
+        light: {
+            light: '#ffffff',
+            DEFAULT: '#eeeeee',
+            dark: '#dddddd',
+        },
+        dark: {
+            light: '#222222',
+            DEFAULT: '#111111',
+            dark: '#000000',
+        },
     },
     headers: {
         h1: {
@@ -80,6 +117,23 @@ exports.baseTheme = {
             padding: '5px 10px',
         },
         // todo
+    },
+    icon: {
+        xs: {
+            fontSize: 13,
+        },
+        sm: {
+            fontSize: 15,
+        },
+        base: {
+            fontSize: 17,
+        },
+        lg: {
+            fontSize: 19,
+        },
+        xl: {
+            fontSize: 22,
+        },
     },
     input: {
         border: 0,
