@@ -115,4 +115,11 @@ export const baseTheme: ThemeDefinition = {
     fontWeight: 300,
     lineHeight: 1,
   },
+  size: {
+    xs: '16.66666666666667%',
+    sm: '33.33333333333333%',
+    md: '50%',
+    lg: '66.66666666666667%',
+    xl: '83.33333333333334%',
+  },
 }

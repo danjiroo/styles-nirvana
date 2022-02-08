@@ -6,7 +6,6 @@ export const StyledForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
   width: 100%;
   /* height: 600px; */
   box-sizing: border-box;

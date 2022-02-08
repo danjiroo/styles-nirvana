@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Button } from '../'
-import './header.css'
+import { StyledHeader } from './styles'
 
 import { HeaderProps } from './types'
 
@@ -11,7 +11,7 @@ const Header: React.FC<HeaderProps> = ({
   onLogout,
   onCreateAccount,
 }) => (
-  <header>
+  <StyledHeader>
     <div className='wrapper'>
       <div>
         <svg
@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({
         )}
       </div>
     </div>
-  </header>
+  </StyledHeader>
 )
 
 export default Header

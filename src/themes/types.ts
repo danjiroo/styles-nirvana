@@ -68,8 +68,22 @@ export interface ThemeDefinition {
     fontWeight: number
     lineHeight: number
   }
+  size: NewSizes
 }
 
+type ContainerSizes = Exclude<Sizes, 'base'>
+type TSize = {
+  [P in ContainerSizes]: string | number
+}
+
+interface NewSizes extends TSize {
+  md: string | number
+}
 export interface ThemeProvider {
   theme: ThemeDefinition
+}
+
+export enum ThemesList {
+  BASE = 'base',
+  DARK_MODE = 'darkMode',
 }

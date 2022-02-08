@@ -4,8 +4,6 @@ import styled from 'styled-components'
 
 import { iconArray } from './IconList'
 
-import './assets/styles.css'
-
 interface IconReferenceProps {
   handleClick: (iconName: string) => void
 }

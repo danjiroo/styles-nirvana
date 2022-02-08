@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react'
-import './styles.ts'
-
 import { StyledButton } from './styles'
+
 import { ButtonProps } from './types'
 
 import { Icon, RaySpinner } from '../'
