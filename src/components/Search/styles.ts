@@ -2,9 +2,19 @@ import styled from 'styled-components'
 
 import { SearchProps } from './types'
 
-export const StyledSearch = styled.div<SearchProps>`
+export const StyledSearch = styled.div<SearchProps>``
+
+export const StyledInputContainer = styled.div`
+  position: relative;
+
   > div {
     margin-bottom: 0;
+  }
+
+  .search-spinner {
+    position: absolute;
+    right: 5px;
+    top: 5px;
   }
 `
 
