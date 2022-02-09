@@ -60,8 +60,6 @@ const Input: React.FC<FormInputProps> = (props) => {
 
   const IconLeft = iconLeft || icon
 
-  console.log('base input:', props)
-
   return (
     <InputContainer>
       {label && (

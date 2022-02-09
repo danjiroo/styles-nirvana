@@ -27,8 +27,6 @@ const Form: React.FC<FormProps> = (props) => {
     },
   }
 
-  console.log('STATE:', state)
-
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault()
     onSubmit && onSubmit(state)

@@ -16,5 +16,5 @@ export { default as ReactFlow } from './ReactFlow'
 export { default as Search } from './Search'
 export { default as Spinner } from './Spinner'
 export { default as Table } from './Table'
-
+export { default as Navigation } from './Navigation'
 export { Modifiers } from './GlobalStyles'

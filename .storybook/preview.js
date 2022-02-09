@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
+import { MemoryRouter } from 'react-router-dom'
 
 import { Themes } from '../src/themes'
 
@@ -26,12 +27,14 @@ export const decorators = [
     }
 
     return (
-      <ThemeProvider theme={Themes[theme] ?? {}}>
-        <StyledDiv>
-          {/* <button onClick={handleToggleTheme}>TOGGLE THEME</button> */}
-          <Story />
-        </StyledDiv>
-      </ThemeProvider>
+      <MemoryRouter>
+        <ThemeProvider theme={Themes[theme] ?? {}}>
+          <StyledDiv>
+            {/* <button onClick={handleToggleTheme}>TOGGLE THEME</button> */}
+            <Story />
+          </StyledDiv>
+        </ThemeProvider>
+      </MemoryRouter>
     )
   },
 ]
