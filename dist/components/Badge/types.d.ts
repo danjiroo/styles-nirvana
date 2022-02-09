@@ -5,9 +5,9 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
      */
     label?: string;
     /**
-     * Is badge closable? A close icon will be shown once badge is hovered.
+     * Is badge closeable? A close icon will be shown once badge is hovered.
      */
-    closable?: boolean;
+    closeable?: boolean;
     /**
      * Size of the badge
      */

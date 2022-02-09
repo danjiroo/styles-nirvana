@@ -23,13 +23,11 @@ exports.StyledContainer = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const styled_components_1 = __importStar(require("styled-components"));
 const getContainerStyles = (props) => {
-    const { theme, size = 'sm' } = props;
-    const { size: new_size } = theme;
+    const { theme, size = '' } = props;
     console.log('StyledContainer', props);
     if (size) {
         return (0, styled_components_1.css) `
-      //@ts-ignore
-      width: ${new_size[size]};
+      width: ${theme.size[size]};
     `;
     }
     return (0, styled_components_1.css) `

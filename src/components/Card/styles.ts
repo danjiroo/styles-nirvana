@@ -16,6 +16,13 @@ export const StyledCard = styled.div<CardProps>`
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
   padding: 30px 10px;
 
+  .close_btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin: 0;
+  }
+
   > div {
     margin: 5px 0;
   }

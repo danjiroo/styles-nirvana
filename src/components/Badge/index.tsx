@@ -11,7 +11,7 @@ const Badge: React.FC<BadgeProps> = (props) => {
     label = 'P',
     children,
     type = 'primary',
-    closable = false,
+    closeable = false,
     onClick,
   } = props
 
@@ -19,7 +19,7 @@ const Badge: React.FC<BadgeProps> = (props) => {
     <StyledBadge {...props} onClick={() => {}}>
       <span>{label || children}</span>
 
-      {!!closable && (
+      {!!closeable && (
         <Button
           onClick={onClick}
           className='close_btn'
