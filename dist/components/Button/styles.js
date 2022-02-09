@@ -50,6 +50,7 @@ exports.StyledButton = styled_components_1.default.button `
   display: flex;
   align-items: center;
   justify-content: center;
+  width: ${({ block }) => (block ? '100%' : 'auto')};
 
   &.close_btn {
     padding: 0;
