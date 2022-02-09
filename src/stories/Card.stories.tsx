@@ -1,4 +1,5 @@
 /* eslint-disable no-use-before-define */
+import { useState } from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import styled from 'styled-components'
 
@@ -11,9 +12,11 @@ export default {
   args: {},
 } as ComponentMeta<typeof Card>
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />
+const DefaultCardTemplate: ComponentStory<typeof Card> = (args) => (
+  <Card {...args} />
+)
 
-const Template2: ComponentStory<typeof Card> = (args) => (
+const CardWithChildrenTemplate: ComponentStory<typeof Card> = (args) => (
   <Card {...args}>
     <h2>Card Title</h2>
     <Image alt='' src='' />
@@ -33,7 +36,7 @@ const Template2: ComponentStory<typeof Card> = (args) => (
   </Card>
 )
 
-const Template3: ComponentStory<typeof Progress> = (args) => {
+const CardWithHandleClickTemplate: ComponentStory<typeof Progress> = (args) => {
   const handleClick = () => {
     alert('CARD IN STORY CLICKED!')
   }
@@ -45,31 +48,62 @@ const Template3: ComponentStory<typeof Progress> = (args) => {
   )
 }
 
-const Template4: ComponentStory<typeof Progress> = (args) => {
+const CardWithCardGroupTemplate: ComponentStory<typeof Progress> = (args) => {
   const range = [5, 22, 88, 13]
   const group = range.map((num: number) => (
-    <Template3 {...args} key={num} progress={num} />
+    <CardWithHandleClickTemplate {...args} key={num} progress={num} />
   ))
 
   return <StyledGroup>{group}</StyledGroup>
 }
 
-export const Default = Template.bind({})
-export const WithChildrenComponents = Template2.bind({})
-export const WithProgress = Template3.bind({})
+const CardWithModalLogicTemplate: ComponentStory<typeof Card> = (args) => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleToggleModal = () => {
+    // setIsModalOpen(!isModalOpen)
+    setIsModalOpen(true)
+  }
+
+  const handleClose = () => {
+    setIsModalOpen(false)
+  }
+
+  return (
+    <div>
+      <p>This is a sample component.</p>
+      <Button label='Open Modal' onClick={handleToggleModal} />
+      {isModalOpen && (
+        <StyledModalContainer>
+          <CardWithChildrenTemplate {...args} handleClose={handleClose} />
+        </StyledModalContainer>
+      )}
+    </div>
+  )
+}
+
+export const Default = DefaultCardTemplate.bind({})
+export const WithChildrenComponents = CardWithChildrenTemplate.bind({})
+export const WithProgress = CardWithHandleClickTemplate.bind({})
 WithProgress.args = {
   zoomOnHover: true,
 }
 
-export const WithGroupProgress = Template4.bind({})
+export const WithGroupProgress = CardWithCardGroupTemplate.bind({})
 WithGroupProgress.args = {
   zoomOnHover: true,
 }
 
-export const ClickableCard = Template3.bind({})
+export const ClickableCard = CardWithHandleClickTemplate.bind({})
 ClickableCard.args = {
   zoomOnHover: true,
   clickable: true,
+}
+
+export const AsModal = CardWithModalLogicTemplate.bind({})
+AsModal.args = {
+  mode: 'modal',
+  closeable: true,
 }
 
 const StyledGroup = styled.div`
@@ -78,4 +112,16 @@ const StyledGroup = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
+`
+
+const StyledModalContainer = styled.div`
+  background: rgba(207, 207, 207, 0.15);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
