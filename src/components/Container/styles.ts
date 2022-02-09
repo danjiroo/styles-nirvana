@@ -1,21 +1,14 @@
 import styled, { css } from 'styled-components'
-import { ThemeProvider } from '../../themes'
-
-interface StyledContainerProps {
-  size: string
-}
-
-interface GetContainerStyles extends ThemeProvider, StyledContainerProps {}
+import { GetContainerStyles } from './types'
 
 const getContainerStyles = (props: GetContainerStyles) => {
-  const { theme, size = 'sm' } = props
-  const { size: new_size } = theme
+  const { theme, size = '' } = props
+
   console.log('StyledContainer', props)
 
   if (size) {
     return css`
-      //@ts-ignore
-      width: ${new_size[size]};
+      width: ${theme.size[size]};
     `
   }
   return css`
@@ -23,6 +16,6 @@ const getContainerStyles = (props: GetContainerStyles) => {
   `
 }
 
-export const StyledContainer = styled.div<StyledContainerProps>`
+export const StyledContainer = styled.div<GetContainerStyles>`
   ${getContainerStyles}/* background-color: red; */
 `

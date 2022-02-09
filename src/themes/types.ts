@@ -27,6 +27,15 @@ export interface HeaderDefinition {
   padding: string
 }
 
+type ContainerSizes = Exclude<Sizes, 'base'>
+type TSize = {
+  [P in ContainerSizes]: string | number
+}
+
+interface NewSizes extends TSize {
+  md: string | number
+}
+
 export type Sizes = 'xs' | 'sm' | 'base' | 'lg' | 'xl'
 export type ColorTypes =
   | 'primary'
@@ -78,16 +87,15 @@ export interface ThemeDefinition {
     lineHeight: number
   }
   size: NewSizes
+  // size: {
+  //   xs: string
+  //   sm: string
+  //   md: string
+  //   lg: string
+  //   xl: string
+  // }
 }
 
-type ContainerSizes = Exclude<Sizes, 'base'>
-type TSize = {
-  [P in ContainerSizes]: string | number
-}
-
-interface NewSizes extends TSize {
-  md: string | number
-}
 export interface ThemeProvider {
   theme: ThemeDefinition
 }
