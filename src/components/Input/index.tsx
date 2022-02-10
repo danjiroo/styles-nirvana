@@ -27,8 +27,6 @@ const Input: React.FC<FormInputProps> = (props) => {
 
   const handleInputChange = (event: any) => {
     const { value, name } = event.target
-    console.log('INSIDE HANDLE INPUT value', value)
-    console.log('INSIDE HANDLE INPUT name', name)
     actions.handleChange?.({ value, name, accessor })
   }
 

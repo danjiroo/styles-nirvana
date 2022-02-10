@@ -5,15 +5,13 @@ import { GetContainerStyles } from './types'
 const getContainerStyles = (props: GetContainerStyles) => {
   const { theme, size = '' } = props
 
-  console.log('StyledContainer', props)
-
   if (size) {
     return css`
-      width: ${theme.size[size]};
+      max-width: ${theme.size[size]};
     `
   }
   return css`
-    width: 100%;
+    max-width: 100%;
   `
 }
 
