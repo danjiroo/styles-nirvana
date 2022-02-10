@@ -1,53 +1,48 @@
 import React from 'react'
-
 import {
   StyledNavWrapper,
-  StyledList,
   StyledNavLink,
   StyledNavWithChildren,
 } from './styles'
-import { navigation_config } from './data'
-import { NavigationConfig, ChildrenMenuItems } from './types'
+import { ChildrenMenuItems, NavigationProp } from './types'
 
-const Navigation = () => {
-  const { nav_menus } = navigation_config as NavigationConfig
+const Navigation: React.FC<NavigationProp> = ({ nav_menus }) => {
   const { config, items } = nav_menus
-  console.log('navigation_config:', navigation_config)
   return (
     <StyledNavWrapper>
       {config.is_enabled &&
         items.map(
           ({
-            application_name,
+            component_name,
             children_items = null,
             route = '',
             application_id,
           }) => (
             <menu key={application_id}>
-              <StyledList>
-                {children_items ? (
-                  <>
-                    <StyledNavWithChildren children_items={children_items}>
-                      {application_name}
-                    </StyledNavWithChildren>
-                    {children_items.map((child_nav: ChildrenMenuItems) => (
-                      <menu>
-                        <StyledList>
-                          <StyledNavLink to={`/${child_nav.route}`}>
-                            {child_nav.name}
-                          </StyledNavLink>
-                        </StyledList>
-                      </menu>
-                    ))}
-                  </>
-                ) : (
-                  <h4>
-                    <StyledNavLink to={`/${route}`}>
-                      {application_name}
-                    </StyledNavLink>
-                  </h4>
-                )}
-              </StyledList>
+              {children_items ? (
+                <>
+                  <StyledNavWithChildren
+                    className='StyledNavWithChildren'
+                    children_items={children_items}
+                  >
+                    {component_name}
+                  </StyledNavWithChildren>
+                  {children_items.map((child_nav: ChildrenMenuItems) => (
+                    <menu key={child_nav.id}>
+                      <StyledNavLink
+                        className='styled-navlink--inner'
+                        to={`/${child_nav.route}`}
+                      >
+                        {child_nav.name}
+                      </StyledNavLink>
+                    </menu>
+                  ))}
+                </>
+              ) : (
+                <StyledNavLink className='styled-list' to={`/${route}`}>
+                  {component_name}
+                </StyledNavLink>
+              )}
             </menu>
           )
         )}

@@ -24,3 +24,5 @@ interface NavMenus {
 export interface NavigationConfig {
   nav_menus: NavMenus
 }
+
+export type NavigationProp = NavigationConfig
