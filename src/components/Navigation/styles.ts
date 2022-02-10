@@ -31,8 +31,9 @@ export const StyledNavWrapper = styled.div`
   align-items: flex-start;
   border: 2px solid black;
   box-sizing: border-box;
+  /* background-color: yellow; */
   height: 100%;
-  max-width: 20%;
+  max-width: 300px;
   @media screen {
   }
 `

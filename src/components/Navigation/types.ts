@@ -5,7 +5,6 @@ export interface ChildrenMenuItems {
 }
 
 interface MenuItems {
-  application_name: string
   component_name: string
   application_id: string
   is_enabled: boolean
