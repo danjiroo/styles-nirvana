@@ -45,10 +45,6 @@ const getMenuContentStyles = (props: MenuContent) => {
     transform: translateX(-100%);
     transition: transform 0.5s cubic-bezier(0.25, 0, 0.01, 1);
     transform-origin: left;
-    background: ${(props) => {
-    console.log('yohooo:', props)
-    return 'red'
-  }};
   `
 }
 
