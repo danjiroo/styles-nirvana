@@ -24,14 +24,13 @@ exports.StyledContainer = void 0;
 const styled_components_1 = __importStar(require("styled-components"));
 const getContainerStyles = (props) => {
     const { theme, size = '' } = props;
-    console.log('StyledContainer', props);
     if (size) {
         return (0, styled_components_1.css) `
-      width: ${theme.size[size]};
+      max-width: ${theme.size[size]};
     `;
     }
     return (0, styled_components_1.css) `
-    width: 100%;
+    max-width: 100%;
   `;
 };
 exports.StyledContainer = styled_components_1.default.div `

@@ -12,8 +12,6 @@ const Input = (props) => {
     const handleInputChange = (event) => {
         var _a;
         const { value, name } = event.target;
-        console.log('INSIDE HANDLE INPUT value', value);
-        console.log('INSIDE HANDLE INPUT name', name);
         (_a = actions.handleChange) === null || _a === void 0 ? void 0 : _a.call(actions, { value, name, accessor });
     };
     const handleLabelClick = () => {
@@ -40,7 +38,6 @@ const Input = (props) => {
         }
     };
     const IconLeft = iconLeft || icon;
-    console.log('base input:', props);
     return ((0, jsx_runtime_1.jsxs)(styles_1.InputContainer, { children: [label && ((0, jsx_runtime_1.jsx)(styles_1.Label, Object.assign({ is_input_active: is_input_active, onClick: handleLabelClick }, { children: label }), void 0)), IconLeft && ((0, jsx_runtime_1.jsx)(styles_1.StyledIcon, { children: (0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'button-icon-div' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: IconLeft, color: layout === 'solid' ? 'light' : btnColor, size: size }, void 0) }), void 0) }, void 0)), type && type === 'text' && ((0, jsx_runtime_1.jsx)(styles_1.StyledInput, { type: field_type, value: value, placeholder: is_input_active ? placeholder : '', onChange: handleInputChange, onFocus: () => setInputActive(true), onClick: () => setInputActive(true), onBlur: handleBlurInput, ref: inputRef, disabled: disabled, name: name, customTheme: customTheme }, void 0))] }, void 0));
 };
 exports.default = Input;
