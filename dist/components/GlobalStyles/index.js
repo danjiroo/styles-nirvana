@@ -1,8 +1,40 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Modifiers = void 0;
+/* eslint-disable indent */
 const styled_components_1 = require("styled-components");
+const getHeaderStyles = (theme) => {
+    const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+    const style = (0, styled_components_1.css) `
+    ${headings === null || headings === void 0 ? void 0 : headings.map((header) => `
+        ${header} {
+          font-size: ${theme.headers[header].fontSize}px;
+          font-weight: ${theme.headers[header].fontWeight};
+        }
+        `)}
+  `;
+    return style;
+};
 exports.Modifiers = (0, styled_components_1.createGlobalStyle) `
+  @import url(${({ theme }) => theme.text.fontUrl});
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    font-family: ${({ theme }) => theme.text.fontFamily}
+  }
+
+  ${({ theme }) => getHeaderStyles(theme)}
+
+  /*  */
+  /*  */
+  /*  */
+  /*  */
+  /*  */
+  // Custom Classnames
+
   .letter-spaced--wider {
     /* letter-spacing: 1rem!important;
     text-indent: 1rem !important;

@@ -20,6 +20,7 @@ export interface ColorDefinition {
 }
 export interface HeaderDefinition {
     fontSize: number;
+    fontWeight: number;
     padding: string;
 }
 declare type ContainerSizes = Exclude<Sizes, 'base'>;
@@ -69,6 +70,8 @@ export interface ThemeDefinition {
         border?: number;
     };
     text: {
+        fontUrl: string;
+        fontFamily: string;
         fontSize: number;
         fontWeight: number;
         lineHeight: number;

@@ -6,7 +6,7 @@ export const StyledCard = styled.div<CardProps>`
   background: #fff;
   width: 100%;
   max-width: 250px;
-  height: 350px;
+  height: ${({ height }) => (height === 'auto' ? 'auto' : `${height}px`)};
   display: flex;
   justify-content: center;
   align-items: center;

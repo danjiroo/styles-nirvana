@@ -1,76 +1,47 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-use-before-define */
-import React from 'react'
-import styled from 'styled-components'
-import { createPortal } from 'react-dom'
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import React, { RefObject, useImperativeHandle } from 'react'
 
 import useTooltip from './useTooltip'
+import { StyledTooltipContainer } from './styles'
 
 const Tooltip: React.FC<any> = React.forwardRef<any, any>(function Tooltip(
   props,
   ref
 ) {
-  // const portalRef = document.getElementById('portal') as HTMLElement
-  // const { isTooltipVisible, top, left, content } = useTooltip()
+  const { showTooltip, hideTooltip, isTooltipVisible, top, left } = useTooltip()
 
-  // console.log(
-  //   '@isTooltipVisible, top, left, content',
-  //   isTooltipVisible,
-  //   top,
-  //   left,
-  //   content
-  // )
-  console.log('')
+  useImperativeHandle(ref, () => ({
+    handleClick: (elRef: RefObject<HTMLElement>) => {
+      if (isTooltipVisible) {
+        hideTooltip()
+        return
+      }
 
-  return (
-    <StyledTooltipContainer top={props.top} left={props.left} ref={ref}>
+      const { y, x, width } = elRef!.current!.getBoundingClientRect()
+
+      const elementId = elRef?.current?.id
+
+      // if (window.innerHeight - bottom < tooltipHeight) {
+      //   console.log(
+      //     '-- bottom -- y - tooltipHeight -->>',
+      //     y,
+      //     tooltipHeight,
+      //     y - tooltipHeight
+      //   )
+      //   showTooltip(y - tooltipHeight, x + width, `Tooltip on the ${elementId}`)
+
+      //   return
+      // }
+
+      showTooltip(y, x + width + 20, `Tooltip on the ${elementId}`)
+    },
+  }))
+
+  return isTooltipVisible ? (
+    <StyledTooltipContainer top={top} left={left}>
       {props.children}
-      {/* {content} */}
     </StyledTooltipContainer>
-  )
+  ) : null
 })
-
-export interface StyledTooltipContainerProps {
-  readonly top?: number
-  readonly left?: number
-}
-
-export const StyledTooltipContainer = styled.div<StyledTooltipContainerProps>`
-  position: absolute;
-  top: ${({ top }) => top}px;
-  left: ${({ left }) => left}px;
-  /* width: 100px; */
-  /* height: 50px; */
-
-  &::before {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-right: 20px solid #ddd;
-    border-bottom: 15px solid transparent;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -20px;
-  }
-  /* .content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-
-    &::after {
-      position: absolute;
-      content: '';
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 8px solid #282727;
-      bottom: -8px;
-      left: 0;
-    }
-  } */
-`
 
 export default Tooltip

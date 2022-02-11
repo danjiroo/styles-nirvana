@@ -9,7 +9,7 @@ exports.StyledCard = styled_components_1.default.div `
   background: #fff;
   width: 100%;
   max-width: 250px;
-  height: 350px;
+  height: ${({ height }) => (height === 'auto' ? 'auto' : `${height}px`)};
   display: flex;
   justify-content: center;
   align-items: center;

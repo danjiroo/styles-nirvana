@@ -9,7 +9,9 @@ export default {
   title: 'Components/Card',
   component: Card,
   argTypes: {},
-  args: {},
+  args: {
+    height: 350,
+  },
 } as ComponentMeta<typeof Card>
 
 const DefaultCardTemplate: ComponentStory<typeof Card> = (args) => (

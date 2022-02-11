@@ -16,6 +16,10 @@ export interface CardProps {
    * Display mode of the card
    */
   mode?: 'default' | 'modal' | 'tooltip'
+  /**
+   * Height of card
+   */
+  height?: 'auto' | number
 
   /**
    * An action prop that is executed when clicking the card

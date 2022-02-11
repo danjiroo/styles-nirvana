@@ -1,63 +1,57 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StyledTooltipContainer = void 0;
 const jsx_runtime_1 = require("react/jsx-runtime");
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-use-before-define */
-const react_1 = __importDefault(require("react"));
-const styled_components_1 = __importDefault(require("styled-components"));
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+const react_1 = __importStar(require("react"));
+const useTooltip_1 = __importDefault(require("./useTooltip"));
+const styles_1 = require("./styles");
 const Tooltip = react_1.default.forwardRef(function Tooltip(props, ref) {
-    // const portalRef = document.getElementById('portal') as HTMLElement
-    // const { isTooltipVisible, top, left, content } = useTooltip()
-    // console.log(
-    //   '@isTooltipVisible, top, left, content',
-    //   isTooltipVisible,
-    //   top,
-    //   left,
-    //   content
-    // )
-    console.log('');
-    return ((0, jsx_runtime_1.jsx)(exports.StyledTooltipContainer, Object.assign({ top: props.top, left: props.left, ref: ref }, { children: props.children }), void 0));
+    const { showTooltip, hideTooltip, isTooltipVisible, top, left } = (0, useTooltip_1.default)();
+    (0, react_1.useImperativeHandle)(ref, () => ({
+        handleClick: (elRef) => {
+            var _a;
+            if (isTooltipVisible) {
+                hideTooltip();
+                return;
+            }
+            const { y, x, width } = elRef.current.getBoundingClientRect();
+            const elementId = (_a = elRef === null || elRef === void 0 ? void 0 : elRef.current) === null || _a === void 0 ? void 0 : _a.id;
+            // if (window.innerHeight - bottom < tooltipHeight) {
+            //   console.log(
+            //     '-- bottom -- y - tooltipHeight -->>',
+            //     y,
+            //     tooltipHeight,
+            //     y - tooltipHeight
+            //   )
+            //   showTooltip(y - tooltipHeight, x + width, `Tooltip on the ${elementId}`)
+            //   return
+            // }
+            showTooltip(y, x + width + 20, `Tooltip on the ${elementId}`);
+        },
+    }));
+    return isTooltipVisible ? ((0, jsx_runtime_1.jsx)(styles_1.StyledTooltipContainer, Object.assign({ top: top, left: left }, { children: props.children }), void 0)) : null;
 });
-exports.StyledTooltipContainer = styled_components_1.default.div `
-  position: absolute;
-  top: ${({ top }) => top}px;
-  left: ${({ left }) => left}px;
-  /* width: 100px; */
-  /* height: 50px; */
-
-  &::before {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-right: 20px solid #ddd;
-    border-bottom: 15px solid transparent;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -20px;
-  }
-  /* .content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-
-    &::after {
-      position: absolute;
-      content: '';
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 8px solid #282727;
-      bottom: -8px;
-      left: 0;
-    }
-  } */
-`;
 exports.default = Tooltip;
 //# sourceMappingURL=index.js.map

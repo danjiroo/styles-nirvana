@@ -8,7 +8,7 @@ exports.baseTheme = {
     },
     border: {
         width: 0,
-        radius: '3em',
+        radius: '6px',
     },
     badge: {
         xs: {
@@ -68,16 +68,22 @@ exports.baseTheme = {
         primary: {
             50: '#EFF6FF',
             100: '#DBEAFE',
-            light: '#90CAF9',
-            DEFAULT: '#4285F4',
-            dark: '#356AC3',
+            light: '#96CACD',
+            DEFAULT: '#2C969B',
+            dark: '#006267',
+            // light: '#90CAF9',
+            // DEFAULT: '#2C969B',
+            // dark: '#356AC3',
         },
         secondary: {
             50: '#F3F4F6',
             100: '#E5E7Eb',
-            light: '#D1D5DB',
-            DEFAULT: '#6B7280',
-            dark: '#374152',
+            light: '#80F2CE',
+            DEFAULT: '#00E59E',
+            dark: '#00C17A',
+            // light: '#D1D5DB',
+            // DEFAULT: '#6B7280',
+            // dark: '#374152',
         },
         success: {
             50: '#ECFDF5',
@@ -113,7 +119,33 @@ exports.baseTheme = {
     },
     headers: {
         h1: {
+            fontSize: 32,
+            fontWeight: 700,
+            padding: '5px 10px',
+        },
+        h2: {
             fontSize: 24,
+            fontWeight: 700,
+            padding: '5px 10px',
+        },
+        h3: {
+            fontSize: 18,
+            fontWeight: 700,
+            padding: '5px 10px',
+        },
+        h4: {
+            fontSize: 14,
+            fontWeight: 500,
+            padding: '5px 10px',
+        },
+        h5: {
+            fontSize: 12,
+            fontWeight: 500,
+            padding: '5px 10px',
+        },
+        h6: {
+            fontSize: 10,
+            fontWeight: 500,
             padding: '5px 10px',
         },
         // todo
@@ -166,6 +198,8 @@ exports.baseTheme = {
     },
     table: {},
     text: {
+        fontUrl: 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap',
+        fontFamily: 'Poppins, sans-serif',
         fontSize: 16,
         fontWeight: 300,
         lineHeight: 1,

@@ -1,5 +1,4 @@
-export interface TooltipProps {
-    /**
-     */
-    [key: string]: any;
+export interface StyledTooltipContainerProps {
+    top?: number;
+    left?: number;
 }

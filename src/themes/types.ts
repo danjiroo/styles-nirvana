@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface BackgroundColor {
   card: string
   container: string
@@ -24,6 +25,7 @@ export interface ColorDefinition {
 
 export interface HeaderDefinition {
   fontSize: number
+  fontWeight: number
   padding: string
 }
 
@@ -82,6 +84,8 @@ export interface ThemeDefinition {
     border?: number
   }
   text: {
+    fontUrl: string
+    fontFamily: string
     fontSize: number
     fontWeight: number
     lineHeight: number

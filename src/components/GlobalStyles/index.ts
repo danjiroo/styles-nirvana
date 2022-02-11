@@ -1,6 +1,46 @@
-import { createGlobalStyle } from 'styled-components'
+/* eslint-disable indent */
+import { css, createGlobalStyle } from 'styled-components'
 
-export const Modifiers = createGlobalStyle`
+import { ThemeProvider } from '../../themes'
+
+const getHeaderStyles = (theme: any) => {
+  const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+
+  const style = css<ThemeProvider>`
+    ${headings?.map(
+      (header) =>
+        `
+        ${header} {
+          font-size: ${theme.headers[header].fontSize}px;
+          font-weight: ${theme.headers[header].fontWeight};
+        }
+        `
+    )}
+  `
+
+  return style
+}
+
+export const Modifiers = createGlobalStyle<ThemeProvider>`
+  @import url(${({ theme }) => theme.text.fontUrl});
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    font-family: ${({ theme }) => theme.text.fontFamily}
+  }
+
+  ${({ theme }) => getHeaderStyles(theme)}
+
+  /*  */
+  /*  */
+  /*  */
+  /*  */
+  /*  */
+  // Custom Classnames
+
   .letter-spaced--wider {
     /* letter-spacing: 1rem!important;
     text-indent: 1rem !important;
