@@ -8,6 +8,7 @@ import { useState } from 'react'
 import {
   SingleSelect as SingleSelectComponent,
   MultiSelect as MultiSelectComponent,
+  Container,
 } from '../'
 
 export default {
@@ -38,7 +39,7 @@ const SingleSelectTemplate: ComponentStory<typeof SingleSelectComponent> = (
   }
 
   return (
-    <div>
+    <Container size='sm'>
       <SingleSelectComponent
         {...args}
         id='username'
@@ -54,12 +55,12 @@ const SingleSelectTemplate: ComponentStory<typeof SingleSelectComponent> = (
         id='email'
         name='email'
         key='email'
-        label='Single Select Sample'
+        label='Single Select Sample 2'
         value={details?.email}
         valueData={details?.email}
         onChange={(e: any) => handleChange(e)}
       />
-    </div>
+    </Container>
   )
 }
 const MultiSelectTemplate: ComponentStory<typeof MultiSelectComponent> = (
