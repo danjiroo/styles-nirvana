@@ -22,4 +22,5 @@ export interface IconProps extends React.HTMLAttributes<HTMLLIElement> {
   iconName?: string
   color?: keyof typeof IconColorEnum
   size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl'
+  stroke?: string
 }

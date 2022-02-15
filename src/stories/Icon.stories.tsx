@@ -43,8 +43,9 @@ const Template: ComponentStory<typeof Icon> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  iconName: 'world-outline',
+  iconName: 'activity',
   color: 'primary',
+  stroke: 'red',
 }
 
 const StyledDiv = styled.div`

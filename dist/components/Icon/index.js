@@ -10,19 +10,40 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
-const classnames_1 = __importDefault(require("classnames"));
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-extra-semi */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
+const react_1 = require("react");
 const styles_1 = require("./styles");
+const useDynamicSVGImport_1 = require("./useDynamicSVGImport");
 const Icon = (props) => {
-    const { className, color = 'primary', iconName, size = 'base' } = props, other = __rest(props, ["className", "color", "iconName", "size"]);
-    const cls = (0, classnames_1.default)({
-        [`icon-${iconName}`]: !!iconName,
-    }, `icon--color-${color}`, `icon--size-${size}`, className);
-    return ((0, jsx_runtime_1.jsx)(styles_1.StyledIconDiv, Object.assign({ size: size, color: color }, { children: (0, jsx_runtime_1.jsx)("i", Object.assign({ className: cls, "data-icon": iconName }, other), void 0) }), void 0));
+    const { className, color = 'primary', iconName = 'activity', size = 'base', stroke = 'black' } = props, other = __rest(props, ["className", "color", "iconName", "size", "stroke"]);
+    const onCompleted = (0, react_1.useCallback)(() => {
+        // alert('COMPLETEDDDDD -----')
+    }, []);
+    const onError = (0, react_1.useCallback)(() => {
+        // alert('ERRORRRRR -----')
+    }, []);
+    const { error, loading, SvgIcon } = (0, useDynamicSVGImport_1.useDynamicSVGImport)(iconName, {
+        onCompleted,
+        onError,
+    });
+    const getIcon = () => {
+        if (error) {
+            return 'Error loading icon...';
+        }
+        if (loading) {
+            return 'Loading...';
+        }
+        if (SvgIcon) {
+            return (0, jsx_runtime_1.jsx)(SvgIcon, { stroke: stroke }, void 0);
+        }
+        return (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: "Icons" }, void 0);
+    };
+    return ((0, jsx_runtime_1.jsx)(styles_1.StyledIconDiv, Object.assign({ size: size, color: color }, { children: getIcon() }), void 0));
 };
 exports.default = Icon;
 //# sourceMappingURL=index.js.map

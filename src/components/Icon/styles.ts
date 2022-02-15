@@ -12,6 +12,7 @@ export const StyledIconReference = styled.div`
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
+
   h1 {
     margin: 20px 0 20px;
     font-weight: 700;
@@ -71,6 +72,10 @@ type Test = IconProps & ThemeProvider
 
 export const StyledIconDiv = styled.div<Test>`
   @charset "UTF-8";
+
+  > svg {
+    stroke: blue;
+  }
 
   @font-face {
     font-family: 'temp-font';

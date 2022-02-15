@@ -13,6 +13,7 @@ exports.StyledIconReference = styled_components_1.default.div `
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
+
   h1 {
     margin: 20px 0 20px;
     font-weight: 700;
@@ -69,6 +70,10 @@ exports.StyledIconReference = styled_components_1.default.div `
 `;
 exports.StyledIconDiv = styled_components_1.default.div `
   @charset "UTF-8";
+
+  > svg {
+    stroke: blue;
+  }
 
   @font-face {
     font-family: 'temp-font';

@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.iconArray = void 0;
-exports.iconArray = [
+exports.iconArray2 = exports.iconArray = void 0;
+exports.iconArray = [];
+exports.iconArray2 = [
     'world-outline',
     'bell',
     'bell-outline',

@@ -1,4 +1,5 @@
-export const iconArray = [
+export const iconArray = []
+export const iconArray2 = [
   'world-outline',
   'bell',
   'bell-outline',
