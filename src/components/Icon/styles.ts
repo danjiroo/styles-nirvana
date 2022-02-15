@@ -74,7 +74,7 @@ export const StyledIconDiv = styled.div<Test>`
   @charset "UTF-8";
 
   > svg {
-    stroke: blue;
+    /* stroke: blue; */
   }
 
   @font-face {
