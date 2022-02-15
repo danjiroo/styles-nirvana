@@ -13,7 +13,7 @@ export interface ContainerProps {
   * The width of the Input will update depending on the size prop you give it. 
   * If you don't give it a size prop the width of the component wil be 100%.
    */
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   children?: ReactChild | ReactChildren | JSX.Element[] | JSX.Element
 }
 

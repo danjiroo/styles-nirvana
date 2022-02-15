@@ -15,7 +15,7 @@ const Icon: React.FC<IconProps> = (props) => {
     color = 'primary',
     iconName = 'activity',
     size = 'base',
-    stroke = 'black',
+    stroke = '#98A2B3',
     ...other
   } = props
 

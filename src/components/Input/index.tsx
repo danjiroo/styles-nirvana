@@ -16,7 +16,7 @@ const Input: React.FC<FormInputProps> = (props) => {
     disabled,
     field_type,
     customTheme,
-    iconLeft = 'search-thick',
+    iconLeft = 'search',
     icon,
     layout = 'solid',
     size = 'base',
