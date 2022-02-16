@@ -8,7 +8,8 @@ type StyleIconProps = IconProps & ThemeProvider
 
 export const StyledIconDiv = styled.div<StyleIconProps>`
   width: auto;
-  height: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  /* height: ${({ size = 'md', theme }) => theme.icon[size].height}px; */
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;

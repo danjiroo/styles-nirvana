@@ -61,6 +61,7 @@ export const StyledButton = styled.button<ButtonProps>`
 
   .button-icon-div {
     height: ${({ theme, size }) => theme?.button?.[size ?? 'md']?.fontSize}px;
+    display: flex;
   }
 
   .button-icon-div > i,

@@ -63,11 +63,12 @@ export const MenuContainer = styled.div`
   /* text-align: right; */
 `
 export const IconContainer = styled.div<IconContainerProp>`
-  width: 100%;
+  width: 20px;
   display: flex;
   justify-content: ${({ align }) => {
     if (!align) return 'flex-start'
     if (align === 'left') return 'flex-start'
     return 'flex-end'
   }};
+  cursor: pointer;
 `

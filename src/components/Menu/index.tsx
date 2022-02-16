@@ -10,12 +10,11 @@ const Menu: React.FC<MenuProps> = (props) => {
   return (
     <>
       <MenuContainer>
-        <IconContainer align={align}>
+        <IconContainer align={align} onClick={handleOpenMenu}>
           <Icon
-            iconName={is_open ? 'close' : 'burger-menu'}
-            color='light'
-            size='md'
-            onClick={handleOpenMenu}
+            iconName={is_open ? 'x-circle' : 'menu'}
+            // color='light'
+            size='xl'
           />
         </IconContainer>
         <MenuContent align={align} is_open={is_open}>
