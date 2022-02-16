@@ -30,7 +30,7 @@ export const decorators = [
     return (
       <MemoryRouter>
         <ThemeProvider theme={Themes[theme] ?? {}}>
-          <Modifiers />
+          {/* <Modifiers /> */}
           {/* <button onClick={handleToggleTheme}>TOGGLE THEME</button> */}
           <Story />
         </ThemeProvider>

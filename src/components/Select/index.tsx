@@ -160,8 +160,6 @@ const SingleSelect: React.FC<SelectProps> = ({ ...props }: SelectProps) => {
             colors: {
               ...theme.colors,
               primary25: colors.primary.light,
-              primary50: colors.primary.light,
-              primary75: colors.primary.light,
               primary: colors.primary.DEFAULT,
             },
           })}

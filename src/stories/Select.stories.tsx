@@ -27,7 +27,7 @@ const Template: ComponentStory<typeof Select> = (args) => {
     const { name, value } = e.target
     setDetails({
       ...details,
-      [name]: value,
+      [name]: value?.value,
     })
   }
 

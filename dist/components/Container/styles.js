@@ -26,14 +26,16 @@ const getContainerStyles = (props) => {
     const { theme, size = '' } = props;
     if (size) {
         return (0, styled_components_1.css) `
-      max-width: ${theme.size[size]};
+      width: ${theme.size[size]};
     `;
     }
     return (0, styled_components_1.css) `
-    max-width: 100%;
+    width: 100%;
   `;
 };
 exports.StyledContainer = styled_components_1.default.div `
-  ${getContainerStyles}/* background-color: red; */
+  ${getContainerStyles} /* background-color: red; */
+
+  max-width: 100%
 `;
 //# sourceMappingURL=styles.js.map

@@ -37,7 +37,6 @@ export const Modifiers = createGlobalStyle<ThemeProvider>`
     // sizes here can by dynamic base on theme (not yet implemented)
     font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
     font-weight: ${({ theme }) => theme.text.size.md.fontWeight};
-    
   }
 
   a {

@@ -7,14 +7,16 @@ const getContainerStyles = (props: GetContainerStyles) => {
 
   if (size) {
     return css`
-      max-width: ${theme.size[size]};
+      width: ${theme.size[size]};
     `
   }
   return css`
-    max-width: 100%;
+    width: 100%;
   `
 }
 
 export const StyledContainer = styled.div<GetContainerStyles>`
-  ${getContainerStyles}/* background-color: red; */
+  ${getContainerStyles} /* background-color: red; */
+
+  max-width: 100%
 `

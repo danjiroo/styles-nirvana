@@ -24,6 +24,6 @@ interface Sizes {
     xl: string;
 }
 export interface GetContainerStyles extends ThemeProvider {
-    size: keyof Sizes;
+    size?: keyof Sizes;
 }
 export {};

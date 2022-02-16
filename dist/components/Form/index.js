@@ -22,9 +22,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = __importStar(require("react"));
 const __1 = require("../");
-const __2 = require("../");
 const styles_1 = require("./styles");
-const __3 = require("../");
+const __2 = require("../");
 const Form = (props) => {
     const { title, onSubmit, fields } = props;
     const submitting = false;
@@ -40,11 +39,11 @@ const Form = (props) => {
         event.preventDefault();
         onSubmit && onSubmit(state);
     };
-    return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(__1.Modifiers, {}, void 0), (0, jsx_runtime_1.jsx)(styles_1.StyledForm, Object.assign({ onSubmit: handleSubmit, className: 'margin--right' }, { children: (0, jsx_runtime_1.jsxs)(styles_1.StyledFormWrapper, { children: [submitting ? ((0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: (0, jsx_runtime_1.jsx)("p", { children: "just a moment" }, void 0) }, void 0)) : ((0, jsx_runtime_1.jsx)("h4", Object.assign({ style: { width: '100%', textAlign: 'center' } }, { children: title }), void 0)), fields &&
-                            Object.entries(fields).map(([key, value], index) => {
-                                var _a;
-                                return ((0, jsx_runtime_1.jsx)(__2.Input, { value: (_a = state[key]) !== null && _a !== void 0 ? _a : '', type: 'text', field_type: value.field_type, placeholder: value.place_holder, label: value.label, actions: actionsProp !== null && actionsProp !== void 0 ? actionsProp : {}, name: value.name, accessor: 'value', disabled: submitting, iconLeft: value.icon ? value.icon : '' }, `key--${index}`));
-                            }), (0, jsx_runtime_1.jsx)(__3.Button, { onClick: handleSubmit, label: 'Submit' }, void 0)] }, void 0) }), void 0)] }, void 0));
+    return ((0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: (0, jsx_runtime_1.jsx)(styles_1.StyledForm, Object.assign({ onSubmit: handleSubmit, className: 'margin--right' }, { children: (0, jsx_runtime_1.jsxs)(styles_1.StyledFormWrapper, { children: [submitting ? ((0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: (0, jsx_runtime_1.jsx)("p", { children: "just a moment" }, void 0) }, void 0)) : ((0, jsx_runtime_1.jsx)("h4", Object.assign({ style: { width: '100%', textAlign: 'center' } }, { children: title }), void 0)), fields &&
+                        Object.entries(fields).map(([key, value], index) => {
+                            var _a;
+                            return ((0, jsx_runtime_1.jsx)(__1.Input, { value: (_a = state[key]) !== null && _a !== void 0 ? _a : '', type: 'text', field_type: value.field_type, placeholder: value.place_holder, label: value.label, actions: actionsProp !== null && actionsProp !== void 0 ? actionsProp : {}, name: value.name, accessor: 'value', disabled: submitting, iconLeft: value.icon ? value.icon : '' }, `key--${index}`));
+                        }), (0, jsx_runtime_1.jsx)(__2.Button, { onClick: handleSubmit, label: 'Submit' }, void 0)] }, void 0) }), void 0) }, void 0));
 };
 exports.default = react_1.default.memo(Form);
 //# sourceMappingURL=index.js.map

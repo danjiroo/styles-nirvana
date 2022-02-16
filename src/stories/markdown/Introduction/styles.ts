@@ -24,6 +24,16 @@ export const StyledCard = styled(Card)`
   text-decoration: none !important;
   width: 24%;
 
+  @media screen and (max-width: 1100px) {
+    width: 49%;
+    max-width: 49%;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    max-width: 100%;
+  }
+
   > div {
     width: 50px;
   }
