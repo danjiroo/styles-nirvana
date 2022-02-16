@@ -8,13 +8,18 @@ exports.StyledIconReference = exports.StyledIconDiv = void 0;
 const styled_components_1 = __importDefault(require("styled-components"));
 exports.StyledIconDiv = styled_components_1.default.div `
   width: auto;
-  height: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  /* height: ${({ size = 'md', theme }) => theme.icon[size].height}px; */
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
 
   > svg {
     stroke: ${({ color = 'primary', theme }) => theme.colors[color].DEFAULT};
+  }
+
+  > svg:hover {
+    stroke: ${({ color = 'primary', theme, hoverable }) => hoverable && theme.colors[color].dark};
   }
 `;
 exports.StyledIconReference = styled_components_1.default.div `

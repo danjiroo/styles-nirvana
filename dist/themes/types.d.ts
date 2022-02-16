@@ -74,9 +74,12 @@ export interface ThemeDefinition {
     text: {
         fontUrl: string;
         fontFamily: string;
-        fontSize: number;
-        fontWeight: number;
-        lineHeight: number;
+        size: {
+            [P in Sizes]: {
+                fontSize: number;
+                fontWeight: number;
+            };
+        };
     };
     size: NewSizes;
 }

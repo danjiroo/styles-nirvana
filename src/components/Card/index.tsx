@@ -23,8 +23,8 @@ const Card: React.FC<CardProps> = ({
       <Button
         onClick={handleClose}
         className='close_btn'
-        icon='close-circle'
-        btnColor={'primary'}
+        icon='x-circle'
+        layout='outline'
       />
     )}
     {children}

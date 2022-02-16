@@ -45,7 +45,6 @@ export const Default = Template.bind({})
 Default.args = {
   iconName: 'activity',
   color: 'primary',
-  stroke: 'pink',
 }
 
 const StyledDiv = styled.div`

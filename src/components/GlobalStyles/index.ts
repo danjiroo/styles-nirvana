@@ -11,7 +11,7 @@ const getHeaderStyles = (theme: any) => {
       (header) =>
         `
         ${header} {
-          font-size: ${theme.headers[header].fontSize}px;
+          font-size: ${theme.headers[header].fontSize}rem;
           font-weight: ${theme.headers[header].fontWeight};
         }
         `
@@ -28,10 +28,16 @@ export const Modifiers = createGlobalStyle<ThemeProvider>`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    
   }
 
-  html, body {
-    font-family: ${({ theme }) => theme.text.fontFamily}
+  // TODO : (need to add other tags/elements here)
+  html, body, p, q, i, b, a {
+    font-family: ${({ theme }) => theme.text.fontFamily};
+    // sizes here can by dynamic base on theme (not yet implemented)
+    font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
+    font-weight: ${({ theme }) => theme.text.size.md.fontWeight};
+    
   }
 
   ${({ theme }) => getHeaderStyles(theme)}

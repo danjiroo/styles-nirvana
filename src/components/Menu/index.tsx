@@ -11,11 +11,7 @@ const Menu: React.FC<MenuProps> = (props) => {
     <>
       <MenuContainer>
         <IconContainer align={align} onClick={handleOpenMenu}>
-          <Icon
-            iconName={is_open ? 'x-circle' : 'menu'}
-            // color='light'
-            size='xl'
-          />
+          <Icon iconName={is_open ? 'x-circle' : 'menu'} hoverable size='xl' />
         </IconContainer>
         <MenuContent align={align} is_open={is_open}>
           {children}

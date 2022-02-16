@@ -29,7 +29,7 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
     padding: ${theme?.button[size].padding};
     opacity: ${!isDisabled ? 1 : 0.5};
 
-    &:hover {
+    &:not(.close_btn):hover {
       color: ${layout !== 'solid' && '#fff'};
       background: ${theme?.colors[btnColor][!isDisabled ? 'dark' : 'DEFAULT']};
       opacity: ${!isDisabled && 1};
@@ -37,6 +37,10 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
       svg {
         stroke: ${layout !== 'solid' && '#fff'};
       }
+    }
+
+    &.close_btn:hover svg {
+      stroke: ${theme?.colors[btnColor].dark};
     }
   `
 }

@@ -17,6 +17,11 @@ export const StyledIconDiv = styled.div<StyleIconProps>`
   > svg {
     stroke: ${({ color = 'primary', theme }) => theme.colors[color].DEFAULT};
   }
+
+  > svg:hover {
+    stroke: ${({ color = 'primary', theme, hoverable }) =>
+      hoverable && theme.colors[color].dark};
+  }
 `
 
 export const StyledIconReference = styled.div`

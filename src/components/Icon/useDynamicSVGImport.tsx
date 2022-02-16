@@ -12,8 +12,10 @@ export function useDynamicSVGImport(
   const [error, setError] = useState<Error>()
 
   const { onCompleted, onError } = options
+
   useEffect(() => {
     setLoading(true)
+
     const importIcon = async (): Promise<void> => {
       try {
         ImportedIconRef.current = (
@@ -28,7 +30,7 @@ export function useDynamicSVGImport(
       }
     }
     importIcon()
-  }, [iconName, onCompleted, onError])
+  }, [iconName])
 
   return { error, loading, SvgIcon: ImportedIconRef.current }
 }

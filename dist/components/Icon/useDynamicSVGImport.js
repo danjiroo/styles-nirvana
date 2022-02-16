@@ -52,7 +52,7 @@ function useDynamicSVGImport(iconName, options = {}) {
             }
         });
         importIcon();
-    }, [iconName, onCompleted, onError]);
+    }, [iconName]);
     return { error, loading, SvgIcon: ImportedIconRef.current };
 }
 exports.useDynamicSVGImport = useDynamicSVGImport;

@@ -6,14 +6,12 @@ import { IconProps } from './types'
 import { StyledIconDiv } from './styles'
 import { useDynamicSVGImport } from './useDynamicSVGImport'
 
-const Icon: React.FC<IconProps> = (props) => {
-  const {
-    color = 'primary',
-    iconName = 'activity',
-    size = 'md',
-    stroke = '#98A2B3',
-  } = props
-
+const Icon: React.FC<IconProps> = ({
+  color = 'primary',
+  iconName = 'activity',
+  size = 'md',
+  hoverable = false,
+}) => {
   const onCompleted = useCallback((data) => {}, [])
 
   const onError = useCallback(() => {}, [])
@@ -24,10 +22,10 @@ const Icon: React.FC<IconProps> = (props) => {
   })
 
   return (
-    <StyledIconDiv size={size} color={color}>
+    <StyledIconDiv size={size} color={color} hoverable={hoverable}>
       {loading && <></>}
       {error && <></>}
-      {SvgIcon && <SvgIcon stroke={stroke} />}
+      {SvgIcon && <SvgIcon />}
     </StyledIconDiv>
   )
 }

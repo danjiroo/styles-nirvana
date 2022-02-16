@@ -4,7 +4,7 @@ exports.baseTheme = void 0;
 exports.baseTheme = {
     bgColors: {
         card: '#f2f2f2',
-        container: 'red',
+        container: '#ffffff',
     },
     border: {
         width: 0,
@@ -88,9 +88,12 @@ exports.baseTheme = {
         success: {
             50: '#ECFDF5',
             100: '#D1FAE5',
-            light: '#6EE7B7',
+            light: '#C3EEDF',
             DEFAULT: '#10B981',
-            dark: '#047857',
+            dark: '#87DCC0',
+            // light: '#6EE7B7',
+            // DEFAULT: '#10B981',
+            // dark: '#047857',
         },
         warning: {
             50: '#FFFBEB',
@@ -102,9 +105,12 @@ exports.baseTheme = {
         danger: {
             50: '#FEF2F2',
             100: '#FEE2E2',
-            light: '#FCA5A5',
-            DEFAULT: '#DC2626',
-            dark: '#B91C1C',
+            light: '#FBD0D0',
+            DEFAULT: '#EF4444',
+            dark: '#F7A1A1',
+            // light: '#FCA5A5',
+            // DEFAULT: '#DC2626',
+            // dark: '#B91C1C',
         },
         light: {
             light: '#ffffff',
@@ -112,39 +118,39 @@ exports.baseTheme = {
             dark: '#dddddd',
         },
         dark: {
-            light: '#222222',
-            DEFAULT: '#111111',
-            dark: '#000000',
+            light: '#344054',
+            DEFAULT: '#1D2939',
+            dark: '#101828',
         },
     },
     headers: {
         h1: {
-            fontSize: 32,
+            fontSize: 2,
             fontWeight: 700,
             padding: '5px 10px',
         },
         h2: {
-            fontSize: 24,
+            fontSize: 1.5,
             fontWeight: 700,
             padding: '5px 10px',
         },
         h3: {
-            fontSize: 18,
+            fontSize: 1,
             fontWeight: 700,
             padding: '5px 10px',
         },
         h4: {
-            fontSize: 14,
+            fontSize: 0.875,
             fontWeight: 500,
             padding: '5px 10px',
         },
         h5: {
-            fontSize: 12,
+            fontSize: 0.75,
             fontWeight: 500,
             padding: '5px 10px',
         },
         h6: {
-            fontSize: 10,
+            fontSize: 0.7,
             fontWeight: 500,
             padding: '5px 10px',
         },
@@ -200,9 +206,28 @@ exports.baseTheme = {
     text: {
         fontUrl: 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap',
         fontFamily: 'Poppins, sans-serif',
-        fontSize: 16,
-        fontWeight: 300,
-        lineHeight: 1,
+        size: {
+            xs: {
+                fontSize: 10,
+                fontWeight: 400,
+            },
+            sm: {
+                fontSize: 12,
+                fontWeight: 400,
+            },
+            md: {
+                fontSize: 14,
+                fontWeight: 400,
+            },
+            lg: {
+                fontSize: 18,
+                fontWeight: 400,
+            },
+            xl: {
+                fontSize: 20,
+                fontWeight: 400,
+            },
+        },
     },
     size: {
         xs: '16.66666666666667%',

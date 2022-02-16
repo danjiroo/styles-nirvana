@@ -73,7 +73,7 @@ exports.MenuContainer = styled_components_1.default.div `
   /* text-align: right; */
 `;
 exports.IconContainer = styled_components_1.default.div `
-  width: 100%;
+  width: 20px;
   display: flex;
   justify-content: ${({ align }) => {
     if (!align)
@@ -82,5 +82,6 @@ exports.IconContainer = styled_components_1.default.div `
         return 'flex-start';
     return 'flex-end';
 }};
+  cursor: pointer;
 `;
 //# sourceMappingURL=styled.js.map

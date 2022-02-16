@@ -37,7 +37,7 @@ const getDynamicStyles = (props) => {
     padding: ${theme === null || theme === void 0 ? void 0 : theme.button[size].padding};
     opacity: ${!isDisabled ? 1 : 0.5};
 
-    &:hover {
+    &:not(.close_btn):hover {
       color: ${layout !== 'solid' && '#fff'};
       background: ${theme === null || theme === void 0 ? void 0 : theme.colors[btnColor][!isDisabled ? 'dark' : 'DEFAULT']};
       opacity: ${!isDisabled && 1};
@@ -45,6 +45,10 @@ const getDynamicStyles = (props) => {
       svg {
         stroke: ${layout !== 'solid' && '#fff'};
       }
+    }
+
+    &.close_btn:hover svg {
+      stroke: ${theme === null || theme === void 0 ? void 0 : theme.colors[btnColor].dark};
     }
   `;
 };
@@ -68,6 +72,7 @@ exports.StyledButton = styled_components_1.default.button `
 
   .button-icon-div {
     height: ${({ theme, size }) => { var _a, _b; return (_b = (_a = theme === null || theme === void 0 ? void 0 : theme.button) === null || _a === void 0 ? void 0 : _a[size !== null && size !== void 0 ? size : 'md']) === null || _b === void 0 ? void 0 : _b.fontSize; }}px;
+    display: flex;
   }
 
   .button-icon-div > i,
