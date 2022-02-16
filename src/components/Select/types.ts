@@ -26,6 +26,10 @@ export interface SelectProps {
    */
   icon?: string
   /**
+   * Is selection option clearable?
+   */
+  isClearable?: boolean
+  /**
    * Enable creation of a non-existing item
    */
   isCreatable?: boolean

@@ -10,9 +10,100 @@ import { Select, Container } from '../'
 export default {
   title: 'Components/Select',
   component: Select,
-  argTypes: {},
-  args: {
-    // icon: 'user-add',
+  args: {},
+  // NOTE: I added this manually since there is an issue in storybook
+  // Props Types are not shown in control addons if there is a
+  // third party library (react-select) preventing from autogenerating controls
+  argTypes: {
+    selectOptions: {
+      description: 'Array of options for the dropdown items',
+    },
+    error: {
+      control: {
+        type: 'boolean',
+      },
+      description: 'Error fetching options',
+    },
+    errorText: {
+      control: {
+        type: 'text',
+      },
+      description: 'Text shown when error is true',
+    },
+    icon: {
+      control: {
+        type: 'text',
+      },
+      description: 'Enable creation of a non-existing item',
+    },
+    isClearable: {
+      control: {
+        type: 'boolean',
+      },
+      description: 'Is selection option clearable?',
+    },
+    isCreatable: {
+      control: {
+        type: 'boolean',
+      },
+      description: 'Enable creation of a non-existing item',
+    },
+    isRequired: {
+      control: {
+        type: 'boolean',
+      },
+      description: 'Is required',
+    },
+    isDisabled: {
+      control: {
+        type: 'boolean',
+      },
+      description: 'Is disabled',
+    },
+    isLoading: {
+      control: {
+        type: 'boolean',
+      },
+      description: 'Is currently loading or fetching items',
+    },
+    label: {
+      control: {
+        type: 'text',
+      },
+      description: 'Upper text for the dropdown',
+    },
+    placeholder: {
+      control: {
+        type: 'text',
+      },
+      description: 'Placeholder text in input field',
+    },
+    isMulti: {
+      control: {
+        type: 'boolean',
+      },
+      description: 'Enable multi selection',
+    },
+    rounded: {
+      control: {
+        type: 'boolean',
+      },
+      description: 'Enable border-radius',
+    },
+    labelKey: {
+      control: {
+        type: 'text',
+      },
+      description:
+        'This key will be shown as an option label for your select component',
+    },
+    valueKey: {
+      control: {
+        type: 'text',
+      },
+      description:
+        'This key will be the selected value upon clicking an option.',
+    },
   },
 } as ComponentMeta<typeof Select>
 
@@ -71,20 +162,19 @@ SingleSelect.args = {
   labelKey: 'name',
   valueKey: 'id',
   isClearable: true,
-  isMulti: true,
 }
 
 export const MultiSelect = Template.bind({})
 MultiSelect.args = {
   icon: 'mail',
   label: 'Multi Select Sample',
-  selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
+  // selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
   // selectOptions: [1, 2, 3],
-  // selectOptions: [
-  //   { id: 1, name: 'Jayson', age: 29 },
-  //   { id: 2, name: 'Lee', age: 11 },
-  //   { id: 3, name: 'Avhy', age: 26 },
-  // ],
+  selectOptions: [
+    { id: 1, name: 'Jayson', age: 29 },
+    { id: 2, name: 'Lee', age: 11 },
+    { id: 3, name: 'Avhy', age: 26 },
+  ],
   errorText: 'This field is required.',
   labelKey: 'name',
   valueKey: 'id',

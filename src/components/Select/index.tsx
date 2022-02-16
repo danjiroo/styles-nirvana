@@ -13,7 +13,7 @@ import { ThemeDefinition } from '../../themes'
 import { SelectProps } from './types'
 import { StyledField, StyledSelectContainer } from './styles'
 
-const SingleSelect: React.FC<SelectProps> = ({ ...props }: SelectProps) => {
+const SingleSelect: React.FC<SelectProps> = (props: SelectProps) => {
   const {
     error,
     errorText,
@@ -51,7 +51,7 @@ const SingleSelect: React.FC<SelectProps> = ({ ...props }: SelectProps) => {
       handleChange({
         target: {
           name,
-          value: changes,
+          value: changes ?? '',
         },
       })
       return

@@ -25,8 +25,7 @@ const react_select_1 = __importDefault(require("react-select"));
 const creatable_1 = __importDefault(require("react-select/creatable"));
 const __1 = require("..");
 const styles_1 = require("./styles");
-const SingleSelect = (_a) => {
-    var props = __rest(_a, []);
+const SingleSelect = (props) => {
     const { error, errorText, icon, name, isCreatable = false, isDisabled = false, isRequired = false, isLoading = false, label, selectOptions: options, handleChange, placeholder, valueData = '', isMulti = false, rounded = false } = props, restProps = __rest(props, ["error", "errorText", "icon", "name", "isCreatable", "isDisabled", "isRequired", "isLoading", "label", "selectOptions", "handleChange", "placeholder", "valueData", "isMulti", "rounded"]);
     const { colors } = (0, styled_components_1.useTheme)();
     const [value, setValue] = (0, react_1.useState)(valueData);
@@ -40,7 +39,7 @@ const SingleSelect = (_a) => {
             handleChange({
                 target: {
                     name,
-                    value: changes,
+                    value: changes !== null && changes !== void 0 ? changes : '',
                 },
             });
             return;
