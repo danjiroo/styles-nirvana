@@ -141,7 +141,7 @@ export const ComponentDetails: ComponentProps[] = [
     title: 'Select',
     content: 'Lorem ipsum dolor.',
     story_url: 'select',
-    progress: 'inprogress',
+    progress: 'completed',
     dev: 'Dan',
   },
   {

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Modifiers = exports.MultiSelect = exports.SingleSelect = exports.Tooltip = exports.Table = exports.Spinner = exports.Search = exports.ReactFlow = exports.RaySpinner = exports.Progress = exports.Page = exports.Navigation = exports.Menu = exports.Logo = exports.Input = exports.Image = exports.Icon = exports.Header = exports.Form = exports.Container = exports.Card = exports.Button = exports.Badge = void 0;
+exports.Modifiers = exports.Tooltip = exports.Table = exports.Spinner = exports.Select = exports.Search = exports.ReactFlow = exports.RaySpinner = exports.Progress = exports.Page = exports.Navigation = exports.Menu = exports.Logo = exports.Input = exports.Image = exports.Icon = exports.Header = exports.Form = exports.Container = exports.Card = exports.Button = exports.Badge = void 0;
 var Badge_1 = require("./Badge");
 Object.defineProperty(exports, "Badge", { enumerable: true, get: function () { return __importDefault(Badge_1).default; } });
 var Button_1 = require("./Button");
@@ -38,16 +38,14 @@ var ReactFlow_1 = require("./ReactFlow");
 Object.defineProperty(exports, "ReactFlow", { enumerable: true, get: function () { return __importDefault(ReactFlow_1).default; } });
 var Search_1 = require("./Search");
 Object.defineProperty(exports, "Search", { enumerable: true, get: function () { return __importDefault(Search_1).default; } });
+var Select_1 = require("./Select");
+Object.defineProperty(exports, "Select", { enumerable: true, get: function () { return __importDefault(Select_1).default; } });
 var Spinner_1 = require("./Spinner");
 Object.defineProperty(exports, "Spinner", { enumerable: true, get: function () { return __importDefault(Spinner_1).default; } });
 var Table_1 = require("./Table");
 Object.defineProperty(exports, "Table", { enumerable: true, get: function () { return __importDefault(Table_1).default; } });
 var Tooltip_1 = require("./Tooltip");
 Object.defineProperty(exports, "Tooltip", { enumerable: true, get: function () { return __importDefault(Tooltip_1).default; } });
-var Select_1 = require("./Select");
-Object.defineProperty(exports, "SingleSelect", { enumerable: true, get: function () { return Select_1.SingleSelect; } });
-var Select_2 = require("./Select");
-Object.defineProperty(exports, "MultiSelect", { enumerable: true, get: function () { return Select_2.MultiSelect; } });
 var GlobalStyles_1 = require("./GlobalStyles");
 Object.defineProperty(exports, "Modifiers", { enumerable: true, get: function () { return GlobalStyles_1.Modifiers; } });
 //# sourceMappingURL=index.js.map

@@ -5,32 +5,25 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { useState } from 'react'
 
-import {
-  SingleSelect as SingleSelectComponent,
-  MultiSelect as MultiSelectComponent,
-  Container,
-} from '../'
+import { Select, Container } from '../'
 
 export default {
   title: 'Components/Select',
-  component: SingleSelectComponent,
+  component: Select,
   argTypes: {},
   args: {
     // icon: 'user-add',
   },
-} as ComponentMeta<typeof SingleSelectComponent>
+} as ComponentMeta<typeof Select>
 
-const SingleSelectTemplate: ComponentStory<typeof SingleSelectComponent> = (
-  args
-) => {
+const Template: ComponentStory<typeof Select> = (args) => {
   const [details, setDetails] = useState({
     username: '',
     email: '',
   })
 
   const handleChange = (e) => {
-    // alert(selected?.value)
-    console.log(e, 'x')
+    console.log('Selected:', e)
     const { name, value } = e.target
     setDetails({
       ...details,
@@ -40,49 +33,52 @@ const SingleSelectTemplate: ComponentStory<typeof SingleSelectComponent> = (
 
   return (
     <Container size='sm'>
-      <SingleSelectComponent
+      <Select
         {...args}
-        id='username'
         name='username'
-        key='username'
-        label='Single Select Sample'
         value={details?.username}
         valueData={details?.username}
-        onChange={(e: any) => handleChange(e)}
+        handleChange={handleChange}
       />
-      <SingleSelectComponent
+      <Select
         {...args}
-        id='email'
         name='email'
-        key='email'
-        label='Single Select Sample 2'
         value={details?.email}
         valueData={details?.email}
-        onChange={(e: any) => handleChange(e)}
+        handleChange={handleChange}
       />
     </Container>
   )
 }
-const MultiSelectTemplate: ComponentStory<typeof MultiSelectComponent> = (
-  args
-) => <MultiSelectComponent {...args} />
 
-export const SingleSelect = SingleSelectTemplate.bind({})
+export const SingleSelect = Template.bind({})
 SingleSelect.args = {
-  icon: 'user',
-  selectOptions: ['Item A', 'Item B', 'Item C'],
+  icon: 'box',
+  // selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
+  // selectOptions: [1, 2, 3],
+  selectOptions: [
+    { name: 'Jayson', age: 29 },
+    { name: 'Lee', age: 11 },
+    { name: 'Avhy', age: 11 },
+  ],
+  label: 'Single Select Sample',
   errorText: 'This field is required.',
-  isClearable: true,
+  labelKey: 'name',
+  valueKey: 'age',
 }
 
-export const MultiSelect = MultiSelectTemplate.bind({})
+export const MultiSelect = Template.bind({})
 MultiSelect.args = {
-  id: 'email',
-  name: 'email',
-  key: 'email',
-  // label: 'Multi Select Sample',
-  icon: 'envelope',
-  selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
+  icon: 'mail',
+  label: 'Multi Select Sample',
+  // selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
+  // selectOptions: [1, 2, 3],
+  selectOptions: [
+    { name: 'Jayson', age: 29 },
+    { name: 'Lee', age: 11 },
+    { name: 'Avhy', age: 11 },
+  ],
   errorText: 'This field is required.',
   isClearable: true,
+  isMulti: true,
 }
