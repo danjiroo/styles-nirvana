@@ -40,7 +40,7 @@ export interface FormInputProps {
   iconLeft: string
   icon?: string
   layout?: 'solid' | 'outline' | 'dashed' | 'dotted' | 'double'
-  size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   btnColor?:
     | 'primary'
     | 'secondary'

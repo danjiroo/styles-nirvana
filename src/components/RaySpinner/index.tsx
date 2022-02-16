@@ -4,7 +4,7 @@ import { StyledSpinner } from './styles'
 
 const RaySpinner: React.FC<RaySpinnerProps> = ({
   color = '#374152',
-  size = 'base',
+  size = 'md',
   rayHeight = 9,
   rayWidth = 4,
   rayRadius = 30,

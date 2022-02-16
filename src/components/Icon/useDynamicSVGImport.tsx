@@ -1,13 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useRef, useState } from 'react'
 
-interface UseDynamicSVGImportOptions {
-  onCompleted?: (
-    iconName: string,
-    SvgIcon: React.FC<React.SVGProps<SVGSVGElement>> | undefined
-  ) => void
-  onError?: (err: Error) => void
-}
+import { UseDynamicSVGImportOptions } from './types'
 
 export function useDynamicSVGImport(
   iconName: string,

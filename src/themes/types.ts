@@ -29,7 +29,7 @@ export interface HeaderDefinition {
   padding: string
 }
 
-type ContainerSizes = Exclude<Sizes, 'base'>
+type ContainerSizes = Exclude<Sizes, 'md'>
 type TSize = {
   [P in ContainerSizes]: string | number
 }
@@ -38,7 +38,7 @@ interface NewSizes extends TSize {
   md: string | number
 }
 
-export type Sizes = 'xs' | 'sm' | 'base' | 'lg' | 'xl'
+export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 export type ColorTypes =
   | 'primary'
   | 'secondary'

@@ -25,6 +25,8 @@ export const Modifiers = createGlobalStyle<ThemeProvider>`
   @import url(${({ theme }) => theme.text.fontUrl});
 
   * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
 
@@ -34,11 +36,6 @@ export const Modifiers = createGlobalStyle<ThemeProvider>`
 
   ${({ theme }) => getHeaderStyles(theme)}
 
-  /*  */
-  /*  */
-  /*  */
-  /*  */
-  /*  */
   // Custom Classnames
 
   .letter-spaced--wider {

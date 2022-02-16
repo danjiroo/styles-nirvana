@@ -23,14 +23,14 @@ export interface HeaderDefinition {
     fontWeight: number;
     padding: string;
 }
-declare type ContainerSizes = Exclude<Sizes, 'base'>;
+declare type ContainerSizes = Exclude<Sizes, 'md'>;
 declare type TSize = {
     [P in ContainerSizes]: string | number;
 };
 interface NewSizes extends TSize {
     md: string | number;
 }
-export declare type Sizes = 'xs' | 'sm' | 'base' | 'lg' | 'xl';
+export declare type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export declare type ColorTypes = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 export declare type Headers = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export interface ThemeDefinition {

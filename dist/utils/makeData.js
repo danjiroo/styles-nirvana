@@ -1,11 +1,6 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable indent */
-const namor_1 = __importDefault(require("namor"));
 const range = (len) => {
     const arr = [];
     for (let i = 0; i < len; i++) {
@@ -16,8 +11,8 @@ const range = (len) => {
 const newData = () => {
     const statusChance = Math.random();
     return {
-        firstName: namor_1.default.generate({ words: 1, numbers: 0 }),
-        lastName: namor_1.default.generate({ words: 1, numbers: 0 }),
+        firstName: Math.floor(Math.random() * 10000),
+        lastName: Math.floor(Math.random() * 10000),
         age: Math.floor(Math.random() * 30),
         visits: Math.floor(Math.random() * 100),
         progress: Math.floor(Math.random() * 100),

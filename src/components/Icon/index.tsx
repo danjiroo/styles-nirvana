@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-extra-semi */
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 import React, { useCallback } from 'react'
@@ -7,44 +6,22 @@ import { IconProps } from './types'
 import { StyledIconDiv } from './styles'
 import { useDynamicSVGImport } from './useDynamicSVGImport'
 
-import SVGPlaceholder from '../../assets/svg/activity.svg'
-
 const Icon: React.FC<IconProps> = (props) => {
   const {
-    // className,
     color = 'primary',
     iconName = 'activity',
-    size = 'base',
+    size = 'md',
     stroke = '#98A2B3',
-    ...other
   } = props
 
-  const onCompleted = useCallback((data) => {
-    // alert('COMPLETEDDDDD -----')
-  }, [])
+  const onCompleted = useCallback((data) => {}, [])
 
-  const onError = useCallback(() => {
-    // alert('ERRORRRRR -----')
-  }, [])
+  const onError = useCallback(() => {}, [])
 
   const { error, loading, SvgIcon } = useDynamicSVGImport(iconName, {
     onCompleted,
     onError,
   })
-
-  // const getIcon = () => {
-  //   if (error) {
-  //     return 'Error loading icon...'
-  //   }
-  //   if (loading) {
-  //     return 'Loading...'
-  //   }
-  //   if (SvgIcon) {
-  //     return <SvgIcon stroke={stroke} />
-  //   }
-
-  //   return <>Icons</>
-  // }
 
   return (
     <StyledIconDiv size={size} color={color}>

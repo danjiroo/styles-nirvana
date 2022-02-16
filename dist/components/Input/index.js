@@ -6,7 +6,7 @@ const react_1 = require("react");
 const styles_1 = require("./styles");
 const __1 = require("../");
 const Input = (props) => {
-    const { value, placeholder, label, actions, name, type, accessor, disabled, field_type, customTheme, iconLeft = 'search-thick', icon, layout = 'solid', size = 'base', btnColor = 'primary', } = props;
+    const { value, placeholder, label, actions, name, type, accessor, disabled, field_type, customTheme, iconLeft = 'search', icon, layout = 'solid', size = 'md', btnColor = 'primary', } = props;
     const [is_input_active, setInputActive] = (0, react_1.useState)(false);
     const [is_label_click, setLabelClick] = (0, react_1.useState)(false);
     const handleInputChange = (event) => {

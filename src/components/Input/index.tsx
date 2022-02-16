@@ -19,7 +19,7 @@ const Input: React.FC<FormInputProps> = (props) => {
     iconLeft = 'search',
     icon,
     layout = 'solid',
-    size = 'base',
+    size = 'md',
     btnColor = 'primary',
   } = props
   const [is_input_active, setInputActive] = useState(false)

@@ -16,7 +16,6 @@ interface ListProps {
 
 const List: React.FC<ListProps> = ({ name, handleClick }) => (
   <li onClick={() => handleClick(name)}>
-    {/* <div className={`icon icon-${name}`}></div> */}
     <Icon iconName={name} color='dark' />
     <input type='text' readOnly value={name} />
   </li>
@@ -25,7 +24,7 @@ const List: React.FC<ListProps> = ({ name, handleClick }) => (
 const IconReference: React.FC<IconReferenceProps> = (props) => (
   <StyledIconReference>
     <h1>Icon Reference</h1>
-    <h2>CSS mapping</h2>
+    <h2>SVG</h2>
     <ul>
       {iconArray.map((name: string) => (
         <List key={name} name={name} {...props} />

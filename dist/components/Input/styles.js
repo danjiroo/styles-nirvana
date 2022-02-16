@@ -43,7 +43,7 @@ const GetStyledInputStyles = ({ customTheme }) => {
 exports.StyledInput = styled_components_1.default.input `
   width: 100%;
   line-height: 40px;
-  padding-left: 2rem;
+  padding-left: 2.4rem;
   margin: 0;
   max-width: 100%;
   box-sizing: border-box;
@@ -73,43 +73,41 @@ exports.TextArea = styled_components_1.default.textarea `
 `;
 const move = (0, styled_components_1.keyframes) `
   0% { 
-    transform: translate(1.6rem, 0.5rem);
+    transform: translate(2.2rem, 0.5rem);
     background-color: white;
   }
   20%{
     opacity: .2;
   }
   40% {  
-    transform: translate(1.6rem, -.8rem);
+    transform: translate(2.2rem, -.8rem);
     background-color: white;
   }
   100% {  
-    transform: translate(1.6rem, -.5rem);
+    transform: translate(2.2rem, -.5rem);
     background-color: white;
     opacity: 1;
   }
 `;
 const moveRerverse = (0, styled_components_1.keyframes) `
   0% { 
-    transform: translate(1.6rem, -.5rem);
+    transform: translate(2.2rem, 0.8rem);
     background-color: white;
     opacity: 1;
   }
   20%{
-    transform: translate(1.6rem, -.8rem);
+    transform: translate(2.2rem, -.8rem);
     background-color: white;
   }
-  40% {  
-  }
+
   100% {  
-    transform: translate(1.6rem, 0.7rem);
+    transform: translate(2.2rem, .8rem);
     background-color: white;
   }
 `;
 const inactive_input = (0, styled_components_1.css) `
   font-size: medium;
   color: #a3a3a3;
-  transform: translate(1.6rem, 0.7rem);
   padding-right: 1rem;
   animation: ${moveRerverse} 0.8s cubic-bezier(0.25, 0, 0.01, 1) forwards;
 `;
@@ -132,7 +130,7 @@ exports.Label = styled_components_1.default.label `
   align-items: flex-start;
   outline: none;
   border: none;
-  padding: 0rem 0.6rem 0 0.6rem;
+  padding: 0rem 0.3rem 0 0.3rem;
   margin: 0;
   z-index: 1;
   &:hover {
@@ -156,6 +154,6 @@ exports.StyledIcon = styled_components_1.default.div `
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(10px, 14px);
+  transform: translate(0.6rem, 0.7rem);
 `;
 //# sourceMappingURL=styles.js.map

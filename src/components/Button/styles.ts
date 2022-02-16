@@ -11,7 +11,7 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
   const {
     btnColor = 'primary',
     rounded = true,
-    size = 'base',
+    size = 'md',
     isDisabled = false,
     layout = 'solid',
     theme,
@@ -56,7 +56,7 @@ export const StyledButton = styled.button<ButtonProps>`
   ${getDynamicStyles};
 
   .button-icon-div {
-    height: ${({ theme, size }) => theme?.button?.[size ?? 'base']?.fontSize}px;
+    height: ${({ theme, size }) => theme?.button?.[size ?? 'md']?.fontSize}px;
   }
 
   .button-icon-div > i,

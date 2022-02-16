@@ -16,7 +16,7 @@ export default {
   title: 'Components/Icon',
   component: Icon,
   args: {
-    size: 'base',
+    size: 'md',
   },
 } as ComponentMeta<typeof Icon>
 

@@ -11,7 +11,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
     /**
      * Size of the badge
      */
-    size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     /**
      * Color of the badge
      */

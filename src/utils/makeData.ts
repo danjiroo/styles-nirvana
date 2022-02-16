@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable indent */
-import namor from 'namor'
-
 const range = (len: number) => {
   const arr = []
   for (let i = 0; i < len; i++) {
@@ -13,8 +10,8 @@ const range = (len: number) => {
 const newData = () => {
   const statusChance = Math.random()
   return {
-    firstName: namor.generate({ words: 1, numbers: 0 }),
-    lastName: namor.generate({ words: 1, numbers: 0 }),
+    firstName: Math.floor(Math.random() * 10000),
+    lastName: Math.floor(Math.random() * 10000),
     age: Math.floor(Math.random() * 30),
     visits: Math.floor(Math.random() * 100),
     progress: Math.floor(Math.random() * 100),

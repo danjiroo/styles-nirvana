@@ -25,7 +25,7 @@ const styles_1 = require("./styles");
  * Primary UI component for user interaction
  */
 const Button = react_1.default.forwardRef(function Button(_a, ref) {
-    var { label, isLoading = false, loadingLabel = 'Loading...', isDisabled = false, icon, iconLeft, iconRight, layout = 'solid', btnColor = 'primary', size = 'base' } = _a, other = __rest(_a, ["label", "isLoading", "loadingLabel", "isDisabled", "icon", "iconLeft", "iconRight", "layout", "btnColor", "size"]);
+    var { label, isLoading = false, loadingLabel = 'Loading...', isDisabled = false, icon, iconLeft, iconRight, layout = 'solid', btnColor = 'primary', size = 'md' } = _a, other = __rest(_a, ["label", "isLoading", "loadingLabel", "isDisabled", "icon", "iconLeft", "iconRight", "layout", "btnColor", "size"]);
     // ! NOTE: Doing this since there's an issue in storybook,
     // ! if props are not set with default values at the parameter level,
     // ! storybook will not show any default value in the addons/docs

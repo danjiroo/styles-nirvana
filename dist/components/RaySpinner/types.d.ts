@@ -7,7 +7,7 @@ export interface RaySpinnerProps {
     /**
      * Controls the dimension of the spinner
      */
-    size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     /**
      * Controls the height of the ray
      */

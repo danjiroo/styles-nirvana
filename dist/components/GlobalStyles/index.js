@@ -19,6 +19,8 @@ exports.Modifiers = (0, styled_components_1.createGlobalStyle) `
   @import url(${({ theme }) => theme.text.fontUrl});
 
   * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
 
@@ -28,11 +30,6 @@ exports.Modifiers = (0, styled_components_1.createGlobalStyle) `
 
   ${({ theme }) => getHeaderStyles(theme)}
 
-  /*  */
-  /*  */
-  /*  */
-  /*  */
-  /*  */
   // Custom Classnames
 
   .letter-spaced--wider {

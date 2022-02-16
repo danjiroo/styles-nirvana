@@ -11,7 +11,11 @@ declare enum IconColorEnum {
 export interface IconProps extends React.HTMLAttributes<HTMLLIElement> {
     iconName?: string;
     color?: keyof typeof IconColorEnum;
-    size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     stroke?: string;
+}
+export interface UseDynamicSVGImportOptions {
+    onCompleted?: (iconName: string, SvgIcon: React.FC<React.SVGProps<SVGSVGElement>> | undefined) => void;
+    onError?: (err: Error) => void;
 }
 export {};

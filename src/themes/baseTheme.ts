@@ -20,7 +20,7 @@ export const baseTheme: ThemeDefinition = {
       fontWeight: 300,
       padding: '5px 9px',
     },
-    base: {
+    md: {
       fontSize: 15,
       fontWeight: 300,
       padding: '6px 10px',
@@ -47,7 +47,7 @@ export const baseTheme: ThemeDefinition = {
       fontWeight: 300,
       padding: '9px 19px',
     },
-    base: {
+    md: {
       fontSize: 15,
       fontWeight: 300,
       padding: '10px 20px',
@@ -156,7 +156,7 @@ export const baseTheme: ThemeDefinition = {
     sm: {
       fontSize: 15,
     },
-    base: {
+    md: {
       fontSize: 17,
     },
     lg: {
@@ -182,7 +182,7 @@ export const baseTheme: ThemeDefinition = {
       fontSize: 38,
       inButtonSize: 14,
     },
-    base: {
+    md: {
       fontSize: 40,
       inButtonSize: 15,
     },

@@ -14,7 +14,7 @@ const Menu: React.FC<MenuProps> = (props) => {
           <Icon
             iconName={is_open ? 'close' : 'burger-menu'}
             color='light'
-            size='base'
+            size='md'
             onClick={handleOpenMenu}
           />
         </IconContainer>

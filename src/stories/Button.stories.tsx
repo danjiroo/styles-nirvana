@@ -25,7 +25,7 @@ export default {
   args: {
     label: 'Save and Continue',
     btnColor: 'primary',
-    size: 'base',
+    size: 'md',
     layout: 'solid',
     rounded: true,
     isLoading: false,
