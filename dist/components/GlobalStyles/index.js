@@ -16,6 +16,8 @@ const getHeaderStyles = (theme) => {
     return style;
 };
 exports.Modifiers = (0, styled_components_1.createGlobalStyle) `
+  @import url(${({ theme }) => theme.text.fontUrl});
+
   * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

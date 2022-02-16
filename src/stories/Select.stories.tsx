@@ -24,10 +24,15 @@ const Template: ComponentStory<typeof Select> = (args) => {
 
   const handleChange = (e) => {
     console.log('Selected:', e)
-    const { name, value } = e.target
+    const { name, value } = e.target as any
+    const { value: selectedValue } = value ?? {}
+
     setDetails({
       ...details,
-      [name]: value?.value,
+      [name]:
+        typeof selectedValue === 'string' || typeof selectedValue === 'number'
+          ? selectedValue
+          : [...value],
     })
   }
 
@@ -57,31 +62,32 @@ SingleSelect.args = {
   // selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
   // selectOptions: [1, 2, 3],
   selectOptions: [
-    { name: 'Jayson', age: 29 },
-    { name: 'Lee', age: 11 },
-    { name: 'Avhy', age: 11 },
+    { id: 1, name: 'Jayson', age: 29 },
+    { id: 2, name: 'Lee', age: 11 },
+    { id: 3, name: 'Avhy', age: 26 },
   ],
   label: 'Single Select Sample',
   errorText: 'This field is required.',
   labelKey: 'name',
-  valueKey: 'age',
+  valueKey: 'id',
   isClearable: true,
+  isMulti: true,
 }
 
 export const MultiSelect = Template.bind({})
 MultiSelect.args = {
   icon: 'mail',
   label: 'Multi Select Sample',
-  // selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
+  selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
   // selectOptions: [1, 2, 3],
-  selectOptions: [
-    { name: 'Jayson', age: 29 },
-    { name: 'Lee', age: 11 },
-    { name: 'Avhy', age: 11 },
-  ],
+  // selectOptions: [
+  //   { id: 1, name: 'Jayson', age: 29 },
+  //   { id: 2, name: 'Lee', age: 11 },
+  //   { id: 3, name: 'Avhy', age: 26 },
+  // ],
   errorText: 'This field is required.',
   labelKey: 'name',
-  valueKey: 'age',
+  valueKey: 'id',
   isClearable: true,
   isMulti: true,
 }
