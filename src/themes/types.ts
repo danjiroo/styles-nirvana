@@ -66,7 +66,9 @@ export interface ThemeDefinition {
     [P in Headers]?: HeaderDefinition
   }
   icon: {
-    [P in Sizes]: Pick<ButtonDefinition, 'fontSize'>
+    [P in Sizes]: {
+      height: number
+    }
   }
   input: {
     border: number

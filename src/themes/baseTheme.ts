@@ -151,19 +151,19 @@ export const baseTheme: ThemeDefinition = {
   },
   icon: {
     xs: {
-      fontSize: 13,
+      height: 12,
     },
     sm: {
-      fontSize: 15,
+      height: 13,
     },
     md: {
-      fontSize: 17,
+      height: 14,
     },
     lg: {
-      fontSize: 19,
+      height: 15,
     },
     xl: {
-      fontSize: 22,
+      height: 16,
     },
   },
   input: {

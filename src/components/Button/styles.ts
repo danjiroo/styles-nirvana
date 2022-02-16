@@ -33,6 +33,10 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
       color: ${layout !== 'solid' && '#fff'};
       background: ${theme?.colors[btnColor][!isDisabled ? 'dark' : 'DEFAULT']};
       opacity: ${!isDisabled && 1};
+
+      svg {
+        stroke: ${layout !== 'solid' && '#fff'};
+      }
     }
   `
 }
