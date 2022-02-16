@@ -65,6 +65,7 @@ SingleSelect.args = {
   errorText: 'This field is required.',
   labelKey: 'name',
   valueKey: 'age',
+  isClearable: true,
 }
 
 export const MultiSelect = Template.bind({})
@@ -79,6 +80,8 @@ MultiSelect.args = {
     { name: 'Avhy', age: 11 },
   ],
   errorText: 'This field is required.',
+  labelKey: 'name',
+  valueKey: 'age',
   isClearable: true,
   isMulti: true,
 }
