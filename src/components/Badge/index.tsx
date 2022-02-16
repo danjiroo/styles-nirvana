@@ -23,8 +23,9 @@ const Badge: React.FC<BadgeProps> = (props) => {
         <Button
           onClick={onClick}
           className='close_btn'
-          icon='close-circle'
+          icon='x-circle'
           btnColor={type}
+          size='xs'
         />
       )}
     </StyledBadge>

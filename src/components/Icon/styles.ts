@@ -7,14 +7,15 @@ import { IconProps } from './types'
 type StyleIconProps = IconProps & ThemeProvider
 
 export const StyledIconDiv = styled.div<StyleIconProps>`
-  width: auto;
-  /* height: ${({ size = 'md', theme }) => theme.icon[size].height}px; */
-  height: auto;
+  width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  height: ${({ size = 'md', theme }) => theme.icon[size].height}px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   > svg {
+    width: 100%;
+    height: 100%;
     stroke: ${({ color = 'primary', theme }) => theme.colors[color].DEFAULT};
   }
 

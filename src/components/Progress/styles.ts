@@ -34,7 +34,7 @@ export const StyledProgress = styled.div<ProgressProps>`
     stroke-dashoffset: calc(
       440 - (440 * ${({ progress = 0 }) => progress}) / 100
     );
-    stroke: #03a9f4;
+    stroke: ${({ theme, color = 'primary' }) => theme.colors[color].DEFAULT};
   }
 
   .num {

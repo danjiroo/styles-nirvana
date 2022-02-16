@@ -157,19 +157,19 @@ export const baseTheme: ThemeDefinition = {
   },
   icon: {
     xs: {
-      height: 12,
+      height: 18,
     },
     sm: {
-      height: 13,
+      height: 21,
     },
     md: {
-      height: 14,
+      height: 25,
     },
     lg: {
-      height: 15,
+      height: 27,
     },
     xl: {
-      height: 16,
+      height: 30,
     },
   },
   input: {

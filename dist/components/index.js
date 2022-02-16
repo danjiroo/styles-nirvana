@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Modifiers = exports.MultiSelect = exports.SingleSelect = exports.Tooltip = exports.Table = exports.Spinner = exports.Search = exports.ReactFlow = exports.RaySpinner = exports.Progress = exports.Page = exports.Navigation = exports.Menu = exports.Logo = exports.InputTest = exports.Input = exports.Image = exports.Icon = exports.Header = exports.Form = exports.Container = exports.Card = exports.Button = exports.Badge = void 0;
+exports.Modifiers = exports.MultiSelect = exports.SingleSelect = exports.Tooltip = exports.Table = exports.Spinner = exports.Search = exports.ReactFlow = exports.RaySpinner = exports.Progress = exports.Page = exports.Navigation = exports.Menu = exports.Logo = exports.Input = exports.Image = exports.Icon = exports.Header = exports.Form = exports.Container = exports.Card = exports.Button = exports.Badge = void 0;
 var Badge_1 = require("./Badge");
 Object.defineProperty(exports, "Badge", { enumerable: true, get: function () { return __importDefault(Badge_1).default; } });
 var Button_1 = require("./Button");
@@ -22,8 +22,6 @@ var Image_1 = require("./Image");
 Object.defineProperty(exports, "Image", { enumerable: true, get: function () { return __importDefault(Image_1).default; } });
 var Input_1 = require("./Input");
 Object.defineProperty(exports, "Input", { enumerable: true, get: function () { return __importDefault(Input_1).default; } });
-var Input_test_1 = require("./Input-test");
-Object.defineProperty(exports, "InputTest", { enumerable: true, get: function () { return __importDefault(Input_test_1).default; } });
 var Logo_1 = require("./Logo");
 Object.defineProperty(exports, "Logo", { enumerable: true, get: function () { return __importDefault(Logo_1).default; } });
 var Menu_1 = require("./Menu");

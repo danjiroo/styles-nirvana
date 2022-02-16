@@ -7,14 +7,15 @@ exports.StyledIconReference = exports.StyledIconDiv = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importDefault(require("styled-components"));
 exports.StyledIconDiv = styled_components_1.default.div `
-  width: auto;
-  /* height: ${({ size = 'md', theme }) => theme.icon[size].height}px; */
-  height: auto;
+  width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  height: ${({ size = 'md', theme }) => theme.icon[size].height}px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   > svg {
+    width: 100%;
+    height: 100%;
     stroke: ${({ color = 'primary', theme }) => theme.colors[color].DEFAULT};
   }
 

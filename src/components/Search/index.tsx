@@ -88,7 +88,7 @@ const Search: React.FC<SearchProps> = (props) => {
           type='text'
           value={searchText}
           name='global-search'
-          iconLeft='search-thick'
+          iconLeft='search'
           placeholder='Search anything...'
           actions={{
             handleChange: (data) => {

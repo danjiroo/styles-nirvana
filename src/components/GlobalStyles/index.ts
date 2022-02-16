@@ -40,6 +40,10 @@ export const Modifiers = createGlobalStyle<ThemeProvider>`
     
   }
 
+  a {
+    text-decoration: none !important;
+  }
+
   ${({ theme }) => getHeaderStyles(theme)}
 
   // Custom Classnames

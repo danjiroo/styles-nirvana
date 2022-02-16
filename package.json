@@ -1,6 +1,6 @@
 {
   "name": "@pando-styles/nirvana",
-  "version": "1.0.50",
+  "version": "1.0.51",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -42,7 +42,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
     "@storybook/addon-actions": "^6.4.18",
     "@storybook/addon-essentials": "^6.4.18",
-    "@storybook/addon-links": "^6.4.18",
+    "@storybook/addon-links": "^6.4.19",
     "@storybook/builder-webpack5": "^6.4.18",
     "@storybook/manager-webpack5": "^6.4.18",
     "@storybook/react": "^6.4.18",

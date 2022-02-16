@@ -44,4 +44,5 @@ Primary.args = {
   //   outline_color: 'yellow',
   //   border_radius: "25px",
   // },
+  size: 'md',
 }

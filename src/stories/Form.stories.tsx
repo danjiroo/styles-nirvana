@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof Form> = (args) => {
       place_holder: 'enter test',
       name: 'test',
       field_type: 'text',
-      icon: 'search-thick',
+      icon: 'search',
     },
   }
   const someSideEffect = <T,>(data: T) => {

@@ -34,6 +34,10 @@ exports.Modifiers = (0, styled_components_1.createGlobalStyle) `
     
   }
 
+  a {
+    text-decoration: none !important;
+  }
+
   ${({ theme }) => getHeaderStyles(theme)}
 
   // Custom Classnames

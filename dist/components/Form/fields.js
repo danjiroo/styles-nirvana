@@ -8,7 +8,7 @@ exports.fields = {
         place_holder: 'enter test',
         name: 'test',
         field_type: 'text',
-        icon: 'search-thick',
+        icon: 'search',
     },
 };
 //# sourceMappingURL=fields.js.map

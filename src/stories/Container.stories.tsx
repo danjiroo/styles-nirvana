@@ -47,7 +47,7 @@ const Template: ComponentStory<typeof Container> = (args) => {
         actions={actionsProp ?? {}}
         name='test'
         disabled={false}
-        iconLeft='search-thick'
+        iconLeft='search'
       />
     </Container>
   )

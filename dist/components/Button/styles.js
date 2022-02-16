@@ -73,6 +73,7 @@ exports.StyledButton = styled_components_1.default.button `
   .button-icon-div {
     height: ${({ theme, size }) => { var _a, _b; return (_b = (_a = theme === null || theme === void 0 ? void 0 : theme.button) === null || _a === void 0 ? void 0 : _a[size !== null && size !== void 0 ? size : 'md']) === null || _b === void 0 ? void 0 : _b.fontSize; }}px;
     display: flex;
+    align-items: center;
   }
 
   .button-icon-div > i,
