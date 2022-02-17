@@ -116,7 +116,6 @@ const SingleSelect: React.FC<SelectProps> = (props: SelectProps) => {
     // }),
     multiValueRemove: (styles) => ({
       ...styles,
-      // color: colors.primary.light,
       ':hover': {
         backgroundColor: colors.primary.DEFAULT,
         color: 'white',
