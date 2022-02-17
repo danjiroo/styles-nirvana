@@ -86,17 +86,17 @@ const move = keyframes`
 
 const moveRerverse = keyframes`
   0% { 
-    transform: translate(2.2rem, 0.8rem);
+    transform: translate(2.4rem, 0.8rem);
     background-color: white;
     opacity: 1;
   }
   20%{
-    transform: translate(2.2rem, -.8rem);
+    transform: translate(2.4rem, -.8rem);
     background-color: white;
   }
 
   100% {  
-    transform: translate(2.2rem, .8rem);
+    transform: translate(2.4rem, .8rem);
     background-color: white;
   }
 `
