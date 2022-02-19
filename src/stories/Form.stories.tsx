@@ -34,4 +34,4 @@ const Template: ComponentStory<typeof Form> = (args) => {
   )
 }
 
-export const Primary = Template.bind({})
+export const Default = Template.bind({})

@@ -9,4 +9,4 @@ export default {
 
 const Template: ComponentStory<typeof Login> = (args) => <Login {...args} />
 
-export const Primary = Template.bind({})
+export const Default = Template.bind({})

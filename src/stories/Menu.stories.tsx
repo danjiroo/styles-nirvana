@@ -69,4 +69,4 @@ const Template: ComponentStory<typeof Menu> = (args) => {
   )
 }
 
-export const Primary = Template.bind({})
+export const Default = Template.bind({})

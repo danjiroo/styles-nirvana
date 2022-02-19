@@ -15,11 +15,12 @@ export { default as Navigation } from './Navigation'
 export { default as Page } from './Page'
 export { default as Progress } from './Progress'
 export { default as RaySpinner } from './RaySpinner'
-export { default as ReactFlow } from './ReactFlow'
 export { default as Search } from './Search'
 export { default as Select } from './Select'
 export { default as Spinner } from './Spinner'
 export { default as Table } from './Table'
 export { default as Tooltip } from './Tooltip'
+
+export * from './ReactFlow'
 
 export { Modifiers } from './GlobalStyles'

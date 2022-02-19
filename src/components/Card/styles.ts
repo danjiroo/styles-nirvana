@@ -4,10 +4,10 @@ import { CardProps } from './types'
 
 export const StyledCard = styled.div<CardProps>`
   background: #fff;
-  width: 100%;
-  max-width: 250px;
+  width: ${({ block = false }) => (!block ? '100%' : 'auto')};
+  max-width: ${({ block = false }) => (block ? '100%' : '250px')};
   height: ${({ height }) => (height === 'auto' ? 'auto' : `${height}px`)};
-  display: flex;
+  display: ${({ block = false }) => (block ? 'block' : 'flex')};
   justify-content: center;
   align-items: center;
   position: relative;

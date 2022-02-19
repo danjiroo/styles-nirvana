@@ -13,8 +13,8 @@ const Template: ComponentStory<typeof Navigation> = (args) => (
   <Navigation {...args} />
 )
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const Default = Template.bind({})
+Default.args = {
   nav_menus: {
     config: {
       is_enabled: true,

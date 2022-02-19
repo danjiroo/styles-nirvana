@@ -7,10 +7,10 @@ exports.StyledCard = void 0;
 const styled_components_1 = __importDefault(require("styled-components"));
 exports.StyledCard = styled_components_1.default.div `
   background: #fff;
-  width: 100%;
-  max-width: 250px;
+  width: ${({ block = false }) => (!block ? '100%' : 'auto')};
+  max-width: ${({ block = false }) => (block ? '100%' : '250px')};
   height: ${({ height }) => (height === 'auto' ? 'auto' : `${height}px`)};
-  display: flex;
+  display: ${({ block = false }) => (block ? 'block' : 'flex')};
   justify-content: center;
   align-items: center;
   position: relative;

@@ -33,7 +33,7 @@ const getContainerStyles = (props) => {
   `;
 };
 exports.StyledContainer = styled_components_1.default.div `
-  ${getContainerStyles} 
+  ${getContainerStyles}
 
   max-width: 100%
 `;

@@ -20,6 +20,10 @@ export interface CardProps {
      */
     height?: 'auto' | number;
     /**
+     * Card width 100%?
+     */
+    block?: boolean;
+    /**
      * An action prop that is executed when clicking the card
      */
     handleClick?: () => void;

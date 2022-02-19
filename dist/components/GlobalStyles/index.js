@@ -10,6 +10,8 @@ const getHeaderStyles = (theme) => {
         ${header} {
           font-size: ${theme.headers[header].fontSize}rem;
           font-weight: ${theme.headers[header].fontWeight};
+          padding: 0;
+          margin: 0;
         }
         `)}
   `;
@@ -31,6 +33,10 @@ exports.Modifiers = (0, styled_components_1.createGlobalStyle) `
     // sizes here can by dynamic base on theme (not yet implemented)
     font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
     font-weight: ${({ theme }) => theme.text.size.md.fontWeight};
+  }
+
+  h3, h4 {
+    margin: 0;
   }
 
   a {

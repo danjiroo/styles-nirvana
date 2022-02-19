@@ -48,4 +48,4 @@ const Template: ComponentStory<typeof Container> = (args) => {
   )
 }
 
-export const Primary = Template.bind({})
+export const Default = Template.bind({})

@@ -23,9 +23,9 @@ const Template: ComponentStory<typeof Input> = (args) => {
   return <Input {...args} actions={actionsProp} />
 }
 
-export const Primary = Template.bind({})
+export const Default = Template.bind({})
 
-Primary.args = {
+Default.args = {
   value: '',
   type: 'text',
   field_type: 'text',
