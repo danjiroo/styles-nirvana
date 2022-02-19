@@ -128,7 +128,8 @@ export const ComponentDetails: ComponentProps[] = [
     title: 'React Flow',
     content: 'Lorem ipsum dolor.',
     story_url: 'react-flow',
-    progress: 'pending',
+    progress: 'inprogress',
+    dev: 'pending',
   },
   {
     title: 'Search',
