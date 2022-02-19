@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { RefObject, useImperativeHandle } from 'react'
 
@@ -21,19 +22,7 @@ const Tooltip: React.FC<any> = React.forwardRef<any, any>(function Tooltip(
 
       const elementId = elRef?.current?.id
 
-      // if (window.innerHeight - bottom < tooltipHeight) {
-      //   console.log(
-      //     '-- bottom -- y - tooltipHeight -->>',
-      //     y,
-      //     tooltipHeight,
-      //     y - tooltipHeight
-      //   )
-      //   showTooltip(y - tooltipHeight, x + width, `Tooltip on the ${elementId}`)
-
-      //   return
-      // }
-
-      showTooltip(y, x + width + 20, `Tooltip on the ${elementId}`)
+      showTooltip(y, x + width + 20, `Tooltip id: ${elementId}`)
     },
   }))
 

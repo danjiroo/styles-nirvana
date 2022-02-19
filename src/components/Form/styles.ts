@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-// import { Link } from 'react-router-dom'
 
 export const StyledForm = styled.div`
   position: relative;
@@ -23,10 +22,6 @@ export const StyledFormWrapper = styled.form`
     margin-top: 1rem;
   }
 `
-
-// export const StyledLink = styled(Link)`
-//   color: #80ca90;
-// `
 
 export const HeroSection = styled.div`
   display: flex;
@@ -52,7 +47,4 @@ export const SignInSignUpSlot = styled.div`
   @media screen and (min-width: 576px) {
     width: 60%;
   }
-  /* @media screen and (min-width: 375px) {
-    width: 90%;
-  } */
 `

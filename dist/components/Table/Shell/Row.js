@@ -21,4 +21,3 @@ const Row = (props) => {
     return ((0, jsx_runtime_1.jsx)("tr", Object.assign({ className: (0, classnames_1.default)('tr', className) }, other, { children: children }), void 0));
 };
 exports.default = Row;
-//# sourceMappingURL=Row.js.map

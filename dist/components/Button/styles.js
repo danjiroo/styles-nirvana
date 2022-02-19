@@ -21,7 +21,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StyledButton = void 0;
 /* eslint-disable indent */
-/* eslint-disable no-unused-vars */
 const styled_components_1 = __importStar(require("styled-components"));
 const getDynamicStyles = (props) => {
     const { btnColor = 'primary', rounded = true, size = 'md', isDisabled = false, layout = 'solid', theme, } = props;
@@ -85,4 +84,3 @@ exports.StyledButton = styled_components_1.default.button `
     padding: 0 8px;
   }
 `;
-//# sourceMappingURL=styles.js.map

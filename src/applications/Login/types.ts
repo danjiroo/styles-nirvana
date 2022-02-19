@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 interface FieldValues {
   label: string
   required: boolean

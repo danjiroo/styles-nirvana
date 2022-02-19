@@ -21,6 +21,7 @@ export function useDynamicSVGImport(
         ImportedIconRef.current = (
           await import(`../../assets/svg/${iconName}.svg`)
         ).ReactComponent
+
         onCompleted?.(iconName, ImportedIconRef.current)
       } catch (err: any) {
         onError?.(err)

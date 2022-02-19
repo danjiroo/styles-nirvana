@@ -10,4 +10,3 @@ const RaySpinner = ({ color = '#374152', size = 'md', rayHeight = 9, rayWidth = 
     return ((0, jsx_runtime_1.jsx)(styles_1.StyledSpinner, Object.assign({ color: color, size: size, rayHeight: rayHeight, rayWidth: rayWidth, rayRadius: rayRadius, className: className, inButton: inButton }, { children: rays }), void 0));
 };
 exports.default = RaySpinner;
-//# sourceMappingURL=index.js.map

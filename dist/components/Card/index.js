@@ -19,4 +19,3 @@ const Card = (_a) => {
     return ((0, jsx_runtime_1.jsxs)(styles_1.StyledCard, Object.assign({}, rest, { zoomOnHover: zoomOnHover, onClick: () => (clickable ? handleClick === null || handleClick === void 0 ? void 0 : handleClick() : {}) }, { children: [closeable && ((0, jsx_runtime_1.jsx)(__1.Button, { onClick: handleClose, className: 'close_btn', icon: 'x-circle', layout: 'outline' }, void 0)), children] }), void 0));
 };
 exports.default = Card;
-//# sourceMappingURL=index.js.map

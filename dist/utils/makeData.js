@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable indent */
 const range = (len) => {
     const arr = [];
@@ -31,4 +32,3 @@ function makeData(...lens) {
     return makeDataLevel();
 }
 exports.default = makeData;
-//# sourceMappingURL=makeData.js.map

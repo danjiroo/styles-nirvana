@@ -15,4 +15,3 @@ exports.StyledBadge = styled_components_1.default.span `
     font-size: ${({ size = 'md', theme }) => theme.badge[size].fontSize}px;
   }
 `;
-//# sourceMappingURL=styles.js.map

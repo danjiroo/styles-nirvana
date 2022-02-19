@@ -92,4 +92,3 @@ exports.default = [
         labelStyle: { fill: '#f6ab6c', fontWeight: 700 },
     },
 ];
-//# sourceMappingURL=initialElements.js.map

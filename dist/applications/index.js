@@ -8,4 +8,3 @@ var Grid_1 = require("./Grid");
 Object.defineProperty(exports, "Grid", { enumerable: true, get: function () { return __importDefault(Grid_1).default; } });
 var Login_1 = require("./Login");
 Object.defineProperty(exports, "Login", { enumerable: true, get: function () { return __importDefault(Login_1).default; } });
-//# sourceMappingURL=index.js.map

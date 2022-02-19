@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-use-before-define */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { useState } from 'react'
@@ -11,9 +8,6 @@ export default {
   title: 'Components/Select',
   component: Select,
   args: {},
-  // NOTE: I added this manually since there is an issue in storybook
-  // Props Types are not shown in control addons if there is a
-  // third party library (react-select) preventing from autogenerating controls
   argTypes: {
     selectOptions: {
       description: 'Array of options for the dropdown items',

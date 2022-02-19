@@ -47,4 +47,3 @@ const StyledSpinner = styled_components_1.default.div `
   }
 `;
 exports.default = Spinner;
-//# sourceMappingURL=index.js.map

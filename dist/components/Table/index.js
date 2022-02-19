@@ -20,4 +20,3 @@ const Table = (props) => {
                 }) }), void 0)] }), void 0));
 };
 exports.default = Table;
-//# sourceMappingURL=index.js.map

@@ -84,4 +84,3 @@ exports.IconContainer = styled_components_1.default.div `
 }};
   cursor: pointer;
 `;
-//# sourceMappingURL=styled.js.map

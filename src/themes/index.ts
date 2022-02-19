@@ -6,6 +6,4 @@ export const Themes = {
   darkMode: darkModeTheme,
 }
 
-// export type ThemesDefinition = typeof Themes
-
 export * from './types'

@@ -72,4 +72,3 @@ exports.StyledIconReference = styled_components_1.default.div `
     box-shadow: inset 0 0 3px ${({ theme }) => theme.colors.primary.light};
   }
 `;
-//# sourceMappingURL=styles.js.map

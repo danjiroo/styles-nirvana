@@ -1,11 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-unused-vars */
-// import { ThemeProvider } from '../../themes'
-
 import React, { MouseEvent } from 'react'
 
-// export interface ButtonProps extends ThemeProvider {
-// export interface ButtonProps {
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   ref?: any // TODOOOOOO!!! still got an issue
   /**

@@ -20,7 +20,6 @@ const Search: React.FC<SearchProps> = (props) => {
 
   const ref = useRef(null)
 
-  // TODO : temp
   const sampleResults = [
     {
       id: '1',

@@ -11,4 +11,3 @@ exports.fields = {
         icon: 'search',
     },
 };
-//# sourceMappingURL=fields.js.map

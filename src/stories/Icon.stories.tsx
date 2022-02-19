@@ -1,15 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-use-before-define */
 import React, { useState } from 'react'
-// import { Story, Meta } from '@storybook/react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { useArgs } from '@storybook/client-api'
 import styled from 'styled-components'
 
 import { Icon } from '../'
-// import { IconProps } from '../components/Icon/types'
 import IconReference from '../components/Icon/IconReference'
 
 export default {
@@ -21,12 +15,10 @@ export default {
 } as ComponentMeta<typeof Icon>
 
 const Template: ComponentStory<typeof Icon> = (args) => {
-  // const [_, updateArgs] = useArgs()
   const [iconName, setIconName] = useState(args?.iconName)
 
   const handleClick = (iconName: string) => {
     setIconName(iconName)
-    // updateArgs({ iconName })
   }
 
   return (

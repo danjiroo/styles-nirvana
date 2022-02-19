@@ -3,13 +3,13 @@ import { Form } from '../../components'
 import { fields } from './fields'
 import { Container } from '../../components'
 
-const Login = () => {
+const Login: React.FC = () => {
   interface Data<T> {
     [key: string]: T
   }
 
   const onSubmit = <T,>(data: Data<T>) => {
-    console.log('DATA FROM FROM, READING FROM LOGIN COMPONENT', data)
+    console.log('On Submit:', data)
   }
   return (
     <Container size='lg'>

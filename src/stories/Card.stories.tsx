@@ -63,7 +63,6 @@ const CardWithModalLogicTemplate: ComponentStory<typeof Card> = (args) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleToggleModal = () => {
-    // setIsModalOpen(!isModalOpen)
     setIsModalOpen(true)
   }
 

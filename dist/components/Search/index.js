@@ -19,7 +19,6 @@ const Search = (props) => {
     const [showResults, setShowResults] = (0, react_1.useState)(false);
     const [searchText, setSearchText] = (0, react_1.useState)('');
     const ref = (0, react_1.useRef)(null);
-    // TODO : temp
     const sampleResults = [
         {
             id: '1',
@@ -77,4 +76,3 @@ const Search = (props) => {
                         } }, void 0), isSearching && ((0, jsx_runtime_1.jsx)(__1.RaySpinner, { className: 'search-spinner', size: 'xs', rayHeight: 6, rayWidth: 4 }, void 0))] }), void 0), showResults && !!searchText && ((0, jsx_runtime_1.jsx)(SearchResults_1.default, { results: sampleResults, handleClick: (data) => alert(`Clicked searched item: ${JSON.stringify(data)}`) }, void 0))] }), void 0));
 };
 exports.default = Search;
-//# sourceMappingURL=index.js.map

@@ -25,4 +25,3 @@ function useTooltip() {
     };
 }
 exports.default = useTooltip;
-//# sourceMappingURL=useTooltip.js.map

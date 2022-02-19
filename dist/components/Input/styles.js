@@ -91,17 +91,17 @@ const move = (0, styled_components_1.keyframes) `
 `;
 const moveRerverse = (0, styled_components_1.keyframes) `
   0% { 
-    transform: translate(2.2rem, 0.8rem);
+    transform: translate(2.4rem, 0.8rem);
     background-color: white;
     opacity: 1;
   }
   20%{
-    transform: translate(2.2rem, -.8rem);
+    transform: translate(2.4rem, -.8rem);
     background-color: white;
   }
 
   100% {  
-    transform: translate(2.2rem, .8rem);
+    transform: translate(2.4rem, .8rem);
     background-color: white;
   }
 `;
@@ -156,4 +156,3 @@ exports.StyledIcon = styled_components_1.default.div `
   align-items: center;
   transform: translate(0.6rem, 0.7rem);
 `;
-//# sourceMappingURL=styles.js.map

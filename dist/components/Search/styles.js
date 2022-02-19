@@ -35,4 +35,3 @@ exports.StyledResultsContainer = styled_components_1.default.ul `
     color: #888888;
   }
 `;
-//# sourceMappingURL=styles.js.map

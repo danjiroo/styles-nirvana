@@ -10,8 +10,6 @@ export default {
   decorators: [withMock],
   parameters: {
     xstate: true,
-    // this option is passed to the devTools instance to use a different inspector
-    // inspectUrl: 'https://stately.ai/viz?inspect',
   },
 } as ComponentMeta<typeof Grid>
 

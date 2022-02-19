@@ -76,4 +76,3 @@ exports.StyledSpinner = styled_components_1.default.div `
   /* Generate :nth-child(n) of div */
   ${generateNthChild(12)}
 `;
-//# sourceMappingURL=styles.js.map

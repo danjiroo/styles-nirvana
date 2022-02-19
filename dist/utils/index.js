@@ -6,4 +6,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeData = void 0;
 var makeData_1 = require("./makeData");
 Object.defineProperty(exports, "makeData", { enumerable: true, get: function () { return __importDefault(makeData_1).default; } });
-//# sourceMappingURL=index.js.map

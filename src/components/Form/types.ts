@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 export interface IFields {
   test: {
     label: string

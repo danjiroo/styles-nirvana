@@ -32,4 +32,3 @@ exports.StyledHeader = styled_components_1.default.header `
     margin-left: 10px;
   }
 `;
-//# sourceMappingURL=styles.js.map

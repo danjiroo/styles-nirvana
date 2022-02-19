@@ -21,4 +21,3 @@ const Container = (props) => {
     return ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: (0, classnames_1.default)('container', className) }, other, { children: children }), void 0));
 };
 exports.default = Container;
-//# sourceMappingURL=Container.js.map

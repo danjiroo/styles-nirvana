@@ -1,16 +1,11 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react'
 import { useTheme } from 'styled-components'
 
 import { Icon, RaySpinner } from '../'
 import { StyledButton } from './styles'
-import { ThemeDefinition } from 'themes'
+import { ThemeDefinition } from '../../themes'
 import { ButtonProps } from './types'
 
-/**
- * Primary UI component for user interaction
- */
 const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
   function Button(
     {
@@ -28,9 +23,6 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
     },
     ref
   ) {
-    // ! NOTE: Doing this since there's an issue in storybook,
-    // ! if props are not set with default values at the parameter level,
-    // ! storybook will not show any default value in the addons/docs
     const usedProps = {
       label,
       isLoading,

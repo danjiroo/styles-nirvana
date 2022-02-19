@@ -67,4 +67,3 @@ exports.StyledProgress = styled_components_1.default.div `
     letter-spacing: 1px;
   }
 `;
-//# sourceMappingURL=styles.js.map

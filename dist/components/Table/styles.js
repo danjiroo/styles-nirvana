@@ -35,10 +35,6 @@ const getResponsiveHeaders = ({ columns }) => {
     return headers.join(';');
 };
 exports.getResponsiveHeaders = getResponsiveHeaders;
-// export const StyledTableDivTest = styled.div`
-//   overflow-y: auto;
-//   height: 400px;
-// `
 exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
   border-spacing: 1;
   border-collapse: collapse;
@@ -129,4 +125,3 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
     }
   }
 `;
-//# sourceMappingURL=styles.js.map

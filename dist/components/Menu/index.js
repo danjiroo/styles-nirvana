@@ -11,4 +11,3 @@ const Menu = (props) => {
     return ((0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: (0, jsx_runtime_1.jsxs)(styled_1.MenuContainer, { children: [(0, jsx_runtime_1.jsx)(styled_1.IconContainer, Object.assign({ align: align, onClick: handleOpenMenu }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: is_open ? 'x-circle' : 'menu', hoverable: true, size: 'xl' }, void 0) }), void 0), (0, jsx_runtime_1.jsx)(styled_1.MenuContent, Object.assign({ align: align, is_open: is_open }, { children: children }), void 0)] }, void 0) }, void 0));
 };
 exports.default = Menu;
-//# sourceMappingURL=index.js.map

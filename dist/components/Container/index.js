@@ -7,4 +7,3 @@ const Container = (props) => {
     return ((0, jsx_runtime_1.jsx)(styles_1.StyledContainer, Object.assign({ size: size, className: 'StyledContainer' }, { children: children }), void 0));
 };
 exports.default = Container;
-//# sourceMappingURL=index.js.map

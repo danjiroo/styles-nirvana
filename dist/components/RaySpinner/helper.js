@@ -32,4 +32,3 @@ function iterateDelay(idx, n) {
     return Math.round((res + Number.EPSILON) * 100) / 100;
 }
 exports.iterateDelay = iterateDelay;
-//# sourceMappingURL=helper.js.map

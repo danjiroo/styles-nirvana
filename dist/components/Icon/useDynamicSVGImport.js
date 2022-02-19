@@ -56,4 +56,3 @@ function useDynamicSVGImport(iconName, options = {}) {
     return { error, loading, SvgIcon: ImportedIconRef.current };
 }
 exports.useDynamicSVGImport = useDynamicSVGImport;
-//# sourceMappingURL=useDynamicSVGImport.js.map

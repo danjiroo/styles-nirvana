@@ -34,4 +34,3 @@ exports.StyledNavWrapper = styled_components_1.default.div `
   @media screen {
   }
 `;
-//# sourceMappingURL=styles.js.map

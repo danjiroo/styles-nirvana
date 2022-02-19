@@ -21,4 +21,3 @@ const Body = (props) => {
     return ((0, jsx_runtime_1.jsx)("tbody", Object.assign({ className: (0, classnames_1.default)('tbody', className) }, other, { children: children }), void 0));
 };
 exports.default = Body;
-//# sourceMappingURL=Body.js.map

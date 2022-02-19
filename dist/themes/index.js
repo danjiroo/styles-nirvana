@@ -17,6 +17,4 @@ exports.Themes = {
     base: baseTheme_1.baseTheme,
     darkMode: darkTheme_1.darkModeTheme,
 };
-// export type ThemesDefinition = typeof Themes
 __exportStar(require("./types"), exports);
-//# sourceMappingURL=index.js.map

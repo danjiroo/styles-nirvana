@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define */
-/* eslint-disable @typescript-eslint/no-empty-function */
 import { Story, Meta } from '@storybook/react'
 import styled from 'styled-components'
 

@@ -10,4 +10,3 @@ var IconColorEnum;
     IconColorEnum[IconColorEnum["light"] = 5] = "light";
     IconColorEnum[IconColorEnum["dark"] = 6] = "dark";
 })(IconColorEnum || (IconColorEnum = {}));
-//# sourceMappingURL=types.js.map

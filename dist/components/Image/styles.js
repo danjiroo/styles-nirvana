@@ -26,4 +26,3 @@ exports.StyledImage = styled_components_1.default.img `
   height: 100%;
   object-fit: ${({ objectFit = 'contain' }) => objectFit};
 `;
-//# sourceMappingURL=styles.js.map

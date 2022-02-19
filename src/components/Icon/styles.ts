@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 import styled from 'styled-components'
-import { ThemeProvider } from 'themes/types'
+import { ThemeProvider } from '../../themes/types'
 
 import { IconProps } from './types'
 

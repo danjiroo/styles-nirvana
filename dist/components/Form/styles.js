@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SignInSignUpSlot = exports.HeroSection = exports.StyledFormWrapper = exports.StyledForm = void 0;
 const styled_components_1 = __importDefault(require("styled-components"));
-// import { Link } from 'react-router-dom'
 exports.StyledForm = styled_components_1.default.div `
   position: relative;
   display: flex;
@@ -27,9 +26,6 @@ exports.StyledFormWrapper = styled_components_1.default.form `
     margin-top: 1rem;
   }
 `;
-// export const StyledLink = styled(Link)`
-//   color: #80ca90;
-// `
 exports.HeroSection = styled_components_1.default.div `
   display: flex;
   justify-content: center;
@@ -53,8 +49,4 @@ exports.SignInSignUpSlot = styled_components_1.default.div `
   @media screen and (min-width: 576px) {
     width: 60%;
   }
-  /* @media screen and (min-width: 375px) {
-    width: 90%;
-  } */
 `;
-//# sourceMappingURL=styles.js.map

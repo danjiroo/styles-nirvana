@@ -19,4 +19,3 @@ exports.fields = {
         icon: 'user',
     },
 };
-//# sourceMappingURL=fields.js.map

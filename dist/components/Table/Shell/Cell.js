@@ -21,4 +21,3 @@ const Cell = (props) => {
     return header ? ((0, jsx_runtime_1.jsx)("th", Object.assign({ className: (0, classnames_1.default)('th', className) }, other, { children: children }), void 0)) : ((0, jsx_runtime_1.jsx)("td", Object.assign({ className: (0, classnames_1.default)('td', className) }, other, { children: children }), void 0));
 };
 exports.default = Cell;
-//# sourceMappingURL=Cell.js.map

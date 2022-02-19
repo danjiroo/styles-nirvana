@@ -1,3 +1,3 @@
-/// <reference types="react" />
-declare const Login: () => JSX.Element;
+import React from 'react';
+declare const Login: React.FC;
 export default Login;

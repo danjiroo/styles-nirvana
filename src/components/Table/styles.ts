@@ -17,11 +17,6 @@ export const getResponsiveHeaders = ({ columns }: TableProps) => {
   return headers.join(';')
 }
 
-// export const StyledTableDivTest = styled.div`
-//   overflow-y: auto;
-//   height: 400px;
-// `
-
 export const StyledTable = styled(ReactTable)`
   border-spacing: 1;
   border-collapse: collapse;

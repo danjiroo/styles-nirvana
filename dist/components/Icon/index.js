@@ -17,4 +17,3 @@ const Icon = ({ color = 'primary', iconName = 'activity', size = 'md', hoverable
     return ((0, jsx_runtime_1.jsxs)(styles_1.StyledIconDiv, Object.assign({ size: size, color: color, hoverable: hoverable }, { children: [loading && (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {}, void 0), error && (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {}, void 0), SvgIcon && (0, jsx_runtime_1.jsx)(SvgIcon, {}, void 0)] }), void 0));
 };
 exports.default = Icon;
-//# sourceMappingURL=index.js.map

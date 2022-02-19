@@ -47,4 +47,3 @@ const Form = (props) => {
                             }), (0, jsx_runtime_1.jsx)(__3.Button, { onClick: handleSubmit, label: 'Submit' }, void 0)] }, void 0) }), void 0)] }, void 0));
 };
 exports.default = react_1.default.memo(Form);
-//# sourceMappingURL=index.js.map

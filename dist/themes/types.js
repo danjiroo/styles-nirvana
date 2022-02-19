@@ -6,4 +6,3 @@ var ThemesList;
     ThemesList["BASE"] = "base";
     ThemesList["DARK_MODE"] = "darkMode";
 })(ThemesList = exports.ThemesList || (exports.ThemesList = {}));
-//# sourceMappingURL=types.js.map

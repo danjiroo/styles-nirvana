@@ -3,7 +3,6 @@ import React from 'react'
 import { StyledProgress } from './styles'
 import { ProgressProps } from './types'
 
-// temporary component
 const Progress: React.FC<ProgressProps> = ({ progress = 0, color }) => (
   <StyledProgress className='box' color={color} progress={progress}>
     <svg>

@@ -33,4 +33,3 @@ const Image = (props) => {
                 } }, rest), void 0), isLoading && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'spinner' }, { children: (0, jsx_runtime_1.jsx)(__1.RaySpinner, {}, void 0) }), void 0))] }), void 0));
 };
 exports.default = Image;
-//# sourceMappingURL=index.js.map

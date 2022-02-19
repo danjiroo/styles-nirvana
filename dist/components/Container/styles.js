@@ -20,7 +20,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StyledContainer = void 0;
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const styled_components_1 = __importStar(require("styled-components"));
 const getContainerStyles = (props) => {
     const { theme, size = '' } = props;
@@ -34,8 +33,7 @@ const getContainerStyles = (props) => {
   `;
 };
 exports.StyledContainer = styled_components_1.default.div `
-  ${getContainerStyles} /* background-color: red; */
+  ${getContainerStyles} 
 
   max-width: 100%
 `;
-//# sourceMappingURL=styles.js.map

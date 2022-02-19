@@ -21,4 +21,3 @@ const Header = (props) => {
     return ((0, jsx_runtime_1.jsx)("thead", Object.assign({ className: (0, classnames_1.default)('thead', className) }, other, { children: children }), void 0));
 };
 exports.default = Header;
-//# sourceMappingURL=Header.js.map

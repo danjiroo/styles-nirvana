@@ -34,4 +34,3 @@ exports.default = Object.assign(Table, {
     Cell: Cell_1.default,
     Footer: Footer_1.default,
 }); // temp for build
-//# sourceMappingURL=Table.js.map

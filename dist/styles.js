@@ -22,4 +22,3 @@ exports.StyledApp = styled_components_1.default.div `
     color: #eee;
   }
 `;
-//# sourceMappingURL=styles.js.map

@@ -32,7 +32,6 @@ export default {
     loadingLabel: 'Loading...',
     isDisabled: false,
     block: false,
-    // onClick: () => alert('Button clicked!'),
   },
 } as ComponentMeta<typeof Button>
 

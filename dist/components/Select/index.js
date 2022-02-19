@@ -93,9 +93,7 @@ const SingleSelect = (props) => {
         //   ...styles,
         //   color: colors.primary.dark,
         // }),
-        multiValueRemove: (styles) => (Object.assign(Object.assign({}, styles), { 
-            // color: colors.primary.light,
-            ':hover': {
+        multiValueRemove: (styles) => (Object.assign(Object.assign({}, styles), { ':hover': {
                 backgroundColor: colors.primary.DEFAULT,
                 color: 'white',
             } })),
@@ -103,4 +101,3 @@ const SingleSelect = (props) => {
     return ((0, jsx_runtime_1.jsxs)(styles_1.StyledSelectContainer, Object.assign({}, props, { children: [!!icon && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'select-icon-container' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: icon, color: 'dark' }, void 0) }), void 0)), (0, jsx_runtime_1.jsxs)(styles_1.StyledField, Object.assign({}, props, { children: [!!label && ((0, jsx_runtime_1.jsxs)("label", Object.assign({ className: 'select-label' }, { children: [label, " ", !!isRequired && (0, jsx_runtime_1.jsx)("span", Object.assign({ className: 'select-required' }, { children: "*" }), void 0)] }), void 0)), (0, jsx_runtime_1.jsx)(SelectComponent, Object.assign({}, restProps, { className: 'select-component', selected: true, isDisabled: isDisabled, isLoading: isLoading, isFocused: true, isMulti: isMulti, value: valueFormatter, placeholder: placeholder, onFocus: () => setFocus(true), onBlur: () => setFocus(false), options: optionFormatter, onChange: handleOnchange, styles: colorStyles, theme: (theme) => (Object.assign(Object.assign({}, theme), { borderRadius: rounded ? 8 : 0, colors: Object.assign(Object.assign({}, theme.colors), { primary25: colors.primary.light, primary: colors.primary.DEFAULT }) })) }), void 0), !!error && ((0, jsx_runtime_1.jsx)("span", Object.assign({ className: 'select-error', style: { width: `calc(100% - ${icon && '28px'})` } }, { children: errorText }), void 0))] }), void 0)] }), void 0));
 };
 exports.default = SingleSelect;
-//# sourceMappingURL=index.js.map

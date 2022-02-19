@@ -29,7 +29,7 @@ const react_flow_renderer_1 = __importStar(require("react-flow-renderer"));
 const initialElements_1 = __importDefault(require("./initialElements"));
 // ! Types here are temporary, since this Component is just an example
 const onLoad = (reactFlowInstance) => {
-    console.log('flow loaded:', reactFlowInstance);
+    console.log('Flow loaded:', reactFlowInstance);
     reactFlowInstance.fitView();
 };
 const OverviewFlow = () => {
@@ -55,4 +55,3 @@ const OverviewFlow = () => {
                     }, nodeBorderRadius: 2 }, void 0), (0, jsx_runtime_1.jsx)(react_flow_renderer_1.Controls, {}, void 0), (0, jsx_runtime_1.jsx)(react_flow_renderer_1.Background, { color: '#aaa', gap: 16 }, void 0)] }), void 0) }, void 0));
 };
 exports.default = OverviewFlow;
-//# sourceMappingURL=index.js.map

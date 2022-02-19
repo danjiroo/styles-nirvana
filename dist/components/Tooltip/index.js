@@ -23,6 +23,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 const react_1 = __importStar(require("react"));
 const useTooltip_1 = __importDefault(require("./useTooltip"));
@@ -38,20 +39,9 @@ const Tooltip = react_1.default.forwardRef(function Tooltip(props, ref) {
             }
             const { y, x, width } = elRef.current.getBoundingClientRect();
             const elementId = (_a = elRef === null || elRef === void 0 ? void 0 : elRef.current) === null || _a === void 0 ? void 0 : _a.id;
-            // if (window.innerHeight - bottom < tooltipHeight) {
-            //   console.log(
-            //     '-- bottom -- y - tooltipHeight -->>',
-            //     y,
-            //     tooltipHeight,
-            //     y - tooltipHeight
-            //   )
-            //   showTooltip(y - tooltipHeight, x + width, `Tooltip on the ${elementId}`)
-            //   return
-            // }
-            showTooltip(y, x + width + 20, `Tooltip on the ${elementId}`);
+            showTooltip(y, x + width + 20, `Tooltip id: ${elementId}`);
         },
     }));
     return isTooltipVisible ? ((0, jsx_runtime_1.jsx)(styles_1.StyledTooltipContainer, Object.assign({ top: top, left: left }, { children: props.children }), void 0)) : null;
 });
 exports.default = Tooltip;
-//# sourceMappingURL=index.js.map
