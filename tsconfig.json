@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@sample/*": ["./components/sample/*"]
+    },
+    "rootDirs": ["./src/*"],
+    "outDir": "./dist",
+    "declaration": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/stories"]
+}

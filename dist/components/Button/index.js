@@ -1,0 +1,43 @@
+"use strict";
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("react/jsx-runtime");
+const react_1 = __importDefault(require("react"));
+const styled_components_1 = require("styled-components");
+const __1 = require("../");
+const styles_1 = require("./styles");
+const Button = react_1.default.forwardRef(function Button(_a, ref) {
+    var { label, isLoading = false, loadingLabel = 'Loading...', isDisabled = false, icon, iconLeft, iconRight, layout = 'solid', btnColor = 'primary', size = 'md' } = _a, other = __rest(_a, ["label", "isLoading", "loadingLabel", "isDisabled", "icon", "iconLeft", "iconRight", "layout", "btnColor", "size"]);
+    const usedProps = {
+        label,
+        isLoading,
+        loadingLabel,
+        isDisabled,
+        icon,
+        iconLeft,
+        iconRight,
+        layout,
+        btnColor,
+        size,
+    };
+    const { colors } = (0, styled_components_1.useTheme)();
+    const IconLeft = iconLeft || icon;
+    const IconRight = iconRight;
+    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledButton, Object.assign({ type: 'button' }, other, usedProps, { disabled: isDisabled, ref: ref }, { children: [IconLeft && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'button-icon-div' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: IconLeft, color: layout === 'solid' ? 'light' : btnColor, size: size }, void 0) }), void 0)), isLoading && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'button-icon-div' }, { children: (0, jsx_runtime_1.jsx)(__1.RaySpinner, { color: layout === 'solid'
+                        ? colors['light'].DEFAULT
+                        : colors[btnColor].DEFAULT, size: size, rayHeight: 3, rayWidth: 2, inButton: true }, void 0) }), void 0)), isLoading ? ((0, jsx_runtime_1.jsx)("span", { children: loadingLabel }, void 0)) : (label && (0, jsx_runtime_1.jsx)("span", { children: label }, void 0)), IconRight && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'button-icon-div' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: IconRight, color: layout === 'solid' ? 'light' : btnColor, size: size }, void 0) }), void 0))] }), void 0));
+});
+exports.default = Button;
