@@ -22,7 +22,14 @@ export const StyledDropbox = styled.div`
   // inside the dropbox
   .react-flow__node {
     width: 300px;
+    border: 1px solid #eee;
   }
+
+  /* [class*='react-flow__node-'].selected,
+  [class*='react-flow__node-']:hover {
+    border: none;
+    box-shadow: none;
+  } */
 `
 
 export const StyledSidebar = styled.div`
@@ -44,5 +51,6 @@ export const StyledSidebar = styled.div`
     width: auto;
     text-align: left;
     border: none;
+    padding: 0;
   }
 `

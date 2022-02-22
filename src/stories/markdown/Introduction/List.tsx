@@ -125,11 +125,18 @@ export const ComponentDetails: ComponentProps[] = [
     dev: 'Dan',
   },
   {
+    title: 'Question',
+    content: 'Lorem ipsum dolor.',
+    story_url: 'question',
+    progress: 'inprogress',
+    dev: 'Dan',
+  },
+  {
     title: 'React Flow',
     content: 'Lorem ipsum dolor.',
     story_url: 'react-flow',
     progress: 'inprogress',
-    dev: 'pending',
+    dev: 'Dan',
   },
   {
     title: 'Search',

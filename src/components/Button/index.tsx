@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import { useTheme } from 'styled-components'
 
@@ -9,7 +10,7 @@ import { ButtonProps } from './types'
 const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
   function Button(
     {
-      label,
+      label = 'Action',
       isLoading = false,
       loadingLabel = 'Loading...',
       isDisabled = false,

@@ -27,7 +27,7 @@ interface Fields {
 }
 
 export interface FormProps {
-  title: string
+  title?: string
   onSubmit?: (data: State) => void
   fields: Fields
 }

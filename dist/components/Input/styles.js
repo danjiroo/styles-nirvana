@@ -147,7 +147,7 @@ exports.InputContainer = styled_components_1.default.div `
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  margin: 0 1rem 1rem 0;
+  margin: 0 0 1rem 0;
 `;
 exports.StyledIcon = styled_components_1.default.div `
   position: absolute;

@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "baseUrl": "./src",
     "paths": {
-      "@sample/*": ["./components/sample/*"]
+      "@assets/*": ["./assets/*"]
     },
     "rootDirs": ["./src/*"],
     "outDir": "./dist",

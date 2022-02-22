@@ -23,14 +23,19 @@ exports.StyledButton = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importStar(require("styled-components"));
 const getDynamicStyles = (props) => {
-    const { btnColor = 'primary', rounded = true, size = 'md', isDisabled = false, layout = 'solid', theme, } = props;
+    const { btnColor = 'primary', btnColorWeight = 'DEFAULT', rounded = true, size = 'md', isDisabled = false, layout = 'solid', theme, } = props;
     return (0, styled_components_1.css) `
     cursor: ${!isDisabled ? 'pointer' : 'not-allowed'};
-    color: ${layout === 'solid' ? '#fff' : theme === null || theme === void 0 ? void 0 : theme.colors[btnColor].DEFAULT};
+    color: ${layout === 'solid'
+        ? '#fff'
+        : theme === null || theme === void 0 ? void 0 : theme.colors[btnColor][btnColorWeight]};
     background: ${layout === 'solid'
-        ? theme === null || theme === void 0 ? void 0 : theme.colors[btnColor].DEFAULT
+        ? theme === null || theme === void 0 ? void 0 : theme.colors[btnColor][btnColorWeight]
         : 'transparent'};
-    border: 1.5px ${layout === 'outline' ? 'solid' : layout};
+    border: 1.5px
+      ${layout === 'outline'
+        ? `solid ${theme === null || theme === void 0 ? void 0 : theme.colors[btnColor][btnColorWeight]}`
+        : `${layout} ${theme === null || theme === void 0 ? void 0 : theme.colors[btnColor][btnColorWeight]}`};
     border-radius: ${rounded ? theme === null || theme === void 0 ? void 0 : theme.border.radius : 0};
     font-size: ${theme === null || theme === void 0 ? void 0 : theme.button[size].fontSize}px;
     padding: ${theme === null || theme === void 0 ? void 0 : theme.button[size].padding};

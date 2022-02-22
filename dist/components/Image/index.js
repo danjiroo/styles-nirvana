@@ -20,10 +20,9 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
 const classnames_1 = __importDefault(require("classnames"));
 const __1 = require("../");
-const placeholder_png_1 = __importDefault(require("./assets/placeholder.png"));
 const styles_1 = require("./styles");
 const Image = (props) => {
-    const { alt, className, isLoading = false, objectFit = 'contain', placeholder = placeholder_png_1.default, rounded = false, src } = props, rest = __rest(props, ["alt", "className", "isLoading", "objectFit", "placeholder", "rounded", "src"]);
+    const { alt, className, isLoading = false, objectFit = 'contain', placeholder = '', rounded = false, src } = props, rest = __rest(props, ["alt", "className", "isLoading", "objectFit", "placeholder", "rounded", "src"]);
     const [loaded, setLoaded] = (0, react_1.useState)(false);
     const [error, setError] = (0, react_1.useState)(false);
     const imageSrc = src || placeholder;

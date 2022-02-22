@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Image } from '../'
 
-import defaultPlaceholder from '../Image/assets/placeholder.png'
+// import defaultPlaceholder from '@assets/png/placeholder.png'
 
 import { LogoProps } from './types'
 import { StyledLogoContainer } from './styles'
@@ -10,7 +10,7 @@ import { StyledLogoContainer } from './styles'
 const Logo: React.FC<LogoProps> = (props) => {
   const { alt = 'company logo', src = '', companyName, tagLine } = props
 
-  const imageSrc = src || defaultPlaceholder
+  const imageSrc = src
 
   return (
     <StyledLogoContainer {...props}>

@@ -6,6 +6,8 @@ import { IconProps } from './types'
 import { StyledIconDiv } from './styles'
 import { useDynamicSVGImport } from './useDynamicSVGImport'
 
+// import { ReactComponent as TestSVG } from '../../assets/svg/mail.svg'
+
 const Icon: React.FC<IconProps> = ({
   color = 'primary',
   iconName = 'activity',
@@ -21,11 +23,15 @@ const Icon: React.FC<IconProps> = ({
     onError,
   })
 
+  // const SVGComponent =
+  //   require(`../../assets/svg/${iconName}.svg`).ReactComponent
+
   return (
     <StyledIconDiv size={size} color={color} hoverable={hoverable}>
       {loading && <></>}
       {error && <></>}
       {SvgIcon && <SvgIcon />}
+      {/* <SVGComponent /> */}
     </StyledIconDiv>
   )
 }

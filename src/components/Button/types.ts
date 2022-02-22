@@ -18,6 +18,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     | 'danger'
     | 'light'
     | 'dark'
+  btnColorWeight?: 'light' | 'DEFAULT' | 'dark'
   /**
    * The size of the button
    */

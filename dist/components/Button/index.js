@@ -15,12 +15,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const react_1 = __importDefault(require("react"));
 const styled_components_1 = require("styled-components");
 const __1 = require("../");
 const styles_1 = require("./styles");
 const Button = react_1.default.forwardRef(function Button(_a, ref) {
-    var { label, isLoading = false, loadingLabel = 'Loading...', isDisabled = false, icon, iconLeft, iconRight, layout = 'solid', btnColor = 'primary', size = 'md' } = _a, other = __rest(_a, ["label", "isLoading", "loadingLabel", "isDisabled", "icon", "iconLeft", "iconRight", "layout", "btnColor", "size"]);
+    var { label = 'Action', isLoading = false, loadingLabel = 'Loading...', isDisabled = false, icon, iconLeft, iconRight, layout = 'solid', btnColor = 'primary', size = 'md' } = _a, other = __rest(_a, ["label", "isLoading", "loadingLabel", "isDisabled", "icon", "iconLeft", "iconRight", "layout", "btnColor", "size"]);
     const usedProps = {
         label,
         isLoading,

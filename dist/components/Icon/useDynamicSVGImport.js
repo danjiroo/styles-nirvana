@@ -41,6 +41,7 @@ function useDynamicSVGImport(iconName, options = {}) {
         const importIcon = () => __awaiter(this, void 0, void 0, function* () {
             try {
                 ImportedIconRef.current = (yield Promise.resolve().then(() => __importStar(require(`../../assets/svg/${iconName}.svg`)))).ReactComponent;
+                console.log('@iconName', iconName, ImportedIconRef.current);
                 onCompleted === null || onCompleted === void 0 ? void 0 : onCompleted(iconName, ImportedIconRef.current);
             }
             catch (err) {
