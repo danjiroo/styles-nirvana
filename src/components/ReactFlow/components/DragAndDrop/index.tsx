@@ -10,8 +10,8 @@ import { ReactFlowProps } from '../../types'
 const DragAndDrop: React.FC<ReactFlowProps> = (props) => (
   <StyledDnDContainer {...props}>
     <ReactFlowProvider>
-      <Dropbox {...props} />
       <Sidebar {...props} />
+      <Dropbox {...props} />
     </ReactFlowProvider>
   </StyledDnDContainer>
 )

@@ -9,6 +9,7 @@ type ButtonWithThemeProvider = ThemeProvider & ButtonProps
 const getDynamicStyles = (props: ButtonWithThemeProvider) => {
   const {
     btnColor = 'primary',
+    btnColorWeight = 'DEFAULT',
     rounded = true,
     size = 'md',
     isDisabled = false,
@@ -18,9 +19,11 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
 
   return css`
     cursor: ${!isDisabled ? 'pointer' : 'not-allowed'};
-    color: ${layout === 'solid' ? '#fff' : theme?.colors[btnColor].DEFAULT};
+    color: ${layout === 'solid'
+      ? '#fff'
+      : theme?.colors[btnColor][btnColorWeight]};
     background: ${layout === 'solid'
-      ? theme?.colors[btnColor].DEFAULT
+      ? theme?.colors[btnColor][btnColorWeight]
       : 'transparent'};
     border: 1.5px ${layout === 'outline' ? 'solid' : layout};
     border-radius: ${rounded ? theme?.border.radius : 0};
