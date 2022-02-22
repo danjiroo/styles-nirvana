@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Modifiers } from '../'
 
 import { Input } from '../'
-import { StyledForm, StyledFormWrapper } from './styles'
+import { StyledForm } from './styles'
 import { Button } from '../'
 import { FormProps, ActionsProps, State } from './types'
 
@@ -33,27 +33,25 @@ const Form: React.FC<FormProps> = (props) => {
   return (
     <>
       <Modifiers />
-      <StyledForm onSubmit={handleSubmit} className='margin--right'>
-        <StyledFormWrapper>
-          {submitting && <p>just a moment</p>}
-          {fields &&
-            Object.entries(fields).map(([key, value], index: number) => (
-              <Input
-                key={`key--${index}`}
-                value={state[key] ?? ''}
-                type='text'
-                field_type={value.field_type}
-                placeholder={value.place_holder}
-                label={value.label}
-                actions={actionsProp ?? {}}
-                name={value.name}
-                accessor='value'
-                disabled={submitting}
-                iconLeft={value.icon ? value.icon : ''}
-              />
-            ))}
-          <Button onClick={handleSubmit} label='Submit' />
-        </StyledFormWrapper>
+      <StyledForm onSubmit={handleSubmit}>
+        {submitting && <p>just a moment</p>}
+        {fields &&
+          Object.entries(fields).map(([key, value], index: number) => (
+            <Input
+              key={`key--${index}`}
+              value={state[key] ?? ''}
+              type='text'
+              field_type={value.field_type}
+              placeholder={value.place_holder}
+              label={value.label}
+              actions={actionsProp ?? {}}
+              name={value.name}
+              accessor='value'
+              disabled={submitting}
+              iconLeft={value.icon ? value.icon : ''}
+            />
+          ))}
+        <Button onClick={handleSubmit} label='Submit' />
       </StyledForm>
     </>
   )
