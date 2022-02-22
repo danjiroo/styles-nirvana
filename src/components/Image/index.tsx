@@ -5,7 +5,7 @@ import cn from 'classnames'
 
 import { RaySpinner } from '../'
 
-import defaultPlaceholder from './assets/placeholder.png'
+// import defaultPlaceholder from '@assets/png/placeholder.png'
 
 import { ImageProps } from './types'
 import { StyledImageContainer, StyledImage } from './styles'
@@ -16,7 +16,7 @@ const Image: React.FC<ImageProps> = (props) => {
     className,
     isLoading = false,
     objectFit = 'contain',
-    placeholder = defaultPlaceholder,
+    placeholder = '',
     rounded = false,
     src,
     ...rest
