@@ -25,7 +25,10 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
     background: ${layout === 'solid'
       ? theme?.colors[btnColor][btnColorWeight]
       : 'transparent'};
-    border: 1.5px ${layout === 'outline' ? 'solid' : layout};
+    border: 1.5px
+      ${layout === 'outline'
+        ? `solid ${theme?.colors[btnColor][btnColorWeight]}`
+        : `${layout} ${theme?.colors[btnColor][btnColorWeight]}`};
     border-radius: ${rounded ? theme?.border.radius : 0};
     font-size: ${theme?.button[size].fontSize}px;
     padding: ${theme?.button[size].padding};

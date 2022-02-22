@@ -9,6 +9,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
      * Used for bg-color, border-colors etc.
      */
     btnColor?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'light' | 'dark';
+    btnColorWeight?: 'light' | 'DEFAULT' | 'dark';
     /**
      * The size of the button
      */

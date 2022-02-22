@@ -1,6 +1,6 @@
 {
   "name": "@pando-styles/nirvana",
-  "version": "1.0.59",
+  "version": "1.0.65",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "rm -rf ./build && build-storybook -o build",
-    "cf": "copyfiles -u 1 src/**/*.html src/**/*.css src/**/*.eot src/**/*.svg src/**/*.ttf src/**/*.woff src/**/*.d.ts -e src/stories/assets/**/* dist/"
+    "cf": "copyfiles -u 1 src/**/*.html src/**/*.css src/**/*.eot src/**/*.svg src/**/*.png src/**/*.jpg src/**/*.ttf src/**/*.woff src/**/*.d.ts -e src/stories/assets/**/* dist/"
   },
   "keywords": [],
   "author": "",
@@ -83,7 +83,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json}": [
-      "eslint --fix"
+      "yarn lint"
     ],
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
