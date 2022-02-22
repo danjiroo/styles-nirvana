@@ -10,11 +10,11 @@ import { StyledLogoContainer } from './styles'
 const Logo: React.FC<LogoProps> = (props) => {
   const { alt = 'company logo', src = '', companyName, tagLine } = props
 
-  // const imageSrc = src || defaultPlaceholder
+  const imageSrc = src
 
   return (
     <StyledLogoContainer {...props}>
-      <Image src={src} alt={alt} />
+      <Image src={imageSrc} alt={alt} />
       {companyName && (
         <h4>
           {companyName} {tagLine && <span>{tagLine}</span>}
