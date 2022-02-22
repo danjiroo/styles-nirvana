@@ -33,7 +33,7 @@ const Form: React.FC<FormProps> = (props) => {
   return (
     <>
       <Modifiers />
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit} className='styled-form'>
         {submitting && <p>just a moment</p>}
         {fields &&
           Object.entries(fields).map(([key, value], index: number) => (
