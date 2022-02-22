@@ -8,7 +8,7 @@ import { Button } from '../'
 import { FormProps, ActionsProps, State } from './types'
 
 const Form: React.FC<FormProps> = (props) => {
-  const { title, onSubmit, fields } = props
+  const { onSubmit, fields } = props
 
   const submitting = false
 
@@ -35,13 +35,7 @@ const Form: React.FC<FormProps> = (props) => {
       <Modifiers />
       <StyledForm onSubmit={handleSubmit} className='margin--right'>
         <StyledFormWrapper>
-          {submitting ? (
-            <>
-              <p>just a moment</p>
-            </>
-          ) : (
-            <h4 style={{ width: '100%', textAlign: 'center' }}>{title}</h4>
-          )}
+          {submitting && <p>just a moment</p>}
           {fields &&
             Object.entries(fields).map(([key, value], index: number) => (
               <Input

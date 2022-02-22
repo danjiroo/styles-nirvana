@@ -1,7 +1,6 @@
 import React from 'react'
 import { Form } from '../../components'
 import { fields } from './fields'
-import { Container } from '../../components'
 
 const Login: React.FC = () => {
   interface Data<T> {
@@ -11,11 +10,7 @@ const Login: React.FC = () => {
   const onSubmit = <T,>(data: Data<T>) => {
     console.log('On Submit:', data)
   }
-  return (
-    <Container size='lg'>
-      <Form title='LOGIN' onSubmit={onSubmit} fields={fields} />
-    </Container>
-  )
+  return <Form title='LOGIN' onSubmit={onSubmit} fields={fields} />
 }
 
 export default Login
