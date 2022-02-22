@@ -41,8 +41,12 @@ module.exports = {
             test: /\.svg$/i,
             use: ['@svgr/webpack'],
           },
+          {
+            test: /\.svg$/i,
+            use: ['svg-inline-loader'],
+          },
           ...filteredStorybookConfig,
-          ...ownWebpackConfig.module.rules,
+          // ...ownWebpackConfig.module.rules,
         ],
       },
     }

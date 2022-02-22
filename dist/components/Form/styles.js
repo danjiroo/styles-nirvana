@@ -11,9 +11,7 @@ exports.StyledForm = styled_components_1.default.div `
   flex-direction: column;
   align-items: center;
   width: 100%;
-  /* height: 600px; */
   box-sizing: border-box;
-  padding-bottom: 1rem;
   border-radius: 6px;
 `;
 exports.StyledFormWrapper = styled_components_1.default.form `
