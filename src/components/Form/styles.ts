@@ -16,8 +16,10 @@ export const StyledFormWrapper = styled.form`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 80%;
-
+  align-items: center;
+  width: 100%;
+  padding-bottom: 1rem;
+  border-radius: 6px;
   p {
     margin-top: 1rem;
   }
