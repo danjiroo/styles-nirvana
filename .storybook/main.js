@@ -18,7 +18,7 @@ module.exports = {
       ({ test }) => !test.test('.svg')
     )
 
-    // wow : (fixed styled components not included in storybook static build)
+    // styled components not included in storybook static build
     config.plugins.push(
       new webpack.DefinePlugin({
         SC_DISABLE_SPEEDY: true,
@@ -41,12 +41,12 @@ module.exports = {
             test: /\.svg$/i,
             use: ['@svgr/webpack'],
           },
-          // {
-          //   test: /\.svg$/i,
-          //   use: ['svg-inline-loader'],
-          // },
+          {
+            test: /\.svg$/i,
+            use: ['svg-inline-loader'],
+          },
           ...filteredStorybookConfig,
-          ...ownWebpackConfig.module.rules,
+          // ...ownWebpackConfig.module.rules,
         ],
       },
     }
