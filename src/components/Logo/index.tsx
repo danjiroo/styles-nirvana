@@ -10,11 +10,13 @@ import { StyledLogoContainer } from './styles'
 const Logo: React.FC<LogoProps> = (props) => {
   const { alt = 'company logo', src = '', companyName, tagLine } = props
 
-  const imageSrc = src
+  const SVGComponent =
+    !src.includes('http') &&
+    require(`../../assets/svg/${src}.svg`).ReactComponent
 
   return (
     <StyledLogoContainer {...props}>
-      <Image src={imageSrc} alt={alt} />
+      {src.includes('http') ? <Image src={src} alt={alt} /> : <SVGComponent />}
       {companyName && (
         <h4>
           {companyName} {tagLine && <span>{tagLine}</span>}
