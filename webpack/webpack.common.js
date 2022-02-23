@@ -10,7 +10,7 @@ console.log('@@@ webpack : __dirname', __dirname)
 console.log('@@@ webpack : publicPath nirvana', path.resolve(__dirname, '..', './dist'))
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', './src/index.tsx'),
+  entry: './src/index.tsx',
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     // alias: {
@@ -34,10 +34,10 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-      // {
-      //   test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
-      //   use: ['file-loader'],
-      // },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+        use: ['file-loader'],
+      },
       {
         test: /\.(woff(2)?|eot|ttf|otf|css|)$/,
         type: 'asset/inline',
@@ -45,8 +45,8 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, '..', './dist'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, './dist'),
+    filename: 'index.js',
     publicPath: ASSET_PATH,
   },
   plugins: [
