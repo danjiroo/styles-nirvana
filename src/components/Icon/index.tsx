@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { IconProps } from './types'
 import { StyledIconDiv } from './styles'
 import { useDynamicSVGImport } from './useDynamicSVGImport'
@@ -23,15 +23,26 @@ const Icon: React.FC<IconProps> = ({
     onError,
   })
 
-  // const SVGComponent =
-  //   require(`../../assets/svg/${iconName}.svg`).ReactComponent
+  const SVGComponent =
+    require(`../../assets/svg/${iconName}.svg`).ReactComponent
+
+  // let SVGComponent: any = null
+
+  // useEffect(() => {
+  //   const getIcon = async () => {
+  //     SVGComponent = await require(`../../assets/svg/${iconName}.svg`)
+  //       .ReactComponent
+  //   }
+
+  //   getIcon()
+  // }, [iconName])
 
   return (
     <StyledIconDiv size={size} color={color} hoverable={hoverable}>
-      {loading && <></>}
+      {/* {loading && <></>}
       {error && <></>}
-      {SvgIcon && <SvgIcon />}
-      {/* <SVGComponent /> */}
+      {SvgIcon && <SvgIcon />} */}
+      <SVGComponent />
     </StyledIconDiv>
   )
 }

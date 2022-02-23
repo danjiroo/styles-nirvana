@@ -15,8 +15,15 @@ const Icon = ({ color = 'primary', iconName = 'activity', size = 'md', hoverable
         onCompleted,
         onError,
     });
-    // const SVGComponent =
-    //   require(`../../assets/svg/${iconName}.svg`).ReactComponent
-    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledIconDiv, Object.assign({ size: size, color: color, hoverable: hoverable }, { children: [loading && (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {}, void 0), error && (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, {}, void 0), SvgIcon && (0, jsx_runtime_1.jsx)(SvgIcon, {}, void 0)] }), void 0));
+    const SVGComponent = require(`../../assets/svg/${iconName}.svg`).ReactComponent;
+    // let SVGComponent: any = null
+    // useEffect(() => {
+    //   const getIcon = async () => {
+    //     SVGComponent = await require(`../../assets/svg/${iconName}.svg`)
+    //       .ReactComponent
+    //   }
+    //   getIcon()
+    // }, [iconName])
+    return ((0, jsx_runtime_1.jsx)(styles_1.StyledIconDiv, Object.assign({ size: size, color: color, hoverable: hoverable }, { children: (0, jsx_runtime_1.jsx)(SVGComponent, {}, void 0) }), void 0));
 };
 exports.default = Icon;
