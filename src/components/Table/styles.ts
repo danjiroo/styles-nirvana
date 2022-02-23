@@ -126,3 +126,8 @@ export const StyledTable = styled(ReactTable)`
     }
   }
 `
+
+export const StyledSortIconContainer = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+`
