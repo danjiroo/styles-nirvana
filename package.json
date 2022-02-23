@@ -1,13 +1,17 @@
 {
   "name": "@pando-styles/nirvana",
-  "version": "1.0.95",
+  "version": "1.1.33",
   "description": "",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
     "build:old": "webpack --config webpack/webpack.config.js --env env=prod",
     "build": "rm -rf ./dist && tsc && yarn cf",
-    "build:wp": "rm -rf ./dist && yarn build:old && tsc && yarn cf",
+    "build:wp": "rm -rf ./dist && yarn build:old",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "prettify": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -93,7 +97,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn build && lint-staged"
+      "pre-commit": "lint-staged"
     }
   }
 }

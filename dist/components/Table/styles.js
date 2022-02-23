@@ -53,27 +53,46 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
     position: sticky;
     top: 0;
     z-index: 10;
+    background: ${({ theme }) => theme.colors.light.light};
+    border-bottom: 1px solid #cccccc;
+
+    // tbody scroll
+    display: block;
+    width: calc(100% - 1em);
   }
 
   thead tr {
     height: 60px;
-    background: #f5f5f5;
     font-size: 16px;
   }
 
   tbody {
+    // tbody scroll
+    display: block;
+    overflow: auto;
+
     tr {
       height: 48px;
-      /* border-bottom: 1px solid #e3f1d5; */
       &:last-child {
         border: 0;
       }
     }
   }
 
+  tr {
+    // tbody scroll
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
   th {
-    color: #2d346d;
+    color: ${({ theme }) => theme.colors.primary.dark};
     font-weight: bold;
+  }
+
+  td {
+    color: #898a8a;
   }
 
   td,

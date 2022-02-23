@@ -18,7 +18,7 @@ module.exports = {
       ({ test }) => !test.test('.svg')
     )
 
-    // wow : (fixed styled components not included in storybook static build)
+    // styled components not included in storybook static build
     config.plugins.push(
       new webpack.DefinePlugin({
         SC_DISABLE_SPEEDY: true,
