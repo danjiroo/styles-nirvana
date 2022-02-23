@@ -12,7 +12,7 @@ import { StyledImageContainer, StyledImage } from './styles'
 
 const Image: React.FC<ImageProps> = (props) => {
   const {
-    alt,
+    alt = 'action',
     className,
     isLoading = false,
     objectFit = 'contain',
