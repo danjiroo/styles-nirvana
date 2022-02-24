@@ -16,11 +16,11 @@ exports.StyledIconDiv = styled_components_1.default.div `
   > svg {
     width: 100%;
     height: 100%;
-    stroke: ${({ color = 'primary', theme }) => theme.colors[color].DEFAULT};
+    stroke: ${({ color = 'primary', colorWeight = 'DEFAULT', theme }) => theme.colors[color][colorWeight]};
   }
 
   > svg:hover {
-    stroke: ${({ color = 'primary', theme, hoverable }) => hoverable && theme.colors[color].dark};
+    stroke: ${({ color = 'primary', theme, hoverable }) => hoverable && theme.colors[color][300]};
   }
 `;
 exports.StyledIconReference = styled_components_1.default.div `
@@ -61,14 +61,14 @@ exports.StyledIconReference = styled_components_1.default.div `
     cursor: pointer;
   }
   ul input:focus {
-    border: 1px solid ${({ theme }) => theme.colors.primary.light};
+    border: 1px solid ${({ theme }) => theme.colors.primary[200]};
     -webkit-box-shadow: inset 0 0 3px
-      ${({ theme }) => theme.colors.primary.light};
-    box-shadow: inset 0 0 3px ${({ theme }) => theme.colors.primary.light};
+      ${({ theme }) => theme.colors.primary[200]};
+    box-shadow: inset 0 0 3px ${({ theme }) => theme.colors.primary[200]};
   }
   ul input:hover {
     -webkit-box-shadow: inset 0 0 3px
-      ${({ theme }) => theme.colors.primary.light};
-    box-shadow: inset 0 0 3px ${({ theme }) => theme.colors.primary.light};
+      ${({ theme }) => theme.colors.primary[200]};
+    box-shadow: inset 0 0 3px ${({ theme }) => theme.colors.primary[200]};
   }
 `;

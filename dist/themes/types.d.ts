@@ -10,13 +10,15 @@ export interface ButtonDefinition {
     fontSize: number;
     fontWeight: number;
     padding: string;
+    lineHeight: number;
 }
 export interface ColorDefinition {
-    50: string;
-    100: string;
-    light: string;
+    50?: string;
+    100?: string;
+    200?: string;
     DEFAULT: string;
-    dark: string;
+    300?: string;
+    400?: string;
 }
 export interface HeaderDefinition {
     fontSize: number;
@@ -31,7 +33,7 @@ interface NewSizes extends TSize {
     md: string | number;
 }
 export declare type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export declare type ColorTypes = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+export declare type ColorTypes = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'light' | 'dark';
 export declare type Headers = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export interface ThemeDefinition {
     badge: {
@@ -44,9 +46,6 @@ export interface ThemeDefinition {
     };
     colors: {
         [P in ColorTypes]: ColorDefinition;
-    } & {
-        light: Pick<ColorDefinition, 'DEFAULT' | 'light' | 'dark'>;
-        dark: Pick<ColorDefinition, 'DEFAULT' | 'light' | 'dark'>;
     };
     headers: {
         [P in Headers]?: HeaderDefinition;

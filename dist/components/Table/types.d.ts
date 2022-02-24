@@ -1,9 +1,10 @@
-export interface TableColumn {
-    Header: string;
-    columns?: TableColumn[];
-    accessor?: string;
+import { Column } from 'react-table';
+export interface OtherColumnProperties {
+    show?: boolean;
+    id: string;
 }
+export declare type ExtendedColumns = Column & OtherColumnProperties;
 export interface TableProps {
-    columns: any;
+    columns: ExtendedColumns[];
     data: Record<string, unknown>[];
 }

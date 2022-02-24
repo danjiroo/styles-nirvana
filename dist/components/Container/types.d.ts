@@ -1,5 +1,6 @@
 import { ReactChild, ReactChildren } from 'react';
-export interface ContainerProps {
+import { GlobalSizes } from '../';
+export interface ContainerProps extends GlobalSizes {
     /**
      * Wrap any comment with Container component to change it's width
      * In this example, the Input component is wrap inside the Container component
@@ -16,14 +17,5 @@ export interface ContainerProps {
     children?: ReactChild | ReactChildren | JSX.Element[] | JSX.Element;
 }
 import { ThemeProvider } from '../../themes';
-interface Sizes {
-    xs: string;
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
+export interface GetContainerStyles extends ThemeProvider, GlobalSizes {
 }
-export interface GetContainerStyles extends ThemeProvider {
-    size?: keyof Sizes;
-}
-export {};

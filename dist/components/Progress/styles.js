@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StyledProgress = void 0;
+/* eslint-disable indent */
 const styled_components_1 = __importDefault(require("styled-components"));
 exports.StyledProgress = styled_components_1.default.div `
   width: 150px;
@@ -37,7 +38,7 @@ exports.StyledProgress = styled_components_1.default.div `
     stroke-dashoffset: calc(
       440 - (440 * ${({ progress = 0 }) => progress}) / 100
     );
-    stroke: ${({ theme, color = 'primary' }) => theme.colors[color].DEFAULT};
+    stroke: ${({ theme, color = 'primary', colorWeight = 'DEFAULT' }) => theme.colors[color][colorWeight]};
   }
 
   .num {
@@ -62,7 +63,7 @@ exports.StyledProgress = styled_components_1.default.div `
 
   .text {
     padding: 10px 0 0;
-    color: #999;
+    color: #999999;
     font-weight: 700;
     letter-spacing: 1px;
   }

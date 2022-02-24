@@ -60,6 +60,7 @@ var Table_1 = require("./Table");
 Object.defineProperty(exports, "Table", { enumerable: true, get: function () { return __importDefault(Table_1).default; } });
 var Tooltip_1 = require("./Tooltip");
 Object.defineProperty(exports, "Tooltip", { enumerable: true, get: function () { return __importDefault(Tooltip_1).default; } });
-__exportStar(require("./ReactFlow"), exports);
 var GlobalStyles_1 = require("./GlobalStyles");
 Object.defineProperty(exports, "Modifiers", { enumerable: true, get: function () { return GlobalStyles_1.Modifiers; } });
+__exportStar(require("./ReactFlow"), exports);
+__exportStar(require("./types"), exports);

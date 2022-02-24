@@ -1,4 +1,4 @@
-export type Colors =
+export type GColors =
   | 'primary'
   | 'secondary'
   | 'success'
@@ -6,33 +6,33 @@ export type Colors =
   | 'danger'
   | 'light'
   | 'dark'
-export type ColorWeights = '50' | '100' | '200' | 'DEFAULT' | '300' | '400'
-export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-export type Layout = 'solid' | 'outline' | 'dashed' | 'dotted' | 'double'
+export type GColorWeights = '50' | '100' | '200' | 'DEFAULT' | '300' | '400'
+export type GSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+export type GLayout = 'solid' | 'outline' | 'dashed' | 'dotted' | 'double'
 
 export interface GlobalColors {
   /**
    * Color of component
    */
-  color?: Colors
+  color?: GColors
   /**
    * Weight of component color
    */
-  colorWeight?: ColorWeights
+  colorWeight?: GColorWeights
 }
 
 export interface GlobalSizes {
   /**
    * Size of component
    */
-  size?: Sizes
+  size?: GSizes
 }
 
 export interface GlobalBorderLayout {
   /**
    * Border style or layout of component
    */
-  layout?: Layout
+  layout?: GLayout
 }
 
 export type GlobalProps = GlobalColors & GlobalSizes & GlobalBorderLayout
