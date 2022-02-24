@@ -20,7 +20,7 @@ const Input: React.FC<FormInputProps> = (props) => {
     icon,
     layout = 'solid',
     size = 'md',
-    btnColor = 'primary',
+    color = 'primary',
   } = props
   const [is_input_active, setInputActive] = useState(false)
   const [is_label_click, setLabelClick] = useState(false)
@@ -70,7 +70,7 @@ const Input: React.FC<FormInputProps> = (props) => {
           <div className='button-icon-div'>
             <Icon
               iconName={IconLeft}
-              color={layout === 'solid' ? 'light' : btnColor}
+              color={layout === 'solid' ? 'light' : color}
               size={size}
             />
           </div>

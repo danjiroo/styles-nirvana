@@ -1,17 +1,8 @@
-export interface ProgressProps {
+import { GlobalColors } from '../'
+
+export interface ProgressProps extends GlobalColors {
   /**
    * Progress percentage
    */
   progress: number
-  /**
-   * Progress percentage
-   */
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'light'
-    | 'dark'
 }

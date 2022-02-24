@@ -1,3 +1,5 @@
+import { GlobalProps } from '../'
+
 export interface data {
   value: string
   name: string
@@ -10,7 +12,7 @@ export interface Theme {
   outline_color?: string
   border_radius?: string
 }
-export interface FormInputProps {
+export interface FormInputProps extends GlobalProps {
   /**
    * The actual value that will be stored inside a state
    */
@@ -38,14 +40,4 @@ export interface FormInputProps {
   customTheme?: Theme
   iconLeft: string
   icon?: string
-  layout?: 'solid' | 'outline' | 'dashed' | 'dotted' | 'double'
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  btnColor?:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'light'
-    | 'dark'
 }

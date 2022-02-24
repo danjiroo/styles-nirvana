@@ -11,7 +11,7 @@ export const StyledDnDContainer = styled.div<Props>`
   height: 100%;
 
   > div {
-    border: 1px solid ${({ theme }) => theme.colors.light.dark};
+    border: 1px solid ${({ theme }) => theme.colors.light[300]};
   }
 `
 

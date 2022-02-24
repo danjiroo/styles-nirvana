@@ -1,28 +1,14 @@
 import React from 'react'
 
-enum IconColorEnum {
-  primary,
-  secondary,
-  success,
-  warning,
-  danger,
-  light,
-  dark,
-}
+import { GlobalProps } from '../'
 
-export interface IconProps extends React.HTMLAttributes<HTMLLIElement> {
+export interface IconProps
+  extends Omit<React.HTMLAttributes<HTMLLIElement>, 'color'>,
+    GlobalProps {
   /**
    * Name of icon from the icon reference
    */
   iconName?: string
-  /**
-   * Icon color type
-   */
-  color?: keyof typeof IconColorEnum
-  /**
-   * Size of icon
-   */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   /**
    * Is icon hoverable
    */

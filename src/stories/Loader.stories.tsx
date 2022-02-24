@@ -17,7 +17,6 @@ Default.args = {}
 
 export const DotSpinner = Template.bind({})
 DotSpinner.args = {
-  color: '#525252',
   rayHeight: 5,
   rayWidth: 5,
   rayRadius: 50,

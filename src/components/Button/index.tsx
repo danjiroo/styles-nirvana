@@ -1,16 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
-import { useTheme } from 'styled-components'
 
 import { Icon, RaySpinner } from '../'
 import { StyledButton } from './styles'
-import { ThemeDefinition } from '../../themes'
 import { ButtonProps } from './types'
 
 const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
   function Button(
     {
-      label = 'Action',
+      label = '',
       isLoading = false,
       loadingLabel = 'Loading...',
       isDisabled = false,
@@ -18,7 +16,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
       iconLeft,
       iconRight,
       layout = 'solid',
-      btnColor = 'primary',
+      color = 'primary',
       size = 'md',
       ...other
     },
@@ -33,11 +31,9 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
       iconLeft,
       iconRight,
       layout,
-      btnColor,
+      color,
       size,
     }
-
-    const { colors } = useTheme() as ThemeDefinition
 
     const IconLeft = iconLeft || icon
     const IconRight = iconRight
@@ -50,11 +46,11 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
         disabled={isDisabled}
         ref={ref}
       >
-        {IconLeft && (
+        {!isLoading && IconLeft && (
           <div className='button-icon-div'>
             <Icon
               iconName={IconLeft}
-              color={layout === 'solid' ? 'light' : btnColor}
+              color={layout === 'solid' ? 'light' : color}
               size={size}
             />
           </div>
@@ -62,11 +58,8 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
         {isLoading && (
           <div className='button-icon-div'>
             <RaySpinner
-              color={
-                layout === 'solid'
-                  ? colors['light'].DEFAULT
-                  : colors[btnColor].DEFAULT
-              }
+              color={layout === 'solid' ? 'light' : color}
+              colorWeight='100'
               size={size}
               rayHeight={3}
               rayWidth={2}
@@ -79,11 +72,11 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
         ) : (
           label && <span>{label}</span>
         )}
-        {IconRight && (
-          <div className='button-icon-div'>
+        {!isLoading && IconRight && (
+          <div className='button-icon-div icon-right'>
             <Icon
               iconName={IconRight}
-              color={layout === 'solid' ? 'light' : btnColor}
+              color={layout === 'solid' ? 'light' : color}
               size={size}
             />
           </div>

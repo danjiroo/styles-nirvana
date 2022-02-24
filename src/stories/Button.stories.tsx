@@ -6,7 +6,7 @@ export default {
   title: 'Components/Button',
   component: Button,
   argTypes: {
-    btnColor: {
+    color: {
       control: {
         type: 'select',
       },
@@ -24,7 +24,7 @@ export default {
   },
   args: {
     label: 'Save and Continue',
-    btnColor: 'primary',
+    color: 'primary',
     size: 'md',
     layout: 'solid',
     rounded: true,

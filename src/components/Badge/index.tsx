@@ -10,7 +10,7 @@ const Badge: React.FC<BadgeProps> = (props) => {
   const {
     label = 'P',
     children,
-    type = 'primary',
+    color = 'primary',
     closeable = false,
     onClick,
   } = props
@@ -24,7 +24,7 @@ const Badge: React.FC<BadgeProps> = (props) => {
           onClick={onClick}
           className='close_btn'
           icon='x-circle'
-          btnColor={type}
+          color={color}
           size='xs'
         />
       )}

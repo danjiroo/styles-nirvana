@@ -24,7 +24,7 @@ const CardWithChildrenTemplate: ComponentStory<typeof Card> = (args) => (
     <Image alt='' src='' />
     <Input
       type='text'
-      iconLeft='world-outline'
+      iconLeft='user'
       value=''
       name='card-input'
       placeholder='Lorem ipsum...'

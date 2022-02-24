@@ -22,6 +22,8 @@ export { default as Spinner } from './Spinner'
 export { default as Table } from './Table'
 export { default as Tooltip } from './Tooltip'
 
+export { Modifiers } from './GlobalStyles'
+
 export * from './ReactFlow'
 
-export { Modifiers } from './GlobalStyles'
+export * from './types'

@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export interface TableColumn {
-  Header: string
-  columns?: TableColumn[]
-  accessor?: string
+import { Column } from 'react-table'
+
+export interface OtherColumnProperties {
+  show?: boolean
+  id: string
 }
 
+export type ExtendedColumns = Column & OtherColumnProperties
+
 export interface TableProps {
-  columns: any // TableColumn[];
+  columns: ExtendedColumns[]
   data: Record<string, unknown>[]
 }

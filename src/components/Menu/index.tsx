@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MenuContent, MenuContainer, IconContainer } from './styled'
+import { MenuContent, MenuContainer, IconContainer } from './styles'
 import { Icon } from '../'
 import { MenuProps } from './types'
 

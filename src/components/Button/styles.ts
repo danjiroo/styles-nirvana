@@ -8,8 +8,8 @@ type ButtonWithThemeProvider = ThemeProvider & ButtonProps
 
 const getDynamicStyles = (props: ButtonWithThemeProvider) => {
   const {
-    btnColor = 'primary',
-    btnColorWeight = 'DEFAULT',
+    color = 'primary',
+    colorWeight = 'DEFAULT',
     rounded = true,
     size = 'md',
     isDisabled = false,
@@ -19,24 +19,24 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
 
   return css`
     cursor: ${!isDisabled ? 'pointer' : 'not-allowed'};
-    color: ${layout === 'solid'
-      ? '#fff'
-      : theme?.colors[btnColor][btnColorWeight]};
+    color: ${layout === 'solid' ? '#fff' : theme?.colors[color][colorWeight]};
     background: ${layout === 'solid'
-      ? theme?.colors[btnColor][btnColorWeight]
+      ? theme?.colors[color][colorWeight]
       : 'transparent'};
-    border: 1.5px
+    border: 2px
       ${layout === 'outline'
-        ? `solid ${theme?.colors[btnColor][btnColorWeight]}`
-        : `${layout} ${theme?.colors[btnColor][btnColorWeight]}`};
+        ? `solid ${theme?.colors[color][colorWeight]}`
+        : `${layout} ${theme?.colors[color][colorWeight]}`};
     border-radius: ${rounded ? theme?.border.radius : 0};
     font-size: ${theme?.button[size].fontSize}px;
+    line-height: ${theme?.button[size].lineHeight}px;
     padding: ${theme?.button[size].padding};
     opacity: ${!isDisabled ? 1 : 0.5};
 
     &:not(.close_btn):hover {
       color: ${layout !== 'solid' && '#fff'};
-      background: ${theme?.colors[btnColor][!isDisabled ? 'dark' : 'DEFAULT']};
+      background: ${theme?.colors[color][!isDisabled ? '300' : 'DEFAULT']};
+      border-color: ${theme?.colors[color][!isDisabled ? '300' : 'DEFAULT']};
       opacity: ${!isDisabled && 1};
 
       svg {
@@ -45,18 +45,18 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
     }
 
     &.close_btn:hover svg {
-      stroke: ${theme?.colors[btnColor].dark};
+      stroke: ${theme?.colors[color][100]};
     }
   `
 }
 
 export const StyledButton = styled.button<ButtonProps>`
-  line-height: 1;
   transition: all 0.2s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
   width: ${({ block }) => (block ? '100%' : 'auto')};
+  position: relative;
 
   &.close_btn {
     padding: 0;
@@ -72,6 +72,11 @@ export const StyledButton = styled.button<ButtonProps>`
     height: ${({ theme, size }) => theme?.button?.[size ?? 'md']?.fontSize}px;
     display: flex;
     align-items: center;
+  }
+
+  .button-icon-div.icon-right {
+    left: unset;
+    right: 15px;
   }
 
   .button-icon-div > i,
