@@ -30,7 +30,7 @@ Default.args = {
   type: 'text',
   field_type: 'text',
   placeholder: 'enter',
-  label: 'sample label',
+  // label: 'sample label',
   name: '',
   accessor: 'value',
   disabled: false,
