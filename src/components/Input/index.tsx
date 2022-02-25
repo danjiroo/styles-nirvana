@@ -81,7 +81,7 @@ const Input: React.FC<FormInputProps> = (props) => {
         <StyledInput
           type={field_type}
           value={value}
-          placeholder={is_input_active ? placeholder : ''}
+          placeholder={label && is_input_active ? placeholder : placeholder}
           onChange={handleInputChange}
           onFocus={() => setInputActive(true)}
           onClick={() => setInputActive(true)}
