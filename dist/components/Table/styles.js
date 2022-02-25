@@ -95,8 +95,8 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
     color: #898a8a;
   }
 
-  th.selection,
-  td.selection {
+  th.checkbox,
+  td.checkbox {
     width: 70px;
   }
 

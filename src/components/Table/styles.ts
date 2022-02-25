@@ -77,8 +77,8 @@ export const StyledTable = styled(ReactTable)`
     color: #898a8a;
   }
 
-  th.selection,
-  td.selection {
+  th.checkbox,
+  td.checkbox {
     width: 70px;
   }
 

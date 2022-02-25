@@ -9,12 +9,16 @@ import { ExtendedColumns, TableProps } from './types'
 import { StyledSortIconContainer, StyledTable } from './styles'
 import { Icon } from '../'
 
+import ActionColumn from './ActionColumn'
+
 const { Header, Row, Cell, Body } = ReactTable
 
 const Table: React.FC<TableProps> = (props) => {
   const { columns = [], data = [] } = props
 
-  const [updatedColumns, setUpdatedColumns] = useState<ExtendedColumns[]>([])
+  const [updatedColumns, setUpdatedColumns] = useState<ExtendedColumns[]>(
+    columns ?? []
+  )
 
   const {
     getTableProps,
@@ -37,7 +41,7 @@ const Table: React.FC<TableProps> = (props) => {
     useRowSelect
   )
 
-  const gotColumns = () => {
+  const onColumnsUpdate = () => {
     if (columns.length) {
       columns.map((column) => {
         if (!column.show) {
@@ -53,20 +57,22 @@ const Table: React.FC<TableProps> = (props) => {
     }
   }
 
-  useEffect(gotColumns, [columns])
+  useEffect(onColumnsUpdate, [])
 
-  const showSelectionColumn =
-    columns?.find((column) => column.id === 'selection')?.show ?? false
+  const checkboxColumn = columns.find((column) => column.id === 'selection')
+  const actionColumn = columns.find((column) => column.id === 'actions')
 
   return (
     <StyledTable {...getTableProps()} {...props} showSelection={false}>
       <Header>
         {headerGroups.map((headerGroup) => (
           <Row {...headerGroup.getHeaderGroupProps()}>
-            {showSelectionColumn && (
-              <Cell header className='selection'>
-                <input type='checkbox' {...getToggleAllRowsSelectedProps()} />
-              </Cell>
+            {checkboxColumn?.show && (
+              <ActionColumn
+                header
+                actionType='checkbox'
+                getToggleAllRowsSelectedProps={getToggleAllRowsSelectedProps}
+              />
             )}
             {headerGroup.headers.map((column) => (
               <Cell
@@ -85,23 +91,33 @@ const Table: React.FC<TableProps> = (props) => {
                 </StyledSortIconContainer>
               </Cell>
             ))}
+            {actionColumn?.show && (
+              <ActionColumn
+                header
+                headerTitle={actionColumn.Header as string}
+              />
+            )}
           </Row>
         ))}
       </Header>
       <Body {...getTableBodyProps()}>
         {rows.map((row) => {
+          const { getToggleRowSelectedProps } = row
           prepareRow(row)
           return (
             <Row {...row.getRowProps()}>
-              {showSelectionColumn && (
-                <Cell className='selection'>
-                  <input type='checkbox' {...row.getToggleRowSelectedProps()} />
-                </Cell>
+              {checkboxColumn?.show && (
+                <ActionColumn
+                  actionType='checkbox'
+                  getToggleRowSelectedProps={getToggleRowSelectedProps}
+                />
               )}
 
               {row.cells.map((cell) => (
                 <Cell {...cell.getCellProps()}>{cell.render('Cell')}</Cell>
               ))}
+
+              {actionColumn?.show && <ActionColumn />}
             </Row>
           )
         })}

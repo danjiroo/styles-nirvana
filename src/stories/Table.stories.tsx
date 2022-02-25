@@ -53,7 +53,7 @@ Default.args = {
       id: 'progress',
       Header: 'PROGRESS',
       accessor: 'progress',
-      show: true,
+      show: false,
     },
     {
       id: 'actions',
