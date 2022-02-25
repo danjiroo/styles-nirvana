@@ -22,7 +22,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StyledSortIconContainer = exports.StyledTable = exports.getResponsiveHeaders = void 0;
+exports.StyledCheckboxContainer = exports.StyledSortIconContainer = exports.StyledTable = exports.getResponsiveHeaders = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importStar(require("styled-components"));
 const Table_1 = __importDefault(require("./Shell/Table"));
@@ -153,4 +153,7 @@ exports.StyledSortIconContainer = styled_components_1.default.span `
   display: inline-block;
   vertical-align: middle;
   padding-left: 10px;
+`;
+exports.StyledCheckboxContainer = styled_components_1.default.div `
+  top: -8px;
 `;

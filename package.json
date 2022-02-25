@@ -1,6 +1,6 @@
 {
   "name": "@pando-styles/nirvana",
-  "version": "1.1.36",
+  "version": "1.1.39",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,16 +9,12 @@
   ],
   "scripts": {
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
-    "build:old": "webpack --config webpack/webpack.config.js --env env=prod",
     "build": "rm -rf ./dist && tsc && yarn cf",
-    "build:wp": "rm -rf ./dist && yarn build:old",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "prettify": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "rm -rf ./build && build-storybook -o build",
-    "cf": "copyfiles -u 1 src/**/*.html src/**/*.css src/**/*.eot src/**/*.svg src/**/*.png src/**/*.jpg src/**/*.ttf src/**/*.woff src/**/*.d.ts -e src/stories/assets/**/* dist/",
-    "publish:nirvana": "node scripts/npm-publish.ts"
+    "cf": "copyfiles -u 1 src/**/*.html src/**/*.css src/**/*.eot src/**/*.svg src/**/*.png src/**/*.jpg src/**/*.ttf src/**/*.woff src/**/*.d.ts -e src/stories/assets/**/* dist/"
   },
   "keywords": [],
   "author": "",

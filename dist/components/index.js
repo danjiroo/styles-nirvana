@@ -13,13 +13,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Modifiers = exports.Tooltip = exports.Table = exports.Spinner = exports.Select = exports.Search = exports.RaySpinner = exports.Question = exports.Progress = exports.Page = exports.Navigation = exports.Menu = exports.Logo = exports.Input = exports.Image = exports.Icon = exports.Header = exports.Form = exports.Droppable = exports.Draggable = exports.Container = exports.Card = exports.Button = exports.Badge = void 0;
+exports.Modifiers = exports.Tooltip = exports.Table = exports.Spinner = exports.Select = exports.Search = exports.RaySpinner = exports.Question = exports.Progress = exports.Page = exports.Navigation = exports.Menu = exports.Logo = exports.Input = exports.Image = exports.Icon = exports.Header = exports.Form = exports.Droppable = exports.Draggable = exports.Container = exports.Checkbox = exports.Card = exports.Button = exports.Badge = void 0;
 var Badge_1 = require("./Badge");
 Object.defineProperty(exports, "Badge", { enumerable: true, get: function () { return __importDefault(Badge_1).default; } });
 var Button_1 = require("./Button");
 Object.defineProperty(exports, "Button", { enumerable: true, get: function () { return __importDefault(Button_1).default; } });
 var Card_1 = require("./Card");
 Object.defineProperty(exports, "Card", { enumerable: true, get: function () { return __importDefault(Card_1).default; } });
+var Checkbox_1 = require("./Checkbox");
+Object.defineProperty(exports, "Checkbox", { enumerable: true, get: function () { return __importDefault(Checkbox_1).default; } });
 var Container_1 = require("./Container");
 Object.defineProperty(exports, "Container", { enumerable: true, get: function () { return __importDefault(Container_1).default; } });
 var Draggable_1 = require("./Draggable");

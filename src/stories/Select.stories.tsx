@@ -2,106 +2,106 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { useState } from 'react'
 
-import { Select, Container } from '../'
+import { Select, Container, Checkbox } from '../'
 
 export default {
   title: 'Components/Select',
   component: Select,
   args: {},
-  argTypes: {
-    selectOptions: {
-      description: 'Array of options for the dropdown items',
-    },
-    error: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Error fetching options',
-    },
-    errorText: {
-      control: {
-        type: 'text',
-      },
-      description: 'Text shown when error is true',
-    },
-    icon: {
-      control: {
-        type: 'text',
-      },
-      description: 'Enable creation of a non-existing item',
-    },
-    isClearable: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Is selection option clearable?',
-    },
-    isCreatable: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Enable creation of a non-existing item',
-    },
-    isRequired: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Is required',
-    },
-    isDisabled: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Is disabled',
-    },
-    isLoading: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Is currently loading or fetching items',
-    },
-    label: {
-      control: {
-        type: 'text',
-      },
-      description: 'Upper text for the dropdown',
-    },
-    placeholder: {
-      control: {
-        type: 'text',
-      },
-      description: 'Placeholder text in input field',
-    },
-    isMulti: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Enable multi selection',
-    },
-    rounded: {
-      control: {
-        type: 'boolean',
-      },
-      description: 'Enable border-radius',
-    },
-    labelKey: {
-      control: {
-        type: 'text',
-      },
-      description:
-        'This key will be shown as an option label for your select component',
-    },
-    valueKey: {
-      control: {
-        type: 'text',
-      },
-      description:
-        'This key will be the selected value upon clicking an option.',
-    },
-  },
 } as ComponentMeta<typeof Select>
 
-const Template: ComponentStory<typeof Select> = (args) => {
+const selectArgTypes = {
+  selectOptions: {
+    description: 'Array of options for the dropdown items',
+  },
+  error: {
+    control: {
+      type: 'boolean',
+    },
+    description: 'Error fetching options',
+  },
+  errorText: {
+    control: {
+      type: 'text',
+    },
+    description: 'Text shown when error is true',
+  },
+  icon: {
+    control: {
+      type: 'text',
+    },
+    description: 'Enable creation of a non-existing item',
+  },
+  isClearable: {
+    control: {
+      type: 'boolean',
+    },
+    description: 'Is selection option clearable?',
+  },
+  isCreatable: {
+    control: {
+      type: 'boolean',
+    },
+    description: 'Enable creation of a non-existing item',
+  },
+  isRequired: {
+    control: {
+      type: 'boolean',
+    },
+    description: 'Is required',
+  },
+  isDisabled: {
+    control: {
+      type: 'boolean',
+    },
+    description: 'Is disabled',
+  },
+  isLoading: {
+    control: {
+      type: 'boolean',
+    },
+    description: 'Is currently loading or fetching items',
+  },
+  label: {
+    control: {
+      type: 'text',
+    },
+    description: 'Upper text for the dropdown',
+  },
+  placeholder: {
+    control: {
+      type: 'text',
+    },
+    description: 'Placeholder text in input field',
+  },
+  isMulti: {
+    control: {
+      type: 'boolean',
+    },
+    description: 'Enable multi selection',
+  },
+  rounded: {
+    control: {
+      type: 'boolean',
+    },
+    description: 'Enable border-radius',
+  },
+  labelKey: {
+    control: {
+      type: 'text',
+    },
+    description:
+      'This key will be shown as an option label for your select component',
+  },
+  valueKey: {
+    control: {
+      type: 'text',
+    },
+    description: 'This key will be the selected value upon clicking an option.',
+  },
+}
+
+const SelectTemplate: ComponentStory<typeof Select> = (args) => {
   const [details, setDetails] = useState({
     username: '',
     email: '',
@@ -141,7 +141,11 @@ const Template: ComponentStory<typeof Select> = (args) => {
   )
 }
 
-export const SingleSelect = Template.bind({})
+const CheckboxTemplate: ComponentStory<typeof Checkbox> = (args) => (
+  <Checkbox {...args} />
+)
+
+export const SingleSelect = SelectTemplate.bind({})
 SingleSelect.args = {
   icon: 'box',
   // selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
@@ -157,8 +161,9 @@ SingleSelect.args = {
   valueKey: 'id',
   isClearable: true,
 }
+SingleSelect.argTypes = selectArgTypes
 
-export const MultiSelect = Template.bind({})
+export const MultiSelect = SelectTemplate.bind({})
 MultiSelect.args = {
   icon: 'mail',
   label: 'Multi Select Sample',
@@ -174,4 +179,10 @@ MultiSelect.args = {
   valueKey: 'id',
   isClearable: true,
   isMulti: true,
+}
+MultiSelect.argTypes = selectArgTypes
+
+export const CheckBox = CheckboxTemplate.bind({})
+CheckBox.args = {
+  label: 'Sample',
 }

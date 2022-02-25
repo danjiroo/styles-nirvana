@@ -23,6 +23,13 @@ export const ComponentDetails: ComponentProps[] = [
     dev: 'Dan',
   },
   {
+    title: 'Checkbox',
+    content: 'Lorem ipsum dolor.',
+    story_url: 'select--check-box',
+    progress: 'completed',
+    dev: 'Dan',
+  },
+  {
     title: 'Collapsible',
     content: 'Lorem ipsum dolor.',
     story_url: 'menu',

@@ -137,3 +137,7 @@ export const StyledSortIconContainer = styled.span`
   vertical-align: middle;
   padding-left: 10px;
 `
+
+export const StyledCheckboxContainer = styled.div`
+  top: -8px;
+`

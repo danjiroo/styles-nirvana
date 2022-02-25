@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import cn from 'classnames'
 
 import ReactTable from './Shell/Table'
+
+import { Checkbox } from '../'
+import { StyledCheckboxContainer } from './styles'
 
 const { Cell } = ReactTable
 
@@ -10,8 +14,8 @@ interface SelectionColumnProps {
   actionType?: 'actions' | 'checkbox'
   header?: boolean
   headerTitle?: string
-  getToggleAllRowsSelectedProps?: () => void
-  getToggleRowSelectedProps?: () => void
+  getToggleAllRowsSelectedProps?: any
+  getToggleRowSelectedProps?: any
 }
 
 const SelectionColumn: React.FC<SelectionColumnProps> = ({
@@ -24,13 +28,14 @@ const SelectionColumn: React.FC<SelectionColumnProps> = ({
 }) => {
   const renderColumn = () => {
     if (actionType === 'checkbox') {
-      return (
-        <input
-          type='checkbox'
-          {...(header
-            ? getToggleAllRowsSelectedProps?.()
-            : getToggleRowSelectedProps?.())}
-        />
+      return header ? (
+        <StyledCheckboxContainer>
+          <Checkbox {...getToggleAllRowsSelectedProps?.()} />
+        </StyledCheckboxContainer>
+      ) : (
+        <StyledCheckboxContainer>
+          <Checkbox {...getToggleRowSelectedProps?.()} />
+        </StyledCheckboxContainer>
       )
     }
 
