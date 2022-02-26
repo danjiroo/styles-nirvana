@@ -28,6 +28,7 @@ const Table: React.FC<TableProps> = (props) => {
     prepareRow,
     setHiddenColumns,
     getToggleAllRowsSelectedProps,
+    selectedFlatRows,
   } = useTable(
     {
       // @ts-ignore
@@ -59,11 +60,13 @@ const Table: React.FC<TableProps> = (props) => {
 
   useEffect(onColumnsUpdate, [])
 
+  console.log('@@selectedFlatRows', selectedFlatRows)
+
   const checkboxColumn = columns.find((column) => column.id === 'selection')
   const actionColumn = columns.find((column) => column.id === 'actions')
 
   return (
-    <StyledTable {...getTableProps()} {...props} showSelection={false}>
+    <StyledTable {...getTableProps()} {...props}>
       <Header>
         {headerGroups.map((headerGroup) => (
           <Row {...headerGroup.getHeaderGroupProps()}>

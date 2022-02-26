@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { Select, Container, Checkbox } from '../'
 
@@ -141,9 +142,17 @@ const SelectTemplate: ComponentStory<typeof Select> = (args) => {
   )
 }
 
-const CheckboxTemplate: ComponentStory<typeof Checkbox> = (args) => (
-  <Checkbox {...args} />
-)
+const CheckboxTemplate: ComponentStory<typeof Checkbox> = (args) => {
+  const [checked, setChecked] = useState<boolean>(false)
+
+  const handleChecked = (e: React.FormEvent<HTMLInputElement>) => {
+    // @ts-ignore
+    const { checked = false } = e.target
+    setChecked(checked)
+  }
+
+  return <Checkbox {...args} checked={checked} onChange={handleChecked} />
+}
 
 export const SingleSelect = SelectTemplate.bind({})
 SingleSelect.args = {

@@ -8,4 +8,6 @@ export interface CheckboxProps
    * Checkbox text / label
    */
   label?: string
+  indeterminate?: boolean
+  checked?: boolean
 }

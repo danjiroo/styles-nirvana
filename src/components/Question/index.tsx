@@ -29,8 +29,8 @@ const Question: React.FC<QuestionProps> = (props) => {
         <div className='question-choices'>
           {type === 'choice' &&
             !!choices?.length &&
-            choices.map((choice) => (
-              <Button label={choice} colorWeight='200' />
+            choices.map((choice, index) => (
+              <Button key={index} label={choice} colorWeight='200' />
             ))}
           {type === 'confirmation' && (
             <div className='confirmation-choices'>

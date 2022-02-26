@@ -39,6 +39,8 @@ const SelectionColumn: React.FC<SelectionColumnProps> = ({
       )
     }
 
+    // const testAlert = () => alert('YES USE ME AS CALLBACK')
+
     if (actionType === 'actions') {
       return header ? headerTitle : <>Buttons</>
     }
