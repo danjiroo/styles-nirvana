@@ -25,7 +25,10 @@ const getContainerStyles = (props) => {
     const { theme, size = '' } = props;
     if (size) {
         return (0, styled_components_1.css) `
-      width: ${theme.size[size]};
+      width: 100%;
+      @media screen and (min-width: 1200px) {
+        width: ${theme.size[size]};
+      }
     `;
     }
     return (0, styled_components_1.css) `
