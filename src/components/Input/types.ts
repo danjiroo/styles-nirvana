@@ -27,9 +27,8 @@ export interface FormInputProps extends GlobalProps {
   actions: {
     handleChange?: (data: data) => void
   }
-  type?: string
+  type: string
   disabled?: boolean
-  field_type?: string
   /**
    *If you want to customize the input styles
    add values to these props:

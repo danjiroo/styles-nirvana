@@ -36,29 +36,23 @@ export const StyledInput = styled.input<StyledInputProps>`
   max-width: 100%;
   box-sizing: border-box;
   border-style: solid;
+  border-width: 0.063rem;
   -webkit-text-fill-color: none !important;
   ${GetStyledInputStyles}
-
-  input:-webkit-autofill {
-    background-color: white !important;
-  }
-  input:autofill-selected {
-    border: 3px solid blue;
-  }
-  input:-internal-autofill-selected {
-    background-color: red;
-  }
 `
 interface TextAreaProps {}
-export const TextArea = styled.textarea<TextAreaProps>`
+export const StyledTextArea = styled.textarea<TextAreaProps>`
   width: 100%;
   height: 200px;
   outline-color: #5cd176;
-  padding: 1.4rem;
   margin: 0;
   max-width: 100%;
   box-sizing: border-box;
   resize: none;
+  padding: 1rem 0 0 2.6rem;
+  border-style: solid;
+  border-width: 0.063rem;
+  ${GetStyledInputStyles}
 `
 
 interface LabelProps {
