@@ -54,7 +54,7 @@ exports.StyledInput = styled_components_1.default.input `
 `;
 exports.StyledTextArea = styled_components_1.default.textarea `
   width: 100%;
-  height: 200px;
+  min-height: 8rem;
   outline-color: #5cd176;
   margin: 0;
   max-width: 100%;
