@@ -41,7 +41,6 @@ const Form: React.FC<FormProps> = (props) => {
               key={`key--${index}`}
               value={state[key] ?? ''}
               type='text'
-              field_type={value.field_type}
               placeholder={value.place_holder}
               label={value.label}
               actions={actionsProp ?? {}}

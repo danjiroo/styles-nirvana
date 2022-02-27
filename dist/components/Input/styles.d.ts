@@ -8,7 +8,7 @@ interface StyledInputProps {
 export declare const StyledInput: import("styled-components").StyledComponent<"input", any, StyledInputProps, never>;
 interface TextAreaProps {
 }
-export declare const TextArea: import("styled-components").StyledComponent<"textarea", any, TextAreaProps, never>;
+export declare const StyledTextArea: import("styled-components").StyledComponent<"textarea", any, TextAreaProps, never>;
 interface LabelProps {
     is_input_active: boolean;
 }
