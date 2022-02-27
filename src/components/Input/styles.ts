@@ -43,7 +43,7 @@ export const StyledInput = styled.input<StyledInputProps>`
 interface TextAreaProps {}
 export const StyledTextArea = styled.textarea<TextAreaProps>`
   width: 100%;
-  height: 200px;
+  min-height: 8rem;
   outline-color: #5cd176;
   margin: 0;
   max-width: 100%;
