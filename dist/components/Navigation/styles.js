@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StyledNavWrapper = exports.StyledNavWithChildren = exports.StyledNavLink = void 0;
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const styled_components_1 = __importDefault(require("styled-components"));
 const react_router_dom_1 = require("react-router-dom");
 exports.StyledNavLink = (0, styled_components_1.default)(react_router_dom_1.NavLink) `

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Modifiers = void 0;
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable indent */
 const styled_components_1 = require("styled-components");
 const getHeaderStyles = (theme) => {

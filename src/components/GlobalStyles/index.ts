@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable indent */
 import { css, createGlobalStyle } from 'styled-components'
 
