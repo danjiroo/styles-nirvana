@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Table, Icon, List } from '../'
+import { Table } from '../'
 import { TableProps, ExtendedColumns } from '../components/Table/types'
 import { makeData } from '../utils'
 
@@ -58,62 +58,6 @@ Default.args = {
     {
       id: 'actions',
       Header: 'ACTIONS',
-      Cell: (props) => (
-        <Icon
-          clickable
-          hoverable
-          hasDropdown
-          iconName='more-horizontal'
-          dropdown={() => (
-            <List
-              size='sm'
-              position='right'
-              hasPointer
-              hoverable
-              clickable
-              asDropDown
-              list={[
-                {
-                  id: '1',
-                  component: (
-                    <button
-                      onClick={() =>
-                        console.log('@debugButton Edit', props.original)
-                      }
-                    >
-                      Edit
-                    </button>
-                  ),
-                },
-                {
-                  id: '2',
-                  component: (
-                    <button
-                      onClick={() =>
-                        console.log('@debugButton Preview', props.original)
-                      }
-                    >
-                      Preview
-                    </button>
-                  ),
-                },
-                {
-                  id: '3',
-                  component: (
-                    <button
-                      onClick={() =>
-                        console.log('@debugButton Delete', props.original)
-                      }
-                    >
-                      Delete
-                    </button>
-                  ),
-                },
-              ]}
-            />
-          )}
-        />
-      ),
       show: true,
     },
   ] as ExtendedColumns[],

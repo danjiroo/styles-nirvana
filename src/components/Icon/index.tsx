@@ -5,12 +5,7 @@ import { IconProps } from './types'
 import { StyledIconContainer, StyledIconDiv } from './styles'
 
 const Icon: React.FC<IconProps> = (props) => {
-  const {
-    iconName = 'activity',
-    hasDropdown = false,
-    onClick,
-    dropdown,
-  } = props
+  const { iconName = 'activity', hasDropdown = false, dropdown } = props
   const [isOpen, setIsOpen] = useState(false)
   const ref = useRef(null)
 
@@ -19,7 +14,6 @@ const Icon: React.FC<IconProps> = (props) => {
 
   const handleClick = () => {
     setIsOpen(!isOpen)
-    onClick?.()
   }
 
   const handleClickOutside = () => {

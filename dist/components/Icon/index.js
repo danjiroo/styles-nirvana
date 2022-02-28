@@ -6,13 +6,12 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
 const styles_1 = require("./styles");
 const Icon = (props) => {
-    const { iconName = 'activity', hasDropdown = false, onClick, dropdown, } = props;
+    const { iconName = 'activity', hasDropdown = false, dropdown } = props;
     const [isOpen, setIsOpen] = (0, react_1.useState)(false);
     const ref = (0, react_1.useRef)(null);
     const SVGComponent = require(`../../assets/svg/${iconName}.svg`).ReactComponent;
     const handleClick = () => {
         setIsOpen(!isOpen);
-        onClick === null || onClick === void 0 ? void 0 : onClick();
     };
     const handleClickOutside = () => {
         const handleClick = (e) => {

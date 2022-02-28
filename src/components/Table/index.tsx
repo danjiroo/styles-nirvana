@@ -1,18 +1,17 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable indent */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useEffect, useState } from 'react'
-import {
-  useTable,
-  useSortBy,
-  useRowSelect,
-  UseTableRowProps,
-} from 'react-table'
+import { useTable, useSortBy, useRowSelect } from 'react-table'
 
 import ReactTable from './Shell/Table'
 
 import { ExtendedColumns, TableProps } from './types'
 import { StyledSortIconContainer, StyledTable } from './styles'
 import { Checkbox, Icon } from '../'
+
+import DefaultActionsColumn from './DefaultActionsColumn'
 
 const { Header, Row, Cell, Body } = ReactTable
 
@@ -69,15 +68,10 @@ const Table: React.FC<TableProps> = (props) => {
   const actionsColumn = getColumn('actions')
 
   const CheckboxColumnComponent = checkboxColumn?.Cell ?? Checkbox
+
   const ActionsColumnComponent = actionsColumn?.Cell
     ? actionsColumn?.Cell
-    : (props: UseTableRowProps<any>) => (
-        <Icon
-          clickable
-          iconName='more-horizontal'
-          onClick={() => console.log('@debugIcon', props.original)}
-        />
-      )
+    : DefaultActionsColumn
 
   return (
     <StyledTable {...getTableProps()} {...props}>
@@ -125,9 +119,12 @@ const Table: React.FC<TableProps> = (props) => {
               )}
 
               {row.cells.map((cell) => (
-                <Cell {...cell.getCellProps()}>
+                <Cell
+                  className={cell.column.id === 'actions' && 'table-actions'}
+                  {...cell.getCellProps()}
+                >
                   {cell.column.id === 'actions' ? (
-                    <ActionsColumnComponent {...cell.row} />
+                    <ActionsColumnComponent {...cell} />
                   ) : (
                     cell.render('Cell')
                   )}
