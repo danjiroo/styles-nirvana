@@ -2,12 +2,12 @@
 import styled, { css } from 'styled-components'
 
 import ReactTable from './Shell/Table'
-import { TableProps, TableColumn } from './types'
+import { TableProps, ExtendedColumns } from './types'
 
 export const getResponsiveHeaders = ({ columns }: TableProps) => {
   const headers = css`
     ${columns?.map(
-      (column: TableColumn, i: number) =>
+      (column: ExtendedColumns, i: number) =>
         `&:nth-child(${i + 1}):before {
             content: '${column.Header}';
           }`
@@ -27,15 +27,15 @@ export const StyledTable = styled(ReactTable)`
   /* margin: 0 auto; */
   position: relative;
 
-  * {
+  /* * {
     position: relative;
-  }
+  } */
 
   thead {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: ${({ theme }) => theme.colors.light.light};
+    background: ${({ theme }) => theme.colors.light[100]};
     border-bottom: 1px solid #cccccc;
 
     // tbody scroll
@@ -69,12 +69,19 @@ export const StyledTable = styled(ReactTable)`
   }
 
   th {
-    color: ${({ theme }) => theme.colors.primary.dark};
+    color: ${({ theme }) => theme.colors.primary[300]};
     font-weight: bold;
   }
 
   td {
     color: #898a8a;
+  }
+
+  th.checkbox,
+  td.checkbox {
+    width: 70px;
+    top: -9px;
+    position: relative;
   }
 
   td,
@@ -99,6 +106,7 @@ export const StyledTable = styled(ReactTable)`
     td,
     th {
       display: block;
+      position: relative;
     }
 
     thead {
@@ -125,4 +133,10 @@ export const StyledTable = styled(ReactTable)`
       }
     }
   }
+`
+
+export const StyledSortIconContainer = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 10px;
 `

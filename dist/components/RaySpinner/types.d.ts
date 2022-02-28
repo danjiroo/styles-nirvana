@@ -1,13 +1,6 @@
-export interface RaySpinnerProps {
+import { GlobalProps } from '../';
+export interface RaySpinnerProps extends GlobalProps {
     className?: string;
-    /**
-     * Color of rays
-     */
-    color?: string;
-    /**
-     * Controls the dimension of the spinner
-     */
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     /**
      * Controls the height of the ray
      */

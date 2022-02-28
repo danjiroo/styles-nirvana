@@ -22,7 +22,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StyledTable = exports.getResponsiveHeaders = void 0;
+exports.StyledSortIconContainer = exports.StyledTable = exports.getResponsiveHeaders = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importStar(require("styled-components"));
 const Table_1 = __importDefault(require("./Shell/Table"));
@@ -45,15 +45,15 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
   /* margin: 0 auto; */
   position: relative;
 
-  * {
+  /* * {
     position: relative;
-  }
+  } */
 
   thead {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: ${({ theme }) => theme.colors.light.light};
+    background: ${({ theme }) => theme.colors.light[100]};
     border-bottom: 1px solid #cccccc;
 
     // tbody scroll
@@ -87,12 +87,19 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
   }
 
   th {
-    color: ${({ theme }) => theme.colors.primary.dark};
+    color: ${({ theme }) => theme.colors.primary[300]};
     font-weight: bold;
   }
 
   td {
     color: #898a8a;
+  }
+
+  th.checkbox,
+  td.checkbox {
+    width: 70px;
+    top: -9px;
+    position: relative;
   }
 
   td,
@@ -117,6 +124,7 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
     td,
     th {
       display: block;
+      position: relative;
     }
 
     thead {
@@ -143,4 +151,9 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
       }
     }
   }
+`;
+exports.StyledSortIconContainer = styled_components_1.default.span `
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 10px;
 `;

@@ -3,8 +3,17 @@ import React from 'react'
 import { StyledProgress } from './styles'
 import { ProgressProps } from './types'
 
-const Progress: React.FC<ProgressProps> = ({ progress = 0, color }) => (
-  <StyledProgress className='box' color={color} progress={progress}>
+const Progress: React.FC<ProgressProps> = ({
+  progress = 0,
+  color,
+  colorWeight,
+}) => (
+  <StyledProgress
+    className='box'
+    color={color}
+    colorWeight={colorWeight}
+    progress={progress}
+  >
     <svg>
       <circle cx='70' cy='70' r='70'></circle>
       <circle cx='70' cy='70' r='70'></circle>

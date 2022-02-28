@@ -1,11 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export interface TableColumn {
-  Header: string
-  columns?: TableColumn[]
-  accessor?: string
+// import React from 'react'
+import React from 'react'
+import { Column } from 'react-table'
+
+export interface OtherColumnProperties {
+  show?: boolean
+  Cell?: React.ElementType
 }
 
+export type ExtendedColumns = Column & OtherColumnProperties
+
 export interface TableProps {
-  columns: any // TableColumn[];
+  columns: ExtendedColumns[]
   data: Record<string, unknown>[]
 }

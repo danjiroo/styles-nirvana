@@ -46,17 +46,11 @@ function generateNthChild(n) {
   `;
 }
 exports.StyledSpinner = styled_components_1.default.div `
-  color: ${(props) => props.color};
+  color: ${({ theme, color = 'dark', colorWeight = '100' }) => theme.colors[color][colorWeight]};
   display: inline-block;
   position: relative;
-  width: ${(props) => {
-    const { size = 'md', theme, inButton } = props;
-    return `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`;
-}};
-  height: ${(props) => {
-    const { size = 'md', theme, inButton } = props;
-    return `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`;
-}};
+  width: ${({ size = 'md', theme, inButton }) => `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`};
+  height: ${({ size = 'md', theme, inButton }) => `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`};
 
   div {
     transform-origin: ${({ theme, size = 'md', inButton }) => (0, helper_1.transformCalc)(theme.loader[size][inButton ? 'inButtonSize' : 'fontSize'])};
@@ -65,12 +59,12 @@ exports.StyledSpinner = styled_components_1.default.div `
       content: ' ';
       display: block;
       position: absolute;
-      top: ${(props) => (0, helper_1.topCalc)(props.rayWidth)};
+      top: ${({ rayWidth }) => (0, helper_1.topCalc)(rayWidth)};
       left: ${({ theme, size = 'md', rayWidth, inButton }) => (0, helper_1.leftCalc)(theme.loader[size][inButton ? 'inButtonSize' : 'fontSize'], rayWidth)};
-      width: ${(props) => `${props.rayWidth}px`};
-      height: ${(props) => `${props.rayHeight}px`};
-      border-radius: ${(props) => `${props.rayRadius}%`};
-      background: ${(props) => props.color};
+      width: ${({ rayWidth }) => `${rayWidth}px`};
+      height: ${({ rayHeight }) => `${rayHeight}px`};
+      border-radius: ${({ rayRadius }) => `${rayRadius}%`};
+      background: ${({ theme, color = 'dark', colorWeight = '100' }) => theme.colors[color][colorWeight]};
     }
   }
   /* Generate :nth-child(n) of div */

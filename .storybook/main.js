@@ -1,4 +1,3 @@
-const ownWebpackConfig = require('../webpack/webpack.common')
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin')
 const webpack = require('webpack')
 

@@ -12,6 +12,7 @@ const range = (len) => {
 const newData = () => {
     const statusChance = Math.random();
     return {
+        id: Math.floor(Math.random() * 10000),
         firstName: Math.floor(Math.random() * 10000),
         lastName: Math.floor(Math.random() * 10000),
         age: Math.floor(Math.random() * 30),

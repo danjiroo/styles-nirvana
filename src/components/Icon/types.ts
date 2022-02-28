@@ -1,38 +1,34 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
+import { GlobalProps } from '../'
 
-enum IconColorEnum {
-  primary,
-  secondary,
-  success,
-  warning,
-  danger,
-  light,
-  dark,
-}
+import { iconArray } from './IconList'
 
-export interface IconProps extends React.HTMLAttributes<HTMLLIElement> {
+type ArrayType = typeof iconArray[number]
+
+export interface IconProps extends GlobalProps {
   /**
    * Name of icon from the icon reference
    */
-  iconName?: string
-  /**
-   * Icon color type
-   */
-  color?: keyof typeof IconColorEnum
-  /**
-   * Size of icon
-   */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  iconName?: ArrayType
   /**
    * Is icon hoverable
    */
   hoverable?: boolean
-}
-
-export interface UseDynamicSVGImportOptions {
-  onCompleted?: (
-    iconName: string,
-    SvgIcon: React.FC<React.SVGProps<SVGSVGElement>> | undefined
-  ) => void
-  onError?: (err: Error) => void
+  /**
+   * Is icon clickable
+   */
+  clickable?: boolean
+  /**
+   * On Click Action
+   */
+  onClick?: (data?: any) => void
+  /**
+   * Has a dropdown menu when clicked
+   */
+  hasDropdown?: boolean
+  /**
+   * Dropdown menu component
+   */
+  dropdown?: React.ReactNode
 }

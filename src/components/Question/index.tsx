@@ -29,13 +29,13 @@ const Question: React.FC<QuestionProps> = (props) => {
         <div className='question-choices'>
           {type === 'choice' &&
             !!choices?.length &&
-            choices.map((choice) => (
-              <Button label={choice} btnColorWeight='light' />
+            choices.map((choice, index) => (
+              <Button key={index} label={choice} colorWeight='200' />
             ))}
           {type === 'confirmation' && (
             <div className='confirmation-choices'>
-              <Button label='Yes' btnColorWeight='light' />
-              <Button label='No' btnColorWeight='light' />
+              <Button label='Yes' colorWeight='200' />
+              <Button label='No' colorWeight='200' />
             </div>
           )}
           {type === 'input' && (

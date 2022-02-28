@@ -31,34 +31,28 @@ const GetStyledInputStyles = ({ customTheme }: StyledInputProps) => {
 export const StyledInput = styled.input<StyledInputProps>`
   width: 100%;
   line-height: 40px;
-  padding-left: 2.4rem;
+  padding-left: 2.6rem;
   margin: 0;
   max-width: 100%;
   box-sizing: border-box;
   border-style: solid;
+  border-width: 0.063rem;
   -webkit-text-fill-color: none !important;
   ${GetStyledInputStyles}
-
-  input:-webkit-autofill {
-    background-color: white !important;
-  }
-  input:autofill-selected {
-    border: 3px solid blue;
-  }
-  input:-internal-autofill-selected {
-    background-color: red;
-  }
 `
 interface TextAreaProps {}
-export const TextArea = styled.textarea<TextAreaProps>`
+export const StyledTextArea = styled.textarea<TextAreaProps>`
   width: 100%;
-  height: 200px;
+  min-height: 8rem;
   outline-color: #5cd176;
-  padding: 1.4rem;
   margin: 0;
   max-width: 100%;
   box-sizing: border-box;
   resize: none;
+  padding: 1rem 0 0 2.6rem;
+  border-style: solid;
+  border-width: 0.063rem;
+  ${GetStyledInputStyles}
 `
 
 interface LabelProps {
@@ -67,18 +61,18 @@ interface LabelProps {
 
 const move = keyframes`
   0% { 
-    transform: translate(2.2rem, 0.5rem);
+    transform: translate(2.5rem, 0.5rem);
     background-color: white;
   }
   20%{
     opacity: .2;
   }
   40% {  
-    transform: translate(2.2rem, -.8rem);
+    transform: translate(2.5rem, -.8rem);
     background-color: white;
   }
   100% {  
-    transform: translate(2.2rem, -.5rem);
+    transform: translate(2.5rem, -.5rem);
     background-color: white;
     opacity: 1;
   }
@@ -86,17 +80,17 @@ const move = keyframes`
 
 const moveRerverse = keyframes`
   0% { 
-    transform: translate(2.4rem, 0.8rem);
+    transform: translate(2.5rem, 0.8rem);
     background-color: white;
     opacity: 1;
   }
   20%{
-    transform: translate(2.4rem, -.8rem);
+    transform: translate(2.5rem, -.8rem);
     background-color: white;
   }
 
   100% {  
-    transform: translate(2.4rem, .8rem);
+    transform: translate(2.5rem, .9rem);
     background-color: white;
   }
 `

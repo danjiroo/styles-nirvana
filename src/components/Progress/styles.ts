@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import styled from 'styled-components'
 
 import { ProgressProps } from './types'
@@ -34,7 +35,8 @@ export const StyledProgress = styled.div<ProgressProps>`
     stroke-dashoffset: calc(
       440 - (440 * ${({ progress = 0 }) => progress}) / 100
     );
-    stroke: ${({ theme, color = 'primary' }) => theme.colors[color].DEFAULT};
+    stroke: ${({ theme, color = 'primary', colorWeight = 'DEFAULT' }) =>
+      theme.colors[color][colorWeight]};
   }
 
   .num {
@@ -59,7 +61,7 @@ export const StyledProgress = styled.div<ProgressProps>`
 
   .text {
     padding: 10px 0 0;
-    color: #999;
+    color: #999999;
     font-weight: 700;
     letter-spacing: 1px;
   }

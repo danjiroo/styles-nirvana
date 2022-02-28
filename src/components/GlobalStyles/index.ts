@@ -24,8 +24,6 @@ const getHeaderStyles = (theme: any) => {
 }
 
 export const Modifiers = createGlobalStyle<ThemeProvider>`
-  @import url(${({ theme }) => theme.text.fontUrl});
-
   * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

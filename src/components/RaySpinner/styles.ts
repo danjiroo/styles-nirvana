@@ -34,19 +34,14 @@ function generateNthChild(n: number): FlattenSimpleInterpolation {
 }
 
 export const StyledSpinner = styled.div<RaySpinnerProps>`
-  color: ${(props) => props.color};
+  color: ${({ theme, color = 'dark', colorWeight = '100' }) =>
+    theme.colors[color][colorWeight]};
   display: inline-block;
   position: relative;
-  width: ${(props) => {
-    const { size = 'md', theme, inButton } = props
-
-    return `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`
-  }};
-  height: ${(props) => {
-    const { size = 'md', theme, inButton } = props
-
-    return `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`
-  }};
+  width: ${({ size = 'md', theme, inButton }) =>
+    `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`};
+  height: ${({ size = 'md', theme, inButton }) =>
+    `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`};
 
   div {
     transform-origin: ${({ theme, size = 'md', inButton }) =>
@@ -58,16 +53,17 @@ export const StyledSpinner = styled.div<RaySpinnerProps>`
       content: ' ';
       display: block;
       position: absolute;
-      top: ${(props) => topCalc(props.rayWidth)};
+      top: ${({ rayWidth }) => topCalc(rayWidth)};
       left: ${({ theme, size = 'md', rayWidth, inButton }) =>
         leftCalc(
           theme.loader[size][inButton ? 'inButtonSize' : 'fontSize'],
           rayWidth
         )};
-      width: ${(props) => `${props.rayWidth}px`};
-      height: ${(props) => `${props.rayHeight}px`};
-      border-radius: ${(props) => `${props.rayRadius}%`};
-      background: ${(props) => props.color};
+      width: ${({ rayWidth }) => `${rayWidth}px`};
+      height: ${({ rayHeight }) => `${rayHeight}px`};
+      border-radius: ${({ rayRadius }) => `${rayRadius}%`};
+      background: ${({ theme, color = 'dark', colorWeight = '100' }) =>
+        theme.colors[color][colorWeight]};
     }
   }
   /* Generate :nth-child(n) of div */

@@ -1,23 +1,11 @@
 import React, { MouseEvent } from 'react';
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+import { GlobalProps } from '../';
+export interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'color'>, GlobalProps {
     ref?: any;
     /**
      * Button text
      */
     label?: string;
-    /**
-     * Used for bg-color, border-colors etc.
-     */
-    btnColor?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'light' | 'dark';
-    btnColorWeight?: 'light' | 'DEFAULT' | 'dark';
-    /**
-     * The size of the button
-     */
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-    /**
-     * The surface layout of the button
-     */
-    layout?: 'solid' | 'outline' | 'dashed' | 'dotted' | 'double';
     /**
      * Button surface or edges
      */

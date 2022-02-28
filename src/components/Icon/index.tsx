@@ -1,20 +1,47 @@
-import React from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import React, { useState, useEffect, useRef } from 'react'
 import { IconProps } from './types'
-import { StyledIconDiv } from './styles'
+import { StyledIconContainer, StyledIconDiv } from './styles'
 
-const Icon: React.FC<IconProps> = ({
-  color = 'primary',
-  iconName = 'activity',
-  size = 'md',
-  hoverable = false,
-}) => {
+const Icon: React.FC<IconProps> = (props) => {
+  const { iconName = 'activity', hasDropdown = false, dropdown } = props
+  const [isOpen, setIsOpen] = useState(false)
+  const ref = useRef(null)
+
   const SVGComponent =
     require(`../../assets/svg/${iconName}.svg`).ReactComponent
 
+  const handleClick = () => {
+    setIsOpen(!isOpen)
+  }
+
+  const handleClickOutside = () => {
+    const handleClick = (e: any) => {
+      // @ts-ignore
+      if (ref.current && !ref.current.contains(e.target)) {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener('click', handleClick, true)
+
+    return () => {
+      document.removeEventListener('click', handleClick, true)
+    }
+  }
+
+  useEffect(handleClickOutside, [])
+
+  const DropdownComponent: any = dropdown
+
   return (
-    <StyledIconDiv size={size} color={color} hoverable={hoverable}>
-      <SVGComponent />
-    </StyledIconDiv>
+    <StyledIconContainer ref={ref} {...props}>
+      <StyledIconDiv {...props} onClick={handleClick}>
+        <SVGComponent />
+      </StyledIconDiv>
+      {isOpen && hasDropdown && <DropdownComponent />}
+    </StyledIconContainer>
   )
 }
 

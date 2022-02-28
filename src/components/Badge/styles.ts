@@ -5,7 +5,8 @@ import { BadgeProps } from './types'
 export const StyledBadge = styled.span<BadgeProps>`
   padding: ${({ size = 'md', theme }) => theme.badge[size].padding};
   border-radius: 3em;
-  background: ${({ type = 'primary', theme }) => theme.colors[type].DEFAULT};
+  background: ${({ color = 'primary', colorWeight = 'DEFAULT', theme }) =>
+    theme.colors[color][colorWeight]};
   color: #ffffff;
 
   > span {
