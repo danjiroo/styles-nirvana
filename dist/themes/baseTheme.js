@@ -242,16 +242,19 @@ exports.baseTheme = {
         },
     },
     size: {
+        // master gibalik nako ang percentages,
+        // ga add kog breakpoint, if ang viewport
+        // wa pa kaabot 1200px kay 100% iya width
         // master gene, todo discuss if ok ra
-        xs: '320px',
-        sm: '480px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1200px',
-        // xs: '16.66666666666667%',
-        // sm: '33.33333333333333%',
-        // md: '50%',
-        // lg: '66.66666666666667%',
-        // xl: '83.33333333333334%',
+        // xs: '320px',
+        // sm: '480px',
+        // md: '768px',
+        // lg: '1024px',
+        // xl: '1200px',
+        xs: '16.66666666666667%',
+        sm: '33.33333333333333%',
+        md: '50%',
+        lg: '66.66666666666667%',
+        xl: '83.33333333333334%',
     },
 };

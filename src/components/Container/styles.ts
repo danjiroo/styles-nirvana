@@ -6,7 +6,10 @@ const getContainerStyles = (props: GetContainerStyles) => {
 
   if (size) {
     return css`
-      width: ${theme.size[size]};
+      width: 100%;
+      @media screen and (min-width: 1200px) {
+        width: ${theme.size[size]};
+      }
     `
   }
   return css`

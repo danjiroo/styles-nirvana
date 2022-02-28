@@ -1,6 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useRef } from 'react'
-import { StyledInput, InputContainer, Label, StyledIcon } from './styles'
+import {
+  StyledInput,
+  StyledTextArea,
+  InputContainer,
+  Label,
+  StyledIcon,
+} from './styles'
 import { FormInputProps } from './types'
 import { Icon } from '../'
 
@@ -14,7 +20,6 @@ const Input: React.FC<FormInputProps> = (props) => {
     type,
     accessor,
     disabled,
-    field_type,
     customTheme,
     iconLeft = 'search',
     icon,
@@ -79,7 +84,6 @@ const Input: React.FC<FormInputProps> = (props) => {
 
       {type && type === 'text' && (
         <StyledInput
-          type={field_type}
           value={value}
           placeholder={label && is_input_active ? placeholder : placeholder}
           onChange={handleInputChange}
@@ -90,6 +94,19 @@ const Input: React.FC<FormInputProps> = (props) => {
           disabled={disabled}
           name={name}
           customTheme={customTheme}
+        />
+      )}
+
+      {type && type === 'textArea' && (
+        <StyledTextArea
+          value={value}
+          placeholder={label && is_input_active ? placeholder : placeholder}
+          onChange={handleInputChange}
+          onFocus={() => setInputActive(true)}
+          onClick={() => setInputActive(true)}
+          onBlur={handleBlurInput}
+          ref={inputRef}
+          name={name}
         />
       )}
     </InputContainer>
