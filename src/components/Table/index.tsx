@@ -1,24 +1,26 @@
+/* eslint-disable indent */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react'
-import { useTable, useSortBy, useRowSelect } from 'react-table'
+import {
+  useTable,
+  useSortBy,
+  useRowSelect,
+  UseTableRowProps,
+} from 'react-table'
 
 import ReactTable from './Shell/Table'
 
 import { ExtendedColumns, TableProps } from './types'
 import { StyledSortIconContainer, StyledTable } from './styles'
-import { Icon } from '../'
-
-import ActionColumn from './ActionColumn'
+import { Checkbox, Icon } from '../'
 
 const { Header, Row, Cell, Body } = ReactTable
 
 const Table: React.FC<TableProps> = (props) => {
   const { columns = [], data = [] } = props
 
-  const [updatedColumns, setUpdatedColumns] = useState<ExtendedColumns[]>(
-    columns ?? []
-  )
+  const [updatedColumns, setUpdatedColumns] =
+    useState<ExtendedColumns[]>(columns)
 
   const {
     getTableProps,
@@ -28,7 +30,7 @@ const Table: React.FC<TableProps> = (props) => {
     prepareRow,
     setHiddenColumns,
     getToggleAllRowsSelectedProps,
-    selectedFlatRows,
+    // selectedFlatRows,
   } = useTable(
     {
       // @ts-ignore
@@ -51,19 +53,31 @@ const Table: React.FC<TableProps> = (props) => {
       })
 
       const updatedColumns = columns.filter(
-        (column) => column.id !== 'selection' && column.id !== 'actions'
+        ({ id, show }) => id !== 'selection' && show
       )
 
       setUpdatedColumns(updatedColumns)
     }
   }
 
-  useEffect(onColumnsUpdate, [])
+  useEffect(onColumnsUpdate, [columns])
 
-  console.log('@@selectedFlatRows', selectedFlatRows)
+  const getColumn = (columnId: string) =>
+    columns.find((column) => column.id === columnId)
 
-  const checkboxColumn = columns.find((column) => column.id === 'selection')
-  const actionColumn = columns.find((column) => column.id === 'actions')
+  const checkboxColumn = getColumn('selection')
+  const actionsColumn = getColumn('actions')
+
+  const CheckboxColumnComponent = checkboxColumn?.Cell ?? Checkbox
+  const ActionsColumnComponent = actionsColumn?.Cell
+    ? actionsColumn?.Cell
+    : (props: UseTableRowProps<any>) => (
+        <Icon
+          clickable
+          iconName='more-horizontal'
+          onClick={() => console.log('@debugIcon', props.original)}
+        />
+      )
 
   return (
     <StyledTable {...getTableProps()} {...props}>
@@ -71,12 +85,13 @@ const Table: React.FC<TableProps> = (props) => {
         {headerGroups.map((headerGroup) => (
           <Row {...headerGroup.getHeaderGroupProps()}>
             {checkboxColumn?.show && (
-              <ActionColumn
-                header
-                actionType='checkbox'
-                getToggleAllRowsSelectedProps={getToggleAllRowsSelectedProps}
-              />
+              <Cell header className='checkbox'>
+                <CheckboxColumnComponent
+                  {...getToggleAllRowsSelectedProps?.()}
+                />
+              </Cell>
             )}
+
             {headerGroup.headers.map((column) => (
               <Cell
                 header
@@ -94,12 +109,6 @@ const Table: React.FC<TableProps> = (props) => {
                 </StyledSortIconContainer>
               </Cell>
             ))}
-            {actionColumn?.show && (
-              <ActionColumn
-                header
-                headerTitle={actionColumn.Header as string}
-              />
-            )}
           </Row>
         ))}
       </Header>
@@ -110,17 +119,20 @@ const Table: React.FC<TableProps> = (props) => {
           return (
             <Row {...row.getRowProps()}>
               {checkboxColumn?.show && (
-                <ActionColumn
-                  actionType='checkbox'
-                  getToggleRowSelectedProps={getToggleRowSelectedProps}
-                />
+                <Cell className='checkbox'>
+                  <CheckboxColumnComponent {...getToggleRowSelectedProps?.()} />
+                </Cell>
               )}
 
               {row.cells.map((cell) => (
-                <Cell {...cell.getCellProps()}>{cell.render('Cell')}</Cell>
+                <Cell {...cell.getCellProps()}>
+                  {cell.column.id === 'actions' ? (
+                    <ActionsColumnComponent {...cell.row} />
+                  ) : (
+                    cell.render('Cell')
+                  )}
+                </Cell>
               ))}
-
-              {actionColumn?.show && <ActionColumn />}
             </Row>
           )
         })}

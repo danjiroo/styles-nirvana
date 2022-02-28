@@ -3,15 +3,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StyledIconReference = exports.StyledIconDiv = void 0;
+exports.StyledIconReference = exports.StyledIconDiv = exports.StyledIconContainer = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importDefault(require("styled-components"));
+exports.StyledIconContainer = styled_components_1.default.div `
+  position: relative;
+  width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+`;
 exports.StyledIconDiv = styled_components_1.default.div `
   width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
   height: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  cursor: ${({ clickable = false }) => (clickable ? 'pointer' : 'default')};
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
   > svg {
     width: 100%;

@@ -1,1 +1,2 @@
-export declare const iconArray: any;
+export declare const iconArray: string[];
+export declare const iconObject: any;

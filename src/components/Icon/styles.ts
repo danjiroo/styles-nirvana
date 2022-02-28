@@ -6,12 +6,19 @@ import { IconProps } from './types'
 
 type StyleIconProps = IconProps & ThemeProvider
 
+export const StyledIconContainer = styled.div<StyleIconProps>`
+  position: relative;
+  width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+`
+
 export const StyledIconDiv = styled.div<StyleIconProps>`
   width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
   height: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  cursor: ${({ clickable = false }) => (clickable ? 'pointer' : 'default')};
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
   > svg {
     width: 100%;

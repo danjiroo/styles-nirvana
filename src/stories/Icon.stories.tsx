@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import styled from 'styled-components'
 
-import { Icon } from '../'
+import { Icon, List } from '../'
 import IconReference from '../components/Icon/IconReference'
 
 export default {
@@ -22,14 +22,14 @@ const Template: ComponentStory<typeof Icon> = (args) => {
   }
 
   return (
-    <StyledDiv>
+    <>
       <StyledIconDivLeft>
         <Icon {...args} iconName={iconName} />
       </StyledIconDivLeft>
       <StyledIconDivRight>
         <IconReference handleClick={handleClick} />
       </StyledIconDivRight>
-    </StyledDiv>
+    </>
   )
 }
 
@@ -39,9 +39,37 @@ Default.args = {
   color: 'primary',
 }
 
-const StyledDiv = styled.div`
-  box-sizing: border-box;
-`
+export const ClickableWithDropdown = Template.bind({})
+ClickableWithDropdown.args = {
+  hasDropdown: true,
+  clickable: true,
+  hoverable: true,
+  iconName: 'user',
+  dropdown: () => (
+    <List
+      size='sm'
+      hasPointer
+      clickable
+      hoverable
+      rounded
+      asDropDown
+      list={[
+        {
+          id: '1',
+          component: <button>Edit</button>,
+        },
+        {
+          id: '2',
+          component: <button>Preview</button>,
+        },
+        {
+          id: '3',
+          component: <button>Delete</button>,
+        },
+      ]}
+    />
+  ),
+}
 
 const StyledIconDivLeft = styled.div`
   width: 80px;

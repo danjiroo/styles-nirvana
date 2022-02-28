@@ -91,6 +91,13 @@ export const ComponentDetails: ComponentProps[] = [
     dev: 'Eugene',
   },
   {
+    title: 'List',
+    content: 'Lorem ipsum dolor.',
+    story_url: 'list',
+    progress: 'completed',
+    dev: 'Dan',
+  },
+  {
     title: 'Loader',
     content: 'Lorem ipsum dolor.',
     story_url: 'loader',

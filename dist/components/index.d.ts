@@ -10,6 +10,7 @@ export { default as Header } from './Header';
 export { default as Icon } from './Icon';
 export { default as Image } from './Image';
 export { default as Input } from './Input';
+export { default as List } from './List';
 export { default as Logo } from './Logo';
 export { default as Menu } from './Menu';
 export { default as Navigation } from './Navigation';

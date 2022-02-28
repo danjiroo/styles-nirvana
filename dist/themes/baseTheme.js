@@ -184,6 +184,13 @@ exports.baseTheme = {
     list: {
         padding: 0,
         listStyle: 'none',
+        size: {
+            xs: 50,
+            sm: 100,
+            md: 150,
+            lg: 200,
+            xl: 250,
+        },
     },
     loader: {
         xs: {

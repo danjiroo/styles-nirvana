@@ -82,6 +82,9 @@ export interface ThemeDefinition {
   list: {
     padding: number
     listStyle: string
+    size: {
+      [P in Sizes]: number
+    }
   }
   table: {
     border?: number

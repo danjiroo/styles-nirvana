@@ -27,9 +27,9 @@ export const StyledTable = styled(ReactTable)`
   /* margin: 0 auto; */
   position: relative;
 
-  * {
+  /* * {
     position: relative;
-  }
+  } */
 
   thead {
     position: sticky;
@@ -80,6 +80,8 @@ export const StyledTable = styled(ReactTable)`
   th.checkbox,
   td.checkbox {
     width: 70px;
+    top: -9px;
+    position: relative;
   }
 
   td,
@@ -104,6 +106,7 @@ export const StyledTable = styled(ReactTable)`
     td,
     th {
       display: block;
+      position: relative;
     }
 
     thead {
@@ -136,8 +139,4 @@ export const StyledSortIconContainer = styled.span`
   display: inline-block;
   vertical-align: middle;
   padding-left: 10px;
-`
-
-export const StyledCheckboxContainer = styled.div`
-  top: -8px;
 `
