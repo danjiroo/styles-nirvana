@@ -47,6 +47,7 @@ const Table: React.FC<TableProps> = (props) => {
     if (columns.length) {
       columns.map((column) => {
         if (!column.show) {
+          // @ts-ignore
           setHiddenColumns((prev) => [...prev, column.id])
         }
       })

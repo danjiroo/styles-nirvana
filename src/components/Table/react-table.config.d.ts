@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 import {
   UseColumnOrderInstanceProps,
   UseColumnOrderState,
@@ -106,7 +108,19 @@ declare module 'react-table' {
       UseGlobalFiltersColumnOptions<D>,
       UseGroupByColumnOptions<D>,
       UseResizeColumnsColumnOptions<D>,
-      UseSortByColumnOptions<D> {}
+      UseSortByColumnOptions<D> {
+    accessor: A | ((originalRow: D) => string)
+    Header?: string | ((props: TableInstance<D>) => ReactNode)
+    Filter?: string | ((props: TableInstance<D>) => ReactNode)
+    Cell?: string | ((cell: Cell<D>) => ReactNode)
+    id?: string | number
+    minWidth?: string | number
+    maxWidth?: string | number
+    width?: string | number
+    canSortBy?: boolean
+    sortByFn?: (a: any, b: any, desc: boolean) => 0 | 1 | -1
+    defaultSortDesc?: boolean
+  }
 
   export interface ColumnInstance<
     D extends Record<string, unknown> = Record<string, unknown>
@@ -116,7 +130,8 @@ declare module 'react-table' {
       UseSortByColumnProps<D> {}
 
   export interface Cell<
-    D extends Record<string, unknown> = Record<string, unknown>
+    D extends Record<string, unknown> = Record<string, unknown>,
+    V = any
   > extends UseGroupByCellProps<D>,
       UseRowStateCellProps<D> {}
 
