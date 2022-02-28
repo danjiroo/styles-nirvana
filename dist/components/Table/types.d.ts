@@ -1,8 +1,8 @@
-import React from 'react';
-import { Column } from 'react-table';
+/// <reference types="react" />
+import { Column, CellProps } from 'react-table';
 export interface OtherColumnProperties {
     show?: boolean;
-    Cell?: React.ElementType;
+    Cell?: (props?: CellProps<any>) => JSX.Element;
 }
 export declare type ExtendedColumns = Column & OtherColumnProperties;
 export interface TableProps {

@@ -68,9 +68,10 @@ const Table: React.FC<TableProps> = (props) => {
   const checkboxColumn = getColumn('selection')
   const actionsColumn = getColumn('actions')
 
-  const CheckboxColumnComponent = checkboxColumn?.Cell ?? Checkbox
+  const CheckboxColumnComponent: React.ElementType =
+    checkboxColumn?.Cell ?? Checkbox
 
-  const ActionsColumnComponent = actionsColumn?.Cell
+  const ActionsColumnComponent: React.ElementType = actionsColumn?.Cell
     ? actionsColumn?.Cell
     : DefaultActionsColumn
 

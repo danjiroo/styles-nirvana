@@ -3,11 +3,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import React from 'react'
 import React from 'react'
-import { Column } from 'react-table'
+import { Column, CellProps } from 'react-table'
 
 export interface OtherColumnProperties {
   show?: boolean
-  Cell?: React.ElementType
+  Cell?: (props?: CellProps<any>) => JSX.Element
 }
 
 export type ExtendedColumns = Column & OtherColumnProperties
