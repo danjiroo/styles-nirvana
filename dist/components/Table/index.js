@@ -4,6 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable indent */
@@ -19,16 +21,32 @@ const Table = (props) => {
     var _a;
     const { columns = [], data = [] } = props;
     const [updatedColumns, setUpdatedColumns] = (0, react_1.useState)(columns);
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, setHiddenColumns, getToggleAllRowsSelectedProps,
+    const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows, 
     // selectedFlatRows,
+    setHiddenColumns, getToggleAllRowsSelectedProps, 
+    // pagination react-table
+    page, // Instead of using 'rows', we'll use page,
+    // which has only the rows for the active page
+    // canPreviousPage,
+    // canNextPage,
+    // pageOptions,
+    // pageCount,
+    // gotoPage,
+    // nextPage,
+    // previousPage,
+    // setPageSize,
+    // state: { pageIndex, pageSize },
      } = (0, react_table_1.useTable)({
         // @ts-ignore
         columns: updatedColumns,
         data,
         initialState: {
             hiddenColumns: [],
+            // pageIndex: 2,
         },
-    }, react_table_1.useSortBy, react_table_1.useRowSelect);
+    }, react_table_1.useSortBy, 
+    // usePagination,
+    react_table_1.useRowSelect);
     const onColumnsUpdate = () => {
         if (columns.length) {
             columns.map((column) => {
@@ -49,10 +67,12 @@ const Table = (props) => {
     const ActionsColumnComponent = (actionsColumn === null || actionsColumn === void 0 ? void 0 : actionsColumn.Cell)
         ? actionsColumn === null || actionsColumn === void 0 ? void 0 : actionsColumn.Cell
         : DefaultActionsColumn_1.default;
-    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledTable, Object.assign({}, getTableProps(), props, { children: [(0, jsx_runtime_1.jsx)(Header, { children: headerGroups.map((headerGroup) => ((0, jsx_runtime_1.jsxs)(Row, Object.assign({}, headerGroup.getHeaderGroupProps(), { children: [(checkboxColumn === null || checkboxColumn === void 0 ? void 0 : checkboxColumn.show) && ((0, jsx_runtime_1.jsx)(Cell, Object.assign({ header: true, className: 'checkbox' }, { children: (0, jsx_runtime_1.jsx)(CheckboxColumnComponent, Object.assign({}, getToggleAllRowsSelectedProps === null || getToggleAllRowsSelectedProps === void 0 ? void 0 : getToggleAllRowsSelectedProps()), void 0) }), void 0)), headerGroup.headers.map((column) => ((0, jsx_runtime_1.jsxs)(Cell, Object.assign({ header: true }, column.getHeaderProps(column.getSortByToggleProps()), { children: [column.render('Header'), (0, jsx_runtime_1.jsx)(styles_1.StyledSortIconContainer, { children: column.isSorted ? (column.isSortedDesc ? ((0, jsx_runtime_1.jsx)(__1.Icon, { iconName: 'chevron-down', size: 'xs' }, void 0)) : ((0, jsx_runtime_1.jsx)(__1.Icon, { iconName: 'chevron-up', size: 'xs' }, void 0))) : null }, void 0)] }), void 0)))] }), void 0))) }, void 0), (0, jsx_runtime_1.jsx)(Body, Object.assign({}, getTableBodyProps(), { children: rows.map((row) => {
-                    const { getToggleRowSelectedProps } = row;
-                    prepareRow(row);
-                    return ((0, jsx_runtime_1.jsxs)(Row, Object.assign({}, row.getRowProps(), { children: [(checkboxColumn === null || checkboxColumn === void 0 ? void 0 : checkboxColumn.show) && ((0, jsx_runtime_1.jsx)(Cell, Object.assign({ className: 'checkbox' }, { children: (0, jsx_runtime_1.jsx)(CheckboxColumnComponent, Object.assign({}, getToggleRowSelectedProps === null || getToggleRowSelectedProps === void 0 ? void 0 : getToggleRowSelectedProps()), void 0) }), void 0)), row.cells.map((cell) => ((0, jsx_runtime_1.jsx)(Cell, Object.assign({ className: cell.column.id === 'actions' && 'table-actions' }, cell.getCellProps(), { children: cell.column.id === 'actions' ? ((0, jsx_runtime_1.jsx)(ActionsColumnComponent, Object.assign({}, cell), void 0)) : (cell.render('Cell')) }), void 0)))] }), void 0));
-                }) }), void 0)] }), void 0));
+    return ((0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: (0, jsx_runtime_1.jsxs)(styles_1.StyledTable, Object.assign({}, getTableProps(), props, { children: [(0, jsx_runtime_1.jsx)(Header, { children: headerGroups.map((headerGroup) => ((0, jsx_runtime_1.jsxs)(Row, Object.assign({}, headerGroup.getHeaderGroupProps(), { children: [(checkboxColumn === null || checkboxColumn === void 0 ? void 0 : checkboxColumn.show) && ((0, jsx_runtime_1.jsx)(Cell, Object.assign({ header: true, className: 'checkbox' }, { children: (0, jsx_runtime_1.jsx)(CheckboxColumnComponent, Object.assign({}, getToggleAllRowsSelectedProps === null || getToggleAllRowsSelectedProps === void 0 ? void 0 : getToggleAllRowsSelectedProps()), void 0) }), void 0)), headerGroup.headers.map((column) => ((0, jsx_runtime_1.jsxs)(Cell, Object.assign({ header: true }, column.getHeaderProps(column.getSortByToggleProps()), { style: { width: column.width } }, { children: [column.render('Header'), (0, jsx_runtime_1.jsx)(styles_1.StyledSortIconContainer, { children: column.isSorted ? (column.isSortedDesc ? ((0, jsx_runtime_1.jsx)(__1.Icon, { iconName: 'chevron-down', size: 'xs' }, void 0)) : ((0, jsx_runtime_1.jsx)(__1.Icon, { iconName: 'chevron-up', size: 'xs' }, void 0))) : null }, void 0)] }), void 0)))] }), void 0))) }, void 0), (0, jsx_runtime_1.jsx)(Body, Object.assign({}, getTableBodyProps(), { children: rows.map((row) => {
+                        const { getToggleRowSelectedProps } = row;
+                        prepareRow(row);
+                        return ((0, jsx_runtime_1.jsxs)(Row, Object.assign({}, row.getRowProps(), { children: [(checkboxColumn === null || checkboxColumn === void 0 ? void 0 : checkboxColumn.show) && ((0, jsx_runtime_1.jsx)(Cell, Object.assign({ className: 'checkbox' }, { children: (0, jsx_runtime_1.jsx)(CheckboxColumnComponent, Object.assign({}, getToggleRowSelectedProps === null || getToggleRowSelectedProps === void 0 ? void 0 : getToggleRowSelectedProps()), void 0) }), void 0)), row.cells.map((cell) => ((0, jsx_runtime_1.jsx)(Cell, Object.assign({ className: cell.column.id === 'actions' && 'table-actions' }, cell.getCellProps(), { style: {
+                                        width: cell.column.width,
+                                    } }, { children: cell.column.id === 'actions' ? ((0, jsx_runtime_1.jsx)(ActionsColumnComponent, Object.assign({}, cell), void 0)) : (cell.render('Cell')) }), void 0)))] }), void 0));
+                    }) }), void 0)] }), void 0) }, void 0));
 };
 exports.default = Table;

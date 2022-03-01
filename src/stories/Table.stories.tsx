@@ -24,6 +24,7 @@ Default.args = {
       Header: 'FIRST NAME',
       accessor: 'firstName',
       show: true,
+      width: 400,
     },
     {
       id: 'lastName',
