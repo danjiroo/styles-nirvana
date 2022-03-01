@@ -17,7 +17,7 @@ const DefaultPagination_1 = __importDefault(require("./DefaultPagination"));
 const { Header, Row, Cell, Body } = Table_1.default;
 const Table = (props) => {
     var _a;
-    const { columns = [], data = [], initialState = {}, config = {} } = props;
+    const { columns = [], data = [], initialState = {}, config = {}, pagination, actions, } = props;
     const { enablePagination = true, paginationRange = 5 } = config;
     const [updatedColumns, setUpdatedColumns] = (0, react_1.useState)(columns);
     const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows, 
@@ -32,10 +32,6 @@ const Table = (props) => {
         // manualPagination: true,
         // pageCount: props.pagination?.totalCount,
     }, react_table_1.useSortBy, react_table_1.usePagination, react_table_1.useRowSelect);
-    const [range, setRange] = (0, react_1.useState)({
-        start: 1,
-        end: paginationRange !== null && paginationRange !== void 0 ? paginationRange : 1,
-    });
     const onColumnsUpdate = () => {
         if (columns.length) {
             columns.map((column) => {
@@ -67,9 +63,9 @@ const Table = (props) => {
         setPageSize,
         pageIndex,
         pageSize,
-        range,
-        setRange,
         paginationRange,
+        pagination,
+        actions,
     };
     return ((0, jsx_runtime_1.jsxs)(styles_1.StyledTableContainer, { children: [(0, jsx_runtime_1.jsxs)(styles_1.StyledTable, Object.assign({}, getTableProps(), { children: [(0, jsx_runtime_1.jsx)(Header, { children: headerGroups.map((headerGroup) => ((0, jsx_runtime_1.jsxs)(Row, Object.assign({}, headerGroup.getHeaderGroupProps(), { children: [(checkboxColumn === null || checkboxColumn === void 0 ? void 0 : checkboxColumn.show) && ((0, jsx_runtime_1.jsx)(Cell, Object.assign({ header: true, className: 'checkbox' }, { children: (0, jsx_runtime_1.jsx)(CheckboxColumnComponent, Object.assign({}, getToggleAllRowsSelectedProps === null || getToggleAllRowsSelectedProps === void 0 ? void 0 : getToggleAllRowsSelectedProps()), void 0) }), void 0)), headerGroup.headers.map((column) => ((0, jsx_runtime_1.jsxs)(Cell, Object.assign({ header: true }, column.getHeaderProps(column.getSortByToggleProps()), { style: { width: column.width } }, { children: [column.render('Header'), (0, jsx_runtime_1.jsx)(styles_1.StyledSortIconContainer, { children: column.isSorted ? (column.isSortedDesc ? ((0, jsx_runtime_1.jsx)(__1.Icon, { iconName: 'chevron-down', size: 'xs' }, void 0)) : ((0, jsx_runtime_1.jsx)(__1.Icon, { iconName: 'chevron-up', size: 'xs' }, void 0))) : null }, void 0)] }), void 0)))] }), void 0))) }, void 0), (0, jsx_runtime_1.jsx)(Body, Object.assign({}, getTableBodyProps(), { children: (enablePagination ? page : rows).map((row) => {
                             const { getToggleRowSelectedProps } = row;

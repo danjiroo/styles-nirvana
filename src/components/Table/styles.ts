@@ -57,7 +57,7 @@ export const StyledTable = styled(ReactTable)`
     display: block;
     overflow: auto;
 
-    height: calc(100vh - 320px);
+    height: calc(100vh - 420px);
 
     tr {
       height: 48px;

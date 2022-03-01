@@ -9,12 +9,25 @@ export interface TableConfig {
     enablePagination: boolean;
     paginationRange: number;
 }
+export interface TablePagination {
+    currentPage: number;
+    currentResultCount: number;
+    totalPageCount: number;
+    totalResultCount: number;
+}
+export interface TableActionHandlers {
+    handleNext: () => void;
+    handlePrevious: () => void;
+    handleJumpToFirst: () => void;
+    hgandleJumpToLast: () => void;
+    handleJumpToPage: () => void;
+    handleChecked: () => void;
+}
 export interface TableProps {
     config?: Partial<TableConfig>;
     columns: ExtendedColumns[];
     data: Record<string, unknown>[];
     initialState?: TableState;
-    pagination?: {
-        totalCount: number;
-    };
+    pagination?: TablePagination;
+    actions: TableActionHandlers;
 }

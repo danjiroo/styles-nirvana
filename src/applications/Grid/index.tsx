@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useMemo, useState } from 'react'
 import axios from 'axios'
 
@@ -29,7 +31,7 @@ const Grid: React.FC = () => {
       <p style={{ paddingBottom: 15 }}>
         <i>Possibly another component aside from the Table component.</i>
       </p>
-      <Table columns={config?.data?.columns ?? []} data={data} />
+      {/* <Table columns={config?.data?.columns ?? []} data={data} /> */}
     </div>
   )
 }

@@ -62,15 +62,26 @@ Default.args = {
       show: true,
     },
   ] as ExtendedColumns[],
-  data: makeData(50),
+  data: makeData(11),
   initialState: {
-    pageSize: 2,
+    pageSize: 5,
   },
   pagination: {
-    totalCount: 50,
+    currentPage: 1,
+    currentResultCount: 5,
+    totalPageCount: 3,
+    totalResultCount: 11,
   },
   config: {
     enablePagination: true,
     paginationRange: 5,
+  },
+  actions: {
+    handleNext: () => console.log({ type: 'NEXT' }),
+    handlePrevious: () => console.log({ type: 'PREVIOUS' }),
+    handleJumpToFirst: () => console.log({ type: 'JUMP_TO_FIRST' }),
+    hgandleJumpToLast: () => console.log({ type: 'JUMP_TO_LAST' }),
+    handleJumpToPage: () => console.log({ type: 'JUMP_TO_PAGE' }),
+    handleChecked: () => console.log({ type: 'CHECKED' }),
   },
 } as TableProps

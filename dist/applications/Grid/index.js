@@ -13,12 +13,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 const react_1 = require("react");
 const axios_1 = __importDefault(require("axios"));
-const components_1 = require("../../components");
 const utils_1 = require("../../utils");
 const Grid = () => {
-    var _a, _b;
     const [config, setConfig] = (0, react_1.useState)({});
     const data = (0, react_1.useMemo)(() => (0, utils_1.makeData)(50), []);
     /* This is only temporary */
@@ -29,6 +29,6 @@ const Grid = () => {
     (0, react_1.useEffect)(() => {
         getAppConfig();
     }, []);
-    return ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", { children: "Atomic Grid [Application]" }, void 0), (0, jsx_runtime_1.jsx)("p", Object.assign({ style: { paddingBottom: 15 } }, { children: (0, jsx_runtime_1.jsx)("i", { children: "Possibly another component aside from the Table component." }, void 0) }), void 0), (0, jsx_runtime_1.jsx)(components_1.Table, { columns: (_b = (_a = config === null || config === void 0 ? void 0 : config.data) === null || _a === void 0 ? void 0 : _a.columns) !== null && _b !== void 0 ? _b : [], data: data }, void 0)] }, void 0));
+    return ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", { children: "Atomic Grid [Application]" }, void 0), (0, jsx_runtime_1.jsx)("p", Object.assign({ style: { paddingBottom: 15 } }, { children: (0, jsx_runtime_1.jsx)("i", { children: "Possibly another component aside from the Table component." }, void 0) }), void 0)] }, void 0));
 };
 exports.default = Grid;

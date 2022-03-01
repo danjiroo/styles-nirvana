@@ -20,7 +20,14 @@ import DefaultPagination from './DefaultPagination'
 const { Header, Row, Cell, Body } = ReactTable
 
 const Table: React.FC<TableProps> = (props) => {
-  const { columns = [], data = [], initialState = {}, config = {} } = props
+  const {
+    columns = [],
+    data = [],
+    initialState = {},
+    config = {},
+    pagination,
+    actions,
+  } = props
   const { enablePagination = true, paginationRange = 5 } = config
 
   const [updatedColumns, setUpdatedColumns] =
@@ -59,11 +66,6 @@ const Table: React.FC<TableProps> = (props) => {
     usePagination,
     useRowSelect
   )
-
-  const [range, setRange] = useState({
-    start: 1,
-    end: paginationRange ?? 1,
-  })
 
   const onColumnsUpdate = () => {
     if (columns.length) {
@@ -108,9 +110,9 @@ const Table: React.FC<TableProps> = (props) => {
     setPageSize,
     pageIndex,
     pageSize,
-    range,
-    setRange,
     paginationRange,
+    pagination,
+    actions,
   }
 
   return (

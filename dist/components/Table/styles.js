@@ -74,7 +74,7 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
     display: block;
     overflow: auto;
 
-    height: calc(100vh - 320px);
+    height: calc(100vh - 420px);
 
     tr {
       height: 48px;
