@@ -13,11 +13,12 @@ exports.StyledIconContainer = styled_components_1.default.div `
 exports.StyledIconDiv = styled_components_1.default.div `
   width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
   height: ${({ size = 'md', theme }) => theme.icon[size].height}px;
-  cursor: ${({ clickable = false }) => (clickable ? 'pointer' : 'default')};
+  cursor: ${({ clickable = false, disabled }) => clickable && !disabled ? 'pointer' : 'default'};
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  opacity: ${({ disabled = false }) => (disabled ? 0.2 : 1)};
 
   > svg {
     width: 100%;
@@ -26,7 +27,7 @@ exports.StyledIconDiv = styled_components_1.default.div `
   }
 
   > svg:hover {
-    stroke: ${({ color = 'primary', theme, hoverable }) => hoverable && theme.colors[color][300]};
+    stroke: ${({ color = 'primary', theme, hoverable, disabled }) => hoverable && !disabled && theme.colors[color][300]};
   }
 `;
 exports.StyledIconReference = styled_components_1.default.div `

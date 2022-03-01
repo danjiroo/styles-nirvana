@@ -24,7 +24,7 @@ Default.args = {
       Header: 'FIRST NAME',
       accessor: 'firstName',
       show: true,
-      width: 400,
+      width: 300,
     },
     {
       id: 'lastName',
@@ -63,4 +63,14 @@ Default.args = {
     },
   ] as ExtendedColumns[],
   data: makeData(50),
-}
+  initialState: {
+    pageSize: 2,
+  },
+  pagination: {
+    totalCount: 50,
+  },
+  config: {
+    enablePagination: true,
+    paginationRange: 5,
+  },
+} as TableProps

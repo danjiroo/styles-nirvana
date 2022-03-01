@@ -22,7 +22,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StyledSortIconContainer = exports.StyledTable = exports.getResponsiveHeaders = void 0;
+exports.StyledPagination = exports.StyledSortIconContainer = exports.StyledTable = exports.StyledTableContainer = exports.getResponsiveHeaders = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importStar(require("styled-components"));
 const Table_1 = __importDefault(require("./Shell/Table"));
@@ -35,6 +35,9 @@ const getResponsiveHeaders = ({ columns }) => {
     return headers.join(';');
 };
 exports.getResponsiveHeaders = getResponsiveHeaders;
+exports.StyledTableContainer = styled_components_1.default.div `
+  position: relative;
+`;
 exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
   border-spacing: 1;
   border-collapse: collapse;
@@ -56,7 +59,7 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
     background: ${({ theme }) => theme.colors.light[100]};
     border-bottom: 1px solid #cccccc;
 
-    // tbody scroll
+    // ! tbody scroll
     display: block;
     width: calc(100% - 1em);
   }
@@ -67,9 +70,11 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
   }
 
   tbody {
-    // tbody scroll
+    // ! tbody scroll
     display: block;
     overflow: auto;
+
+    height: calc(100vh - 320px);
 
     tr {
       height: 48px;
@@ -80,7 +85,7 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
   }
 
   tr {
-    // tbody scroll
+    // ! tbody scroll
     display: table;
     width: 100%;
     table-layout: fixed;
@@ -92,7 +97,7 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
   }
 
   td {
-    color: #898a8a;
+    color: ${({ theme }) => theme.colors.dark[50]};
   }
 
   th.checkbox,
@@ -156,4 +161,31 @@ exports.StyledSortIconContainer = styled_components_1.default.span `
   display: inline-block;
   vertical-align: middle;
   padding-left: 10px;
+`;
+exports.StyledPagination = styled_components_1.default.div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  margin: 30px 0;
+  position: relative;
+  color: ${({ theme }) => theme.colors.dark[50]};
+
+  .current-page {
+    position: absolute;
+    right: 15px;
+
+    > span {
+      border: 1px solid #cccccc;
+      padding: 7px 11px;
+      margin-left: 10px;
+      border-radius: 5px;
+    }
+  }
+
+  .active-page {
+    background: ${({ theme }) => theme.colors.primary[100]};
+    padding: 7px 11px;
+    border-radius: 5px;
+  }
 `;

@@ -17,6 +17,10 @@ export const getResponsiveHeaders = ({ columns }: TableProps) => {
   return headers.join(';')
 }
 
+export const StyledTableContainer = styled.div`
+  position: relative;
+`
+
 export const StyledTable = styled(ReactTable)`
   border-spacing: 1;
   border-collapse: collapse;
@@ -38,7 +42,7 @@ export const StyledTable = styled(ReactTable)`
     background: ${({ theme }) => theme.colors.light[100]};
     border-bottom: 1px solid #cccccc;
 
-    // tbody scroll
+    // ! tbody scroll
     display: block;
     width: calc(100% - 1em);
   }
@@ -49,9 +53,11 @@ export const StyledTable = styled(ReactTable)`
   }
 
   tbody {
-    // tbody scroll
+    // ! tbody scroll
     display: block;
     overflow: auto;
+
+    height: calc(100vh - 320px);
 
     tr {
       height: 48px;
@@ -62,7 +68,7 @@ export const StyledTable = styled(ReactTable)`
   }
 
   tr {
-    // tbody scroll
+    // ! tbody scroll
     display: table;
     width: 100%;
     table-layout: fixed;
@@ -74,7 +80,7 @@ export const StyledTable = styled(ReactTable)`
   }
 
   td {
-    color: #898a8a;
+    color: ${({ theme }) => theme.colors.dark[50]};
   }
 
   th.checkbox,
@@ -139,4 +145,32 @@ export const StyledSortIconContainer = styled.span`
   display: inline-block;
   vertical-align: middle;
   padding-left: 10px;
+`
+
+export const StyledPagination = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  margin: 30px 0;
+  position: relative;
+  color: ${({ theme }) => theme.colors.dark[50]};
+
+  .current-page {
+    position: absolute;
+    right: 15px;
+
+    > span {
+      border: 1px solid #cccccc;
+      padding: 7px 11px;
+      margin-left: 10px;
+      border-radius: 5px;
+    }
+  }
+
+  .active-page {
+    background: ${({ theme }) => theme.colors.primary[100]};
+    padding: 7px 11px;
+    border-radius: 5px;
+  }
 `

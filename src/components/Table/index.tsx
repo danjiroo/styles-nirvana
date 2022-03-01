@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-no-undef */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable indent */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
@@ -10,15 +7,21 @@ import { useTable, useSortBy, useRowSelect, usePagination } from 'react-table'
 import ReactTable from './Shell/Table'
 
 import { ExtendedColumns, TableProps } from './types'
-import { StyledSortIconContainer, StyledTable } from './styles'
+import {
+  StyledSortIconContainer,
+  StyledTableContainer,
+  StyledTable,
+} from './styles'
 import { Checkbox, Icon } from '../'
 
 import DefaultActionsColumn from './DefaultActionsColumn'
+import DefaultPagination from './DefaultPagination'
 
 const { Header, Row, Cell, Body } = ReactTable
 
 const Table: React.FC<TableProps> = (props) => {
-  const { columns = [], data = [] } = props
+  const { columns = [], data = [], initialState = {}, config = {} } = props
+  const { enablePagination = true, paginationRange = 5 } = config
 
   const [updatedColumns, setUpdatedColumns] =
     useState<ExtendedColumns[]>(columns)
@@ -34,31 +37,33 @@ const Table: React.FC<TableProps> = (props) => {
     getToggleAllRowsSelectedProps,
 
     // pagination react-table
-    page, // Instead of using 'rows', we'll use page,
-    // which has only the rows for the active page
-    // canPreviousPage,
-    // canNextPage,
-    // pageOptions,
-    // pageCount,
-    // gotoPage,
-    // nextPage,
-    // previousPage,
-    // setPageSize,
-    // state: { pageIndex, pageSize },
+    page, // Instead of using 'rows', we'll use page, which has only the rows for the active page
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    pageCount,
+    gotoPage,
+    nextPage,
+    previousPage,
+    setPageSize,
+    state: { pageIndex, pageSize },
   } = useTable(
     {
-      // @ts-ignore
       columns: updatedColumns,
       data,
-      initialState: {
-        hiddenColumns: [],
-        // pageIndex: 2,
-      },
+      initialState,
+      // manualPagination: true,
+      // pageCount: props.pagination?.totalCount,
     },
     useSortBy,
-    // usePagination,
+    usePagination,
     useRowSelect
   )
+
+  const [range, setRange] = useState({
+    start: 1,
+    end: paginationRange ?? 1,
+  })
 
   const onColumnsUpdate = () => {
     if (columns.length) {
@@ -92,9 +97,25 @@ const Table: React.FC<TableProps> = (props) => {
     ? actionsColumn?.Cell
     : DefaultActionsColumn
 
+  const paginationProps = {
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    pageCount,
+    gotoPage,
+    nextPage,
+    previousPage,
+    setPageSize,
+    pageIndex,
+    pageSize,
+    range,
+    setRange,
+    paginationRange,
+  }
+
   return (
-    <>
-      <StyledTable {...getTableProps()} {...props}>
+    <StyledTableContainer>
+      <StyledTable {...getTableProps()}>
         <Header>
           {headerGroups.map((headerGroup) => (
             <Row {...headerGroup.getHeaderGroupProps()}>
@@ -128,7 +149,7 @@ const Table: React.FC<TableProps> = (props) => {
           ))}
         </Header>
         <Body {...getTableBodyProps()}>
-          {rows.map((row) => {
+          {(enablePagination ? page : rows).map((row) => {
             const { getToggleRowSelectedProps } = row
             prepareRow(row)
             return (
@@ -161,52 +182,9 @@ const Table: React.FC<TableProps> = (props) => {
           })}
         </Body>
       </StyledTable>
-      {/* 
-      <div className='pagination'>
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {'<<'}
-        </button>{' '}
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {'<'}
-        </button>{' '}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          {'>'}
-        </button>{' '}
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          {'>>'}
-        </button>{' '}
-        <span>
-          Page{' '}
-          <strong>
-            {pageIndex + 1} of {pageOptions.length}
-          </strong>{' '}
-        </span>
-        <span>
-          | Go to page:{' '}
-          <input
-            type='number'
-            defaultValue={pageIndex + 1}
-            onChange={(e) => {
-              const page = e.target.value ? Number(e.target.value) - 1 : 0
-              gotoPage(page)
-            }}
-            style={{ width: '100px' }}
-          />
-        </span>{' '}
-        <select
-          value={pageSize}
-          onChange={(e) => {
-            setPageSize(Number(e.target.value))
-          }}
-        >
-          {[10, 20, 30, 40, 50].map((pageSize) => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
-            </option>
-          ))}
-        </select>
-      </div> */}
-    </>
+
+      {enablePagination && <DefaultPagination {...paginationProps} />}
+    </StyledTableContainer>
   )
 }
 

@@ -20,6 +20,10 @@ export interface IconProps extends GlobalProps {
    */
   clickable?: boolean
   /**
+   * Is icon disabled
+   */
+  disabled?: boolean
+  /**
    * On Click Action
    */
   onClick?: (data?: any) => void
@@ -31,4 +35,8 @@ export interface IconProps extends GlobalProps {
    * Dropdown menu component
    */
   dropdown?: React.ReactNode
+  /**
+   * Custom classname
+   */
+  className?: string
 }
