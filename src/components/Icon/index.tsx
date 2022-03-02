@@ -22,6 +22,8 @@ const Icon: React.FC<IconProps> = (props) => {
     require(`../../assets/svg/${iconName}.svg`).ReactComponent
 
   const handleClick = () => {
+    if (disabled) return
+
     setIsOpen(!isOpen)
   }
 
@@ -46,11 +48,7 @@ const Icon: React.FC<IconProps> = (props) => {
 
   return (
     <StyledIconContainer ref={ref} {...rest}>
-      <StyledIconDiv
-        {...props}
-        onClick={() => !disabled && handleClick}
-        className={className}
-      >
+      <StyledIconDiv {...props} onClick={handleClick} className={className}>
         {isNaN(Number(iconName)) ? <SVGComponent /> : iconName}
       </StyledIconDiv>
       {isOpen && hasDropdown && <DropdownComponent />}
