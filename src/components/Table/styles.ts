@@ -44,7 +44,7 @@ export const StyledTable = styled(ReactTable)`
 
     // ! tbody scroll
     display: block;
-    width: calc(100% - 1em);
+    /* width: calc(100% - 1em); */
   }
 
   thead tr {
@@ -65,6 +65,11 @@ export const StyledTable = styled(ReactTable)`
         border: 0;
       }
     }
+  }
+
+  tbody tr:hover {
+    background: ${({ theme }) => theme.colors.primary[50]};
+    transition: all 0.2s linear;
   }
 
   tr {
@@ -147,11 +152,11 @@ export const StyledSortIconContainer = styled.span`
   padding-left: 10px;
 `
 
-export const StyledPagination = styled.div`
+export const StyledPagination = styled.div<Pick<TableProps, 'isLoading'>>`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3px;
+  gap: 10px;
   margin: 30px 0;
   position: relative;
   color: ${({ theme }) => theme.colors.dark[50]};
@@ -162,15 +167,16 @@ export const StyledPagination = styled.div`
 
     > span {
       border: 1px solid #cccccc;
-      padding: 7px 11px;
+      padding: 7px 14px;
       margin-left: 10px;
       border-radius: 5px;
+      font-size: 13px;
     }
   }
 
   .active-page {
-    background: ${({ theme }) => theme.colors.primary[100]};
-    padding: 7px 11px;
+    background: ${({ theme }) => theme.colors.primary[50]};
+    padding: 17px;
     border-radius: 5px;
   }
 `

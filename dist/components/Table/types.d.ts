@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { Column, CellProps, TableState } from 'react-table';
+import { Column, CellProps } from 'react-table';
 export interface OtherColumnProperties {
     show?: boolean;
     Cell?: (props?: CellProps<any>) => JSX.Element;
@@ -7,7 +7,11 @@ export interface OtherColumnProperties {
 export declare type ExtendedColumns = Column & OtherColumnProperties;
 export interface TableConfig {
     enablePagination: boolean;
-    paginationRange: number;
+    initialState: {
+        pageSize: number;
+        pageIndex: number;
+        paginationRange: number;
+    };
 }
 export interface TablePagination {
     currentPage: number;
@@ -16,18 +20,20 @@ export interface TablePagination {
     totalResultCount: number;
 }
 export interface TableActionHandlers {
-    handleNext: () => void;
-    handlePrevious: () => void;
-    handleJumpToFirst: () => void;
-    hgandleJumpToLast: () => void;
-    handleJumpToPage: () => void;
-    handleChecked: () => void;
+    onNext: () => void;
+    onPrevious: () => void;
+    onJumpToFirst: () => void;
+    onJumpToLast: () => void;
+    onJumpToPage: (page: number) => void;
+    onChecked: () => void;
 }
 export interface TableProps {
-    config?: Partial<TableConfig>;
     columns: ExtendedColumns[];
     data: Record<string, unknown>[];
-    initialState?: TableState;
-    pagination?: TablePagination;
     actions: TableActionHandlers;
+    options?: {
+        config?: Partial<TableConfig>;
+        pagination?: TablePagination;
+    };
+    isLoading?: boolean;
 }

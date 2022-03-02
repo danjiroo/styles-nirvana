@@ -14,7 +14,11 @@ export type ExtendedColumns = Column & OtherColumnProperties
 
 export interface TableConfig {
   enablePagination: boolean
-  paginationRange: number
+  initialState: {
+    pageSize: number
+    pageIndex: number
+    paginationRange: number
+  }
 }
 
 export interface TablePagination {
@@ -25,19 +29,23 @@ export interface TablePagination {
 }
 
 export interface TableActionHandlers {
-  handleNext: () => void
-  handlePrevious: () => void
-  handleJumpToFirst: () => void
-  hgandleJumpToLast: () => void
-  handleJumpToPage: () => void
-  handleChecked: () => void
+  onNext: () => void
+  onPrevious: () => void
+  onJumpToFirst: () => void
+  onJumpToLast: () => void
+  onJumpToPage: (page: number) => void
+  onChecked: () => void
 }
 
 export interface TableProps {
-  config?: Partial<TableConfig>
   columns: ExtendedColumns[]
   data: Record<string, unknown>[]
-  initialState?: TableState
-  pagination?: TablePagination
   actions: TableActionHandlers
+
+  options?: {
+    config?: Partial<TableConfig>
+    pagination?: TablePagination
+  }
+
+  isLoading?: boolean
 }

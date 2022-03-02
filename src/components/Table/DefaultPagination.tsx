@@ -1,163 +1,130 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 
 import { Icon } from '../'
 
 import { StyledPagination } from './styles'
+import { TableProps } from './types'
 
-interface DefaultPaginationProps {
-  [key: string]: any
-}
+import { usePagination } from './usePagination'
+
+type DefaultPaginationProps = Pick<
+  TableProps,
+  'options' | 'actions' | 'isLoading'
+>
 
 const DefaultPagination: React.FC<DefaultPaginationProps> = ({
-  canPreviousPage,
-  canNextPage,
-  pageCount,
-  gotoPage,
-  nextPage,
-  previousPage,
-  pageIndex,
-  paginationRange,
-  pagination,
+  options,
   actions,
-  // pageOptions,
-  // pageSize,
-  // setPageSize,
+  isLoading,
 }) => {
-  const {
-    handleNext,
-    handlePrevious,
-    handleJumpToFirst,
-    handleJumptToLast,
-    handleJumpToPage,
-    handleChecked,
-  } = actions
-  const { currentPage, currentResultCount, totalPageCount, totalResultCount } =
-    pagination ?? {}
+  const { onNext, onPrevious, onJumpToFirst, onJumpToLast, onJumpToPage } =
+    actions
 
-  const endRange =
-    paginationRange > totalPageCount ? totalPageCount : paginationRange
+  const { pageSize = 1 } = options?.config?.initialState ?? {}
+  const { currentPage = 0, totalResultCount = 1 } = options?.pagination ?? {}
 
-  const [range, setRange] = useState({
-    start: 1,
-    end: endRange,
+  const paginationRange = usePagination({
+    currentPage: currentPage + 1,
+    pageSize,
+    siblingCount: 1,
+    totalCount: totalResultCount,
   })
 
-  const createRange = (start: number, end: number) => {
-    const length = end - start + 1
+  const lastPage = paginationRange?.[paginationRange.length - 1]
 
-    return Array.from({ length }, (_, num) => num + start)
+  const handleJumptToFirst = () => {
+    if (currentPage === 0) return
+
+    onJumpToFirst()
   }
+  const handlePrevious = () => {
+    if (currentPage === 0) return
 
-  const handlers = {
-    goToPage: useCallback((page: number) => {
-      handleJumpToPage()
-      gotoPage(page - 1)
-    }, []),
+    onPrevious()
+  }
+  const handleJumptToPage = (pageNumber: number) => {
+    onJumpToPage(pageNumber)
+  }
+  const handleNext = () => {
+    if (currentPage + 1 === lastPage) return
 
-    jumpToFirst: useCallback(() => {
-      handleJumpToFirst()
+    onNext()
+  }
+  const handleJumpToLast = () => {
+    if (currentPage + 1 === lastPage) return
 
-      gotoPage(0)
-      canPreviousPage &&
-        setRange({
-          start: 1,
-          end: endRange ?? 1,
-        })
-    }, []),
-
-    previous: useCallback(() => {
-      handlePrevious()
-
-      previousPage()
-      canPreviousPage &&
-        range.start !== 1 &&
-        setRange({
-          start: range.start - 1,
-          end: range.end - 1,
-        })
-    }, []),
-
-    next: () =>
-      useCallback(() => {
-        handleNext()
-
-        nextPage()
-        canNextPage &&
-          range.end !== pageCount &&
-          setRange({
-            start: range.start + 1,
-            end: range.end + 1,
-          })
-      }, []),
-
-    jumpToLast: useCallback(() => {
-      handleJumptToLast()
-
-      gotoPage(pageCount - 1)
-      canNextPage &&
-        setRange({
-          start: pageCount - endRange,
-          end: pageCount,
-        })
-    }, []),
+    onJumpToLast()
   }
 
   return (
-    <StyledPagination>
+    <StyledPagination isLoading={isLoading}>
       <Icon
         iconName='chevrons-left'
-        onClick={handlers.jumpToFirst}
-        disabled={!canPreviousPage}
+        onClick={handleJumptToFirst}
         color='dark'
         colorWeight='50'
-        clickable
-        hoverable
+        disabled={isLoading || currentPage === 0}
+        hoverable={!isLoading || currentPage !== 0}
+        clickable={!isLoading || currentPage !== 0}
       />
       <Icon
         iconName='chevron-left'
-        onClick={handlers.previous}
-        disabled={!canPreviousPage}
+        onClick={handlePrevious}
         color='dark'
         colorWeight='50'
-        clickable
-        hoverable
+        disabled={isLoading || currentPage === 0}
+        hoverable={!isLoading || currentPage !== 0}
+        clickable={!isLoading || currentPage !== 0}
       />
-      {createRange(range.start, range.end)?.map((page) => (
-        <Icon
-          key={page}
-          iconName={String(page)}
-          onClick={() => handlers.goToPage(page)}
-          color='dark'
-          colorWeight='50'
-          clickable
-          hoverable
-          className={page === pageIndex + 1 ? 'active-page' : ''}
-        />
-      ))}
+      {paginationRange?.map((pageNumber: number | string) => {
+        if (pageNumber === 'DOTS') {
+          return (
+            <Icon
+              key={pageNumber}
+              iconName='more-horizontal'
+              color='dark'
+              colorWeight='50'
+            />
+          )
+        }
+
+        return (
+          <Icon
+            key={pageNumber}
+            iconName={String(pageNumber)}
+            onClick={() => handleJumptToPage(Number(pageNumber) - 1)}
+            color='dark'
+            colorWeight='50'
+            className={
+              Number(pageNumber) - 1 === currentPage ? 'active-page' : ''
+            }
+            disabled={isLoading}
+            hoverable={!isLoading}
+            clickable={!isLoading}
+          />
+        )
+      })}
       <Icon
         iconName='chevron-right'
-        onClick={handlers.next}
-        disabled={!canNextPage}
+        onClick={handleNext}
         color='dark'
         colorWeight='50'
-        clickable
-        hoverable
+        disabled={isLoading || currentPage + 1 === lastPage}
+        hoverable={!isLoading || currentPage + 1 !== lastPage}
+        clickable={!isLoading || currentPage + 1 !== lastPage}
       />
       <Icon
         iconName='chevrons-right'
-        onClick={handlers.jumpToLast}
-        disabled={!canNextPage}
+        onClick={handleJumpToLast}
         color='dark'
         colorWeight='50'
-        clickable
-        hoverable
+        disabled={isLoading || currentPage + 1 === lastPage}
+        hoverable={!isLoading || currentPage + 1 !== lastPage}
+        clickable={!isLoading || currentPage + 1 !== lastPage}
       />
       <div className='current-page'>
         page
-        <span>{pageIndex + 1}</span>
+        <span>{isLoading ? '...' : currentPage + 1}</span>
       </div>
     </StyledPagination>
   )

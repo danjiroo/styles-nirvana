@@ -63,25 +63,28 @@ Default.args = {
     },
   ] as ExtendedColumns[],
   data: makeData(11),
-  initialState: {
-    pageSize: 5,
-  },
-  pagination: {
-    currentPage: 1,
-    currentResultCount: 5,
-    totalPageCount: 3,
-    totalResultCount: 11,
-  },
-  config: {
-    enablePagination: true,
-    paginationRange: 5,
+  options: {
+    pagination: {
+      currentPage: 1,
+      currentResultCount: 5,
+      totalPageCount: 3,
+      totalResultCount: 11,
+    },
+    config: {
+      enablePagination: true,
+      initialState: {
+        pageSize: 5,
+        pageIndex: 0,
+        paginationRange: 5,
+      },
+    },
   },
   actions: {
-    handleNext: () => console.log({ type: 'NEXT' }),
-    handlePrevious: () => console.log({ type: 'PREVIOUS' }),
-    handleJumpToFirst: () => console.log({ type: 'JUMP_TO_FIRST' }),
-    hgandleJumpToLast: () => console.log({ type: 'JUMP_TO_LAST' }),
-    handleJumpToPage: () => console.log({ type: 'JUMP_TO_PAGE' }),
-    handleChecked: () => console.log({ type: 'CHECKED' }),
+    onNext: () => console.log({ type: 'NEXT' }),
+    onPrevious: () => console.log({ type: 'PREVIOUS' }),
+    onJumpToFirst: () => console.log({ type: 'JUMP_TO_FIRST' }),
+    onJumpToLast: () => console.log({ type: 'JUMP_TO_LAST' }),
+    onJumpToPage: () => console.log({ type: 'JUMP_TO_PAGE' }),
+    onChecked: () => console.log({ type: 'CHECKED' }),
   },
 } as TableProps

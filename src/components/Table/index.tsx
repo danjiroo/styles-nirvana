@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable indent */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useEffect, useState } from 'react'
 import { useTable, useSortBy, useRowSelect, usePagination } from 'react-table'
@@ -20,15 +19,11 @@ import DefaultPagination from './DefaultPagination'
 const { Header, Row, Cell, Body } = ReactTable
 
 const Table: React.FC<TableProps> = (props) => {
-  const {
-    columns = [],
-    data = [],
-    initialState = {},
-    config = {},
-    pagination,
-    actions,
-  } = props
-  const { enablePagination = true, paginationRange = 5 } = config
+  const { columns = [], data = [], actions, options, isLoading = false } = props
+
+  const { config } = options ?? {}
+  const { enablePagination = true, initialState } = config ?? {}
+  const { paginationRange, ...restInitialState } = initialState ?? {}
 
   const [updatedColumns, setUpdatedColumns] =
     useState<ExtendedColumns[]>(columns)
@@ -38,29 +33,15 @@ const Table: React.FC<TableProps> = (props) => {
     getTableBodyProps,
     headerGroups,
     prepareRow,
-    rows,
-    // selectedFlatRows,
     setHiddenColumns,
     getToggleAllRowsSelectedProps,
-
-    // pagination react-table
-    page, // Instead of using 'rows', we'll use page, which has only the rows for the active page
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
-    pageCount,
-    gotoPage,
-    nextPage,
-    previousPage,
-    setPageSize,
-    state: { pageIndex, pageSize },
+    rows,
+    page,
   } = useTable(
     {
       columns: updatedColumns,
       data,
-      initialState,
-      // manualPagination: true,
-      // pageCount: props.pagination?.totalCount,
+      initialState: restInitialState,
     },
     useSortBy,
     usePagination,
@@ -100,19 +81,9 @@ const Table: React.FC<TableProps> = (props) => {
     : DefaultActionsColumn
 
   const paginationProps = {
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
-    pageCount,
-    gotoPage,
-    nextPage,
-    previousPage,
-    setPageSize,
-    pageIndex,
-    pageSize,
-    paginationRange,
-    pagination,
+    options,
     actions,
+    isLoading,
   }
 
   return (
