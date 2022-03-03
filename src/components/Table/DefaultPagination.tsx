@@ -76,11 +76,11 @@ const DefaultPagination: React.FC<DefaultPaginationProps> = ({
         hoverable={!isLoading || currentPage !== 0}
         clickable={!isLoading || currentPage !== 0}
       />
-      {paginationRange?.map((pageNumber: number | string) => {
+      {paginationRange?.map((pageNumber: number | string, i) => {
         if (pageNumber === 'DOTS') {
           return (
             <Icon
-              key={pageNumber}
+              key={`${pageNumber}:${i}`}
               iconName='more-horizontal'
               color='dark'
               colorWeight='50'
