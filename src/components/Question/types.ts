@@ -1,10 +1,20 @@
 export type QuestionType = 'choice' | 'input' | 'confirmation'
 
-export interface QuestionProps {
+export interface QuestionActions {
+  onEdit: (id: string) => void
+  onPreview: (id: string) => void
+  onDelete: (id: string) => void
+}
+
+export interface QuestionProps extends Partial<QuestionActions> {
   /**
-   * Question ID / index
+   * UUID
    */
-  index: number
+  id: string
+  /**
+   * Question title / name
+   */
+  name: string
   /**
    * Question text
    */

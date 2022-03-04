@@ -54,7 +54,8 @@ const ReactFlowDnDTemplate: ComponentStory<typeof DND> = (args) => {
       node_type: 'default',
       component: () => (
         <Question
-          index={1}
+          id='1'
+          name='First Question'
           question='What is the best JavaScript framework?'
           type='choice'
           choices={['React', 'Vue', 'Angular', 'Svelte']}
@@ -66,7 +67,8 @@ const ReactFlowDnDTemplate: ComponentStory<typeof DND> = (args) => {
       node_type: 'default',
       component: () => (
         <Question
-          index={2}
+          id='2'
+          name='Second Question'
           question='Do you agree to our terms and conditions?'
           type='confirmation'
         />
@@ -76,7 +78,12 @@ const ReactFlowDnDTemplate: ComponentStory<typeof DND> = (args) => {
       id: v4(),
       node_type: 'default',
       component: () => (
-        <Question index={3} question='How old are you?' type='input' />
+        <Question
+          id='3'
+          name='Third Question'
+          question='How old are you?'
+          type='input'
+        />
       ),
     },
   ]

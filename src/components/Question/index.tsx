@@ -7,18 +7,22 @@ import { Button, Input, Icon, List } from '../'
 
 const Question: React.FC<QuestionProps> = (props) => {
   const {
-    index,
+    id,
+    name = 'Question Title',
     question = 'Question goes right here',
     type = 'choice',
     multipleChoice = false,
     choices = [],
+    onEdit,
+    onPreview,
+    onDelete,
   } = props
   const [answer, setAnswer] = useState('')
 
   return (
     <StyledQuestion {...props} className='question'>
       <div className='question-header'>
-        <h3>Question {index}</h3>
+        <h3>{name}</h3>
         <h4>
           {multipleChoice ? 'Multiple' : 'Single'} {type}
         </h4>
@@ -40,31 +44,19 @@ const Question: React.FC<QuestionProps> = (props) => {
                   {
                     id: '1',
                     component: (
-                      <button
-                        onClick={() => console.log('@Question Edit', props)}
-                      >
-                        Edit
-                      </button>
+                      <button onClick={() => onEdit?.(id)}>Edit</button>
                     ),
                   },
                   {
                     id: '2',
                     component: (
-                      <button
-                        onClick={() => console.log('@@Question Preview', props)}
-                      >
-                        Preview
-                      </button>
+                      <button onClick={() => onPreview?.(id)}>Preview</button>
                     ),
                   },
                   {
                     id: '3',
                     component: (
-                      <button
-                        onClick={() => console.log('@@Question Delete', props)}
-                      >
-                        Delete
-                      </button>
+                      <button onClick={() => onDelete?.(id)}>Delete</button>
                     ),
                   },
                 ]}

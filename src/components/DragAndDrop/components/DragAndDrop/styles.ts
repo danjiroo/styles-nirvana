@@ -67,7 +67,12 @@ export const StyledSidebar = styled.div`
   height: 100%;
 
   &::-webkit-scrollbar {
-    width: 0;
+    width: 3px;
+    background: ${({ theme }) => theme.colors.primary[50]};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.primary[200]};
   }
 
   > div {

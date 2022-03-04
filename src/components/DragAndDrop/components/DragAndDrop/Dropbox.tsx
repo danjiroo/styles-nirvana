@@ -12,6 +12,10 @@ import ReactFlow, {
 import { StyledDropbox, StyledInitialElement } from './styles'
 import { ReactFlowProps } from '../../types'
 
+export interface DropboxProps extends Pick<ReactFlowProps, 'dndOptions'> {
+  className?: string
+}
+
 const initialElements = [
   {
     id: 'headingSample',
@@ -31,9 +35,7 @@ const initialElements = [
 let id = 0
 const getId = () => `dndnode_${id++}`
 
-const Dropbox: React.FC<Pick<ReactFlowProps, 'dndOptions'>> = ({
-  dndOptions,
-}) => {
+const Dropbox: React.FC<DropboxProps> = ({ dndOptions, className }) => {
   const reactFlowWrapper = useRef<any>(null)
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null)
   const [elements, setElements] = useState<any>([])
@@ -90,7 +92,11 @@ const Dropbox: React.FC<Pick<ReactFlowProps, 'dndOptions'>> = ({
   }
 
   return (
-    <StyledDropbox ref={reactFlowWrapper} dragStart={dragStart}>
+    <StyledDropbox
+      ref={reactFlowWrapper}
+      dragStart={dragStart}
+      className={className}
+    >
       <ReactFlow
         elements={elements}
         onConnect={onConnect}
