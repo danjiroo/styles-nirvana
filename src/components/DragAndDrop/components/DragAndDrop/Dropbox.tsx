@@ -98,6 +98,7 @@ const Dropbox: React.FC<DropboxProps> = ({ dndOptions, className }) => {
       className={className}
     >
       <ReactFlow
+        className='reactflow-div'
         elements={elements}
         onConnect={onConnect}
         onElementsRemove={onElementsRemove}

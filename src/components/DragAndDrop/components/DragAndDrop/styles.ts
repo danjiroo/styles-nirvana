@@ -38,6 +38,14 @@ export const StyledDropbox = styled.div<StyledDropboxProps>`
     margin-bottom: 0;
   }
 
+  div.reactflow-div {
+    ${({ dragStart = false }) =>
+      dragStart &&
+      css`
+        background: rgba(236, 236, 236, 0.5);
+      `}
+  }
+
   div.initial {
     ${({ dragStart = false }) =>
       dragStart &&
