@@ -7,7 +7,7 @@ interface StyledInputProps {
 }
 
 const default_input_styles = css`
-  background-color: 'none';
+  background-color: none;
   outline-color: #5cd176;
   border-color: #c5c5c5;
   border-radius: 6px;

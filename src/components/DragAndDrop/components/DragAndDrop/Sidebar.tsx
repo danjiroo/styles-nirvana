@@ -6,7 +6,9 @@ import { ReactFlowProps } from '../../types'
 
 import Option from './Option'
 
-const Sidebar: React.FC<ReactFlowProps> = ({ dndOptions }) => (
+const Sidebar: React.FC<Pick<ReactFlowProps, 'dndOptions'>> = ({
+  dndOptions,
+}) => (
   <StyledSidebar>
     <div className='react-flow-sidebar-options'>
       {dndOptions?.map(({ id, component, node_type }) => {

@@ -36,7 +36,6 @@ const Template: ComponentStory<typeof Container> = (args) => {
       <Input
         value={state.value}
         type='text'
-        field_type='text'
         placeholder='enter something'
         label='test'
         actions={actionsProp ?? {}}

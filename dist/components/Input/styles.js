@@ -24,7 +24,7 @@ exports.StyledIcon = exports.InputContainer = exports.Label = exports.StyledText
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const styled_components_1 = __importStar(require("styled-components"));
 const default_input_styles = (0, styled_components_1.css) `
-  background-color: 'none';
+  background-color: none;
   outline-color: #5cd176;
   border-color: #c5c5c5;
   border-radius: 6px;

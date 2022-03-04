@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { MouseEvent } from 'react'
 
-import { GlobalProps } from '../'
+import { GlobalProps, GColorWeights } from '../'
 
 export interface ButtonProps
   extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'color'>,
@@ -11,6 +11,10 @@ export interface ButtonProps
    * Button text
    */
   label?: string
+  /**
+   * Button Custom Hover Color Weight
+   */
+  hoverColorWeight?: GColorWeights
   /**
    * Button surface or edges
    */

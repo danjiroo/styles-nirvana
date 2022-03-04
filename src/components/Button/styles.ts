@@ -10,6 +10,7 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
   const {
     color = 'primary',
     colorWeight = 'DEFAULT',
+    hoverColorWeight = 'DEFAULT',
     rounded = true,
     size = 'md',
     isDisabled = false,
@@ -35,8 +36,20 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
 
     &:not(.close_btn):hover {
       color: ${layout !== 'solid' && '#fff'};
-      background: ${theme?.colors[color][!isDisabled ? '300' : 'DEFAULT']};
-      border-color: ${theme?.colors[color][!isDisabled ? '300' : 'DEFAULT']};
+      background: ${theme?.colors[color][
+        !isDisabled && hoverColorWeight
+          ? hoverColorWeight
+          : !isDisabled
+          ? '300'
+          : 'DEFAULT'
+      ]};
+      border-color: ${theme?.colors[color][
+        !isDisabled && hoverColorWeight
+          ? hoverColorWeight
+          : !isDisabled
+          ? '300'
+          : 'DEFAULT'
+      ]};
       opacity: ${!isDisabled && 1};
 
       svg {

@@ -6,6 +6,7 @@ import ReactFlow, {
   addEdge,
   removeElements,
   Controls,
+  Background,
 } from 'react-flow-renderer'
 
 import { StyledDropbox, StyledInitialElement } from './styles'
@@ -30,10 +31,13 @@ const initialElements = [
 let id = 0
 const getId = () => `dndnode_${id++}`
 
-const Dropbox: React.FC<ReactFlowProps> = ({ dndOptions }) => {
+const Dropbox: React.FC<Pick<ReactFlowProps, 'dndOptions'>> = ({
+  dndOptions,
+}) => {
   const reactFlowWrapper = useRef<any>(null)
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null)
   const [elements, setElements] = useState<any>([])
+  const [dragStart, setDragStart] = useState(false)
 
   const onConnect = (params: any) =>
     setElements((els: any) => addEdge(params, els))
@@ -46,7 +50,13 @@ const Dropbox: React.FC<ReactFlowProps> = ({ dndOptions }) => {
 
   const onDragOver = (event: any) => {
     event.preventDefault()
+    setDragStart(true)
     event.dataTransfer.dropEffect = 'move'
+  }
+
+  const onDragLeave = (event: any) => {
+    event.preventDefault()
+    setDragStart(false)
   }
 
   const onDrop = (event: any) => {
@@ -74,37 +84,13 @@ const Dropbox: React.FC<ReactFlowProps> = ({ dndOptions }) => {
       },
     }
 
+    setDragStart(false)
+
     setElements((es: any) => es.concat(newNode))
   }
 
   return (
-    <StyledDropbox ref={reactFlowWrapper}>
-      {/* {elements.length > 1 ? (
-        <ReactFlow
-          elements={elements}
-          onConnect={onConnect}
-          onElementsRemove={onElementsRemove}
-          onLoad={onLoad}
-          onDrop={onDrop}
-          onDragOver={onDragOver}
-        >
-          <Controls />
-        </ReactFlow>
-      ) : (
-        <ReactFlow
-          elements={elements}
-          onConnect={onConnect}
-          onElementsRemove={onElementsRemove}
-          onLoad={onLoad}
-          onDrop={onDrop}
-          onDragOver={onDragOver}
-          paneMoveable={false}
-          zoomOnScroll={false}
-          panOnScroll={false}
-          nodesDraggable={false}
-          nodesConnectable={false}
-        ></ReactFlow>
-      )} */}
+    <StyledDropbox ref={reactFlowWrapper} dragStart={dragStart}>
       <ReactFlow
         elements={elements}
         onConnect={onConnect}
@@ -112,11 +98,13 @@ const Dropbox: React.FC<ReactFlowProps> = ({ dndOptions }) => {
         onLoad={onLoad}
         onDrop={onDrop}
         onDragOver={onDragOver}
+        onDragLeave={onDragLeave}
       >
         {elements.length ? <Controls /> : null}
+        <Background color='#aaa' gap={16} />
       </ReactFlow>
       {!elements.length && (
-        <StyledInitialElement>
+        <StyledInitialElement className='initial'>
           <h2>Drag &amp; Drop Questions</h2>
         </StyledInitialElement>
       )}

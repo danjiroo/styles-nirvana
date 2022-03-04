@@ -7,10 +7,15 @@ export interface DNDOption {
 }
 
 export interface ReactFlowProps {
+  type: 'default' | 'reactflow'
   dndOptions?: DNDOption[]
 }
 
 export interface OptionProps {
   id: string
   node_type: NodeTypes
+}
+
+export interface StyledDropboxProps {
+  dragStart: boolean
 }
