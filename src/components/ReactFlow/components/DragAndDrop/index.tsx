@@ -10,10 +10,15 @@ import { ReactFlowProps } from '../../types'
 const DragAndDrop: React.FC<ReactFlowProps> = (props) => (
   <StyledDnDContainer {...props}>
     <ReactFlowProvider>
-      <Sidebar {...props} />
-      <Dropbox {...props} />
+      {/* <Sidebar {...props} />
+      <Dropbox {...props} /> */}
+      {props.children}
     </ReactFlowProvider>
   </StyledDnDContainer>
 )
 
-export default DragAndDrop
+export default Object.assign(DragAndDrop, {
+  Provider: DragAndDrop,
+  Sidebar,
+  Dropbox,
+})

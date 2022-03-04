@@ -57,6 +57,7 @@ export const StyledList = styled.ul<ListProps & ThemeProvider>`
   box-shadow: ${({ asDropDown = false }) =>
     asDropDown ? '0 0 30px rgba(0, 0, 0, 0.1)' : '0'};
   width: ${({ theme, size = 'md' }) => theme.list.size[size]}px;
+  background: #ffffff;
 
   ${getPosition}
 
@@ -72,6 +73,10 @@ export const StyledList = styled.ul<ListProps & ThemeProvider>`
     background: #ffffff;
     color: inherit;
     text-align: ${({ textAlignment = 'left' }) => textAlignment};
+  }
+
+  li > button {
+    padding: 0 10px;
   }
 
   li > *:hover {

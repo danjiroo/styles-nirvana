@@ -4,9 +4,8 @@ import { QuestionProps } from './types'
 
 export const StyledQuestion = styled.div<QuestionProps>`
   text-align: left;
-  padding: 10px;
-  margin-bottom: 5px;
-  box-shadow: 0 30px 20px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px 20px;
+  background: ${({ theme }) => theme.colors.primary[50]};
 
   .question-header {
     position: relative;
@@ -19,7 +18,7 @@ export const StyledQuestion = styled.div<QuestionProps>`
 
     span.question-close {
       position: absolute;
-      top: 5px;
+      top: -5px;
       right: 5px;
     }
   }
@@ -31,7 +30,7 @@ export const StyledQuestion = styled.div<QuestionProps>`
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 2px;
+      gap: 5px;
     }
 
     .question-choices > * {
