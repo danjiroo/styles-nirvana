@@ -28,18 +28,20 @@ export const StyledQuestion = styled.div<QuestionProps>`
     .confirmation-choices {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       gap: 5px;
     }
 
     .question-choices > * {
-      width: ${({ type }) => (type === 'choice' ? '48%' : '100%')};
+      width: ${({ type }) => (type === 'choice' ? '65px' : '100%')};
+      line-height: 30px;
       margin: 0;
     }
 
     .confirmation-choices > * {
-      width: 48%;
+      width: 65px;
+      line-height: 30px;
     }
 
     p {

@@ -1,54 +1,110 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect, MouseEvent } from 'react'
 import ReactFlow, {
   addEdge,
+  updateEdge,
   removeElements,
   Controls,
   Background,
 } from 'react-flow-renderer'
+import { v4 } from 'uuid'
 
 import { StyledDropbox, StyledInitialElement } from './styles'
-import { ReactFlowProps } from '../../types'
+import { QuestionNodes, ReactFlowProps } from '../../types'
 
+import CustomNodeComponent from './CustomNode'
+
+const nodeTypes = {
+  special: CustomNodeComponent,
+}
 export interface DropboxProps extends Pick<ReactFlowProps, 'dndOptions'> {
   className?: string
+  initialNodes?: QuestionNodes[]
+  handleAddNode: (node: QuestionNodes) => void
+  handleRemoveNodes: (nodes: QuestionNodes[]) => void
 }
 
-const initialElements = [
+const initialElements: QuestionNodes[] = [
   {
-    id: 'headingSample',
-    type: 'output',
+    id: '1',
+    question_id: '1',
+    type: 'special',
     data: {
-      label: (
-        <StyledInitialElement>
-          <h2>Survey Sample</h2>
-        </StyledInitialElement>
-      ),
+      id: '1',
+      name: 'Question 1',
+      question: 'Sample?',
+      type: 'choice',
+      choices: ['A', 'B', 'C', 'D'],
     },
     position: { x: 250, y: 250 },
   },
+  {
+    id: '2',
+    question_id: '2',
+    type: 'special',
+    data: {
+      id: '2',
+      name: 'Question 2',
+      question: 'Sample 2?',
+      type: 'choice',
+      choices: ['A', 'B', 'C', 'D'],
+    },
+    position: { x: 0, y: 0 },
+  },
 ]
 
-// still in progress with this, for multiple questions (repeated questions)
-let id = 0
-const getId = () => `dndnode_${id++}`
-
-const Dropbox: React.FC<DropboxProps> = ({ dndOptions, className }) => {
+const Dropbox: React.FC<DropboxProps> = ({
+  dndOptions,
+  className,
+  initialNodes = [],
+  handleAddNode = () => console.log(''),
+  handleRemoveNodes = () => console.log(''),
+}) => {
   const reactFlowWrapper = useRef<any>(null)
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null)
-  const [elements, setElements] = useState<any>([])
+  const [elements, setElements] = useState<any>(initialNodes)
   const [dragStart, setDragStart] = useState(false)
 
-  const onConnect = (params: any) =>
-    setElements((els: any) => addEdge(params, els))
+  useEffect(() => {
+    if (reactFlowInstance && elements.length > 1) {
+      setTimeout(() => reactFlowInstance.fitView(), 0)
+    }
+  }, [reactFlowInstance, elements])
 
-  const onElementsRemove = (elementsToRemove: any) =>
+  const onConnect = (params: any) => {
+    const newEdge = {
+      ...params,
+      // animated: true,
+      // type: 'smoothstep',
+      arrowHeadType: 'arrowclosed',
+      className: 'reactflow-connector',
+      id: v4(),
+    }
+
+    handleAddNode(newEdge)
+    setElements((els: any) => addEdge(newEdge, els))
+  }
+
+  const onEdgeUpdate = (oldEdge: any, newConnection: any) => {
+    handleAddNode({
+      ...oldEdge,
+      ...newConnection,
+    })
+
+    setElements((els: any) => updateEdge(oldEdge, newConnection, els))
+  }
+
+  const onElementsRemove = (elementsToRemove: any) => {
+    handleRemoveNodes(elementsToRemove)
     setElements((els: any) => removeElements(elementsToRemove, els))
+  }
 
-  const onLoad = (_reactFlowInstance: any) =>
+  const onLoad = (_reactFlowInstance: any) => {
     setReactFlowInstance(_reactFlowInstance)
+  }
 
   const onDragOver = (event: any) => {
     event.preventDefault()
@@ -61,6 +117,16 @@ const Dropbox: React.FC<DropboxProps> = ({ dndOptions, className }) => {
     setDragStart(false)
   }
 
+  const onNodeDragStop = (event: any, node: any) => {
+    event.preventDefault()
+    const { label, ...restNode } = node
+
+    handleAddNode(restNode)
+    if (reactFlowInstance && elements.length > 1) {
+      setTimeout(() => reactFlowInstance.fitView(), 0)
+    }
+  }
+
   const onDrop = (event: any) => {
     event.preventDefault()
 
@@ -71,22 +137,27 @@ const Dropbox: React.FC<DropboxProps> = ({ dndOptions, className }) => {
 
     const selectedOption = dndOptions?.find((opt) => opt.id === nodeId)
 
-    const OptionChildComponent: any = selectedOption?.component
+    const { id, question, component } = selectedOption ?? {}
+    const OptionChildComponent: any = component
 
     const position = reactFlowInstance.project({
       x: event.clientX - reactFlowBounds.left,
       y: event.clientY - reactFlowBounds.top,
     })
     const newNode = {
-      id: getId(),
+      id: v4(),
+      question_id: id!,
       type,
       position,
       data: {
+        ...question!,
         label: <OptionChildComponent />,
       },
     }
 
     setDragStart(false)
+
+    handleAddNode(newNode)
 
     setElements((es: any) => es.concat(newNode))
   }
@@ -101,11 +172,14 @@ const Dropbox: React.FC<DropboxProps> = ({ dndOptions, className }) => {
         className='reactflow-div'
         elements={elements}
         onConnect={onConnect}
+        onEdgeUpdate={onEdgeUpdate}
         onElementsRemove={onElementsRemove}
         onLoad={onLoad}
         onDrop={onDrop}
         onDragOver={onDragOver}
         onDragLeave={onDragLeave}
+        onNodeDragStop={onNodeDragStop}
+        nodeTypes={nodeTypes}
       >
         {elements.length ? <Controls /> : null}
         <Background color='#aaa' gap={16} />

@@ -1,9 +1,9 @@
 export type QuestionType = 'choice' | 'input' | 'confirmation'
 
 export interface QuestionActions {
-  onEdit: (id: string) => void
-  onPreview: (id: string) => void
-  onDelete: (id: string) => void
+  handleEditQuestion: (id: string) => void
+  handlePreviewQuestion: (id: string) => void
+  handleRemoveQuestion: (id: string) => void
 }
 
 export interface QuestionProps extends Partial<QuestionActions> {
