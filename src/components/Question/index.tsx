@@ -13,9 +13,9 @@ const Question: React.FC<QuestionProps> = (props) => {
     type = 'choice',
     multipleChoice = false,
     choices = [],
-    onEdit,
-    onPreview,
-    onDelete,
+    handleEditQuestion,
+    handlePreviewQuestion,
+    handleRemoveQuestion,
   } = props
   const [answer, setAnswer] = useState('')
 
@@ -44,19 +44,25 @@ const Question: React.FC<QuestionProps> = (props) => {
                   {
                     id: '1',
                     component: (
-                      <button onClick={() => onEdit?.(id)}>Edit</button>
+                      <button onClick={() => handleEditQuestion?.(id)}>
+                        Edit
+                      </button>
                     ),
                   },
                   {
                     id: '2',
                     component: (
-                      <button onClick={() => onPreview?.(id)}>Preview</button>
+                      <button onClick={() => handlePreviewQuestion?.(id)}>
+                        Preview
+                      </button>
                     ),
                   },
                   {
                     id: '3',
                     component: (
-                      <button onClick={() => onDelete?.(id)}>Delete</button>
+                      <button onClick={() => handleRemoveQuestion?.(id)}>
+                        Delete
+                      </button>
                     ),
                   },
                 ]}
