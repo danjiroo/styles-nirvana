@@ -62,8 +62,15 @@ export const StyledDropbox = styled.div<StyledDropboxProps>`
       `}
   }
 
-  .reactflow-edge {
-    width: 3px;
+  .react-flow__edge-path-selector:hover + .react-flow__edge-path,
+  .react-flow__edge-path:hover {
+    stroke: #555;
+    cursor: pointer;
+    padding: 20px;
+  }
+
+  .reactflow-connector > path {
+    stroke-width: 2;
   }
 
   [class*='react-flow__node-'].selected,

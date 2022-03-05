@@ -25,7 +25,6 @@ export interface DropboxProps extends Pick<ReactFlowProps, 'dndOptions'> {
   initialNodes?: QuestionNodes[]
   handleAddNode: (node: QuestionNodes) => void
   handleRemoveNodes: (nodes: QuestionNodes[]) => void
-  handleUpdateNode: (node: QuestionNodes) => void
 }
 
 const initialElements: QuestionNodes[] = [
@@ -62,11 +61,8 @@ const Dropbox: React.FC<DropboxProps> = ({
   className,
   initialNodes = [],
   handleAddNode = () => console.log(''),
-  handleUpdateNode = () => console.log(''),
   handleRemoveNodes = () => console.log(''),
 }) => {
-  console.log('@@@@@ initialNodes', initialNodes)
-
   const reactFlowWrapper = useRef<any>(null)
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null)
   const [elements, setElements] = useState<any>(initialNodes)
@@ -74,17 +70,17 @@ const Dropbox: React.FC<DropboxProps> = ({
 
   useEffect(() => {
     if (reactFlowInstance && elements.length > 1) {
-      setTimeout(() => reactFlowInstance.fitView(), 100)
+      setTimeout(() => reactFlowInstance.fitView(), 0)
     }
   }, [reactFlowInstance, elements])
 
   const onConnect = (params: any) => {
-    console.log('params', params)
     const newEdge = {
       ...params,
-      animated: true,
-      type: 'smoothstep',
-      className: 'reactflow-edge',
+      // animated: true,
+      // type: 'smoothstep',
+      arrowHeadType: 'arrowclosed',
+      className: 'reactflow-connector',
       id: v4(),
     }
 
@@ -93,7 +89,11 @@ const Dropbox: React.FC<DropboxProps> = ({
   }
 
   const onEdgeUpdate = (oldEdge: any, newConnection: any) => {
-    handleAddNode(newConnection)
+    handleAddNode({
+      ...oldEdge,
+      ...newConnection,
+    })
+
     setElements((els: any) => updateEdge(oldEdge, newConnection, els))
   }
 
@@ -123,7 +123,7 @@ const Dropbox: React.FC<DropboxProps> = ({
 
     handleAddNode(restNode)
     if (reactFlowInstance && elements.length > 1) {
-      setTimeout(() => reactFlowInstance.fitView(), 100)
+      setTimeout(() => reactFlowInstance.fitView(), 0)
     }
   }
 
@@ -180,7 +180,6 @@ const Dropbox: React.FC<DropboxProps> = ({
         onDragLeave={onDragLeave}
         onNodeDragStop={onNodeDragStop}
         nodeTypes={nodeTypes}
-        defaultZoom={1}
       >
         {elements.length ? <Controls /> : null}
         <Background color='#aaa' gap={16} />
