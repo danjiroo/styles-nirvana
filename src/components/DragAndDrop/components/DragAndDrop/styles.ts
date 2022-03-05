@@ -62,11 +62,15 @@ export const StyledDropbox = styled.div<StyledDropboxProps>`
       `}
   }
 
-  /* [class*='react-flow__node-'].selected,
+  .reactflow-edge {
+    width: 3px;
+  }
+
+  [class*='react-flow__node-'].selected,
   [class*='react-flow__node-']:hover {
-    border: none;
+    border: 1px solid #777;
     box-shadow: none;
-  } */
+  }
 `
 
 export const StyledSidebar = styled.div`
@@ -125,5 +129,30 @@ export const StyledInitialElement = styled.div`
 
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23C4C4C4FF' stroke-width='4' stroke-dasharray='10' stroke-dashoffset='21' stroke-linecap='butt'/%3e%3c/svg%3e");
     border-radius: 13px;
+  }
+`
+
+export const StyledCustomNodeContainer = styled.div`
+  .custom-node-handle {
+    z-index: 99;
+    border: none;
+    border-radius: 50%;
+    width: 0.85rem;
+    height: 0.85rem;
+    background: #00e59e;
+  }
+
+  .center-left {
+    margin-left: -3px;
+  }
+
+  .top-right {
+    top: 30%;
+    margin-right: -3px;
+  }
+
+  .bottom-right {
+    top: 70%;
+    margin-right: -3px;
   }
 `
