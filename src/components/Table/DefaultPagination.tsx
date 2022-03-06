@@ -96,7 +96,9 @@ const DefaultPagination: React.FC<DefaultPaginationProps> = ({
             color='dark'
             colorWeight='50'
             className={
-              Number(pageNumber) - 1 === currentPage ? 'active-page' : ''
+              Number(pageNumber) - 1 === currentPage
+                ? 'active-page'
+                : 'inactive'
             }
             disabled={isLoading}
             hoverable={!isLoading}

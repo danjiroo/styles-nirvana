@@ -177,7 +177,12 @@ export const StyledPagination = styled.div<Pick<TableProps, 'isLoading'>>`
 
   .active-page {
     background: ${({ theme }) => theme.colors.primary[50]};
-    padding: 17px;
+    padding: 5px;
     border-radius: 5px;
+  }
+
+  .inactive,
+  .active-page {
+    width: auto;
   }
 `

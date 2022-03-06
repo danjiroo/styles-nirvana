@@ -192,7 +192,12 @@ exports.StyledPagination = styled_components_1.default.div `
 
   .active-page {
     background: ${({ theme }) => theme.colors.primary[50]};
-    padding: 17px;
+    padding: 5px;
     border-radius: 5px;
+  }
+
+  .inactive,
+  .active-page {
+    width: auto;
   }
 `;
