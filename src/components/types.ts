@@ -9,6 +9,7 @@ export type GColors =
 export type GColorWeights = '50' | '100' | '200' | 'DEFAULT' | '300' | '400'
 export type GSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 export type GLayout = 'solid' | 'outline' | 'dashed' | 'dotted' | 'double'
+export type GAlignment = 'left' | 'center' | 'right'
 
 export interface GlobalColors {
   /**
@@ -33,6 +34,13 @@ export interface GlobalBorderLayout {
    * Border style or layout of component
    */
   layout?: GLayout
+}
+
+export interface GlobalAlignment {
+  /**
+   * Alignment
+   */
+  align?: GAlignment
 }
 
 export type GlobalProps = GlobalColors & GlobalSizes & GlobalBorderLayout

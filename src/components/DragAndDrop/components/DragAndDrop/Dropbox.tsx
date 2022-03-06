@@ -2,23 +2,33 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useRef, useEffect, MouseEvent } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import ReactFlow, {
   addEdge,
   updateEdge,
+  isEdge,
   removeElements,
   Controls,
   Background,
+  useZoomPanHelper,
+  Connection,
 } from 'react-flow-renderer'
 import { v4 } from 'uuid'
 
 import { StyledDropbox, StyledInitialElement } from './styles'
 import { QuestionNodes, ReactFlowProps } from '../../types'
 
+import { Button } from '../../../'
+
 import CustomNodeComponent from './CustomNode'
+import CustomEdgeComponent from './CustomEdge'
 
 const nodeTypes = {
   special: CustomNodeComponent,
+}
+
+const edgeTypes = {
+  buttonedge: CustomEdgeComponent,
 }
 export interface DropboxProps extends Pick<ReactFlowProps, 'dndOptions'> {
   className?: string
@@ -63,30 +73,19 @@ const Dropbox: React.FC<DropboxProps> = ({
   handleAddNode = () => console.log(''),
   handleRemoveNodes = () => console.log(''),
 }) => {
+  const { fitBounds } = useZoomPanHelper()
+
   const reactFlowWrapper = useRef<any>(null)
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null)
   const [elements, setElements] = useState<any>(initialNodes)
   const [dragStart, setDragStart] = useState(false)
+  const [defaultZoom, setDefaultZoom] = useState(1)
 
   useEffect(() => {
     if (reactFlowInstance && elements.length > 1) {
       setTimeout(() => reactFlowInstance.fitView(), 0)
     }
   }, [reactFlowInstance, elements])
-
-  const onConnect = (params: any) => {
-    const newEdge = {
-      ...params,
-      // animated: true,
-      // type: 'smoothstep',
-      arrowHeadType: 'arrowclosed',
-      className: 'reactflow-connector',
-      id: v4(),
-    }
-
-    handleAddNode(newEdge)
-    setElements((els: any) => addEdge(newEdge, els))
-  }
 
   const onEdgeUpdate = (oldEdge: any, newConnection: any) => {
     handleAddNode({
@@ -95,6 +94,25 @@ const Dropbox: React.FC<DropboxProps> = ({
     })
 
     setElements((els: any) => updateEdge(oldEdge, newConnection, els))
+  }
+
+  const onConnect = (params: any) => {
+    const newEdge = {
+      ...params,
+      // animated: true,
+      // type: 'smoothstep',
+      arrowHeadType: 'arrowclosed',
+      className: 'reactflow-connector',
+      type: 'buttonedge',
+      data: {
+        rules: {},
+        onEdgeUpdate,
+      },
+      id: v4(),
+    }
+
+    handleAddNode(newEdge)
+    setElements((els: any) => addEdge(newEdge, els))
   }
 
   const onElementsRemove = (elementsToRemove: any) => {
@@ -122,9 +140,15 @@ const Dropbox: React.FC<DropboxProps> = ({
     const { label, ...restNode } = node
 
     handleAddNode(restNode)
-    if (reactFlowInstance && elements.length > 1) {
-      setTimeout(() => reactFlowInstance.fitView(), 0)
-    }
+
+    // if (reactFlowInstance && elements.length > 1) {
+    //   setTimeout(() => reactFlowInstance.fitView(), 0)
+    // }
+  }
+
+  const isValidConnection = (connection: Connection) => {
+    console.log('Is valid connection?', connection)
+    return true
   }
 
   const onDrop = (event: any) => {
@@ -144,6 +168,7 @@ const Dropbox: React.FC<DropboxProps> = ({
       x: event.clientX - reactFlowBounds.left,
       y: event.clientY - reactFlowBounds.top,
     })
+
     const newNode = {
       id: v4(),
       question_id: id!,
@@ -152,6 +177,7 @@ const Dropbox: React.FC<DropboxProps> = ({
       data: {
         ...question!,
         label: <OptionChildComponent />,
+        isValidConnection,
       },
     }
 
@@ -169,7 +195,9 @@ const Dropbox: React.FC<DropboxProps> = ({
       className={className}
     >
       <ReactFlow
-        className='reactflow-div'
+        deleteKeyCode={46}
+        edgeTypes={edgeTypes}
+        className='reactflow-div validationflow'
         elements={elements}
         onConnect={onConnect}
         onEdgeUpdate={onEdgeUpdate}
@@ -184,6 +212,7 @@ const Dropbox: React.FC<DropboxProps> = ({
         {elements.length ? <Controls /> : null}
         <Background color='#aaa' gap={16} />
       </ReactFlow>
+
       {!elements.length && (
         <StyledInitialElement className='initial'>
           <h2>Drag &amp; Drop Questions</h2>

@@ -82,7 +82,7 @@ const Question: React.FC<QuestionProps> = (props) => {
                 label={choice}
                 layout='outline'
                 colorWeight='200'
-                hoverColorWeight='200'
+                hoverColorWeight='DEFAULT'
                 size='xs'
               />
             ))}
@@ -93,14 +93,14 @@ const Question: React.FC<QuestionProps> = (props) => {
                 label='Yes'
                 layout='outline'
                 colorWeight='200'
-                hoverColorWeight='200'
+                hoverColorWeight='DEFAULT'
               />
               <Button
                 size='xs'
                 label='No'
                 layout='outline'
                 colorWeight='200'
-                hoverColorWeight='200'
+                hoverColorWeight='DEFAULT'
               />
             </div>
           )}

@@ -45,31 +45,31 @@ export const baseTheme: ThemeDefinition = {
     xs: {
       fontSize: 12,
       fontWeight: 300,
-      padding: '0 12px',
+      padding: '8px 10px',
       lineHeight: 36,
     },
     sm: {
       fontSize: 13,
       fontWeight: 300,
-      padding: '0 14px',
+      padding: '8px 12px',
       lineHeight: 38,
     },
     md: {
       fontSize: 14,
       fontWeight: 300,
-      padding: '0 16px',
+      padding: '9px 13px',
       lineHeight: 40,
     },
     lg: {
       fontSize: 15,
       fontWeight: 300,
-      padding: '0 18px',
+      padding: '10px 15px',
       lineHeight: 42,
     },
     xl: {
       fontSize: 15,
       fontWeight: 300,
-      padding: '0 20px',
+      padding: '10px 16px',
       lineHeight: 44,
     },
   },
@@ -139,7 +139,7 @@ export const baseTheme: ThemeDefinition = {
       padding: '5px 10px',
     },
     h3: {
-      fontSize: 1,
+      fontSize: 1.1,
       fontWeight: 700,
       padding: '5px 10px',
     },
@@ -220,23 +220,23 @@ export const baseTheme: ThemeDefinition = {
     fontFamily: 'Poppins, sans-serif',
     size: {
       xs: {
-        fontSize: 10,
+        fontSize: 9,
         fontWeight: 400,
       },
       sm: {
-        fontSize: 12,
+        fontSize: 11,
         fontWeight: 400,
       },
       md: {
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: 400,
       },
       lg: {
-        fontSize: 18,
+        fontSize: 17,
         fontWeight: 400,
       },
       xl: {
-        fontSize: 20,
+        fontSize: 19,
         fontWeight: 400,
       },
     },

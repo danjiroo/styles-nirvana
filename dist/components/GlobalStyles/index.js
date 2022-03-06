@@ -38,6 +38,10 @@ exports.Modifiers = (0, styled_components_1.createGlobalStyle) `
     margin: 0;
   }
 
+  p {
+    font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
+  }
+
   a {
     text-decoration: none !important;
   }

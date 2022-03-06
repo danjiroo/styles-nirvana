@@ -1,4 +1,5 @@
 /* eslint-disable indent */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import styled, { css } from 'styled-components'
 
 import { ThemeProvider } from '../../../../themes'
@@ -71,6 +72,14 @@ export const StyledDropbox = styled.div<StyledDropboxProps>`
 
   .reactflow-connector > path {
     stroke-width: 2;
+  }
+
+  .react-flow__edges {
+    z-index: 999;
+  }
+
+  .validationflow .react-flow__handle-connecting {
+    background: #028d61;
   }
 
   [class*='react-flow__node-'].selected,
@@ -161,5 +170,45 @@ export const StyledCustomNodeContainer = styled.div`
   .bottom-right {
     top: 70%;
     margin-right: -3px;
+  }
+`
+
+export interface StyledContainerProps {
+  hasRule: boolean
+  pointerPosition?: 'left' | 'center' | 'right'
+}
+
+const getPointerPosition = ({ pointerPosition = 'right' }) => {
+  if (pointerPosition === 'left') return 'flex-start'
+  if (pointerPosition === 'center') return 'center'
+  if (pointerPosition === 'right') return 'flex-end'
+}
+
+export const StyledContainer = styled.div<StyledContainerProps>`
+  position: relative;
+  top: -10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: ${getPointerPosition};
+
+  .custom-edge-icon-btn {
+    border-radius: 50%;
+    background: ${({ hasRule }) => (hasRule ? '#00e59e' : '#98A2B3')};
+  }
+
+  .custom-edige-card {
+    position: relative;
+    top: 10px;
+    width: 350px;
+    max-width: 350px;
+    padding: 20px;
+    align-items: flex-start;
+
+    .btm-btns {
+      display: flex;
+      justify-content: flex-end;
+      gap: 5px;
+    }
   }
 `

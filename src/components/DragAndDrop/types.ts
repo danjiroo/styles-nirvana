@@ -1,4 +1,5 @@
-import { Node } from 'react-flow-renderer'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Node, Connection } from 'react-flow-renderer'
 import { QuestionProps } from '../'
 
 export type NodeTypes = 'default' | 'input' | 'output' | 'special'
@@ -24,9 +25,13 @@ export interface StyledDropboxProps {
   dragStart: boolean
 }
 
+export interface ExtendedDataNode extends QuestionProps {
+  label?: JSX.Element
+  isValidConnection?: (connection: Connection) => boolean
+}
 export interface QuestionNodes extends Node {
   question_id: string
-  data: QuestionProps & { label?: JSX.Element }
+  data: ExtendedDataNode
   animated?: boolean
   // data: Pick<Node, 'data'>['data'] & QuestionProps
 }

@@ -5,14 +5,13 @@ import { Question } from '../../../'
 import { QuestionNodes } from '../../types'
 import { StyledCustomNodeContainer } from './styles'
 
-const CustomNodeComponent: React.FC<Pick<QuestionNodes, 'data'>> = ({
-  data,
-}) => (
+const CustomNode: React.FC<Pick<QuestionNodes, 'data'>> = ({ data }) => (
   <StyledCustomNodeContainer>
     <Handle
       type='target'
       position={Position.Left}
       className='custom-node-handle center-left'
+      // isValidConnection={data?.isValidConnection}
     />
     <Question {...data} />
     <Handle
@@ -20,14 +19,16 @@ const CustomNodeComponent: React.FC<Pick<QuestionNodes, 'data'>> = ({
       position={Position.Right}
       className='custom-node-handle top-right'
       id='top'
+      // isValidConnection={data?.isValidConnection}
     />
     <Handle
       type='source'
       position={Position.Right}
       className='custom-node-handle bottom-right'
       id='btm'
+      // isValidConnection={data?.isValidConnection}
     />
   </StyledCustomNodeContainer>
 )
 
-export default CustomNodeComponent
+export default CustomNode

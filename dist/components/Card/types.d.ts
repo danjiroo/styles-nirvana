@@ -1,4 +1,5 @@
-export interface CardProps {
+import { GlobalAlignment } from '../types';
+export interface CardProps extends GlobalAlignment {
     /**
      * Is card hoverable?
      */
@@ -31,4 +32,20 @@ export interface CardProps {
      * An action prop that is executed when clicking the close button in card
      */
     handleClose?: () => void;
+    /**
+     * Custom classname for component
+     */
+    className?: string;
+    /**
+     * Card Close Button Icon Name
+     */
+    closeIconName?: string;
+    /**
+     * Has an arrow / pointer
+     */
+    hasPointer?: boolean;
+    /**
+     * Pointer position
+     */
+    pointerPosition?: 'left' | 'right' | 'center';
 }

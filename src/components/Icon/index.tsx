@@ -47,8 +47,8 @@ const Icon: React.FC<IconProps> = (props) => {
   const DropdownComponent: any = dropdown
 
   return (
-    <StyledIconContainer ref={ref} {...rest}>
-      <StyledIconDiv {...props} onClick={handleClick} className={className}>
+    <StyledIconContainer ref={ref} {...rest} className={className}>
+      <StyledIconDiv {...rest} onClick={handleClick}>
         {isNaN(Number(iconName)) ? <SVGComponent /> : iconName}
       </StyledIconDiv>
       {isOpen && hasDropdown && <DropdownComponent />}

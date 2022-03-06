@@ -44,6 +44,10 @@ export const Modifiers = createGlobalStyle<ThemeProvider>`
     margin: 0;
   }
 
+  p {
+    font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
+  }
+
   a {
     text-decoration: none !important;
   }

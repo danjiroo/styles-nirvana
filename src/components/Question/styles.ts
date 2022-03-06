@@ -35,17 +35,11 @@ export const StyledQuestion = styled.div<QuestionProps>`
 
     .question-choices > * {
       width: ${({ type }) => (type === 'choice' ? '65px' : '100%')};
-      line-height: 30px;
       margin: 0;
     }
 
     .confirmation-choices > * {
       width: 65px;
-      line-height: 30px;
-    }
-
-    p {
-      font-size: 14px;
     }
   }
 `

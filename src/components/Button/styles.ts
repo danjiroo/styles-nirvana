@@ -24,13 +24,13 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
     background: ${layout === 'solid'
       ? theme?.colors[color][colorWeight]
       : 'transparent'};
-    border: 2px
+    border: 1px
       ${layout === 'outline'
         ? `solid ${theme?.colors[color][colorWeight]}`
         : `${layout} ${theme?.colors[color][colorWeight]}`};
     border-radius: ${rounded ? theme?.border.radius : 0};
     font-size: ${theme?.button[size].fontSize}px;
-    line-height: ${theme?.button[size].lineHeight}px;
+    /* line-height: ${theme?.button[size].lineHeight}px; */
     padding: ${theme?.button[size].padding};
     opacity: ${!isDisabled ? 1 : 0.5};
 

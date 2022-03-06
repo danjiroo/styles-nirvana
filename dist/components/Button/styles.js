@@ -30,13 +30,13 @@ const getDynamicStyles = (props) => {
     background: ${layout === 'solid'
         ? theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]
         : 'transparent'};
-    border: 2px
+    border: 1px
       ${layout === 'outline'
         ? `solid ${theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]}`
         : `${layout} ${theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]}`};
     border-radius: ${rounded ? theme === null || theme === void 0 ? void 0 : theme.border.radius : 0};
     font-size: ${theme === null || theme === void 0 ? void 0 : theme.button[size].fontSize}px;
-    line-height: ${theme === null || theme === void 0 ? void 0 : theme.button[size].lineHeight}px;
+    /* line-height: ${theme === null || theme === void 0 ? void 0 : theme.button[size].lineHeight}px; */
     padding: ${theme === null || theme === void 0 ? void 0 : theme.button[size].padding};
     opacity: ${!isDisabled ? 1 : 0.5};
 
