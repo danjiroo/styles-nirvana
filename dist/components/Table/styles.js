@@ -99,6 +99,7 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
   th {
     color: ${({ theme }) => theme.colors.primary[300]};
     font-weight: bold;
+    font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
   }
 
   td {

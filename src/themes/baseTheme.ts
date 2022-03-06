@@ -220,15 +220,15 @@ export const baseTheme: ThemeDefinition = {
     fontFamily: 'Poppins, sans-serif',
     size: {
       xs: {
-        fontSize: 9,
+        fontSize: 10,
         fontWeight: 400,
       },
       sm: {
-        fontSize: 11,
+        fontSize: 12,
         fontWeight: 400,
       },
       md: {
-        fontSize: 12,
+        fontSize: 14,
         fontWeight: 400,
       },
       lg: {

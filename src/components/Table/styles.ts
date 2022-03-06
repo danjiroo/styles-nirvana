@@ -82,6 +82,7 @@ export const StyledTable = styled(ReactTable)`
   th {
     color: ${({ theme }) => theme.colors.primary[300]};
     font-weight: bold;
+    font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
   }
 
   td {
