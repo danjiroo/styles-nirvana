@@ -19,6 +19,7 @@ const getContainerStyles = (props: GetContainerStyles) => {
 
 export const StyledContainer = styled.div<GetContainerStyles>`
   ${getContainerStyles}
-
-  max-width: 100%
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
 `
