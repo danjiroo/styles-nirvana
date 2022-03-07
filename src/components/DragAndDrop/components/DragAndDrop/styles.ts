@@ -74,6 +74,7 @@ export const StyledDropbox = styled.div<StyledDropboxProps>`
     stroke-width: 2;
   }
 
+  // svg edge
   .react-flow__edges {
     z-index: 10;
   }
@@ -86,6 +87,13 @@ export const StyledDropbox = styled.div<StyledDropboxProps>`
   [class*='react-flow__node-']:hover {
     border: 1px solid #777;
     box-shadow: none;
+  }
+
+  .save-btn-div {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    z-index: 30;
   }
 `
 

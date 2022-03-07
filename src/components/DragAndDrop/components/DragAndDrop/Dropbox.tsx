@@ -35,6 +35,7 @@ export interface DropboxProps extends Pick<ReactFlowProps, 'dndOptions'> {
   initialNodes?: QuestionNodes[]
   handleAddNode: (node: QuestionNodes) => void
   handleRemoveNodes: (nodes: QuestionNodes[]) => void
+  handleSave?: () => void
 }
 
 const initialElements: QuestionNodes[] = [
@@ -72,6 +73,7 @@ const Dropbox: React.FC<DropboxProps> = ({
   initialNodes = [],
   handleAddNode = () => console.log(''),
   handleRemoveNodes = () => console.log(''),
+  handleSave = () => console.log(''),
 }) => {
   const reactFlowWrapper = useRef<any>(null)
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null)
@@ -207,6 +209,11 @@ const Dropbox: React.FC<DropboxProps> = ({
         nodeTypes={nodeTypes}
       >
         {elements.length ? <Controls /> : null}
+        {elements.length ? (
+          <div className='save-btn-div'>
+            <Button label='Save' onClick={handleSave} />
+          </div>
+        ) : null}
         <Background color='#aaa' gap={16} />
       </ReactFlow>
 
