@@ -73,19 +73,16 @@ const Dropbox: React.FC<DropboxProps> = ({
   handleAddNode = () => console.log(''),
   handleRemoveNodes = () => console.log(''),
 }) => {
-  const { fitBounds } = useZoomPanHelper()
-
   const reactFlowWrapper = useRef<any>(null)
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null)
   const [elements, setElements] = useState<any>(initialNodes)
   const [dragStart, setDragStart] = useState(false)
-  const [defaultZoom, setDefaultZoom] = useState(1)
 
-  useEffect(() => {
-    if (reactFlowInstance && elements.length > 1) {
-      setTimeout(() => reactFlowInstance.fitView(), 0)
-    }
-  }, [reactFlowInstance, elements])
+  // useEffect(() => {
+  //   if (reactFlowInstance && elements.length > 1) {
+  //     setTimeout(() => reactFlowInstance.fitView(), 0)
+  //   }
+  // }, [reactFlowInstance, elements])
 
   const onEdgeUpdate = (oldEdge: any, newConnection: any) => {
     handleAddNode({

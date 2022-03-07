@@ -1,12 +1,12 @@
 import React from 'react';
 import { GlobalProps } from '../';
 import { iconArray } from './IconList';
-declare type ArrayType = typeof iconArray[number];
+declare type Icons = typeof iconArray[number];
 export interface IconProps extends GlobalProps {
     /**
      * Name of icon from the icon reference
      */
-    iconName?: ArrayType;
+    iconName?: Icons;
     /**
      * Is icon hoverable
      */

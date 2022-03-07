@@ -75,7 +75,7 @@ export const StyledDropbox = styled.div<StyledDropboxProps>`
   }
 
   .react-flow__edges {
-    z-index: 999;
+    z-index: 10;
   }
 
   .validationflow .react-flow__handle-connecting {
