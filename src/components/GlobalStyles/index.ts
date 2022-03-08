@@ -45,7 +45,7 @@ export const Modifiers = createGlobalStyle<ThemeProvider>`
   }
 
   p {
-    font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
+    font-size: ${({ theme }) => theme.text.size.md.fontSize};
   }
 
   a {
