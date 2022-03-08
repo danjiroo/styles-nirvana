@@ -39,7 +39,7 @@ exports.Modifiers = (0, styled_components_1.createGlobalStyle) `
   }
 
   p {
-    font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
+    font-size: ${({ theme }) => theme.text.size.md.fontSize};
   }
 
   a {

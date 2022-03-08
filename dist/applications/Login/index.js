@@ -7,6 +7,6 @@ const Login = () => {
     const onSubmit = (data) => {
         console.log('On Submit:', data);
     };
-    return (0, jsx_runtime_1.jsx)(components_1.Form, { title: 'LOGIN', onSubmit: onSubmit, fields: fields_1.fields }, void 0);
+    return (0, jsx_runtime_1.jsx)(components_1.Form, { title: 'LOGIN', onSubmit: onSubmit, fields: fields_1.fields });
 };
 exports.default = Login;

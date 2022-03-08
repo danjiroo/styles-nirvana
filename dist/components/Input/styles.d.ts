@@ -1,14 +1,9 @@
-import { Theme } from './types';
+import { CustomTheme } from './types';
 interface StyledInputProps {
-    theme?: Theme | null;
-}
-interface StyledInputProps {
-    customTheme?: Theme;
+    customTheme?: CustomTheme;
 }
 export declare const StyledInput: import("styled-components").StyledComponent<"input", any, StyledInputProps, never>;
-interface TextAreaProps {
-}
-export declare const StyledTextArea: import("styled-components").StyledComponent<"textarea", any, TextAreaProps, never>;
+export declare const StyledTextArea: import("styled-components").StyledComponent<"textarea", any, StyledInputProps, never>;
 interface LabelProps {
     is_input_active: boolean;
 }

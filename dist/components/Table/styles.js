@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -42,7 +46,7 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
   border-spacing: 1;
   border-collapse: collapse;
   background: white;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.border.radius};
   width: 100%;
   max-width: 100%;
   /* margin: 0 auto; */
@@ -99,7 +103,7 @@ exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
   th {
     color: ${({ theme }) => theme.colors.primary[300]};
     font-weight: bold;
-    font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
+    font-size: ${({ theme }) => theme.text.size.md.fontSize};
   }
 
   td {
@@ -185,7 +189,7 @@ exports.StyledPagination = styled_components_1.default.div `
       border: 1px solid #cccccc;
       padding: 7px 14px;
       margin-left: 10px;
-      border-radius: 5px;
+      border-radius: ${({ theme }) => theme.border.radius};
       font-size: 13px;
     }
   }
@@ -193,7 +197,7 @@ exports.StyledPagination = styled_components_1.default.div `
   .active-page {
     background: ${({ theme }) => theme.colors.primary[50]};
     padding: 5px;
-    border-radius: 5px;
+    border-radius: ${({ theme }) => theme.border.radius};
   }
 
   .inactive,

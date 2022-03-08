@@ -29,6 +29,6 @@ const Grid = () => {
     (0, react_1.useEffect)(() => {
         getAppConfig();
     }, []);
-    return ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", { children: "Atomic Grid [Application]" }, void 0), (0, jsx_runtime_1.jsx)("p", Object.assign({ style: { paddingBottom: 15 } }, { children: (0, jsx_runtime_1.jsx)("i", { children: "Possibly another component aside from the Table component." }, void 0) }), void 0)] }, void 0));
+    return ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h3", { children: "Atomic Grid [Application]" }), (0, jsx_runtime_1.jsx)("p", Object.assign({ style: { paddingBottom: 15 } }, { children: (0, jsx_runtime_1.jsx)("i", { children: "Possibly another component aside from the Table component." }) }))] }));
 };
 exports.default = Grid;
