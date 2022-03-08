@@ -25,7 +25,7 @@ export const StyledTable = styled(ReactTable)`
   border-spacing: 1;
   border-collapse: collapse;
   background: white;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.border.radius};
   width: 100%;
   max-width: 100%;
   /* margin: 0 auto; */
@@ -170,7 +170,7 @@ export const StyledPagination = styled.div<Pick<TableProps, 'isLoading'>>`
       border: 1px solid #cccccc;
       padding: 7px 14px;
       margin-left: 10px;
-      border-radius: 5px;
+      border-radius: ${({ theme }) => theme.border.radius};
       font-size: 13px;
     }
   }
@@ -178,7 +178,7 @@ export const StyledPagination = styled.div<Pick<TableProps, 'isLoading'>>`
   .active-page {
     background: ${({ theme }) => theme.colors.primary[50]};
     padding: 5px;
-    border-radius: 5px;
+    border-radius: ${({ theme }) => theme.border.radius};
   }
 
   .inactive,
