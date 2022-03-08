@@ -5,10 +5,11 @@ export interface data {
     secondary_name?: string;
     accessor?: string;
 }
-export interface Theme {
+export interface CustomTheme {
     background_color?: string;
     outline_color?: string;
     border_radius?: string;
+    line_height?: string;
 }
 export interface FormInputProps extends GlobalProps {
     /**
@@ -34,7 +35,7 @@ export interface FormInputProps extends GlobalProps {
       - outline_color?: string;
       - border_radius?: string;
      */
-    customTheme?: Theme;
+    customTheme?: CustomTheme;
     iconLeft: string;
     icon?: string;
 }
