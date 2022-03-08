@@ -36,6 +36,8 @@ export interface SizeDef {
   width: string
   height: string
   iconHeight: string
+  loader: number
+  loaderInButton: number
 }
 
 export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -61,12 +63,6 @@ export interface ThemeDefinition {
   headers: {
     [P in Headers]?: HeaderDefinition
   }
-  loader: {
-    [P in Sizes]: {
-      inButtonSize?: number
-      size: number
-    }
-  }
   list: {
     padding: number
     listStyle: string
@@ -85,7 +81,7 @@ export interface ThemeDefinition {
     }
   }
   size: TSize & {
-    full: Omit<SizeDef, 'iconHeight'>
+    full: Pick<SizeDef, 'width' | 'height'>
   }
 }
 

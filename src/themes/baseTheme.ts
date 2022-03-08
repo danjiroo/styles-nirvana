@@ -106,28 +106,6 @@ export const baseTheme: ThemeDefinition = {
       xl: '15.625rem',
     },
   },
-  loader: {
-    xs: {
-      size: 36,
-      inButtonSize: 13,
-    },
-    sm: {
-      size: 38,
-      inButtonSize: 14,
-    },
-    md: {
-      size: 40,
-      inButtonSize: 15,
-    },
-    lg: {
-      size: 42,
-      inButtonSize: 16,
-    },
-    xl: {
-      size: 44,
-      inButtonSize: 17,
-    },
-  },
   text: {
     fontUrl:
       'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap',
@@ -160,26 +138,36 @@ export const baseTheme: ThemeDefinition = {
       width: '16.67%',
       height: '2.25rem',
       iconHeight: '1.125rem',
+      loader: 36,
+      loaderInButton: 13,
     },
     sm: {
       width: '33.34%',
       height: '2.375rem',
       iconHeight: '1.313rem',
+      loader: 38,
+      loaderInButton: 14,
     },
     md: {
       width: '50%',
       height: '2.5rem',
       iconHeight: '1.563rem',
+      loader: 40,
+      loaderInButton: 15,
     },
     lg: {
       width: '66.67%',
       height: '2.625rem',
       iconHeight: '1.688rem',
+      loader: 42,
+      loaderInButton: 16,
     },
     xl: {
       width: '83.34%',
       height: '2.75rem',
       iconHeight: '1.875rem',
+      loader: 44,
+      loaderInButton: 17,
     },
     full: {
       height: '100%',

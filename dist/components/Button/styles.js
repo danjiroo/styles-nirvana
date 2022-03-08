@@ -23,7 +23,7 @@ exports.StyledButton = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importStar(require("styled-components"));
 const getDynamicStyles = (props) => {
-    const { color = 'primary', colorWeight = 'DEFAULT', hoverColorWeight = 'DEFAULT', rounded = true, size = 'md', isDisabled = false, layout = 'solid', theme, } = props;
+    const { color = 'primary', colorWeight = 'DEFAULT', hoverColorWeight = 'DEFAULT', rounded = true, size = 'xs', isDisabled = false, layout = 'solid', theme, } = props;
     return (0, styled_components_1.css) `
     cursor: ${!isDisabled ? 'pointer' : 'not-allowed'};
     color: ${layout === 'solid' ? '#fff' : theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]};
@@ -35,9 +35,8 @@ const getDynamicStyles = (props) => {
         ? `solid ${theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]}`
         : `${layout} ${theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]}`};
     border-radius: ${rounded ? theme === null || theme === void 0 ? void 0 : theme.border.radius : 0};
-    font-size: ${theme === null || theme === void 0 ? void 0 : theme.button[size].fontSize}px;
-    /* line-height: ${theme === null || theme === void 0 ? void 0 : theme.button[size].lineHeight}px; */
-    padding: ${theme === null || theme === void 0 ? void 0 : theme.button[size].padding};
+    line-height: ${theme === null || theme === void 0 ? void 0 : theme.size[size].height};
+    font-size: 'inherit';
     opacity: ${!isDisabled ? 1 : 0.5};
 
     &:not(.close_btn):hover {
@@ -83,7 +82,7 @@ exports.StyledButton = styled_components_1.default.button `
   ${getDynamicStyles};
 
   .button-icon-div {
-    height: ${({ theme, size }) => { var _a, _b; return (_b = (_a = theme === null || theme === void 0 ? void 0 : theme.button) === null || _a === void 0 ? void 0 : _a[size !== null && size !== void 0 ? size : 'md']) === null || _b === void 0 ? void 0 : _b.fontSize; }}px;
+    height: ${({ theme, size = 'xs' }) => theme.size[size].height};
     display: flex;
     align-items: center;
   }

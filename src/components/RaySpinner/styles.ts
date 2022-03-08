@@ -39,13 +39,13 @@ export const StyledSpinner = styled.div<RaySpinnerProps>`
   display: inline-block;
   position: relative;
   width: ${({ size = 'md', theme, inButton }) =>
-    `${theme.loader[size][inButton ? 'inButtonSize' : 'size']}px`};
+    `${theme.size[size][inButton ? 'loaderInButton' : 'loader']}px`};
   height: ${({ size = 'md', theme, inButton }) =>
-    `${theme.loader[size][inButton ? 'inButtonSize' : 'size']}px`};
+    `${theme.size[size][inButton ? 'loaderInButton' : 'loader']}px`};
 
   div {
     transform-origin: ${({ theme, size = 'md', inButton }) =>
-      transformCalc(theme.loader[size][inButton ? 'inButtonSize' : 'size'])};
+      transformCalc(theme.size[size][inButton ? 'loaderInButton' : 'loader'])};
     animation: ${frames} 1.2s linear infinite;
     &:after {
       content: ' ';
@@ -54,7 +54,7 @@ export const StyledSpinner = styled.div<RaySpinnerProps>`
       top: ${({ rayWidth }) => topCalc(rayWidth)};
       left: ${({ theme, size = 'md', rayWidth, inButton }) =>
         leftCalc(
-          theme.loader[size][inButton ? 'inButtonSize' : 'size'],
+          theme.size[size][inButton ? 'loaderInButton' : 'loader'],
           rayWidth
         )};
       width: ${({ rayWidth }) => `${rayWidth}px`};

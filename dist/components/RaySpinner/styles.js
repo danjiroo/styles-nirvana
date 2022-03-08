@@ -49,18 +49,18 @@ exports.StyledSpinner = styled_components_1.default.div `
   color: ${({ theme, color = 'dark', colorWeight = '100' }) => theme.colors[color][colorWeight]};
   display: inline-block;
   position: relative;
-  width: ${({ size = 'md', theme, inButton }) => `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`};
-  height: ${({ size = 'md', theme, inButton }) => `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`};
+  width: ${({ size = 'md', theme, inButton }) => `${theme.size[size][inButton ? 'loaderInButton' : 'loader']}px`};
+  height: ${({ size = 'md', theme, inButton }) => `${theme.size[size][inButton ? 'loaderInButton' : 'loader']}px`};
 
   div {
-    transform-origin: ${({ theme, size = 'md', inButton }) => (0, helper_1.transformCalc)(theme.loader[size][inButton ? 'inButtonSize' : 'fontSize'])};
+    transform-origin: ${({ theme, size = 'md', inButton }) => (0, helper_1.transformCalc)(theme.size[size][inButton ? 'loaderInButton' : 'loader'])};
     animation: ${frames} 1.2s linear infinite;
     &:after {
       content: ' ';
       display: block;
       position: absolute;
       top: ${({ rayWidth }) => (0, helper_1.topCalc)(rayWidth)};
-      left: ${({ theme, size = 'md', rayWidth, inButton }) => (0, helper_1.leftCalc)(theme.loader[size][inButton ? 'inButtonSize' : 'fontSize'], rayWidth)};
+      left: ${({ theme, size = 'md', rayWidth, inButton }) => (0, helper_1.leftCalc)(theme.size[size][inButton ? 'loaderInButton' : 'loader'], rayWidth)};
       width: ${({ rayWidth }) => `${rayWidth}px`};
       height: ${({ rayHeight }) => `${rayHeight}px`};
       border-radius: ${({ rayRadius }) => `${rayRadius}%`};

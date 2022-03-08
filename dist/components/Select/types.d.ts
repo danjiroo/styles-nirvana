@@ -1,3 +1,4 @@
+import { GlobalColors } from '../';
 export interface OnChangeData {
     target: {
         name: string;
@@ -9,7 +10,7 @@ export interface OptionsProps {
     label: string;
     data?: any;
 }
-export interface SelectProps {
+export interface SelectProps extends GlobalColors {
     /**
      * Error fetching options
      */

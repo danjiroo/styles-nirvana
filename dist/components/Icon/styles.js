@@ -8,11 +8,11 @@ exports.StyledIconReference = exports.StyledIconDiv = exports.StyledIconContaine
 const styled_components_1 = __importDefault(require("styled-components"));
 exports.StyledIconContainer = styled_components_1.default.div `
   position: relative;
-  width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  width: ${({ size = 'md', theme }) => theme.size[size].iconHeight};
 `;
 exports.StyledIconDiv = styled_components_1.default.div `
-  width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
-  height: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  width: ${({ size = 'md', theme }) => theme.size[size].iconHeight};
+  height: ${({ size = 'md', theme }) => theme.size[size].iconHeight};
   cursor: ${({ clickable = false }) => (clickable ? 'pointer' : 'default')};
   display: flex;
   align-items: center;
