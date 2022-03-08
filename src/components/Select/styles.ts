@@ -73,6 +73,7 @@ export const StyledField = styled.div<any>`
   div[class*='-control'] {
     min-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
     max-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+    border-radius: ${({ theme }) => theme.border.radius};
   }
 
   div[class*='IndicatorsContainer'] {

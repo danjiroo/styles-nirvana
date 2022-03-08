@@ -88,6 +88,7 @@ exports.StyledField = styled_components_1.default.div `
   div[class*='-control'] {
     min-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
     max-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+    border-radius: ${({ theme }) => theme.border.radius};
   }
 
   div[class*='IndicatorsContainer'] {

@@ -24,6 +24,8 @@ export const StyledQuestion = styled.div<QuestionProps>`
   }
 
   .question-body {
+    word-break: break-all;
+
     .question-choices,
     .confirmation-choices {
       display: flex;
@@ -34,12 +36,12 @@ export const StyledQuestion = styled.div<QuestionProps>`
     }
 
     .question-choices > * {
-      width: ${({ type }) => (type === 'choice' ? '65px' : '100%')};
+      width: ${({ type }) => (type === 'choice' ? 'auto' : '100%')};
       margin: 0;
     }
 
-    .confirmation-choices > * {
+    /* .confirmation-choices > * {
       width: 65px;
-    }
+    } */
   }
 `
