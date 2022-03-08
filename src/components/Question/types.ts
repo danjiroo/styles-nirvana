@@ -22,7 +22,7 @@ export interface QuestionProps extends Partial<QuestionActions> {
   /**
    * Type of question
    */
-  type: QuestionType
+  type?: QuestionType
   /**
    * Can select more than one answer?
    */
