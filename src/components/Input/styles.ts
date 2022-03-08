@@ -1,36 +1,41 @@
+/* eslint-disable indent */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import styled, { css, keyframes } from 'styled-components'
-import { Theme } from './types'
-interface StyledInputProps {
-  theme?: Theme | null
-}
+import { CustomTheme } from './types'
 
 const default_input_styles = css`
   background-color: none;
-  outline-color: #5cd176;
-  border-color: #c5c5c5;
-  border-radius: 6px;
+  outline-color: ${({ theme }) => theme.colors.primary.DEFAULT};
+  border-color: ${({ theme }) => theme.colors.dark['50']};
+  border-radius: ${({ theme }) => theme.border.radius};
+  line-height: ${({ theme }) => theme.size.xs.height};
 `
 
 interface StyledInputProps {
-  customTheme?: Theme
+  customTheme?: CustomTheme
 }
 
 const GetStyledInputStyles = ({ customTheme }: StyledInputProps) => {
   if (!customTheme) return default_input_styles
-  const { background_color, outline_color, border_radius } = customTheme
+  const { background_color, outline_color, border_radius, line_height } =
+    customTheme
   if (customTheme)
     return css`
-      background-color: ${background_color};
-      outline-color: ${outline_color};
-      border-radius: ${border_radius};
+      background-color: ${background_color ? background_color : 'none'};
+      outline-color: ${outline_color ? outline_color : '#5cd176'};
+      border-radius: ${border_radius ? border_radius : '6px'};
+      line-height: ${({ theme }) =>
+        line_height ? theme.size[line_height].height : theme.size.xs.height};
     `
 }
 
 export const StyledInput = styled.input<StyledInputProps>`
   width: 100%;
-  line-height: 40px;
+  line-height: ${({ theme }) => {
+    console.log('THEME:', theme)
+    return theme.size.xs.height
+  }};
   padding-left: 2.6rem;
   margin: 0;
   max-width: 100%;
@@ -40,8 +45,7 @@ export const StyledInput = styled.input<StyledInputProps>`
   -webkit-text-fill-color: none !important;
   ${GetStyledInputStyles}
 `
-interface TextAreaProps {}
-export const StyledTextArea = styled.textarea<TextAreaProps>`
+export const StyledTextArea = styled.textarea<StyledInputProps>`
   width: 100%;
   min-height: 8rem;
   outline-color: #5cd176;
@@ -90,7 +94,7 @@ const moveRerverse = keyframes`
   }
 
   100% {  
-    transform: translate(2.5rem, .9rem);
+    transform: translate(2.5rem, .52rem);
     background-color: white;
   }
 `
@@ -146,5 +150,5 @@ export const StyledIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(0.6rem, 0.7rem);
+  transform: translate(0.6rem, 0.5rem);
 `
