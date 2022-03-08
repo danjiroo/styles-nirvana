@@ -242,19 +242,29 @@ export const baseTheme: ThemeDefinition = {
     },
   },
   size: {
-    // master gibalik nako ang percentages,
-    // ga add kog breakpoint, if ang viewport
-    // wa pa kaabot 1200px kay 100% iya width
-    // master gene, todo discuss if ok ra
-    // xs: '320px',
-    // sm: '480px',
-    // md: '768px',
-    // lg: '1024px',
-    // xl: '1200px',
-    xs: '16.66666666666667%',
-    sm: '33.33333333333333%',
-    md: '50%',
-    lg: '66.66666666666667%',
-    xl: '83.33333333333334%',
+    xs: {
+      height: '2.25rem',
+      width: '16.66666666666667%',
+    },
+    sm: {
+      height: '2.375rem',
+      width: '33.33333333333333%',
+    },
+    md: {
+      height: '2.5rem',
+      width: '50%',
+    },
+    lg: {
+      height: '2.625rem',
+      width: '66.66666666666667%',
+    },
+    xl: {
+      height: '2.75rem',
+      width: '83.33333333333334%',
+    },
+    full: {
+      height: '100%',
+      width: '100%',
+    },
   },
 }

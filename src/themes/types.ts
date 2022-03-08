@@ -32,13 +32,9 @@ export interface HeaderDefinition {
   padding: string
 }
 
-type ContainerSizes = Exclude<Sizes, 'md'>
-type TSize = {
-  [P in ContainerSizes]: string | number
-}
-
-interface NewSizes extends TSize {
-  md: string | number
+export interface SizeDef {
+  height: string
+  width: string
 }
 
 export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -52,6 +48,9 @@ export type ColorTypes =
   | 'dark'
 export type Headers = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
+type TSize = {
+  [P in Sizes]: SizeDef
+}
 export interface ThemeDefinition {
   badge: {
     [P in Sizes]: ButtonDefinition
@@ -100,14 +99,9 @@ export interface ThemeDefinition {
       }
     }
   }
-  size: NewSizes
-  // size: {
-  //   xs: string
-  //   sm: string
-  //   md: string
-  //   lg: string
-  //   xl: string
-  // }
+  size: TSize & {
+    full: SizeDef
+  }
 }
 
 export interface ThemeProvider {
