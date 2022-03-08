@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { GlobalColors } from '../'
+import { GlobalColors, GlobalSizes } from '../'
 
 export interface OnChangeData {
   target: {
@@ -14,7 +14,7 @@ export interface OptionsProps {
   label: string
   data?: any
 }
-export interface SelectProps extends GlobalColors {
+export interface SelectProps extends GlobalColors, GlobalSizes {
   /**
    * Error fetching options
    */

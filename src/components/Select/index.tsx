@@ -13,27 +13,33 @@ import { ThemeDefinition } from '../../themes'
 import { SelectProps } from './types'
 import { StyledField, StyledSelectContainer } from './styles'
 
-const SingleSelect: React.FC<SelectProps> = (props: SelectProps) => {
-  const {
+const SingleSelect: React.FC<SelectProps> = ({
+  error,
+  errorText,
+  icon,
+  name,
+  isCreatable = false,
+  isDisabled = false,
+  isRequired = false,
+  isLoading = false,
+  label,
+  selectOptions: options,
+  handleChange,
+  placeholder,
+  valueData = '',
+  isMulti = false,
+  rounded = false,
+  color = 'primary',
+  colorWeight = '200',
+  size = 'xs',
+  ...restProps
+}: SelectProps) => {
+  const styleProps = {
     error,
-    errorText,
-    icon,
-    name,
-    isCreatable = false,
-    isDisabled = false,
-    isRequired = false,
-    isLoading = false,
     label,
-    selectOptions: options,
-    handleChange,
-    placeholder,
-    valueData = '',
-    isMulti = false,
-    rounded = false,
-    color = 'primary',
-    colorWeight = '200',
-    ...restProps
-  } = props
+    icon,
+    size,
+  }
 
   const { colors } = useTheme() as ThemeDefinition
 
@@ -62,8 +68,8 @@ const SingleSelect: React.FC<SelectProps> = (props: SelectProps) => {
     setValue(changes.value)
   }
 
-  const labelKey = props.labelKey || 'label'
-  const valueKey = props.valueKey || 'id'
+  const labelKey = restProps.labelKey || 'label'
+  const valueKey = restProps.valueKey || 'id'
 
   const getLabel = (e: string | number) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -116,24 +122,41 @@ const SingleSelect: React.FC<SelectProps> = (props: SelectProps) => {
     //   ...styles,
     //   color: colors.primary.dark,
     // }),
+    option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
+      ...styles,
+      backgroundColor: isDisabled
+        ? undefined
+        : isSelected
+        ? colors?.[color][colorWeight]
+        : undefined,
+
+      ':active': {
+        ...styles[':active'],
+        backgroundColor: isDisabled
+          ? undefined
+          : isSelected
+          ? colors?.[color][colorWeight]
+          : colors?.[color][colorWeight],
+      },
+    }),
     multiValueRemove: (styles) => ({
       ...styles,
       ':hover': {
-        backgroundColor: colors.primary.DEFAULT,
+        backgroundColor: colors?.[color][colorWeight],
         color: 'white',
       },
     }),
   }
 
   return (
-    <StyledSelectContainer {...props}>
+    <StyledSelectContainer {...styleProps}>
       {!!icon && (
         <div className='select-icon-container'>
           <Icon iconName={icon} color='dark' />
         </div>
       )}
 
-      <StyledField {...props}>
+      <StyledField {...styleProps}>
         {!!label && (
           <label className='select-label'>
             {label} {!!isRequired && <span className='select-required'>*</span>}

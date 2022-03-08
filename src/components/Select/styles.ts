@@ -44,7 +44,7 @@ export const StyledSelectContainer = styled.div`
   }
 `
 
-export const StyledField = styled.div`
+export const StyledField = styled.div<any>`
   position: relative;
   padding-left: ${({ icon }: any) => (icon ? 5 : 0)}px;
   width: 100%;
@@ -70,7 +70,13 @@ export const StyledField = styled.div`
     bottom: 0;
   }
 
-  /* div[class*="control"]:hover {
-  display: none
-} */
+  div[class*='-control'] {
+    min-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+    max-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+  }
+
+  div[class*='IndicatorsContainer'] {
+    min-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+    max-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+  }
 `
