@@ -12,6 +12,12 @@ export default {
 } as ComponentMeta<typeof Select>
 
 const selectArgTypes = {
+  color: {
+    description: 'Theme color for select',
+  },
+  colorWeight: {
+    description: 'Theme color weight for select',
+  },
   selectOptions: {
     description: 'Array of options for the dropdown items',
   },

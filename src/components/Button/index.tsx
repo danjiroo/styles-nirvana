@@ -17,7 +17,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
       iconRight,
       layout = 'solid',
       color = 'primary',
-      size = 'md',
+      size = 'xs',
       ...other
     },
     ref

@@ -27,14 +27,15 @@ export interface ColorDefinition {
 }
 
 export interface HeaderDefinition {
-  fontSize: number
+  fontSize: string
   fontWeight: number
   padding: string
 }
 
 export interface SizeDef {
-  height: string
   width: string
+  height: string
+  iconHeight: string
 }
 
 export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -52,55 +53,39 @@ type TSize = {
   [P in Sizes]: SizeDef
 }
 export interface ThemeDefinition {
-  badge: {
-    [P in Sizes]: ButtonDefinition
-  }
   bgColors: BackgroundColor
   border: Border
-  button: {
-    [P in Sizes]: ButtonDefinition
-  }
   colors: {
     [P in ColorTypes]: ColorDefinition
   }
   headers: {
     [P in Headers]?: HeaderDefinition
   }
-  icon: {
-    [P in Sizes]: {
-      height: number
-    }
-  }
-  input: {
-    border: number
-  }
   loader: {
     [P in Sizes]: {
       inButtonSize?: number
-    } & Pick<ButtonDefinition, 'fontSize'>
+      size: number
+    }
   }
   list: {
     padding: number
     listStyle: string
     size: {
-      [P in Sizes]: number
+      [P in Sizes]: string
     }
-  }
-  table: {
-    border?: number
   }
   text: {
     fontUrl: string
     fontFamily: string
     size: {
       [P in Sizes]: {
-        fontSize: number
+        fontSize: string
         fontWeight: number
       }
     }
   }
   size: TSize & {
-    full: SizeDef
+    full: Omit<SizeDef, 'iconHeight'>
   }
 }
 

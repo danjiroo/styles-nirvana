@@ -12,7 +12,7 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
     colorWeight = 'DEFAULT',
     hoverColorWeight = 'DEFAULT',
     rounded = true,
-    size = 'md',
+    size = 'xs',
     isDisabled = false,
     layout = 'solid',
     theme,
@@ -29,9 +29,8 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
         ? `solid ${theme?.colors[color][colorWeight]}`
         : `${layout} ${theme?.colors[color][colorWeight]}`};
     border-radius: ${rounded ? theme?.border.radius : 0};
-    font-size: ${theme?.button[size].fontSize}px;
-    /* line-height: ${theme?.button[size].lineHeight}px; */
-    padding: ${theme?.button[size].padding};
+    line-height: ${theme?.size[size].height};
+    font-size: 'inherit';
     opacity: ${!isDisabled ? 1 : 0.5};
 
     &:not(.close_btn):hover {
@@ -82,7 +81,7 @@ export const StyledButton = styled.button<ButtonProps>`
   ${getDynamicStyles};
 
   .button-icon-div {
-    height: ${({ theme, size }) => theme?.button?.[size ?? 'md']?.fontSize}px;
+    height: ${({ theme, size = 'xs' }) => theme.size[size].height};
     display: flex;
     align-items: center;
   }

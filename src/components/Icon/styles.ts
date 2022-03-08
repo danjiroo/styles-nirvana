@@ -8,12 +8,12 @@ type StyleIconProps = IconProps & ThemeProvider
 
 export const StyledIconContainer = styled.div<StyleIconProps>`
   position: relative;
-  width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  width: ${({ size = 'md', theme }) => theme.size[size].iconHeight};
 `
 
 export const StyledIconDiv = styled.div<StyleIconProps>`
-  width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
-  height: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  width: ${({ size = 'md', theme }) => theme.size[size].iconHeight};
+  height: ${({ size = 'md', theme }) => theme.size[size].iconHeight};
   cursor: ${({ clickable = false }) => (clickable ? 'pointer' : 'default')};
   display: flex;
   align-items: center;

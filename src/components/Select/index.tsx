@@ -30,6 +30,8 @@ const SingleSelect: React.FC<SelectProps> = (props: SelectProps) => {
     valueData = '',
     isMulti = false,
     rounded = false,
+    color = 'primary',
+    colorWeight = '200',
     ...restProps
   } = props
 
@@ -158,8 +160,8 @@ const SingleSelect: React.FC<SelectProps> = (props: SelectProps) => {
             borderRadius: rounded ? 8 : 0,
             colors: {
               ...theme.colors,
-              primary25: colors.primary[200],
-              primary: colors.primary.DEFAULT,
+              primary25: colors?.[color][colorWeight],
+              primary: colors?.[color][colorWeight],
             },
           })}
         />
