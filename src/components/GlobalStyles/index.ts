@@ -32,11 +32,8 @@ export const Modifiers = createGlobalStyle<ThemeProvider>`
     
   }
 
-  // TODO : (need to add other tags/elements here)
   html, body, p, q, i, b, a {
     font-family: ${({ theme }) => theme.text.fontFamily};
-    // sizes here can by dynamic base on theme (not yet implemented)
-    font-size: ${({ theme }) => theme.text.size.md.fontSize};
     font-weight: ${({ theme }) => theme.text.size.md.fontWeight};
   }
 

@@ -32,10 +32,7 @@ const GetStyledInputStyles = ({ customTheme }: StyledInputProps) => {
 
 export const StyledInput = styled.input<StyledInputProps>`
   width: 100%;
-  line-height: ${({ theme }) => {
-    console.log('THEME:', theme)
-    return theme.size.xs.height
-  }};
+  line-height: ${({ theme }) => theme.size.xs.height};
   padding-left: 2.6rem;
   margin: 0;
   max-width: 100%;
