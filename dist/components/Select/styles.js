@@ -63,6 +63,7 @@ exports.StyledField = styled_components_1.default.div `
   position: relative;
   padding-left: ${({ icon }) => (icon ? 5 : 0)}px;
   width: 100%;
+  font-size: 80%;
 
   ${getStyles}
 
@@ -86,13 +87,17 @@ exports.StyledField = styled_components_1.default.div `
   }
 
   div[class*='-control'] {
-    min-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
-    max-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+    min-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
+    max-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
     border-radius: ${({ theme }) => theme.border.radius};
   }
 
   div[class*='IndicatorsContainer'] {
-    min-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
-    max-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+    min-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
+    max-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
+  }
+
+  div[class*='ValueContainer'] {
+    top: -1px;
   }
 `;

@@ -29,7 +29,7 @@ const default_input_styles = (0, styled_components_1.css) `
   outline-color: ${({ theme }) => theme.colors.primary.DEFAULT};
   border-color: ${({ theme }) => theme.colors.dark['50']};
   border-radius: ${({ theme }) => theme.border.radius};
-  line-height: ${({ theme }) => theme.size.xs.height};
+  height: ${({ theme }) => theme.size.xl.height};
 `;
 const GetStyledInputStyles = ({ customTheme }) => {
     if (!customTheme)
@@ -40,23 +40,25 @@ const GetStyledInputStyles = ({ customTheme }) => {
       background-color: ${background_color ? background_color : 'none'};
       outline-color: ${outline_color ? outline_color : '#5cd176'};
       border-radius: ${border_radius ? border_radius : '6px'};
-      line-height: ${({ theme }) => line_height ? theme.size[line_height].height : theme.size.xs.height};
+      height: ${({ theme }) => line_height ? theme.size[line_height].height : theme.size.xl.height};
     `;
 };
 exports.StyledInput = styled_components_1.default.input `
   width: 100%;
-  line-height: ${({ theme }) => {
-    console.log('THEME:', theme);
-    return theme.size.xs.height;
-}};
   padding-left: 2.6rem;
   margin: 0;
   max-width: 100%;
   box-sizing: border-box;
   border-style: solid;
   border-width: 0.063rem;
+  font-size: 80%;
+  color: ${({ theme }) => theme.colors.dark[50]};
   -webkit-text-fill-color: none !important;
   ${GetStyledInputStyles}
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.dark[50]};
+  }
 `;
 exports.StyledTextArea = styled_components_1.default.textarea `
   width: 100%;
@@ -69,6 +71,12 @@ exports.StyledTextArea = styled_components_1.default.textarea `
   padding: 1rem 0 0 2.6rem;
   border-style: solid;
   border-width: 0.063rem;
+  color: ${({ theme }) => theme.colors.dark[50]};
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.dark[50]};
+  }
+
   ${GetStyledInputStyles}
 `;
 const move = (0, styled_components_1.keyframes) `
@@ -101,20 +109,20 @@ const moveRerverse = (0, styled_components_1.keyframes) `
   }
 
   100% {  
-    transform: translate(2.5rem, .52rem);
+    transform: translate(2.5rem, .6rem);
     background-color: white;
   }
 `;
 const inactive_input = (0, styled_components_1.css) `
   font-size: medium;
-  color: #a3a3a3;
+  color: ${({ theme }) => theme.colors.dark[50]};
   padding-right: 1rem;
   animation: ${moveRerverse} 0.8s cubic-bezier(0.25, 0, 0.01, 1) forwards;
 `;
 const active_input = (0, styled_components_1.css) `
   font-size: small;
   font-weight: 700;
-  color: #5c5c5c;
+  color: ${({ theme }) => theme.colors.dark[100]};
   animation: ${move} 0.6s cubic-bezier(0.25, 0, 0.01, 1) forwards;
 `;
 const getLabelStyles = ({ is_input_active }) => {
@@ -154,5 +162,5 @@ exports.StyledIcon = styled_components_1.default.div `
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(0.6rem, 0.5rem);
+  transform: translate(0.6rem, 0.6rem);
 `;

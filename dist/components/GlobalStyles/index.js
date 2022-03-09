@@ -26,11 +26,8 @@ exports.Modifiers = (0, styled_components_1.createGlobalStyle) `
     
   }
 
-  // TODO : (need to add other tags/elements here)
   html, body, p, q, i, b, a {
     font-family: ${({ theme }) => theme.text.fontFamily};
-    // sizes here can by dynamic base on theme (not yet implemented)
-    font-size: ${({ theme }) => theme.text.size.md.fontSize};
     font-weight: ${({ theme }) => theme.text.size.md.fontWeight};
   }
 

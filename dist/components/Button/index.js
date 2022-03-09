@@ -20,7 +20,7 @@ const react_1 = __importDefault(require("react"));
 const __1 = require("../");
 const styles_1 = require("./styles");
 const Button = react_1.default.forwardRef(function Button(_a, ref) {
-    var { label = '', isLoading = false, loadingLabel = 'Loading...', isDisabled = false, icon, iconLeft, iconRight, layout = 'solid', color = 'primary', size = 'xs' } = _a, other = __rest(_a, ["label", "isLoading", "loadingLabel", "isDisabled", "icon", "iconLeft", "iconRight", "layout", "color", "size"]);
+    var { label = '', isLoading = false, loadingLabel = 'Loading...', isDisabled = false, icon, iconLeft, iconRight, layout = 'solid', color = 'primary', size = 'xl' } = _a, other = __rest(_a, ["label", "isLoading", "loadingLabel", "isDisabled", "icon", "iconLeft", "iconRight", "layout", "color", "size"]);
     const usedProps = {
         label,
         isLoading,

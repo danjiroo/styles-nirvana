@@ -23,7 +23,7 @@ exports.StyledButton = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importStar(require("styled-components"));
 const getDynamicStyles = (props) => {
-    const { color = 'primary', colorWeight = 'DEFAULT', hoverColorWeight = 'DEFAULT', rounded = true, size = 'xs', isDisabled = false, layout = 'solid', theme, } = props;
+    const { color = 'primary', colorWeight = 'DEFAULT', hoverColorWeight = 'DEFAULT', rounded = true, size = 'xl', isDisabled = false, layout = 'solid', theme, } = props;
     return (0, styled_components_1.css) `
     cursor: ${!isDisabled ? 'pointer' : 'not-allowed'};
     color: ${layout === 'solid' ? '#fff' : theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]};
@@ -35,8 +35,8 @@ const getDynamicStyles = (props) => {
         ? `solid ${theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]}`
         : `${layout} ${theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]}`};
     border-radius: ${rounded ? theme === null || theme === void 0 ? void 0 : theme.border.radius : 0};
-    line-height: ${theme === null || theme === void 0 ? void 0 : theme.size[size].height};
-    font-size: 'inherit';
+    height: ${theme === null || theme === void 0 ? void 0 : theme.size[size].height};
+    font-size: 80%;
     opacity: ${!isDisabled ? 1 : 0.5};
 
     &:not(.close_btn):hover {
