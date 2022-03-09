@@ -51,7 +51,8 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
             <Icon
               iconName={IconLeft}
               color={layout === 'solid' ? 'light' : color}
-              size={size}
+              size='sm'
+              clickable
             />
           </div>
         )}
@@ -77,7 +78,8 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
             <Icon
               iconName={IconRight}
               color={layout === 'solid' ? 'light' : color}
-              size={size}
+              size='sm'
+              clickable
             />
           </div>
         )}

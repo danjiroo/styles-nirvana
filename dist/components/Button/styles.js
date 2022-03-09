@@ -82,14 +82,17 @@ exports.StyledButton = styled_components_1.default.button `
   ${getDynamicStyles};
 
   .button-icon-div {
-    height: ${({ theme, size = 'xs' }) => theme.size[size].height};
     display: flex;
     align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
   }
 
   .button-icon-div.icon-right {
     left: unset;
-    right: 15px;
+    right: 12px;
   }
 
   .button-icon-div > i,
@@ -98,6 +101,6 @@ exports.StyledButton = styled_components_1.default.button `
   }
 
   & > span {
-    padding: 0 8px;
+    padding: 0 30px;
   }
 `;
