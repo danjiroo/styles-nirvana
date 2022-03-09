@@ -12,7 +12,7 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
     colorWeight = 'DEFAULT',
     hoverColorWeight = 'DEFAULT',
     rounded = true,
-    size = 'xs',
+    size = 'xl',
     isDisabled = false,
     layout = 'solid',
     theme,

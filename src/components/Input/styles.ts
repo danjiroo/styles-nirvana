@@ -39,6 +39,7 @@ export const StyledInput = styled.input<StyledInputProps>`
   box-sizing: border-box;
   border-style: solid;
   border-width: 0.063rem;
+  font-size: 80%;
   -webkit-text-fill-color: none !important;
   ${GetStyledInputStyles}
 `
