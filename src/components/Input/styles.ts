@@ -9,7 +9,7 @@ const default_input_styles = css`
   outline-color: ${({ theme }) => theme.colors.primary.DEFAULT};
   border-color: ${({ theme }) => theme.colors.dark['50']};
   border-radius: ${({ theme }) => theme.border.radius};
-  line-height: ${({ theme }) => theme.size.xs.height};
+  height: ${({ theme }) => theme.size.xl.height};
 `
 
 interface StyledInputProps {
@@ -25,17 +25,13 @@ const GetStyledInputStyles = ({ customTheme }: StyledInputProps) => {
       background-color: ${background_color ? background_color : 'none'};
       outline-color: ${outline_color ? outline_color : '#5cd176'};
       border-radius: ${border_radius ? border_radius : '6px'};
-      line-height: ${({ theme }) =>
-        line_height ? theme.size[line_height].height : theme.size.xs.height};
+      height: ${({ theme }) =>
+        line_height ? theme.size[line_height].height : theme.size.xl.height};
     `
 }
 
 export const StyledInput = styled.input<StyledInputProps>`
   width: 100%;
-  line-height: ${({ theme }) => {
-    console.log('THEME:', theme)
-    return theme.size.xs.height
-  }};
   padding-left: 2.6rem;
   margin: 0;
   max-width: 100%;
@@ -94,7 +90,7 @@ const moveRerverse = keyframes`
   }
 
   100% {  
-    transform: translate(2.5rem, .52rem);
+    transform: translate(2.5rem, .6rem);
     background-color: white;
   }
 `
@@ -150,5 +146,5 @@ export const StyledIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(0.6rem, 0.5rem);
+  transform: translate(0.6rem, 0.6rem);
 `
