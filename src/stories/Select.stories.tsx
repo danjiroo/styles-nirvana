@@ -3,7 +3,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import React, { useState } from 'react'
 
-import { Select, Container, Checkbox } from '../'
+import { Select, Container, Checkbox, Input } from '../'
 
 export default {
   title: 'Components/Select',
@@ -143,6 +143,16 @@ const SelectTemplate: ComponentStory<typeof Select> = (args) => {
         value={details?.email}
         valueData={details?.email}
         handleChange={handleChange}
+      />
+      <Input
+        value=''
+        type='text'
+        placeholder='enter'
+        label='sample label'
+        name=''
+        accessor='value'
+        actions={{}}
+        iconLeft='plus'
       />
     </Container>
   )

@@ -99,11 +99,19 @@ const SingleSelect = (_a) => {
         //   ...styles,
         //   color: colors.primary.dark,
         // }),
-        option: (styles, { data, isDisabled, isFocused, isSelected }) => (Object.assign(Object.assign({}, styles), { backgroundColor: isDisabled
+        option: (styles, { data, isDisabled, isFocused, isSelected }) => (Object.assign(Object.assign({}, styles), { color: isDisabled
+                ? colors.dark[50]
+                : isSelected
+                    ? colors.light[100]
+                    : colors.dark[100], backgroundColor: isDisabled
                 ? undefined
                 : isSelected
                     ? colors === null || colors === void 0 ? void 0 : colors[color][colorWeight]
-                    : undefined, ':active': Object.assign(Object.assign({}, styles[':active']), { backgroundColor: isDisabled
+                    : undefined, ':active': Object.assign(Object.assign({}, styles[':active']), { color: isDisabled
+                    ? undefined
+                    : isSelected
+                        ? colors.light[100]
+                        : colors.light[100], backgroundColor: isDisabled
                     ? undefined
                     : isSelected
                         ? colors === null || colors === void 0 ? void 0 : colors[color][colorWeight]
@@ -112,6 +120,11 @@ const SingleSelect = (_a) => {
                 backgroundColor: colors === null || colors === void 0 ? void 0 : colors[color][colorWeight],
                 color: 'white',
             } })),
+        input: (styles) => (Object.assign(Object.assign({}, styles), { color: colors.dark[100] })),
+        placeholder: (styles) => (Object.assign(Object.assign({}, styles), { color: colors.dark[100] })),
+        singleValue: (styles) => (Object.assign(Object.assign({}, styles), { color: colors.dark[100] })),
+        multiValue: (styles) => (Object.assign(Object.assign({}, styles), { color: colors.dark[100] })),
+        multiValueLabel: (styles) => (Object.assign(Object.assign({}, styles), { color: colors.dark[100] })),
     };
     return ((0, jsx_runtime_1.jsxs)(styles_1.StyledSelectContainer, Object.assign({}, styleProps, { children: [!!icon && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'select-icon-container' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: icon, color: 'dark' }, void 0) }), void 0)), (0, jsx_runtime_1.jsxs)(styles_1.StyledField, Object.assign({}, styleProps, { children: [!!label && ((0, jsx_runtime_1.jsxs)("label", Object.assign({ className: 'select-label' }, { children: [label, " ", !!isRequired && (0, jsx_runtime_1.jsx)("span", Object.assign({ className: 'select-required' }, { children: "*" }), void 0)] }), void 0)), (0, jsx_runtime_1.jsx)(SelectComponent, Object.assign({}, restProps, { className: 'select-component', selected: true, isDisabled: isDisabled, isLoading: isLoading, isFocused: true, isMulti: isMulti, value: valueFormatter, placeholder: placeholder, onFocus: () => setFocus(true), onBlur: () => setFocus(false), options: optionFormatter, onChange: handleOnchange, styles: colorStyles, theme: (theme) => (Object.assign(Object.assign({}, theme), { borderRadius: rounded ? 8 : 0, colors: Object.assign(Object.assign({}, theme.colors), { primary25: colors === null || colors === void 0 ? void 0 : colors[color][colorWeight], primary: colors === null || colors === void 0 ? void 0 : colors[color][colorWeight] }) })) }), void 0), !!error && ((0, jsx_runtime_1.jsx)("span", Object.assign({ className: 'select-error', style: { width: `calc(100% - ${icon && '28px'})` } }, { children: errorText }), void 0))] }), void 0)] }), void 0));
 };

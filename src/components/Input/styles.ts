@@ -55,9 +55,10 @@ export const StyledTextArea = styled.textarea<StyledInputProps>`
   max-width: 100%;
   box-sizing: border-box;
   resize: none;
-  padding: 1rem 0 0 2.6rem;
+  padding: 1rem 1.5rem 0 2.6rem;
   border-style: solid;
   border-width: 0.063rem;
+  font-size: 80%;
   color: ${({ theme }) => theme.colors.dark[50]};
 
   &::placeholder {

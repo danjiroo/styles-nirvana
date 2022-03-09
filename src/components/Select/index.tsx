@@ -124,6 +124,11 @@ const SingleSelect: React.FC<SelectProps> = ({
     // }),
     option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
       ...styles,
+      color: isDisabled
+        ? colors.dark[50]
+        : isSelected
+        ? colors.light[100]
+        : colors.dark[100],
       backgroundColor: isDisabled
         ? undefined
         : isSelected
@@ -132,6 +137,11 @@ const SingleSelect: React.FC<SelectProps> = ({
 
       ':active': {
         ...styles[':active'],
+        color: isDisabled
+          ? undefined
+          : isSelected
+          ? colors.light[100]
+          : colors.light[100],
         backgroundColor: isDisabled
           ? undefined
           : isSelected
@@ -145,6 +155,26 @@ const SingleSelect: React.FC<SelectProps> = ({
         backgroundColor: colors?.[color][colorWeight],
         color: 'white',
       },
+    }),
+    input: (styles) => ({
+      ...styles,
+      color: colors.dark[100],
+    }),
+    placeholder: (styles) => ({
+      ...styles,
+      color: colors.dark[100],
+    }),
+    singleValue: (styles) => ({
+      ...styles,
+      color: colors.dark[100],
+    }),
+    multiValue: (styles) => ({
+      ...styles,
+      color: colors.dark[100],
+    }),
+    multiValueLabel: (styles) => ({
+      ...styles,
+      color: colors.dark[100],
     }),
   }
 
