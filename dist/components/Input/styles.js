@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -29,7 +33,7 @@ const default_input_styles = (0, styled_components_1.css) `
   outline-color: ${({ theme }) => theme.colors.primary.DEFAULT};
   border-color: ${({ theme }) => theme.colors.dark['50']};
   border-radius: ${({ theme }) => theme.border.radius};
-  line-height: ${({ theme }) => theme.size.xs.height};
+  height: ${({ theme }) => theme.size.xl.height};
 `;
 const GetStyledInputStyles = ({ customTheme }) => {
     if (!customTheme)
@@ -40,15 +44,11 @@ const GetStyledInputStyles = ({ customTheme }) => {
       background-color: ${background_color ? background_color : 'none'};
       outline-color: ${outline_color ? outline_color : '#5cd176'};
       border-radius: ${border_radius ? border_radius : '6px'};
-      line-height: ${({ theme }) => line_height ? theme.size[line_height].height : theme.size.xs.height};
+      height: ${({ theme }) => line_height ? theme.size[line_height].height : theme.size.xl.height};
     `;
 };
 exports.StyledInput = styled_components_1.default.input `
   width: 100%;
-  line-height: ${({ theme }) => {
-    console.log('THEME:', theme);
-    return theme.size.xs.height;
-}};
   padding-left: 2.6rem;
   margin: 0;
   max-width: 100%;
@@ -101,7 +101,7 @@ const moveRerverse = (0, styled_components_1.keyframes) `
   }
 
   100% {  
-    transform: translate(2.5rem, .52rem);
+    transform: translate(2.5rem, .6rem);
     background-color: white;
   }
 `;
@@ -154,5 +154,5 @@ exports.StyledIcon = styled_components_1.default.div `
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(0.6rem, 0.5rem);
+  transform: translate(0.6rem, 0.6rem);
 `;

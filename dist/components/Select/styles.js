@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -63,6 +67,7 @@ exports.StyledField = styled_components_1.default.div `
   position: relative;
   padding-left: ${({ icon }) => (icon ? 5 : 0)}px;
   width: 100%;
+  font-size: 80%;
 
   ${getStyles}
 
@@ -86,13 +91,17 @@ exports.StyledField = styled_components_1.default.div `
   }
 
   div[class*='-control'] {
-    min-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
-    max-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+    min-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
+    max-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
     border-radius: ${({ theme }) => theme.border.radius};
   }
 
   div[class*='IndicatorsContainer'] {
-    min-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
-    max-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+    min-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
+    max-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
+  }
+
+  div[class*='ValueContainer'] {
+    top: -1px;
   }
 `;
