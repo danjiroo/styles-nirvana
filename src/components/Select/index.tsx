@@ -31,7 +31,7 @@ const SingleSelect: React.FC<SelectProps> = ({
   rounded = false,
   color = 'primary',
   colorWeight = '200',
-  size = 'xs',
+  size = 'xl',
   ...restProps
 }: SelectProps) => {
   const styleProps = {

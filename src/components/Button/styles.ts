@@ -29,8 +29,8 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
         ? `solid ${theme?.colors[color][colorWeight]}`
         : `${layout} ${theme?.colors[color][colorWeight]}`};
     border-radius: ${rounded ? theme?.border.radius : 0};
-    line-height: ${theme?.size[size].height};
-    font-size: 'inherit';
+    height: ${theme?.size[size].height};
+    font-size: 80%;
     opacity: ${!isDisabled ? 1 : 0.5};
 
     &:not(.close_btn):hover {

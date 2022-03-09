@@ -48,6 +48,7 @@ export const StyledField = styled.div<any>`
   position: relative;
   padding-left: ${({ icon }: any) => (icon ? 5 : 0)}px;
   width: 100%;
+  font-size: 80%;
 
   ${getStyles}
 
@@ -71,13 +72,17 @@ export const StyledField = styled.div<any>`
   }
 
   div[class*='-control'] {
-    min-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
-    max-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+    min-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
+    max-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
     border-radius: ${({ theme }) => theme.border.radius};
   }
 
   div[class*='IndicatorsContainer'] {
-    min-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
-    max-height: ${({ theme, size = 'xs' }) => theme.size[size].height};
+    min-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
+    max-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
+  }
+
+  div[class*='ValueContainer'] {
+    top: -1px;
   }
 `
