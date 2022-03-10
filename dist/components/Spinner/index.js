@@ -8,7 +8,7 @@ const styled_components_1 = __importDefault(require("styled-components"));
 const classnames_1 = __importDefault(require("classnames"));
 const Spinner = (props) => {
     const { className } = props;
-    return ((0, jsx_runtime_1.jsx)(StyledSpinner, Object.assign({ className: (0, classnames_1.default)(className) }, { children: (0, jsx_runtime_1.jsx)("svg", Object.assign({ className: 'spinner', viewBox: '0 0 50 50' }, { children: (0, jsx_runtime_1.jsx)("circle", { className: 'path', cx: '25', cy: '25', r: '20', fill: 'none', strokeWidth: '5' }, void 0) }), void 0) }), void 0));
+    return ((0, jsx_runtime_1.jsx)(StyledSpinner, Object.assign({ className: (0, classnames_1.default)(className) }, { children: (0, jsx_runtime_1.jsx)("svg", Object.assign({ className: 'spinner', viewBox: '0 0 50 50' }, { children: (0, jsx_runtime_1.jsx)("circle", { className: 'path', cx: '25', cy: '25', r: '20', fill: 'none', strokeWidth: '5' }) })) })));
 };
 const StyledSpinner = styled_components_1.default.div `
   width: 2rem;
