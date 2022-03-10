@@ -62,7 +62,12 @@ const Input: React.FC<FormInputProps> = (props) => {
   }
 
   const IconLeft = iconLeft || icon
-
+  const shouldDisplayPlaceHolder = () => {
+    if (label && is_input_active) return placeholder
+    if (!label && !is_input_active) return placeholder
+    if (!label && is_input_active) return placeholder
+    if (!is_input_active) return ''
+  }
   return (
     <InputContainer>
       {label && (
@@ -100,7 +105,7 @@ const Input: React.FC<FormInputProps> = (props) => {
       {type && type === 'textArea' && (
         <StyledTextArea
           value={value}
-          placeholder={label && is_input_active ? placeholder : ''}
+          placeholder={shouldDisplayPlaceHolder()}
           onChange={handleInputChange}
           onFocus={() => setInputActive(true)}
           onClick={() => setInputActive(true)}
