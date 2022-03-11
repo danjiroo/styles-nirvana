@@ -43,7 +43,6 @@ const Input: React.FC<FormInputProps> = (props) => {
 
   const handleInputChange = (event: any) => {
     const { value, name } = event.target
-    console.log('@@@ ALI DONG', value, name)
     actions.handleChange?.({ value, name, accessor })
   }
 
@@ -83,7 +82,11 @@ const Input: React.FC<FormInputProps> = (props) => {
   return (
     <InputContainer>
       {label && (
-        <Label is_input_active={is_input_active} onClick={handleLabelClick}>
+        <Label
+          is_input_active={is_input_active}
+          onClick={handleLabelClick}
+          type={type}
+        >
           {label}
         </Label>
       )}

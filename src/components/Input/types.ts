@@ -1,3 +1,4 @@
+import { SuggestionDataItem } from 'react-mentions'
 import { GlobalProps } from '../'
 
 export interface data {
@@ -14,10 +15,6 @@ export interface CustomTheme {
   line_height?: string
 }
 
-export interface MentionOption {
-  id: string
-  display: string
-}
 export interface FormInputProps extends GlobalProps {
   /**
    * The actual value that will be stored inside a state
@@ -48,5 +45,5 @@ export interface FormInputProps extends GlobalProps {
   /**
    * Mention options
    */
-  suggestions?: MentionOption[]
+  suggestions?: SuggestionDataItem[]
 }

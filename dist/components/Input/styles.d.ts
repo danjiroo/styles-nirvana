@@ -6,6 +6,7 @@ export declare const StyledInput: import("styled-components").StyledComponent<"i
 export declare const StyledTextArea: import("styled-components").StyledComponent<"textarea", any, StyledInputProps, never>;
 interface LabelProps {
     is_input_active: boolean;
+    type: 'text' | 'textArea' | 'textAreaMention' | string;
 }
 export declare const Label: import("styled-components").StyledComponent<"label", any, LabelProps, never>;
 export declare const InputContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
