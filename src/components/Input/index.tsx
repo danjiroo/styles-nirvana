@@ -90,7 +90,7 @@ const Input: React.FC<FormInputProps> = (props) => {
       {type && type === 'text' && (
         <StyledInput
           value={value}
-          placeholder={label && is_input_active ? placeholder : ''}
+          placeholder={shouldDisplayPlaceHolder()}
           onChange={handleInputChange}
           onFocus={() => setInputActive(true)}
           onClick={() => setInputActive(true)}
