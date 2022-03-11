@@ -43,6 +43,7 @@ const Input: React.FC<FormInputProps> = (props) => {
 
   const handleInputChange = (event: any) => {
     const { value, name } = event.target
+    console.log('@@@ ALI DONG', value, name)
     actions.handleChange?.({ value, name, accessor })
   }
 
@@ -137,7 +138,17 @@ const Input: React.FC<FormInputProps> = (props) => {
         // />
         <StyledMentionsInput
           value={value}
-          onChange={handleInputChange}
+          name={name}
+          placeholder={shouldDisplayPlaceHolder()}
+          onChange={(e) =>
+            handleInputChange({
+              ...e,
+              target: {
+                ...e.target,
+                name,
+              },
+            })
+          }
           onFocus={() => setInputActive(true)}
           onClick={() => setInputActive(true)}
           onBlur={handleBlurInput}

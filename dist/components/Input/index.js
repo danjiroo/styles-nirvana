@@ -17,6 +17,7 @@ const Input = (props) => {
     const handleInputChange = (event) => {
         var _a;
         const { value, name } = event.target;
+        console.log('@@@ ALI DONG', value, name);
         (_a = actions.handleChange) === null || _a === void 0 ? void 0 : _a.call(actions, { value, name, accessor });
     };
     const handleLabelClick = () => {
@@ -62,7 +63,7 @@ const Input = (props) => {
             //   onBlur={handleBlurInput}
             //   value={value}
             // />
-            (0, jsx_runtime_1.jsx)(styles_1.StyledMentionsInput, Object.assign({ value: value, onChange: handleInputChange, onFocus: () => setInputActive(true), onClick: () => setInputActive(true), onBlur: handleBlurInput, inputRef: inputRef, allowSpaceInQuery: true, allowSuggestionsAboveCursor: true }, { children: (0, jsx_runtime_1.jsx)(react_mentions_1.Mention, { trigger: '@', data: suggestions, onAdd: (a) => console.log('Added suggestion', a), appendSpaceOnAdd: true, displayTransform: (id, display) => `@${display}`, renderSuggestion: (entry, search, highlightedDisplay, index, focused) => ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: `rendered-suggestion ${focused ? 'focused' : ''}` }, { children: highlightedDisplay }), void 0)), style: {
+            (0, jsx_runtime_1.jsx)(styles_1.StyledMentionsInput, Object.assign({ value: value, name: name, placeholder: shouldDisplayPlaceHolder(), onChange: (e) => handleInputChange(Object.assign(Object.assign({}, e), { target: Object.assign(Object.assign({}, e.target), { name }) })), onFocus: () => setInputActive(true), onClick: () => setInputActive(true), onBlur: handleBlurInput, inputRef: inputRef, allowSpaceInQuery: true, allowSuggestionsAboveCursor: true }, { children: (0, jsx_runtime_1.jsx)(react_mentions_1.Mention, { trigger: '@', data: suggestions, onAdd: (a) => console.log('Added suggestion', a), appendSpaceOnAdd: true, displayTransform: (id, display) => `@${display}`, renderSuggestion: (entry, search, highlightedDisplay, index, focused) => ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: `rendered-suggestion ${focused ? 'focused' : ''}` }, { children: highlightedDisplay }), void 0)), style: {
                         background: '#cee4e5',
                     } }, void 0) }), void 0))] }, void 0));
 };
