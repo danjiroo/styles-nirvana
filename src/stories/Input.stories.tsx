@@ -24,20 +24,51 @@ const Template: ComponentStory<typeof Input> = (args) => {
 }
 
 export const Default = Template.bind({})
-
 Default.args = {
-  value: '',
   type: 'text',
-  field_type: 'text',
+  value: '',
   placeholder: 'enter',
   label: 'sample label',
   name: '',
   accessor: 'value',
   disabled: false,
-  // customTheme: {
-  //   background_color: '#DEDEFF',
-  //   outline_color: 'yellow',
-  //   border_radius: "25px",
-  // },
   size: 'md',
+}
+
+export const TextArea = Template.bind({})
+TextArea.args = {
+  type: 'textArea',
+  value: '',
+  placeholder: 'enter',
+  label: 'sample label',
+  name: '',
+  accessor: 'value',
+  disabled: false,
+  size: 'md',
+}
+
+export const TextAreaWithMention = Template.bind({})
+TextAreaWithMention.args = {
+  type: 'textAreaMention',
+  value: '',
+  placeholder: 'enter',
+  label: 'sample label',
+  name: '',
+  accessor: 'value',
+  disabled: false,
+  size: 'md',
+  suggestions: [
+    {
+      id: 1,
+      display: 'Option 1',
+    },
+    {
+      id: 2,
+      display: 'Option 2',
+    },
+    {
+      id: 3,
+      display: 'Option 3',
+    },
+  ],
 }

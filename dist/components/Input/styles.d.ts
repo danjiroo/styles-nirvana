@@ -10,4 +10,5 @@ interface LabelProps {
 export declare const Label: import("styled-components").StyledComponent<"label", any, LabelProps, never>;
 export declare const InputContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const StyledIcon: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const StyledMentionsInput: import("styled-components").StyledComponent<import("react-mentions").MentionsInputClass, any, StyledInputProps, never>;
 export {};

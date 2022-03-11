@@ -13,6 +13,11 @@ export interface CustomTheme {
   border_radius?: string
   line_height?: string
 }
+
+export interface MentionOption {
+  id: string
+  display: string
+}
 export interface FormInputProps extends GlobalProps {
   /**
    * The actual value that will be stored inside a state
@@ -28,7 +33,7 @@ export interface FormInputProps extends GlobalProps {
   actions: {
     handleChange?: (data: data) => void
   }
-  type: string
+  type: 'text' | 'textArea' | 'textAreaMention' | string
   disabled?: boolean
   /**
    *If you want to customize the input styles
@@ -40,4 +45,8 @@ export interface FormInputProps extends GlobalProps {
   customTheme?: CustomTheme
   iconLeft: string
   icon?: string
+  /**
+   * Mention options
+   */
+  suggestions?: MentionOption[]
 }

@@ -1,14 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, ChangeEvent } from 'react'
+import { Mention } from 'react-mentions'
+import { useTheme } from 'styled-components'
+
 import {
   StyledInput,
   StyledTextArea,
   InputContainer,
   Label,
   StyledIcon,
+  StyledMentionsInput,
 } from './styles'
 import { FormInputProps } from './types'
 import { Icon } from '../'
+import { ThemeDefinition } from '../../themes'
+import Mentions from './Mentions'
 
 const Input: React.FC<FormInputProps> = (props) => {
   const {
@@ -26,9 +34,12 @@ const Input: React.FC<FormInputProps> = (props) => {
     layout = 'solid',
     size = 'md',
     color = 'primary',
+    suggestions = [],
   } = props
   const [is_input_active, setInputActive] = useState(false)
   const [is_label_click, setLabelClick] = useState(false)
+
+  const { colors } = useTheme() as ThemeDefinition
 
   const handleInputChange = (event: any) => {
     const { value, name } = event.target
@@ -108,6 +119,51 @@ const Input: React.FC<FormInputProps> = (props) => {
           ref={inputRef}
           name={name}
         />
+      )}
+
+      {type && type === 'textAreaMention' && (
+        // <Mentions
+        //   inputRef={inputRef}
+        //   onChange={handleInputChange}
+        //   onFocus={() => setInputActive(true)}
+        //   onClick={() => setInputActive(true)}
+        //   onBlur={handleBlurInput}
+        //   value={value}
+        // />
+        <StyledMentionsInput
+          value={value}
+          onChange={handleInputChange}
+          onFocus={() => setInputActive(true)}
+          onClick={() => setInputActive(true)}
+          onBlur={handleBlurInput}
+          inputRef={inputRef}
+          allowSpaceInQuery={true}
+          allowSuggestionsAboveCursor={true}
+        >
+          <Mention
+            trigger='@'
+            data={suggestions}
+            onAdd={(a) => console.log('Added suggestion', a)}
+            appendSpaceOnAdd={true}
+            displayTransform={(id, display) => `@${display}`}
+            renderSuggestion={(
+              entry,
+              search,
+              highlightedDisplay,
+              index,
+              focused
+            ) => (
+              <div
+                className={`rendered-suggestion ${focused ? 'focused' : ''}`}
+              >
+                {highlightedDisplay}
+              </div>
+            )}
+            style={{
+              background: '#cee4e5',
+            }}
+          />
+        </StyledMentionsInput>
       )}
     </InputContainer>
   )
