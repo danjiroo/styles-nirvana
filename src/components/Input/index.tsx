@@ -20,7 +20,7 @@ import Mentions from './Mentions'
 
 const Input: React.FC<FormInputProps> = (props) => {
   const {
-    value,
+    value = '',
     placeholder,
     label,
     actions,

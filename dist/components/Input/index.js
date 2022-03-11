@@ -10,7 +10,7 @@ const styled_components_1 = require("styled-components");
 const styles_1 = require("./styles");
 const __1 = require("../");
 const Input = (props) => {
-    const { value, placeholder, label, actions, name, type, accessor, disabled, customTheme, iconLeft = 'search', icon, layout = 'solid', size = 'md', color = 'primary', suggestions = [], } = props;
+    const { value = '', placeholder, label, actions, name, type, accessor, disabled, customTheme, iconLeft = 'search', icon, layout = 'solid', size = 'md', color = 'primary', suggestions = [], } = props;
     const [is_input_active, setInputActive] = (0, react_1.useState)(false);
     const [is_label_click, setLabelClick] = (0, react_1.useState)(false);
     const { colors } = (0, styled_components_1.useTheme)();
