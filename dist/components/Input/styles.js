@@ -85,48 +85,48 @@ exports.StyledTextArea = styled_components_1.default.textarea `
 `;
 const move = (0, styled_components_1.keyframes) `
   0% { 
-    transform: translate(2.5rem, 0.5rem);
+    transform: translate(2.4rem, 0.5rem);
     background-color: white;
   }
   20%{
     opacity: .2;
   }
   40% {  
-    transform: translate(2.5rem, -.8rem);
+    transform: translate(2.4rem, -.8rem);
     background-color: white;
   }
   100% {  
-    transform: translate(2.5rem, -.5rem);
+    transform: translate(2.4rem, -.4rem);
     background-color: white;
     opacity: 1;
   }
 `;
 const moveRerverse = (0, styled_components_1.keyframes) `
   0% { 
-    transform: translate(2.5rem, 0.8rem);
+    transform: translate(2.4rem, 0.8rem);
     background-color: white;
     opacity: 1;
   }
   20%{
-    transform: translate(2.5rem, -.8rem);
+    transform: translate(2.4rem, -.8rem);
     background-color: white;
   }
 
   100% {  
-    transform: translate(2.5rem, .6rem);
+    transform: translate(2.4rem, .78rem);
     background-color: white;
   }
 `;
 const inactive_input = (0, styled_components_1.css) `
-  font-size: medium;
+  /* font-size: 80%; */
   color: ${({ theme }) => theme.colors.dark[50]};
   padding-right: 1rem;
   animation: ${moveRerverse} 0.8s cubic-bezier(0.25, 0, 0.01, 1) forwards;
 `;
 const active_input = (0, styled_components_1.css) `
-  font-size: small;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.dark[100]};
+  /* font-size: small; */
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.primary[300]};
   animation: ${move} 0.6s cubic-bezier(0.25, 0, 0.01, 1) forwards;
 `;
 const getLabelStyles = ({ is_input_active }) => {
