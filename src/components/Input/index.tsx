@@ -104,6 +104,7 @@ const Input: React.FC<FormInputProps> = (props) => {
 
       {type && type === 'text' && (
         <StyledInput
+          type={type}
           value={value}
           placeholder={shouldDisplayPlaceHolder()}
           onChange={handleInputChange}
