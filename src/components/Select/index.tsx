@@ -4,6 +4,7 @@
 /* eslint-disable indent */
 import React, { useState, useEffect } from 'react'
 import { useTheme } from 'styled-components'
+import cn from 'classnames'
 import Select, { Theme, StylesConfig } from 'react-select'
 import Creatable from 'react-select/creatable'
 
@@ -32,6 +33,7 @@ const SingleSelect: React.FC<SelectProps> = ({
   color = 'primary',
   colorWeight = '200',
   size = 'xl',
+  className,
   ...restProps
 }: SelectProps) => {
   const styleProps = {
@@ -179,7 +181,7 @@ const SingleSelect: React.FC<SelectProps> = ({
   }
 
   return (
-    <StyledSelectContainer {...styleProps}>
+    <StyledSelectContainer {...styleProps} className={cn(className)}>
       {!!icon && (
         <div className='select-icon-container'>
           <Icon iconName={icon} color='dark' />

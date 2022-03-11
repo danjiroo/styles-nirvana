@@ -14,6 +14,7 @@ export interface DNDOption {
 export interface ReactFlowProps {
   type: 'default' | 'reactflow'
   dndOptions?: DNDOption[]
+  className?: string
 }
 
 export interface OptionProps {

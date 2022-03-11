@@ -12,10 +12,10 @@ import { StyledDnDContainer } from './styles'
 import { ReactFlowProps } from '../../types'
 
 const DragAndDrop: React.FC<ReactFlowProps> = (props) => {
-  const { type = 'default', children } = props
+  const { type = 'default', children, className } = props
 
   return (
-    <StyledDnDContainer {...props}>
+    <StyledDnDContainer {...props} className={className}>
       {type === 'reactflow' && (
         <ReactFlowProvider>{children}</ReactFlowProvider>
       )}
