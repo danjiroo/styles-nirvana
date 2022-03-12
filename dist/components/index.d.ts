@@ -23,6 +23,7 @@ export { default as Select } from './Select';
 export { default as Spinner } from './Spinner';
 export { default as Table } from './Table';
 export { default as Tooltip } from './Tooltip';
+export { default as DropZone } from './DropZone';
 export { Modifiers } from './GlobalStyles';
 export * from './DragAndDrop';
 export * from './types';

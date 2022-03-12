@@ -8,6 +8,6 @@ const classnames_1 = __importDefault(require("classnames"));
 const styles_1 = require("./styles");
 const Container = (props) => {
     const { children, size, className } = props;
-    return ((0, jsx_runtime_1.jsx)(styles_1.StyledContainer, Object.assign({ size: size, className: (0, classnames_1.default)('StyledContainer', className) }, { children: children }), void 0));
+    return ((0, jsx_runtime_1.jsx)(styles_1.StyledContainer, Object.assign({ size: size, className: (0, classnames_1.default)('StyledContainer', className) }, { children: children })));
 };
 exports.default = Container;
