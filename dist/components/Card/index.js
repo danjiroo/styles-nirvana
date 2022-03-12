@@ -20,6 +20,6 @@ const __1 = require("../");
 const styles_1 = require("./styles");
 const Card = (_a) => {
     var { className, children, zoomOnHover = false, clickable = false, closeable = false, handleClick, handleClose, closeIconName = 'x-circle' } = _a, rest = __rest(_a, ["className", "children", "zoomOnHover", "clickable", "closeable", "handleClick", "handleClose", "closeIconName"]);
-    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledCard, Object.assign({}, rest, { className: (0, classnames_1.default)(className), zoomOnHover: zoomOnHover, onClick: () => (clickable ? handleClick === null || handleClick === void 0 ? void 0 : handleClick() : {}) }, { children: [closeable && ((0, jsx_runtime_1.jsx)(__1.Icon, { onClick: handleClose, className: 'close_btn', iconName: closeIconName, clickable: true, hoverable: true })), children] })));
+    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledCard, Object.assign({}, rest, { className: (0, classnames_1.default)(className), zoomOnHover: zoomOnHover, onClick: () => (clickable ? handleClick === null || handleClick === void 0 ? void 0 : handleClick() : {}) }, { children: [closeable && ((0, jsx_runtime_1.jsx)(__1.Icon, { onClick: handleClose, className: 'close_btn', iconName: closeIconName, clickable: true, hoverable: true }, void 0)), children] }), void 0));
 };
 exports.default = Card;

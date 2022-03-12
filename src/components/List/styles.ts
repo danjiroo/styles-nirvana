@@ -64,6 +64,8 @@ export const StyledList = styled.ul<ListProps & ThemeProvider>`
 
   li {
     width: 100%;
+    font-size: 80%;
+    color: ${({ theme }) => theme.colors.dark[100]};
   }
 
   li > * {

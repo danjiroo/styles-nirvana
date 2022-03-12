@@ -18,6 +18,6 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const classnames_1 = __importDefault(require("classnames"));
 const Row = (props) => {
     const { className, children } = props, other = __rest(props, ["className", "children"]);
-    return ((0, jsx_runtime_1.jsx)("tr", Object.assign({ className: (0, classnames_1.default)('tr', className) }, other, { children: children })));
+    return ((0, jsx_runtime_1.jsx)("tr", Object.assign({ className: (0, classnames_1.default)('tr', className) }, other, { children: children }), void 0));
 };
 exports.default = Row;

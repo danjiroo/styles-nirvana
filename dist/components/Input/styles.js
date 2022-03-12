@@ -1,11 +1,7 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -23,11 +19,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StyledIcon = exports.InputContainer = exports.Label = exports.StyledTextArea = exports.StyledInput = void 0;
+exports.StyledMentionsInput = exports.StyledIcon = exports.InputContainer = exports.Label = exports.StyledTextArea = exports.StyledInput = void 0;
 /* eslint-disable indent */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const styled_components_1 = __importStar(require("styled-components"));
+const react_mentions_1 = require("react-mentions");
 const default_input_styles = (0, styled_components_1.css) `
   background-color: none;
   outline-color: ${({ theme }) => theme.colors.primary.DEFAULT};
@@ -76,6 +73,8 @@ exports.StyledTextArea = styled_components_1.default.textarea `
   border-style: solid;
   border-width: 0.063rem;
   font-size: 80%;
+  font-family: inherit;
+  line-height: 150%;
   color: ${({ theme }) => theme.colors.dark[50]};
 
   &::placeholder {
@@ -145,7 +144,7 @@ exports.Label = styled_components_1.default.label `
   border: none;
   padding: 0rem 0.3rem 0 0.3rem;
   margin: 0;
-  z-index: 1;
+  z-index: ${({ type }) => (type === 'textAreaMention' ? 1 : 0)};
   &:hover {
     cursor: text;
   }
@@ -168,4 +167,62 @@ exports.StyledIcon = styled_components_1.default.div `
   justify-content: center;
   align-items: center;
   transform: translate(0.6rem, 0.6rem);
+`;
+exports.StyledMentionsInput = (0, styled_components_1.default)(react_mentions_1.MentionsInput) `
+  width: 100%;
+  min-height: 8rem;
+  max-width: 100%;
+  margin: 0;
+  padding: 1rem 1.5rem 0.5rem 2.6rem;
+  box-sizing: border-box;
+  resize: none;
+
+  textarea {
+    padding: 1rem 1.5rem 0.5rem 2.6rem !important;
+    font-size: 80% !important;
+    outline-color: #5cd176;
+    color: ${({ theme }) => theme.colors.dark[50]} !important;
+    border-style: solid;
+    border-width: 0.063rem;
+
+    ${GetStyledInputStyles}
+
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.dark[50]} !important;
+    }
+
+    line-height: 150%;
+  }
+
+  div[class*='_highlighter'] {
+    font-size: 80% !important;
+    line-height: 150%;
+    position: relative;
+    z-index: 1;
+    color: ${({ theme }) => theme.colors.primary['DEFAULT']} !important;
+    /* font-weight: bold; */
+  }
+
+  div[class*='_suggestions'] {
+    width: 150px;
+    margin-top: 37px !important;
+    margin-left: 32px !important;
+
+    ul {
+      box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
+
+      > li {
+        font-size: 80% !important;
+        color: ${({ theme }) => theme.colors.dark[50]} !important;
+
+        > div.rendered-suggestion {
+          width: 100%;
+          padding: 5px !important;
+        }
+        > div.rendered-suggestion.focused {
+          background: ${({ theme }) => theme.colors.primary[100]} !important;
+        }
+      }
+    }
+  }
 `;

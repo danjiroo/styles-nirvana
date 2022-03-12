@@ -18,6 +18,6 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const classnames_1 = __importDefault(require("classnames"));
 const Header = (props) => {
     const { className, children } = props, other = __rest(props, ["className", "children"]);
-    return ((0, jsx_runtime_1.jsx)("thead", Object.assign({ className: (0, classnames_1.default)('thead', className) }, other, { children: children })));
+    return ((0, jsx_runtime_1.jsx)("thead", Object.assign({ className: (0, classnames_1.default)('thead', className) }, other, { children: children }), void 0));
 };
 exports.default = Header;

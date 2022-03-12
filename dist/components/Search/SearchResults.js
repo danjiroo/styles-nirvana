@@ -7,6 +7,6 @@ const SearchResults = ({ results = [], handleClick, }) => {
         const { id, title = 'Sample Title' } = result;
         return ((0, jsx_runtime_1.jsx)("li", Object.assign({ onClick: () => handleClick(result) }, { children: title }), id));
     });
-    return (0, jsx_runtime_1.jsx)(styles_1.StyledResultsContainer, { children: lists });
+    return (0, jsx_runtime_1.jsx)(styles_1.StyledResultsContainer, { children: lists }, void 0);
 };
 exports.default = SearchResults;

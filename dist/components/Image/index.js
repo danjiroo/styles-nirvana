@@ -29,6 +29,6 @@ const Image = (props) => {
     return ((0, jsx_runtime_1.jsxs)(styles_1.StyledImageContainer, Object.assign({ rounded: rounded, className: (0, classnames_1.default)('image', className) }, { children: [(0, jsx_runtime_1.jsx)(styles_1.StyledImage, Object.assign({ src: imageSrc, alt: alt, onLoad: () => setLoaded(true), onError: () => {
                     setError(true);
                     setLoaded(false);
-                } }, rest)), isLoading && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'spinner' }, { children: (0, jsx_runtime_1.jsx)(__1.RaySpinner, {}) })))] })));
+                } }, rest), void 0), isLoading && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'spinner' }, { children: (0, jsx_runtime_1.jsx)(__1.RaySpinner, {}, void 0) }), void 0))] }), void 0));
 };
 exports.default = Image;

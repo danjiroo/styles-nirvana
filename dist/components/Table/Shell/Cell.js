@@ -18,6 +18,6 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const classnames_1 = __importDefault(require("classnames"));
 const Cell = (props) => {
     const { className, children, header = false } = props, other = __rest(props, ["className", "children", "header"]);
-    return header ? ((0, jsx_runtime_1.jsx)("th", Object.assign({ className: (0, classnames_1.default)('th', className) }, other, { children: children }))) : ((0, jsx_runtime_1.jsx)("td", Object.assign({ className: (0, classnames_1.default)('td', className) }, other, { children: children })));
+    return header ? ((0, jsx_runtime_1.jsx)("th", Object.assign({ className: (0, classnames_1.default)('th', className) }, other, { children: children }), void 0)) : ((0, jsx_runtime_1.jsx)("td", Object.assign({ className: (0, classnames_1.default)('td', className) }, other, { children: children }), void 0));
 };
 exports.default = Cell;

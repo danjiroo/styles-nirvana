@@ -42,6 +42,6 @@ const Icon = (props) => {
     };
     (0, react_1.useEffect)(handleClickOutside, []);
     const DropdownComponent = dropdown;
-    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledIconContainer, Object.assign({ ref: ref }, rest, { className: className }, { children: [(0, jsx_runtime_1.jsx)(styles_1.StyledIconDiv, Object.assign({}, rest, { onClick: handleClick }, { children: isNaN(Number(iconName)) ? (0, jsx_runtime_1.jsx)(SVGComponent, {}) : iconName })), isOpen && hasDropdown && (0, jsx_runtime_1.jsx)(DropdownComponent, {})] })));
+    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledIconContainer, Object.assign({ ref: ref }, rest, { className: className }, { children: [(0, jsx_runtime_1.jsx)(styles_1.StyledIconDiv, Object.assign({}, rest, { onClick: handleClick }, { children: isNaN(Number(iconName)) ? (0, jsx_runtime_1.jsx)(SVGComponent, {}, void 0) : iconName }), void 0), isOpen && hasDropdown && (0, jsx_runtime_1.jsx)(DropdownComponent, {}, void 0)] }), void 0));
 };
 exports.default = Icon;

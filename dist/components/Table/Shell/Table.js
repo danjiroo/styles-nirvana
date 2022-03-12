@@ -24,7 +24,7 @@ const Header_1 = __importDefault(require("./Header"));
 const Row_1 = __importDefault(require("./Row"));
 const Table = (props) => {
     const { className, children } = props, other = __rest(props, ["className", "children"]);
-    return ((0, jsx_runtime_1.jsx)("table", Object.assign({ className: (0, classnames_1.default)('table', className) }, other, { children: children })));
+    return ((0, jsx_runtime_1.jsx)("table", Object.assign({ className: (0, classnames_1.default)('table', className) }, other, { children: children }), void 0));
 };
 exports.default = Object.assign(Table, {
     Container: Container_1.default,

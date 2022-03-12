@@ -12,6 +12,10 @@ export interface OptionsProps {
 }
 export interface SelectProps extends GlobalColors, GlobalSizes {
     /**
+     * Custom classname
+     */
+    className?: string;
+    /**
      * Error fetching options
      */
     error?: boolean;
