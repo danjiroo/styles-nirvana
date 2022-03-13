@@ -42,6 +42,8 @@ export const StyledQuestion = styled.div<QuestionProps>`
   }
 
   .link {
+    cursor: pointer;
+
     &.default-text {
       color: ${({ theme }) => theme.colors.primary['DEFAULT']};
       font-size: inherit;

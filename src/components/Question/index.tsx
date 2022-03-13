@@ -74,26 +74,27 @@ const Question: React.FC<QuestionProps> = (props) => {
         </span>
       </div>
       <div className='question-body'>
-        {/* <p>{question}</p> */}
-        {parse(question, {
-          replace: (domNode: any) => {
-            if (domNode.name === 'a') {
-              const node = domNode.children[0]
+        <p>
+          {parse(question, {
+            replace: (domNode: any) => {
+              if (domNode.name === 'a') {
+                const node = domNode.children[0]
 
-              return (
-                <span
-                  className={
-                    node.data[0] === '#'
-                      ? 'link sample-text'
-                      : 'link default-text'
-                  }
-                >
-                  {node.data}
-                </span>
-              )
-            }
-          },
-        })}
+                return (
+                  <span
+                    className={
+                      node.data[0] === '#'
+                        ? 'link sample-text'
+                        : 'link default-text'
+                    }
+                  >
+                    {node.data}
+                  </span>
+                )
+              }
+            },
+          })}
+        </p>
         <div className='question-choices'>
           {type.toLowerCase() === 'choice' &&
             !!choices?.length &&
