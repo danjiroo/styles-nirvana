@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Modifiers = exports.Tooltip = exports.Table = exports.Spinner = exports.Select = exports.Search = exports.RaySpinner = exports.Question = exports.Progress = exports.Page = exports.Navigation = exports.Menu = exports.Logo = exports.List = exports.Input = exports.Image = exports.Icon = exports.Header = exports.Form = exports.Droppable = exports.Draggable = exports.Container = exports.Checkbox = exports.Card = exports.Button = exports.Badge = void 0;
+exports.Modifiers = exports.DropZone = exports.Tooltip = exports.Table = exports.Spinner = exports.Select = exports.Search = exports.RaySpinner = exports.Question = exports.Progress = exports.Page = exports.Navigation = exports.Menu = exports.Logo = exports.List = exports.Input = exports.Image = exports.Icon = exports.Header = exports.Form = exports.Droppable = exports.Draggable = exports.Container = exports.Checkbox = exports.Card = exports.Button = exports.Badge = void 0;
 var Badge_1 = require("./Badge");
 Object.defineProperty(exports, "Badge", { enumerable: true, get: function () { return __importDefault(Badge_1).default; } });
 var Button_1 = require("./Button");
@@ -64,6 +64,8 @@ var Table_1 = require("./Table");
 Object.defineProperty(exports, "Table", { enumerable: true, get: function () { return __importDefault(Table_1).default; } });
 var Tooltip_1 = require("./Tooltip");
 Object.defineProperty(exports, "Tooltip", { enumerable: true, get: function () { return __importDefault(Tooltip_1).default; } });
+var DropZone_1 = require("./DropZone");
+Object.defineProperty(exports, "DropZone", { enumerable: true, get: function () { return __importDefault(DropZone_1).default; } });
 var GlobalStyles_1 = require("./GlobalStyles");
 Object.defineProperty(exports, "Modifiers", { enumerable: true, get: function () { return GlobalStyles_1.Modifiers; } });
 __exportStar(require("./DragAndDrop"), exports);
