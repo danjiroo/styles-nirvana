@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react'
 import parse from 'html-react-parser'
-import { Link } from 'react-router-dom'
 
 import { StyledQuestion } from './styles'
 import { QuestionProps } from './types'
@@ -82,16 +81,15 @@ const Question: React.FC<QuestionProps> = (props) => {
               const node = domNode.children[0]
 
               return (
-                <Link
-                  to={domNode.attribs.href}
+                <span
                   className={
                     node.data[0] === '#'
-                      ? 'text-green-400'
-                      : 'link-default-text'
+                      ? 'link sample-text'
+                      : 'link default-text'
                   }
                 >
                   {node.data}
-                </Link>
+                </span>
               )
             }
           },

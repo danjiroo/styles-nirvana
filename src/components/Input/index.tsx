@@ -43,11 +43,7 @@ const Input: React.FC<FormInputProps> = (props) => {
   const handleInputChange = (event: any) => {
     const { value, name, targetValue } = event.target
 
-    actions.handleChange?.({
-      value,
-      name,
-      accessor,
-    })
+    actions.handleChange?.({ value, name, accessor })
   }
 
   const handleLabelClick = () => {
@@ -160,10 +156,33 @@ const Input: React.FC<FormInputProps> = (props) => {
         >
           <Mention
             trigger='@'
-            markup='@@@____id__^^^____display__@@@^^^'
+            markup='@{{id:__id__}}:{{__display__}}'
             data={suggestions}
             appendSpaceOnAdd={true}
             displayTransform={(id, display) => `@${display}`}
+            renderSuggestion={(
+              entry,
+              search,
+              highlightedDisplay,
+              index,
+              focused
+            ) => (
+              <div
+                className={`rendered-suggestion ${focused ? 'focused' : ''}`}
+              >
+                {highlightedDisplay}
+              </div>
+            )}
+            style={{
+              background: '#cee4e5',
+            }}
+          />
+          <Mention
+            trigger='#'
+            markup='#[[id:__id__]]:[[__display__]]'
+            data={suggestions}
+            appendSpaceOnAdd={true}
+            displayTransform={(id, display) => `#${display}`}
             renderSuggestion={(
               entry,
               search,

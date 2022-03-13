@@ -41,9 +41,11 @@ export const StyledQuestion = styled.div<QuestionProps>`
     }
   }
 
-  .link-default-text {
-    color: ${({ theme }) => theme.colors.primary['DEFAULT']};
-    font-size: inherit;
+  .link {
+    &.default-text {
+      color: ${({ theme }) => theme.colors.primary['DEFAULT']};
+      font-size: inherit;
+    }
 
     &:hover {
       color: ${({ theme }) => theme.colors.primary[300]};
