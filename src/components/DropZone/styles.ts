@@ -71,7 +71,6 @@ const StyledDropZoneContainerStyles = ({
   isActive,
   hasFile,
 }: StyledDropZoneContainer) => {
-  console.log('has file:', hasFile)
   if (hasFile) {
     return css`
       border: none;

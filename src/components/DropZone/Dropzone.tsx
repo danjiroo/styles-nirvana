@@ -11,12 +11,20 @@ import { Button } from '../'
 
 import Media from './MediaList'
 
-const Dropzone = ({ onDrop, file, accept }: any) => {
+const Dropzone = ({
+  onDrop,
+  file,
+  accept,
+  mediaSource,
+  mediaElement,
+  onTimeUpdate,
+}: any) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept,
   })
-  console.log('HAS FILE:', file)
+  // console.log('HAS FILE:', file)
+
   return (
     <StyledDropZoneContainer
       {...getRootProps()}
@@ -38,7 +46,12 @@ const Dropzone = ({ onDrop, file, accept }: any) => {
             <Button icon='upload' label='upload' layout='outline' />
           </>
         ) : (
-          <Media file={file} />
+          <Media
+            file={file}
+            mediaSource={mediaSource}
+            onTimeUpdate={onTimeUpdate}
+            mediaElement={mediaElement}
+          />
         )}
       </StyledDropArea>
     </StyledDropZoneContainer>

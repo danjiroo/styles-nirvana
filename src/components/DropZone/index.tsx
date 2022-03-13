@@ -7,11 +7,11 @@ import cuid from 'cuid'
 import Dropzone from './Dropzone'
 import { StyledMain } from './styles'
 
-function App() {
+const DragAndDrop = (props: any) => {
+  const { handleDropMedia, mediaSource, mediaElement, onTimeUpdate } = props
   const [file, setFile] = useState<Partial<any>>()
-
+  // console.log('mediaElement INNER:', mediaSource)
   const onDrop = useCallback((acceptedFiles) => {
-    console.log('ACCEPTED FIES:', acceptedFiles)
     acceptedFiles.map((file: any) => {
       const reader = new FileReader()
       reader.onabort = () => console.log('file reading was aborted')
@@ -19,6 +19,16 @@ function App() {
       reader.onload = (e) => {
         console.log('reader:', e)
         setFile({
+          ...file,
+          id: cuid(),
+          src: reader.result,
+          preview: URL.createObjectURL(file),
+          name: file.name,
+          lastModified: file.lastModified,
+          size: file.size,
+          type: file.type,
+        })
+        handleDropMedia({
           ...file,
           id: cuid(),
           src: reader.result,
@@ -52,6 +62,9 @@ function App() {
         onDrop={onDrop}
         accept='image/*, image/jpg, image/jpeg, image/gif, video/*, video/quicktime'
         file={file}
+        mediaSource={mediaSource}
+        mediaElement={mediaElement}
+        onTimeUpdate={onTimeUpdate}
       />
       {file && file.length > 0 && (
         <h3 className='text-center'>Drag the Images to change positions</h3>
@@ -60,4 +73,4 @@ function App() {
   )
 }
 
-export default App
+export default DragAndDrop
