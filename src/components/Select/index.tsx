@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 /* eslint-disable indent */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useTheme } from 'styled-components'
 import cn from 'classnames'
 import Select, { Theme, StylesConfig } from 'react-select'
@@ -13,7 +13,7 @@ import { ThemeDefinition } from '../../themes'
 import { capFirstLetterForEachWord } from '../../utils'
 
 import { OnChangeActionDef, OnChangeData, SelectProps } from './types'
-import { StyledField, StyledSelectContainer } from './styles'
+import { StyledField, StyledSelectContainer, Label } from './styles'
 
 const SingleSelect: React.FC<SelectProps> = ({
   error,
@@ -36,6 +36,8 @@ const SingleSelect: React.FC<SelectProps> = ({
   size = 'xl',
   className,
   value: propsValue,
+  innerIcon = false,
+  animatedLabel = false,
   ...restProps
 }: SelectProps) => {
   const styleProps = {
@@ -43,6 +45,8 @@ const SingleSelect: React.FC<SelectProps> = ({
     label,
     icon,
     size,
+    innerIcon,
+    animatedLabel,
   }
 
   const { labelKey: optionLabel, valueKey: optionValue } =
@@ -63,6 +67,43 @@ const SingleSelect: React.FC<SelectProps> = ({
   // initial value (needs to be label and value)
   const [value, setValue] = useState<any>(initialValue)
   const [focus, setFocus] = useState(false)
+  const [isInputActive, setIsInputActive] = useState(false)
+  const [isLabelClicked, setIsLabelClicked] = useState(false)
+
+  const inputRef = useRef<any>()
+
+  useEffect(() => {
+    if (isLabelClicked === true) {
+      inputRef.current.focus()
+    }
+  }, [isLabelClicked])
+
+  useEffect(() => {
+    console.log(value, 'x')
+    if (!value) {
+      setIsInputActive(false)
+      setIsLabelClicked(false)
+    }
+    if (value) setIsInputActive(true)
+  }, [value])
+
+  const handleBlurInput = () => {
+    if (!value) {
+      setIsInputActive(false)
+      setIsLabelClicked(false)
+    }
+  }
+
+  const handleLabelClick = () => {
+    setIsLabelClicked(() => true)
+  }
+
+  const shouldDisplayPlaceHolder = () => {
+    if (label && isInputActive) return placeholder
+    if (!label && !isInputActive) return placeholder
+    if (!label && isInputActive) return placeholder
+    if (!isInputActive) return ''
+  }
 
   const labelKey = optionLabel || 'label'
   const valueKey = optionValue || 'id'
@@ -145,7 +186,10 @@ const SingleSelect: React.FC<SelectProps> = ({
   })
 
   const colorStyles: StylesConfig<any, true> = {
-    option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
+    option: (
+      styles,
+      { data, isDisabled, isFocused = { focus }, isSelected }
+    ) => ({
       ...styles,
       color: isDisabled
         ? colors.dark[50]
@@ -203,17 +247,29 @@ const SingleSelect: React.FC<SelectProps> = ({
 
   return (
     <StyledSelectContainer {...styleProps} className={cn(className)}>
-      {!!icon && (
+      {!!icon && !innerIcon && (
         <div className='select-icon-container'>
           <Icon iconName={icon} color='dark' className='ICONN DEBUGGGG' />
         </div>
       )}
 
       <StyledField {...styleProps}>
-        {!!label && (
+        {!!label && !animatedLabel && (
           <label className='select-label'>
             {label} {!!isRequired && <span className='select-required'>*</span>}
           </label>
+        )}
+
+        {label && animatedLabel && (
+          <Label isInputActive={isInputActive} onClick={handleLabelClick}>
+            {label}
+          </Label>
+        )}
+
+        {!!icon && innerIcon && (
+          <div className='select-icon-container inner-icon'>
+            <Icon iconName={icon} color='dark' className='ICONN DEBUGGGG' />
+          </div>
         )}
 
         <SelectComponent
@@ -222,12 +278,16 @@ const SingleSelect: React.FC<SelectProps> = ({
           selected
           isDisabled={isDisabled}
           isLoading={isLoading}
-          isFocused
+          isFocused={focus}
           isMulti={isMulti}
           value={value}
-          placeholder={placeholder}
-          onFocus={() => setFocus(true)}
-          onBlur={() => setFocus(false)}
+          placeholder={shouldDisplayPlaceHolder()}
+          // onFocus={() => setFocus(true)}
+          // onBlur={() => setFocus(false)}
+          onFocus={() => setIsInputActive(true)}
+          onClick={() => setIsInputActive(true)}
+          onBlur={handleBlurInput}
+          ref={inputRef}
           options={optionFormatter}
           onChange={onChangeHandler}
           styles={colorStyles}

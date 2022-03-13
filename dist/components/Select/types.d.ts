@@ -66,6 +66,10 @@ export interface SelectProps extends GlobalColors, GlobalSizes {
      */
     label?: string;
     /**
+     * Label with animation
+     */
+    animatedLabel?: boolean;
+    /**
      * Placeholder text in input field
      */
     placeholder?: string;

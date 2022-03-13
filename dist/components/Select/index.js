@@ -28,12 +28,14 @@ const __1 = require("..");
 const utils_1 = require("../../utils");
 const styles_1 = require("./styles");
 const SingleSelect = (_a) => {
-    var { error, errorText, icon, name, isCreatable = false, isDisabled = false, isRequired = false, isLoading = false, label, selectOptions: options, handleChange, placeholder, isMulti, selectOptionsAsObject, rounded = false, color = 'primary', colorWeight = '200', size = 'xl', className, value: propsValue } = _a, restProps = __rest(_a, ["error", "errorText", "icon", "name", "isCreatable", "isDisabled", "isRequired", "isLoading", "label", "selectOptions", "handleChange", "placeholder", "isMulti", "selectOptionsAsObject", "rounded", "color", "colorWeight", "size", "className", "value"]);
+    var { error, errorText, icon, name, isCreatable = false, isDisabled = false, isRequired = false, isLoading = false, label, selectOptions: options, handleChange, placeholder, isMulti, selectOptionsAsObject, rounded = false, color = 'primary', colorWeight = '200', size = 'xl', className, value: propsValue, innerIcon = false, animatedLabel = false } = _a, restProps = __rest(_a, ["error", "errorText", "icon", "name", "isCreatable", "isDisabled", "isRequired", "isLoading", "label", "selectOptions", "handleChange", "placeholder", "isMulti", "selectOptionsAsObject", "rounded", "color", "colorWeight", "size", "className", "value", "innerIcon", "animatedLabel"]);
     const styleProps = {
         error,
         label,
         icon,
         size,
+        innerIcon,
+        animatedLabel,
     };
     const { labelKey: optionLabel, valueKey: optionValue } = selectOptionsAsObject !== null && selectOptionsAsObject !== void 0 ? selectOptionsAsObject : {};
     const { colors } = (0, styled_components_1.useTheme)();
@@ -48,6 +50,42 @@ const SingleSelect = (_a) => {
     // initial value (needs to be label and value)
     const [value, setValue] = (0, react_1.useState)(initialValue);
     const [focus, setFocus] = (0, react_1.useState)(false);
+    const [isInputActive, setIsInputActive] = (0, react_1.useState)(false);
+    const [isLabelClicked, setIsLabelClicked] = (0, react_1.useState)(false);
+    const inputRef = (0, react_1.useRef)();
+    (0, react_1.useEffect)(() => {
+        if (isLabelClicked === true) {
+            inputRef.current.focus();
+        }
+    }, [isLabelClicked]);
+    (0, react_1.useEffect)(() => {
+        console.log(value, 'x');
+        if (!value) {
+            setIsInputActive(false);
+            setIsLabelClicked(false);
+        }
+        if (value)
+            setIsInputActive(true);
+    }, [value]);
+    const handleBlurInput = () => {
+        if (!value) {
+            setIsInputActive(false);
+            setIsLabelClicked(false);
+        }
+    };
+    const handleLabelClick = () => {
+        setIsLabelClicked(() => true);
+    };
+    const shouldDisplayPlaceHolder = () => {
+        if (label && isInputActive)
+            return placeholder;
+        if (!label && !isInputActive)
+            return placeholder;
+        if (!label && isInputActive)
+            return placeholder;
+        if (!isInputActive)
+            return '';
+    };
     const labelKey = optionLabel || 'label';
     const valueKey = optionValue || 'id';
     const SelectComponent = (isCreatable ? creatable_1.default : react_select_1.default);
@@ -107,7 +145,7 @@ const SingleSelect = (_a) => {
         };
     });
     const colorStyles = {
-        option: (styles, { data, isDisabled, isFocused, isSelected }) => (Object.assign(Object.assign({}, styles), { color: isDisabled
+        option: (styles, { data, isDisabled, isFocused = { focus }, isSelected }) => (Object.assign(Object.assign({}, styles), { color: isDisabled
                 ? colors.dark[50]
                 : isSelected
                     ? colors.light[100]
@@ -134,6 +172,9 @@ const SingleSelect = (_a) => {
         multiValue: (styles) => (Object.assign(Object.assign({}, styles), { color: colors.dark[100] })),
         multiValueLabel: (styles) => (Object.assign(Object.assign({}, styles), { color: colors.dark[100] })),
     };
-    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledSelectContainer, Object.assign({}, styleProps, { className: (0, classnames_1.default)(className) }, { children: [!!icon && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'select-icon-container' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: icon, color: 'dark', className: 'ICONN DEBUGGGG' }, void 0) }), void 0)), (0, jsx_runtime_1.jsxs)(styles_1.StyledField, Object.assign({}, styleProps, { children: [!!label && ((0, jsx_runtime_1.jsxs)("label", Object.assign({ className: 'select-label' }, { children: [label, " ", !!isRequired && (0, jsx_runtime_1.jsx)("span", Object.assign({ className: 'select-required' }, { children: "*" }), void 0)] }), void 0)), (0, jsx_runtime_1.jsx)(SelectComponent, Object.assign({}, restProps, { className: 'select-component', selected: true, isDisabled: isDisabled, isLoading: isLoading, isFocused: true, isMulti: isMulti, value: value, placeholder: placeholder, onFocus: () => setFocus(true), onBlur: () => setFocus(false), options: optionFormatter, onChange: onChangeHandler, styles: colorStyles, theme: (theme) => (Object.assign(Object.assign({}, theme), { borderRadius: rounded ? 8 : 0, colors: Object.assign(Object.assign({}, theme.colors), { primary25: colors === null || colors === void 0 ? void 0 : colors[color][colorWeight], primary: colors === null || colors === void 0 ? void 0 : colors[color][colorWeight] }) })) }), void 0), !!error && ((0, jsx_runtime_1.jsx)("span", Object.assign({ className: 'select-error', style: { width: `calc(100% - ${icon && '28px'})` } }, { children: errorText }), void 0))] }), void 0)] }), void 0));
+    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledSelectContainer, Object.assign({}, styleProps, { className: (0, classnames_1.default)(className) }, { children: [!!icon && !innerIcon && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'select-icon-container' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: icon, color: 'dark', className: 'ICONN DEBUGGGG' }, void 0) }), void 0)), (0, jsx_runtime_1.jsxs)(styles_1.StyledField, Object.assign({}, styleProps, { children: [!!label && !animatedLabel && ((0, jsx_runtime_1.jsxs)("label", Object.assign({ className: 'select-label' }, { children: [label, " ", !!isRequired && (0, jsx_runtime_1.jsx)("span", Object.assign({ className: 'select-required' }, { children: "*" }), void 0)] }), void 0)), label && animatedLabel && ((0, jsx_runtime_1.jsx)(styles_1.Label, Object.assign({ isInputActive: isInputActive, onClick: handleLabelClick }, { children: label }), void 0)), !!icon && innerIcon && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'select-icon-container inner-icon' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: icon, color: 'dark', className: 'ICONN DEBUGGGG' }, void 0) }), void 0)), (0, jsx_runtime_1.jsx)(SelectComponent, Object.assign({}, restProps, { className: 'select-component', selected: true, isDisabled: isDisabled, isLoading: isLoading, isFocused: focus, isMulti: isMulti, value: value, placeholder: shouldDisplayPlaceHolder(), 
+                        // onFocus={() => setFocus(true)}
+                        // onBlur={() => setFocus(false)}
+                        onFocus: () => setIsInputActive(true), onClick: () => setIsInputActive(true), onBlur: handleBlurInput, ref: inputRef, options: optionFormatter, onChange: onChangeHandler, styles: colorStyles, theme: (theme) => (Object.assign(Object.assign({}, theme), { borderRadius: rounded ? 8 : 0, colors: Object.assign(Object.assign({}, theme.colors), { primary25: colors === null || colors === void 0 ? void 0 : colors[color][colorWeight], primary: colors === null || colors === void 0 ? void 0 : colors[color][colorWeight] }) })) }), void 0), !!error && ((0, jsx_runtime_1.jsx)("span", Object.assign({ className: 'select-error', style: { width: `calc(100% - ${icon && '28px'})` } }, { children: errorText }), void 0))] }), void 0)] }), void 0));
 };
 exports.default = SingleSelect;
