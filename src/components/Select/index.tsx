@@ -50,8 +50,18 @@ const SingleSelect: React.FC<SelectProps> = ({
 
   const { colors } = useTheme() as ThemeDefinition
 
+  const initialValue = propsValue
+    ? {
+        label:
+          typeof propsValue === 'string'
+            ? capFirstLetterForEachWord(propsValue)
+            : propsValue,
+        value: propsValue,
+      }
+    : null
+
   // initial value (needs to be label and value)
-  const [value, setValue] = useState<any>()
+  const [value, setValue] = useState<any>(initialValue)
   const [focus, setFocus] = useState(false)
 
   const labelKey = optionLabel || 'label'
@@ -61,17 +71,7 @@ const SingleSelect: React.FC<SelectProps> = ({
     isCreatable ? Creatable : Select
   ) as React.ElementType
 
-  useEffect(
-    () =>
-      setValue({
-        label:
-          typeof propsValue === 'string'
-            ? capFirstLetterForEachWord(propsValue)
-            : propsValue,
-        value: propsValue,
-      }),
-    [propsValue]
-  )
+  useEffect(() => setValue(initialValue), [propsValue])
 
   console.log('@value', value)
 

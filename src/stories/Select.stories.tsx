@@ -158,7 +158,7 @@ SingleSelectWithStringOptions.args = {
   isClearable: true,
   label: 'Single Select',
   tempGuide: 'Single Select With Options as Array of Strings',
-  value: 'sample',
+  placeholder: 'type...',
 }
 SingleSelectWithStringOptions.argTypes = selectArgTypes
 

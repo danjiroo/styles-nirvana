@@ -37,18 +37,21 @@ const SingleSelect = (_a) => {
     };
     const { labelKey: optionLabel, valueKey: optionValue } = selectOptionsAsObject !== null && selectOptionsAsObject !== void 0 ? selectOptionsAsObject : {};
     const { colors } = (0, styled_components_1.useTheme)();
+    const initialValue = propsValue
+        ? {
+            label: typeof propsValue === 'string'
+                ? (0, utils_1.capFirstLetterForEachWord)(propsValue)
+                : propsValue,
+            value: propsValue,
+        }
+        : null;
     // initial value (needs to be label and value)
-    const [value, setValue] = (0, react_1.useState)();
+    const [value, setValue] = (0, react_1.useState)(initialValue);
     const [focus, setFocus] = (0, react_1.useState)(false);
     const labelKey = optionLabel || 'label';
     const valueKey = optionValue || 'id';
     const SelectComponent = (isCreatable ? creatable_1.default : react_select_1.default);
-    (0, react_1.useEffect)(() => setValue({
-        label: typeof propsValue === 'string'
-            ? (0, utils_1.capFirstLetterForEachWord)(propsValue)
-            : propsValue,
-        value: propsValue,
-    }), [propsValue]);
+    (0, react_1.useEffect)(() => setValue(initialValue), [propsValue]);
     console.log('@value', value);
     const onChangeHandler = (changes, e) => {
         var _a, _b, _c, _d, _e;
