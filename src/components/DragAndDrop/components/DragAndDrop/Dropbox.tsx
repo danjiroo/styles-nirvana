@@ -80,6 +80,8 @@ const Dropbox: React.FC<DropboxProps> = ({
   const [elements, setElements] = useState<any>(initialNodes)
   const [dragStart, setDragStart] = useState(false)
 
+  useEffect(() => setElements(initialNodes), [initialNodes])
+
   // useEffect(() => {
   //   if (reactFlowInstance && elements.length > 1) {
   //     setTimeout(() => reactFlowInstance.fitView(), 0)
