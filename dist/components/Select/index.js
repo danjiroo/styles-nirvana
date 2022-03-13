@@ -25,9 +25,10 @@ const classnames_1 = __importDefault(require("classnames"));
 const react_select_1 = __importDefault(require("react-select"));
 const creatable_1 = __importDefault(require("react-select/creatable"));
 const __1 = require("..");
+const utils_1 = require("../../utils");
 const styles_1 = require("./styles");
 const SingleSelect = (_a) => {
-    var { error, errorText, icon, name, isCreatable = false, isDisabled = false, isRequired = false, isLoading = false, label, selectOptions: options, handleChange, placeholder, isMulti, selectOptionsAsObject, rounded = false, color = 'primary', colorWeight = '200', size = 'xl', className } = _a, restProps = __rest(_a, ["error", "errorText", "icon", "name", "isCreatable", "isDisabled", "isRequired", "isLoading", "label", "selectOptions", "handleChange", "placeholder", "isMulti", "selectOptionsAsObject", "rounded", "color", "colorWeight", "size", "className"]);
+    var { error, errorText, icon, name, isCreatable = false, isDisabled = false, isRequired = false, isLoading = false, label, selectOptions: options, handleChange, placeholder, isMulti, selectOptionsAsObject, rounded = false, color = 'primary', colorWeight = '200', size = 'xl', className, value: propsValue } = _a, restProps = __rest(_a, ["error", "errorText", "icon", "name", "isCreatable", "isDisabled", "isRequired", "isLoading", "label", "selectOptions", "handleChange", "placeholder", "isMulti", "selectOptionsAsObject", "rounded", "color", "colorWeight", "size", "className", "value"]);
     const styleProps = {
         error,
         label,
@@ -36,11 +37,19 @@ const SingleSelect = (_a) => {
     };
     const { labelKey: optionLabel, valueKey: optionValue } = selectOptionsAsObject !== null && selectOptionsAsObject !== void 0 ? selectOptionsAsObject : {};
     const { colors } = (0, styled_components_1.useTheme)();
+    // initial value (needs to be label and value)
     const [value, setValue] = (0, react_1.useState)();
     const [focus, setFocus] = (0, react_1.useState)(false);
     const labelKey = optionLabel || 'label';
     const valueKey = optionValue || 'id';
     const SelectComponent = (isCreatable ? creatable_1.default : react_select_1.default);
+    (0, react_1.useEffect)(() => setValue({
+        label: typeof propsValue === 'string'
+            ? (0, utils_1.capFirstLetterForEachWord)(propsValue)
+            : propsValue,
+        value: propsValue,
+    }), [propsValue]);
+    console.log('@value', value);
     const onChangeHandler = (changes, e) => {
         var _a, _b, _c, _d, _e;
         setValue(changes);
@@ -76,14 +85,20 @@ const SingleSelect = (_a) => {
         }
     };
     const optionFormatter = options.map((option) => {
-        if (typeof option === 'string' || typeof option === 'number') {
+        if (typeof option === 'string') {
+            return {
+                label: (0, utils_1.capFirstLetterForEachWord)(option),
+                value: option,
+            };
+        }
+        if (typeof option === 'number') {
             return {
                 label: option,
                 value: option,
             };
         }
         return {
-            label: option[labelKey],
+            label: (0, utils_1.capFirstLetterForEachWord)(option[labelKey]),
             value: option[valueKey],
             metadata: option,
         };

@@ -10,6 +10,7 @@ import Creatable from 'react-select/creatable'
 
 import { Icon } from '..'
 import { ThemeDefinition } from '../../themes'
+import { capFirstLetterForEachWord } from '../../utils'
 
 import { OnChangeActionDef, OnChangeData, SelectProps } from './types'
 import { StyledField, StyledSelectContainer } from './styles'
@@ -34,6 +35,7 @@ const SingleSelect: React.FC<SelectProps> = ({
   colorWeight = '200',
   size = 'xl',
   className,
+  value: propsValue,
   ...restProps
 }: SelectProps) => {
   const styleProps = {
@@ -48,7 +50,8 @@ const SingleSelect: React.FC<SelectProps> = ({
 
   const { colors } = useTheme() as ThemeDefinition
 
-  const [value, setValue] = useState()
+  // initial value (needs to be label and value)
+  const [value, setValue] = useState<any>()
   const [focus, setFocus] = useState(false)
 
   const labelKey = optionLabel || 'label'
@@ -57,6 +60,20 @@ const SingleSelect: React.FC<SelectProps> = ({
   const SelectComponent = (
     isCreatable ? Creatable : Select
   ) as React.ElementType
+
+  useEffect(
+    () =>
+      setValue({
+        label:
+          typeof propsValue === 'string'
+            ? capFirstLetterForEachWord(propsValue)
+            : propsValue,
+        value: propsValue,
+      }),
+    [propsValue]
+  )
+
+  console.log('@value', value)
 
   const onChangeHandler = (changes: any, e: OnChangeActionDef) => {
     setValue(changes)
@@ -106,7 +123,14 @@ const SingleSelect: React.FC<SelectProps> = ({
   }
 
   const optionFormatter = options.map((option) => {
-    if (typeof option === 'string' || typeof option === 'number') {
+    if (typeof option === 'string') {
+      return {
+        label: capFirstLetterForEachWord(option),
+        value: option,
+      }
+    }
+
+    if (typeof option === 'number') {
       return {
         label: option,
         value: option,
@@ -114,7 +138,7 @@ const SingleSelect: React.FC<SelectProps> = ({
     }
 
     return {
-      label: option[labelKey],
+      label: capFirstLetterForEachWord(option[labelKey]),
       value: option[valueKey],
       metadata: option,
     }

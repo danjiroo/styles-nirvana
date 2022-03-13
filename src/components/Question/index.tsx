@@ -97,7 +97,7 @@ const Question: React.FC<QuestionProps> = (props) => {
           },
         })}
         <div className='question-choices'>
-          {type === 'choice' &&
+          {type.toLowerCase() === 'choice' &&
             !!choices?.length &&
             choices.map((choice, index) => (
               <Button
@@ -109,7 +109,7 @@ const Question: React.FC<QuestionProps> = (props) => {
                 size='xs'
               />
             ))}
-          {type === 'confirmation' && (
+          {type.toLowerCase() === 'confirmation' && (
             <div className='confirmation-choices'>
               <Button
                 size='xs'
@@ -127,7 +127,7 @@ const Question: React.FC<QuestionProps> = (props) => {
               />
             </div>
           )}
-          {type === 'input' && (
+          {type.toLowerCase() === 'input' && (
             <Input
               type='text'
               value={answer}

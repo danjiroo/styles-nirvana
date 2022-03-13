@@ -158,6 +158,7 @@ SingleSelectWithStringOptions.args = {
   isClearable: true,
   label: 'Single Select',
   tempGuide: 'Single Select With Options as Array of Strings',
+  value: 'sample',
 }
 SingleSelectWithStringOptions.argTypes = selectArgTypes
 
@@ -170,6 +171,7 @@ SingleSelectWithNumberOptions.args = {
   isClearable: true,
   label: 'Single Select',
   tempGuide: 'Single Select With Options as Array of Numbers',
+  value: 'sample',
 }
 SingleSelectWithNumberOptions.argTypes = selectArgTypes
 
