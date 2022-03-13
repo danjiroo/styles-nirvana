@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useState } from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { useArgs } from '@storybook/client-api'
-import { Input } from '../'
+
+import { Input, Question } from '../'
 
 export default {
   title: 'Components/Input',
@@ -17,10 +18,37 @@ const Template: ComponentStory<typeof Input> = (args) => {
   const actionsProp: any = {
     handleChange: (data: any) => {
       const { name, value } = data
+      console.log('@ (Template1) PARENT COMPONENT USING INPUT:::: ', data)
       updateArgs({ value })
     },
   }
   return <Input {...args} actions={actionsProp} />
+}
+
+const Template2: ComponentStory<typeof Input> = (args) => {
+  // const [_, updateArgs] = useArgs()
+
+  const [value, setValue] = useState('')
+
+  const actionsProp: any = {
+    handleChange: (data: any) => {
+      const { name, value } = data
+      console.log('@ (Template2) PARENT COMPONENT USING INPUT:::: ', data)
+      setValue(value)
+      // updateArgs({ value })
+    },
+    handleAddMention: (data: any) => {
+      console.log('@@@@@ MENTIONSSSSSSSS', data)
+    },
+  }
+  return (
+    <div>
+      <Input {...args} value={value} actions={actionsProp} />
+      <br />
+      <h4>saved:</h4>
+      <Question id='sampleid' question={value} name='Test' />
+    </div>
+  )
 }
 
 export const Default = Template.bind({})
@@ -47,7 +75,7 @@ TextArea.args = {
   size: 'md',
 }
 
-export const TextAreaWithMention = Template.bind({})
+export const TextAreaWithMention = Template2.bind({})
 TextAreaWithMention.args = {
   type: 'textAreaMention',
   value: '',

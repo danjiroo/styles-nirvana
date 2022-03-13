@@ -46,7 +46,6 @@ export const StyledSelectContainer = styled.div`
 
 export const StyledField = styled.div<any>`
   position: relative;
-  padding-left: ${({ icon }: any) => (icon ? 5 : 0)}px;
   width: 100%;
   font-size: 80%;
 

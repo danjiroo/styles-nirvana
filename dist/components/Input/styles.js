@@ -144,7 +144,7 @@ exports.Label = styled_components_1.default.label `
   border: none;
   padding: 0rem 0.3rem 0 0.3rem;
   margin: 0;
-  z-index: ${({ type }) => (type === 'textAreaMention' ? 1 : 0)};
+  z-index: ${({ type }) => (type === 'textAreaMention' ? 100 : 0)};
   &:hover {
     cursor: text;
   }

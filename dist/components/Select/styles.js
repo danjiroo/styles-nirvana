@@ -61,7 +61,6 @@ exports.StyledSelectContainer = styled_components_1.default.div `
 `;
 exports.StyledField = styled_components_1.default.div `
   position: relative;
-  padding-left: ${({ icon }) => (icon ? 5 : 0)}px;
   width: 100%;
   font-size: 80%;
 

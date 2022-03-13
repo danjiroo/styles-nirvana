@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react'
+import parse from 'html-react-parser'
+import { Link } from 'react-router-dom'
 
 import { StyledQuestion } from './styles'
 import { QuestionProps } from './types'
@@ -72,7 +75,27 @@ const Question: React.FC<QuestionProps> = (props) => {
         </span>
       </div>
       <div className='question-body'>
-        <p>{question}</p>
+        {/* <p>{question}</p> */}
+        {parse(question, {
+          replace: (domNode: any) => {
+            if (domNode.name === 'a') {
+              const node = domNode.children[0]
+
+              return (
+                <Link
+                  to={domNode.attribs.href}
+                  className={
+                    node.data[0] === '#'
+                      ? 'text-green-400'
+                      : 'link-default-text'
+                  }
+                >
+                  {node.data}
+                </Link>
+              )
+            }
+          },
+        })}
         <div className='question-choices'>
           {type === 'choice' &&
             !!choices?.length &&

@@ -26,6 +26,7 @@ export interface FormInputProps extends GlobalProps {
     accessor?: string;
     actions: {
         handleChange?: (data: data) => void;
+        handleAddMention?: (data: unknown) => void;
     };
     type: 'text' | 'textArea' | 'textAreaMention' | string;
     disabled?: boolean;

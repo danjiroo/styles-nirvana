@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect, useRef, ChangeEvent } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Mention } from 'react-mentions'
 import { useTheme } from 'styled-components'
 
@@ -16,7 +16,6 @@ import {
 import { FormInputProps } from './types'
 import { Icon } from '../'
 import { ThemeDefinition } from '../../themes'
-import Mentions from './Mentions'
 
 const Input: React.FC<FormInputProps> = (props) => {
   const {
@@ -42,8 +41,13 @@ const Input: React.FC<FormInputProps> = (props) => {
   const { colors } = useTheme() as ThemeDefinition
 
   const handleInputChange = (event: any) => {
-    const { value, name } = event.target
-    actions.handleChange?.({ value, name, accessor })
+    const { value, name, targetValue } = event.target
+
+    actions.handleChange?.({
+      value,
+      name,
+      accessor,
+    })
   }
 
   const handleLabelClick = () => {
@@ -132,18 +136,11 @@ const Input: React.FC<FormInputProps> = (props) => {
       )}
 
       {type && type === 'textAreaMention' && (
-        // <Mentions
-        //   inputRef={inputRef}
-        //   onChange={handleInputChange}
-        //   onFocus={() => setInputActive(true)}
-        //   onClick={() => setInputActive(true)}
-        //   onBlur={handleBlurInput}
-        //   value={value}
-        // />
         <StyledMentionsInput
-          value={value}
+          // value={sourceValue}
+          // onChange={onSourceChange}
           name={name}
-          placeholder={shouldDisplayPlaceHolder()}
+          value={value}
           onChange={(e) =>
             handleInputChange({
               ...e,
@@ -159,11 +156,12 @@ const Input: React.FC<FormInputProps> = (props) => {
           inputRef={inputRef}
           allowSpaceInQuery={true}
           allowSuggestionsAboveCursor={true}
+          spellCheck={false}
         >
           <Mention
             trigger='@'
+            markup='@@@____id__^^^____display__@@@^^^'
             data={suggestions}
-            onAdd={(a) => console.log('Added suggestion', a)}
             appendSpaceOnAdd={true}
             displayTransform={(id, display) => `@${display}`}
             renderSuggestion={(

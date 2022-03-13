@@ -11,7 +11,7 @@ import Creatable from 'react-select/creatable'
 import { Icon } from '..'
 import { ThemeDefinition } from '../../themes'
 
-import { SelectProps } from './types'
+import { OnChangeActionDef, OnChangeData, SelectProps } from './types'
 import { StyledField, StyledSelectContainer } from './styles'
 
 const SingleSelect: React.FC<SelectProps> = ({
@@ -27,8 +27,8 @@ const SingleSelect: React.FC<SelectProps> = ({
   selectOptions: options,
   handleChange,
   placeholder,
-  valueData = '',
-  isMulti = false,
+  isMulti,
+  selectOptionsAsObject,
   rounded = false,
   color = 'primary',
   colorWeight = '200',
@@ -43,87 +43,84 @@ const SingleSelect: React.FC<SelectProps> = ({
     size,
   }
 
+  const { labelKey: optionLabel, valueKey: optionValue } =
+    selectOptionsAsObject ?? {}
+
   const { colors } = useTheme() as ThemeDefinition
 
-  const [value, setValue] = useState<any>(valueData)
+  const [value, setValue] = useState()
   const [focus, setFocus] = useState(false)
 
-  useEffect(() => {
-    setValue(valueData)
-  }, [valueData])
+  const labelKey = optionLabel || 'label'
+  const valueKey = optionValue || 'id'
 
   const SelectComponent = (
     isCreatable ? Creatable : Select
   ) as React.ElementType
 
-  const handleOnchange = (changes: any) => {
-    if (handleChange) {
-      handleChange({
-        target: {
+  const onChangeHandler = (changes: any, e: OnChangeActionDef) => {
+    setValue(changes)
+
+    if (!isMulti) {
+      if (handleChange) {
+        if (e.action === 'clear') {
+          handleChange({
+            name,
+            value: e.removedValues?.some((r) => typeof r.value === 'number')
+              ? 0
+              : '',
+          })
+          return
+        }
+        handleChange({
           name,
-          value: changes ?? '',
-        },
-      })
-      return
-    }
-
-    setValue(changes.value)
-  }
-
-  const labelKey = restProps.labelKey || 'label'
-  const valueKey = restProps.valueKey || 'id'
-
-  const getLabel = (e: string | number) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
-    const label = options.find((r: any) => {
-      if (typeof r === 'string') {
-        return r === e
+          value: changes?.value ?? null,
+        })
+        return
       }
-      return e === r[valueKey]
-    })
+    } else {
+      const multiData = {
+        name,
+        value: (changes as OnChangeData[])?.map((field) => field?.value) as any,
+      }
 
-    if (label && typeof label === 'object') {
-      return label[labelKey]
-    } else if (label && typeof label === 'string') {
-      return label
+      const hasMetadata = (changes as OnChangeData[])?.some(
+        (field) => field?.metadata
+      )
+
+      if (handleChange) {
+        handleChange(
+          hasMetadata
+            ? {
+                ...(multiData ?? {}),
+                metadata: (changes as OnChangeData[])?.map(
+                  (field) => field?.metadata
+                ),
+              }
+            : multiData
+        )
+
+        return
+      }
     }
-
-    return e
   }
 
-  const optionFormatter = options.map((e: any) => {
-    if (typeof e === 'string' || typeof e === 'number') {
+  const optionFormatter = options.map((option) => {
+    if (typeof option === 'string' || typeof option === 'number') {
       return {
-        label: e,
-        value: e,
+        label: option,
+        value: option,
       }
     }
 
     return {
-      label: e[labelKey],
-      value: e[valueKey],
-      data: e,
+      label: option[labelKey],
+      value: option[valueKey],
+      metadata: option,
     }
   })
 
-  const valueFormatter =
-    value && (typeof value === 'string' || typeof value === 'number')
-      ? {
-          value,
-          label: getLabel(value),
-        }
-      : value
-
   const colorStyles: StylesConfig<any, true> = {
-    // multiValue: (styles) => ({
-    //   ...styles,
-    //   backgroundColor: colors.primary.light,
-    // }),
-    // multiValueLabel: (styles) => ({
-    //   ...styles,
-    //   color: colors.primary.dark,
-    // }),
     option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
       ...styles,
       color: isDisabled
@@ -184,7 +181,7 @@ const SingleSelect: React.FC<SelectProps> = ({
     <StyledSelectContainer {...styleProps} className={cn(className)}>
       {!!icon && (
         <div className='select-icon-container'>
-          <Icon iconName={icon} color='dark' />
+          <Icon iconName={icon} color='dark' className='ICONN DEBUGGGG' />
         </div>
       )}
 
@@ -203,12 +200,12 @@ const SingleSelect: React.FC<SelectProps> = ({
           isLoading={isLoading}
           isFocused
           isMulti={isMulti}
-          value={valueFormatter}
+          value={value}
           placeholder={placeholder}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
           options={optionFormatter}
-          onChange={handleOnchange}
+          onChange={onChangeHandler}
           styles={colorStyles}
           theme={(theme: Theme) => ({
             ...theme,
