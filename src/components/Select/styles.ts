@@ -6,11 +6,13 @@ import { ThemeProvider } from '../../themes'
 import { SelectProps } from './types'
 
 const getStyles = (props: SelectProps & ThemeProvider) => {
-  const { label, error } = props
+  const { label, error, animatedLabel = false } = props
 
   return css`
     .select-component {
-      margin: ${label && !error
+      margin: ${animatedLabel
+        ? 0
+        : label && !error
         ? '15px 0'
         : label && error
         ? '25px 0'
@@ -163,7 +165,6 @@ export const Label = styled.label<LabelProps>`
   padding: 0rem 0.3rem 0 0.3rem;
   margin: 0;
   z-index: 100;
-  top: 15px;
 
   &:hover {
     cursor: text;

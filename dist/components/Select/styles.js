@@ -24,16 +24,18 @@ exports.Label = exports.StyledField = exports.StyledSelectContainer = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const styled_components_1 = __importStar(require("styled-components"));
 const getStyles = (props) => {
-    const { label, error } = props;
+    const { label, error, animatedLabel = false } = props;
     return (0, styled_components_1.css) `
     .select-component {
-      margin: ${label && !error
-        ? '15px 0'
-        : label && error
-            ? '25px 0'
-            : !label && error
-                ? '0 0 25px'
-                : '5px 0'};
+      margin: ${animatedLabel
+        ? 0
+        : label && !error
+            ? '15px 0'
+            : label && error
+                ? '25px 0'
+                : !label && error
+                    ? '0 0 25px'
+                    : '5px 0'};
     }
 
     .select-label {
@@ -170,7 +172,6 @@ exports.Label = styled_components_1.default.label `
   padding: 0rem 0.3rem 0 0.3rem;
   margin: 0;
   z-index: 100;
-  top: 15px;
 
   &:hover {
     cursor: text;
