@@ -59,7 +59,6 @@ const SingleSelect = (_a) => {
         }
     }, [isLabelClicked]);
     (0, react_1.useEffect)(() => {
-        console.log(value, 'x');
         if (!value) {
             setIsInputActive(false);
             setIsLabelClicked(false);
@@ -90,7 +89,6 @@ const SingleSelect = (_a) => {
     const valueKey = optionValue || 'id';
     const SelectComponent = (isCreatable ? creatable_1.default : react_select_1.default);
     (0, react_1.useEffect)(() => setValue(initialValue), [propsValue]);
-    console.log('@value', value);
     const onChangeHandler = (changes, e) => {
         var _a, _b, _c, _d, _e;
         setValue(changes);

@@ -135,7 +135,6 @@ const Question: React.FC<QuestionProps> = (props) => {
               placeholder='Answer...'
               actions={{
                 handleChange: (data) => {
-                  console.log('', data)
                   setAnswer(data?.value ?? '')
                 },
               }}

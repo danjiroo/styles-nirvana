@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
@@ -80,11 +81,11 @@ Default.args = {
     },
   },
   actions: {
-    onNext: () => console.log({ type: 'NEXT' }),
-    onPrevious: () => console.log({ type: 'PREVIOUS' }),
-    onJumpToFirst: () => console.log({ type: 'JUMP_TO_FIRST' }),
-    onJumpToLast: () => console.log({ type: 'JUMP_TO_LAST' }),
-    onJumpToPage: () => console.log({ type: 'JUMP_TO_PAGE' }),
-    onChecked: () => console.log({ type: 'CHECKED' }),
+    onNext: () => {},
+    onPrevious: () => {},
+    onJumpToFirst: () => {},
+    onJumpToLast: () => {},
+    onJumpToPage: () => {},
+    onChecked: () => {},
   },
 } as TableProps

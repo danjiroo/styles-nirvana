@@ -1,9 +1,8 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { DropzonePreview, FileWrapper, StyledImage } from './styles'
 const MediaList = ({ file, mediaSource, mediaElement, onTimeUpdate }: any) => {
-  console.log('MEDIA ELEMENT REF:')
-
   return (
     <DropzonePreview className='dropzone-preview'>
       <FileWrapper className='file-item'>

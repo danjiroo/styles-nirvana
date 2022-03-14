@@ -116,7 +116,6 @@ const SelectTemplate: ComponentStory<typeof Select | any> = (args) => {
   })
 
   const handleChange = (data) => {
-    console.log('Selected:', data)
     const { name, value } = data
 
     setDetails({

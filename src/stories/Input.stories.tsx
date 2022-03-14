@@ -18,7 +18,6 @@ const Template: ComponentStory<typeof Input> = (args) => {
   const actionsProp: any = {
     handleChange: (data: any) => {
       const { name, value } = data
-      console.log('@ (Template1) PARENT COMPONENT USING INPUT:::: ', data)
       updateArgs({ value })
     },
   }
@@ -26,19 +25,12 @@ const Template: ComponentStory<typeof Input> = (args) => {
 }
 
 const Template2: ComponentStory<typeof Input> = (args) => {
-  // const [_, updateArgs] = useArgs()
-
   const [value, setValue] = useState('')
 
   const actionsProp: any = {
     handleChange: (data: any) => {
       const { name, value } = data
-      console.log('@ (Template2) PARENT COMPONENT USING INPUT:::: ', data)
       setValue(value)
-      // updateArgs({ value })
-    },
-    handleAddMention: (data: any) => {
-      console.log('@@@@@ MENTIONSSSSSSSS', data)
     },
   }
   return (

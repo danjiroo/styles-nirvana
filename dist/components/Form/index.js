@@ -32,7 +32,6 @@ const Form = (props) => {
     const actionsProp = {
         handleChange: (data) => {
             const { name, value } = data;
-            console.log('value:', data);
             setState((prev) => (Object.assign(Object.assign({}, prev), { [name]: value })));
         },
     };

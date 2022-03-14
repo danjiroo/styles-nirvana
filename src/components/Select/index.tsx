@@ -79,7 +79,6 @@ const SingleSelect: React.FC<SelectProps> = ({
   }, [isLabelClicked])
 
   useEffect(() => {
-    console.log(value, 'x')
     if (!value) {
       setIsInputActive(false)
       setIsLabelClicked(false)
@@ -113,8 +112,6 @@ const SingleSelect: React.FC<SelectProps> = ({
   ) as React.ElementType
 
   useEffect(() => setValue(initialValue), [propsValue])
-
-  console.log('@value', value)
 
   const onChangeHandler = (changes: any, e: OnChangeActionDef) => {
     setValue(changes)

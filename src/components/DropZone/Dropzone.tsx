@@ -23,7 +23,6 @@ const Dropzone = ({
     onDrop,
     accept,
   })
-  // console.log('HAS FILE:', file)
 
   return (
     <StyledDropZoneContainer

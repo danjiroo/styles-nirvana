@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { List } from '../'
@@ -9,19 +10,15 @@ export default {
     list: [
       {
         id: '1',
-        component: <button onClick={() => console.log('Edit')}>Edit</button>,
+        component: <button onClick={() => {}}>Edit</button>,
       },
       {
         id: '2',
-        component: (
-          <button onClick={() => console.log('Preview')}>Preview</button>
-        ),
+        component: <button onClick={() => {}}>Preview</button>,
       },
       {
         id: '3',
-        component: (
-          <button onClick={() => console.log('Delete')}>Delete</button>
-        ),
+        component: <button onClick={() => {}}>Delete</button>,
       },
     ],
   },

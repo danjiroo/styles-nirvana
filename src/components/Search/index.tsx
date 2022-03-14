@@ -91,8 +91,6 @@ const Search: React.FC<SearchProps> = (props) => {
           placeholder='Search anything...'
           actions={{
             handleChange: (data) => {
-              console.log('Global Search', data)
-
               setSearchText(data?.value ?? '')
             },
           }}

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-unused-vars */
 import React from 'react'
@@ -20,9 +22,7 @@ const Template: ComponentStory<typeof Form> = (args) => {
       icon: 'search',
     },
   }
-  const someSideEffect = <T,>(data: T) => {
-    console.log('Some side effects:', data)
-  }
+  const someSideEffect = <T,>(data: T) => {}
 
   return (
     <Form
