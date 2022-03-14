@@ -8,7 +8,7 @@ const MediaList = ({ file, mediaSource, mediaElement, onTimeUpdate }: any) => {
       <FileWrapper className='file-item'>
         {file && (
           <>
-            <span>{file.name}</span>
+            {/* <span>{file.name}</span> */}
             {/* {file.type === 'video/quicktime' && mediaSource?.src && (
               <video className='video-dimensions' controls>
                 <source src={mediaSource.src} type='video/quicktiem'></source>
