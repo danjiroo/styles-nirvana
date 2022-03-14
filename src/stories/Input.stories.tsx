@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useState } from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { useArgs } from '@storybook/client-api'
-import { Input } from '../'
+
+import { Input, Question } from '../'
 
 export default {
   title: 'Components/Input',
@@ -23,21 +24,71 @@ const Template: ComponentStory<typeof Input> = (args) => {
   return <Input {...args} actions={actionsProp} />
 }
 
-export const Default = Template.bind({})
+const Template2: ComponentStory<typeof Input> = (args) => {
+  const [value, setValue] = useState('')
 
+  const actionsProp: any = {
+    handleChange: (data: any) => {
+      const { name, value } = data
+      setValue(value)
+    },
+  }
+  return (
+    <div>
+      <Input {...args} value={value} actions={actionsProp} />
+      <br />
+      <h4>saved:</h4>
+      <Question id='sampleid' question={value} name='Test' />
+    </div>
+  )
+}
+
+export const Default = Template.bind({})
 Default.args = {
-  value: '',
   type: 'text',
-  field_type: 'text',
+  value: '',
   placeholder: 'enter',
   label: 'sample label',
-  name: '',
+  name: 'text',
   accessor: 'value',
   disabled: false,
-  // customTheme: {
-  //   background_color: '#DEDEFF',
-  //   outline_color: 'yellow',
-  //   border_radius: "25px",
-  // },
   size: 'md',
+}
+
+export const TextArea = Template.bind({})
+TextArea.args = {
+  type: 'textArea',
+  value: '',
+  placeholder: 'enter',
+  label: 'sample label',
+  name: 'textArea',
+  accessor: 'value',
+  disabled: false,
+  size: 'md',
+}
+
+export const TextAreaWithMention = Template2.bind({})
+TextAreaWithMention.args = {
+  type: 'textAreaMention',
+  value: '',
+  placeholder: 'enter',
+  label: 'sample label',
+  name: 'textAreaMention',
+  accessor: 'value',
+  disabled: false,
+  size: 'md',
+  suggestions: [
+    {
+      id: 1,
+      display: 'Option 1',
+    },
+    {
+      id: 2,
+      display: 'Option 2',
+    },
+    {
+      id: 3,
+      display: 'Option 3',
+    },
+  ],
 }

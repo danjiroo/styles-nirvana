@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import React, { DragEvent } from 'react'
 
 import { OptionProps } from '../../types'
@@ -12,7 +13,6 @@ const Option: React.FC<OptionProps> = ({
   id,
   node_type = 'default',
 }) => {
-  console.log(children, 'x')
   return (
     <div className='react-flow-sidebar-options'>
       <div

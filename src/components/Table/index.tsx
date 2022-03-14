@@ -1,22 +1,29 @@
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable indent */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useEffect, useState } from 'react'
-import { useTable, useSortBy, useRowSelect } from 'react-table'
+import { useTable, useSortBy, useRowSelect, usePagination } from 'react-table'
 
 import ReactTable from './Shell/Table'
 
 import { ExtendedColumns, TableProps } from './types'
-import { StyledSortIconContainer, StyledTable } from './styles'
+import {
+  StyledSortIconContainer,
+  StyledTableContainer,
+  StyledTable,
+} from './styles'
 import { Checkbox, Icon } from '../'
 
 import DefaultActionsColumn from './DefaultActionsColumn'
+import DefaultPagination from './DefaultPagination'
 
 const { Header, Row, Cell, Body } = ReactTable
 
 const Table: React.FC<TableProps> = (props) => {
-  const { columns = [], data = [] } = props
+  const { columns = [], data = [], actions, options, isLoading = false } = props
+
+  const { config } = options ?? {}
+  const { enablePagination = true, initialState } = config ?? {}
+  const { paginationRange, ...restInitialState } = initialState ?? {}
 
   const [updatedColumns, setUpdatedColumns] =
     useState<ExtendedColumns[]>(columns)
@@ -25,21 +32,19 @@ const Table: React.FC<TableProps> = (props) => {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
     prepareRow,
     setHiddenColumns,
     getToggleAllRowsSelectedProps,
-    // selectedFlatRows,
+    rows,
+    page,
   } = useTable(
     {
-      // @ts-ignore
       columns: updatedColumns,
       data,
-      initialState: {
-        hiddenColumns: [],
-      },
+      initialState: restInitialState,
     },
     useSortBy,
+    usePagination,
     useRowSelect
   )
 
@@ -68,74 +73,91 @@ const Table: React.FC<TableProps> = (props) => {
   const checkboxColumn = getColumn('selection')
   const actionsColumn = getColumn('actions')
 
-  const CheckboxColumnComponent = checkboxColumn?.Cell ?? Checkbox
+  const CheckboxColumnComponent: React.ElementType =
+    checkboxColumn?.Cell ?? Checkbox
 
-  const ActionsColumnComponent = actionsColumn?.Cell
+  const ActionsColumnComponent: React.ElementType = actionsColumn?.Cell
     ? actionsColumn?.Cell
     : DefaultActionsColumn
 
-  return (
-    <StyledTable {...getTableProps()} {...props}>
-      <Header>
-        {headerGroups.map((headerGroup) => (
-          <Row {...headerGroup.getHeaderGroupProps()}>
-            {checkboxColumn?.show && (
-              <Cell header className='checkbox'>
-                <CheckboxColumnComponent
-                  {...getToggleAllRowsSelectedProps?.()}
-                />
-              </Cell>
-            )}
+  const paginationProps = {
+    options,
+    actions,
+    isLoading,
+  }
 
-            {headerGroup.headers.map((column) => (
-              <Cell
-                header
-                {...column.getHeaderProps(column.getSortByToggleProps())}
-              >
-                {column.render('Header')}
-                <StyledSortIconContainer>
-                  {column.isSorted ? (
-                    column.isSortedDesc ? (
-                      <Icon iconName='chevron-down' size='xs' />
-                    ) : (
-                      <Icon iconName='chevron-up' size='xs' />
-                    )
-                  ) : null}
-                </StyledSortIconContainer>
-              </Cell>
-            ))}
-          </Row>
-        ))}
-      </Header>
-      <Body {...getTableBodyProps()}>
-        {rows.map((row) => {
-          const { getToggleRowSelectedProps } = row
-          prepareRow(row)
-          return (
-            <Row {...row.getRowProps()}>
+  return (
+    <StyledTableContainer>
+      <StyledTable {...getTableProps()}>
+        <Header>
+          {headerGroups.map((headerGroup) => (
+            <Row {...headerGroup.getHeaderGroupProps()}>
               {checkboxColumn?.show && (
-                <Cell className='checkbox'>
-                  <CheckboxColumnComponent {...getToggleRowSelectedProps?.()} />
+                <Cell header className='checkbox'>
+                  <CheckboxColumnComponent
+                    {...getToggleAllRowsSelectedProps?.()}
+                  />
                 </Cell>
               )}
 
-              {row.cells.map((cell) => (
+              {headerGroup.headers.map((column) => (
                 <Cell
-                  className={cell.column.id === 'actions' && 'table-actions'}
-                  {...cell.getCellProps()}
+                  header
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                  style={{ width: column.width }}
                 >
-                  {cell.column.id === 'actions' ? (
-                    <ActionsColumnComponent {...cell} />
-                  ) : (
-                    cell.render('Cell')
-                  )}
+                  {column.render('Header')}
+                  <StyledSortIconContainer>
+                    {column.isSorted ? (
+                      column.isSortedDesc ? (
+                        <Icon iconName='chevron-down' size='xs' />
+                      ) : (
+                        <Icon iconName='chevron-up' size='xs' />
+                      )
+                    ) : null}
+                  </StyledSortIconContainer>
                 </Cell>
               ))}
             </Row>
-          )
-        })}
-      </Body>
-    </StyledTable>
+          ))}
+        </Header>
+        <Body {...getTableBodyProps()}>
+          {(enablePagination ? page : rows).map((row) => {
+            const { getToggleRowSelectedProps } = row
+            prepareRow(row)
+            return (
+              <Row {...row.getRowProps()}>
+                {checkboxColumn?.show && (
+                  <Cell className='checkbox'>
+                    <CheckboxColumnComponent
+                      {...getToggleRowSelectedProps?.()}
+                    />
+                  </Cell>
+                )}
+
+                {row.cells.map((cell) => (
+                  <Cell
+                    className={cell.column.id === 'actions' && 'table-actions'}
+                    {...cell.getCellProps()}
+                    style={{
+                      width: cell.column.width,
+                    }}
+                  >
+                    {cell.column.id === 'actions' ? (
+                      <ActionsColumnComponent {...cell} />
+                    ) : (
+                      cell.render('Cell')
+                    )}
+                  </Cell>
+                ))}
+              </Row>
+            )
+          })}
+        </Body>
+      </StyledTable>
+
+      {enablePagination && <DefaultPagination {...paginationProps} />}
+    </StyledTableContainer>
   )
 }
 

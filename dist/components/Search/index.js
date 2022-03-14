@@ -67,12 +67,11 @@ const Search = (props) => {
     (0, react_1.useEffect)(handleSearching, [searchText]);
     (0, react_1.useEffect)(handleSearchResult, [isSearching]);
     (0, react_1.useEffect)(handleClickOutside, []);
-    return ((0, jsx_runtime_1.jsxs)("div", Object.assign({}, props, { ref: ref }, { children: [(0, jsx_runtime_1.jsx)("h2", { children: "Test Search" }, void 0), (0, jsx_runtime_1.jsx)("p", { children: "This is still in progress, need to have Input component modified before this." }, void 0), (0, jsx_runtime_1.jsxs)(styles_1.StyledInputContainer, Object.assign({ ref: ref }, { children: [(0, jsx_runtime_1.jsx)(__1.Input, { type: 'text', value: searchText, name: 'global-search', iconLeft: 'search', placeholder: 'Search anything...', actions: {
+    return ((0, jsx_runtime_1.jsxs)("div", Object.assign({}, props, { ref: ref }, { children: [(0, jsx_runtime_1.jsx)("h2", { children: "Test Search" }), (0, jsx_runtime_1.jsx)("p", { children: "This is still in progress, need to have Input component modified before this." }), (0, jsx_runtime_1.jsxs)(styles_1.StyledInputContainer, Object.assign({ ref: ref }, { children: [(0, jsx_runtime_1.jsx)(__1.Input, { type: 'text', value: searchText, name: 'global-search', iconLeft: 'search', placeholder: 'Search anything...', actions: {
                             handleChange: (data) => {
                                 var _a;
-                                console.log('Global Search', data);
                                 setSearchText((_a = data === null || data === void 0 ? void 0 : data.value) !== null && _a !== void 0 ? _a : '');
                             },
-                        } }, void 0), isSearching && ((0, jsx_runtime_1.jsx)(__1.RaySpinner, { className: 'search-spinner', size: 'xs', rayHeight: 6, rayWidth: 4 }, void 0))] }), void 0), showResults && !!searchText && ((0, jsx_runtime_1.jsx)(SearchResults_1.default, { results: sampleResults, handleClick: (data) => alert(`Clicked searched item: ${JSON.stringify(data)}`) }, void 0))] }), void 0));
+                        } }), isSearching && ((0, jsx_runtime_1.jsx)(__1.RaySpinner, { className: 'search-spinner', size: 'xs', rayHeight: 6, rayWidth: 4 }))] })), showResults && !!searchText && ((0, jsx_runtime_1.jsx)(SearchResults_1.default, { results: sampleResults, handleClick: (data) => alert(`Clicked searched item: ${JSON.stringify(data)}`) }))] })));
 };
 exports.default = Search;

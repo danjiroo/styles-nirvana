@@ -51,17 +51,21 @@ export const StyledList = styled.ul<ListProps & ThemeProvider>`
   list-style: none;
   padding: 5px 0;
   margin-top: 6px;
-  border-radius: ${({ rounded = false }) => (rounded ? '5px' : '0')};
+  border-radius: ${({ theme, rounded = false }) =>
+    rounded ? theme.border.radius : '0'};
   z-index: 1;
   transition: all 0.2s linear;
   box-shadow: ${({ asDropDown = false }) =>
     asDropDown ? '0 0 30px rgba(0, 0, 0, 0.1)' : '0'};
-  width: ${({ theme, size = 'md' }) => theme.list.size[size]}px;
+  width: ${({ theme, size = 'md' }) => theme.list.size[size]};
+  background: #ffffff;
 
   ${getPosition}
 
   li {
     width: 100%;
+    font-size: 80%;
+    color: ${({ theme }) => theme.colors.dark[100]};
   }
 
   li > * {
@@ -72,6 +76,10 @@ export const StyledList = styled.ul<ListProps & ThemeProvider>`
     background: #ffffff;
     color: inherit;
     text-align: ${({ textAlignment = 'left' }) => textAlignment};
+  }
+
+  li > button {
+    padding: 0 10px;
   }
 
   li > *:hover {

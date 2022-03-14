@@ -1,30 +1,35 @@
 import React from 'react'
+import cn from 'classnames'
 
-import { Button } from '../'
+import { Icon } from '../'
 
 import { StyledCard } from './styles'
 import { CardProps } from './types'
 
 const Card: React.FC<CardProps> = ({
+  className,
   children,
   zoomOnHover = false,
   clickable = false,
   closeable = false,
   handleClick,
   handleClose,
+  closeIconName = 'x-circle',
   ...rest
 }) => (
   <StyledCard
     {...rest}
+    className={cn(className)}
     zoomOnHover={zoomOnHover}
     onClick={() => (clickable ? handleClick?.() : {})}
   >
     {closeable && (
-      <Button
+      <Icon
         onClick={handleClose}
         className='close_btn'
-        icon='x-circle'
-        layout='outline'
+        iconName={closeIconName}
+        clickable
+        hoverable
       />
     )}
     {children}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable indent */
 import { css, createGlobalStyle } from 'styled-components'
 
@@ -11,7 +12,7 @@ const getHeaderStyles = (theme: any) => {
       (header) =>
         `
         ${header} {
-          font-size: ${theme.headers[header].fontSize}rem;
+          font-size: ${theme.headers[header].fontSize};
           font-weight: ${theme.headers[header].fontWeight};
           padding: 0;
           margin: 0;
@@ -31,16 +32,17 @@ export const Modifiers = createGlobalStyle<ThemeProvider>`
     
   }
 
-  // TODO : (need to add other tags/elements here)
   html, body, p, q, i, b, a {
     font-family: ${({ theme }) => theme.text.fontFamily};
-    // sizes here can by dynamic base on theme (not yet implemented)
-    font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
     font-weight: ${({ theme }) => theme.text.size.md.fontWeight};
   }
 
   h3, h4 {
     margin: 0;
+  }
+
+  p {
+    font-size: ${({ theme }) => theme.text.size.md.fontSize};
   }
 
   a {

@@ -1,18 +1,25 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useRef } from 'react'
+import { Mention } from 'react-mentions'
+import { useTheme } from 'styled-components'
+
 import {
   StyledInput,
   StyledTextArea,
   InputContainer,
   Label,
   StyledIcon,
+  StyledMentionsInput,
 } from './styles'
 import { FormInputProps } from './types'
 import { Icon } from '../'
+import { ThemeDefinition } from '../../themes'
 
 const Input: React.FC<FormInputProps> = (props) => {
   const {
-    value,
+    value = '',
     placeholder,
     label,
     actions,
@@ -26,12 +33,16 @@ const Input: React.FC<FormInputProps> = (props) => {
     layout = 'solid',
     size = 'md',
     color = 'primary',
+    suggestions = [],
   } = props
   const [is_input_active, setInputActive] = useState(false)
   const [is_label_click, setLabelClick] = useState(false)
 
+  const { colors } = useTheme() as ThemeDefinition
+
   const handleInputChange = (event: any) => {
-    const { value, name } = event.target
+    const { value, name, targetValue } = event.target
+
     actions.handleChange?.({ value, name, accessor })
   }
 
@@ -62,11 +73,20 @@ const Input: React.FC<FormInputProps> = (props) => {
   }
 
   const IconLeft = iconLeft || icon
-
+  const shouldDisplayPlaceHolder = () => {
+    if (label && is_input_active) return placeholder
+    if (!label && !is_input_active) return placeholder
+    if (!label && is_input_active) return placeholder
+    if (!is_input_active) return ''
+  }
   return (
     <InputContainer>
       {label && (
-        <Label is_input_active={is_input_active} onClick={handleLabelClick}>
+        <Label
+          is_input_active={is_input_active}
+          onClick={handleLabelClick}
+          type={type}
+        >
           {label}
         </Label>
       )}
@@ -84,8 +104,9 @@ const Input: React.FC<FormInputProps> = (props) => {
 
       {type && type === 'text' && (
         <StyledInput
+          type={type}
           value={value}
-          placeholder={label && is_input_active ? placeholder : placeholder}
+          placeholder={shouldDisplayPlaceHolder()}
           onChange={handleInputChange}
           onFocus={() => setInputActive(true)}
           onClick={() => setInputActive(true)}
@@ -100,7 +121,7 @@ const Input: React.FC<FormInputProps> = (props) => {
       {type && type === 'textArea' && (
         <StyledTextArea
           value={value}
-          placeholder={label && is_input_active ? placeholder : placeholder}
+          placeholder={shouldDisplayPlaceHolder()}
           onChange={handleInputChange}
           onFocus={() => setInputActive(true)}
           onClick={() => setInputActive(true)}
@@ -108,6 +129,78 @@ const Input: React.FC<FormInputProps> = (props) => {
           ref={inputRef}
           name={name}
         />
+      )}
+
+      {type && type === 'textAreaMention' && (
+        <StyledMentionsInput
+          // value={sourceValue}
+          // onChange={onSourceChange}
+          name={name}
+          value={value}
+          onChange={(e) =>
+            handleInputChange({
+              ...e,
+              target: {
+                ...e.target,
+                name,
+              },
+            })
+          }
+          onFocus={() => setInputActive(true)}
+          onClick={() => setInputActive(true)}
+          onBlur={handleBlurInput}
+          inputRef={inputRef}
+          allowSpaceInQuery={true}
+          allowSuggestionsAboveCursor={true}
+          spellCheck={false}
+        >
+          <Mention
+            trigger='@'
+            markup='@{{id:__id__}}:{{__display__}}'
+            data={suggestions}
+            appendSpaceOnAdd={true}
+            displayTransform={(id, display) => `@${display}`}
+            renderSuggestion={(
+              entry,
+              search,
+              highlightedDisplay,
+              index,
+              focused
+            ) => (
+              <div
+                className={`rendered-suggestion ${focused ? 'focused' : ''}`}
+              >
+                {highlightedDisplay}
+              </div>
+            )}
+            style={{
+              background: '#cee4e5',
+            }}
+          />
+          <Mention
+            trigger='#'
+            markup='#[[id:__id__]]:[[__display__]]'
+            data={suggestions}
+            appendSpaceOnAdd={true}
+            displayTransform={(id, display) => `#${display}`}
+            renderSuggestion={(
+              entry,
+              search,
+              highlightedDisplay,
+              index,
+              focused
+            ) => (
+              <div
+                className={`rendered-suggestion ${focused ? 'focused' : ''}`}
+              >
+                {highlightedDisplay}
+              </div>
+            )}
+            style={{
+              background: '#cee4e5',
+            }}
+          />
+        </StyledMentionsInput>
       )}
     </InputContainer>
   )

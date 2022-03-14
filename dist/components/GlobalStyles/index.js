@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Modifiers = void 0;
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable indent */
 const styled_components_1 = require("styled-components");
 const getHeaderStyles = (theme) => {
@@ -8,7 +9,7 @@ const getHeaderStyles = (theme) => {
     const style = (0, styled_components_1.css) `
     ${headings === null || headings === void 0 ? void 0 : headings.map((header) => `
         ${header} {
-          font-size: ${theme.headers[header].fontSize}rem;
+          font-size: ${theme.headers[header].fontSize};
           font-weight: ${theme.headers[header].fontWeight};
           padding: 0;
           margin: 0;
@@ -25,16 +26,17 @@ exports.Modifiers = (0, styled_components_1.createGlobalStyle) `
     
   }
 
-  // TODO : (need to add other tags/elements here)
   html, body, p, q, i, b, a {
     font-family: ${({ theme }) => theme.text.fontFamily};
-    // sizes here can by dynamic base on theme (not yet implemented)
-    font-size: ${({ theme }) => theme.text.size.md.fontSize}px;
     font-weight: ${({ theme }) => theme.text.size.md.fontWeight};
   }
 
   h3, h4 {
     margin: 0;
+  }
+
+  p {
+    font-size: ${({ theme }) => theme.text.size.md.fontSize};
   }
 
   a {

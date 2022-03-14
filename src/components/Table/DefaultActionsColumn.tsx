@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 
 import { Icon, List } from '../'
 
-const DefaultActionsColumn: React.FC<any> = (props) => (
+const DefaultActionsColumn: React.FC = () => (
   <Icon
     clickable
     hoverable
@@ -20,29 +21,15 @@ const DefaultActionsColumn: React.FC<any> = (props) => (
         list={[
           {
             id: '1',
-            component: (
-              <button onClick={() => console.log('@debugButton Edit', props)}>
-                Edit
-              </button>
-            ),
+            component: <button onClick={() => {}}>Edit</button>,
           },
           {
             id: '2',
-            component: (
-              <button
-                onClick={() => console.log('@debugButton Preview', props)}
-              >
-                Preview
-              </button>
-            ),
+            component: <button onClick={() => {}}>Preview</button>,
           },
           {
             id: '3',
-            component: (
-              <button onClick={() => console.log('@debugButton Delete', props)}>
-                Delete
-              </button>
-            ),
+            component: <button onClick={() => {}}>Delete</button>,
           },
         ]}
       />

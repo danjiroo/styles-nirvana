@@ -21,69 +21,52 @@ export interface ColorDefinition {
     400?: string;
 }
 export interface HeaderDefinition {
-    fontSize: number;
+    fontSize: string;
     fontWeight: number;
     padding: string;
 }
-declare type ContainerSizes = Exclude<Sizes, 'md'>;
-declare type TSize = {
-    [P in ContainerSizes]: string | number;
-};
-interface NewSizes extends TSize {
-    md: string | number;
+export interface SizeDef {
+    width: string;
+    height: string;
+    iconHeight: string;
+    loader: number;
+    loaderInButton: number;
 }
 export declare type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export declare type ColorTypes = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'light' | 'dark';
 export declare type Headers = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+declare type TSize = {
+    [P in Sizes]: SizeDef;
+};
 export interface ThemeDefinition {
-    badge: {
-        [P in Sizes]: ButtonDefinition;
-    };
     bgColors: BackgroundColor;
     border: Border;
-    button: {
-        [P in Sizes]: ButtonDefinition;
-    };
     colors: {
         [P in ColorTypes]: ColorDefinition;
     };
     headers: {
         [P in Headers]?: HeaderDefinition;
     };
-    icon: {
-        [P in Sizes]: {
-            height: number;
-        };
-    };
-    input: {
-        border: number;
-    };
-    loader: {
-        [P in Sizes]: {
-            inButtonSize?: number;
-        } & Pick<ButtonDefinition, 'fontSize'>;
-    };
     list: {
         padding: number;
         listStyle: string;
         size: {
-            [P in Sizes]: number;
+            [P in Sizes]: string;
         };
-    };
-    table: {
-        border?: number;
     };
     text: {
         fontUrl: string;
         fontFamily: string;
         size: {
             [P in Sizes]: {
-                fontSize: number;
+                fontSize: string;
                 fontWeight: number;
             };
         };
     };
-    size: NewSizes;
+    size: TSize & {
+        full: Pick<SizeDef, 'width' | 'height'>;
+    };
 }
 export interface ThemeProvider {
     theme: ThemeDefinition;

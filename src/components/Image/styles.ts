@@ -10,7 +10,8 @@ export const StyledImageContainer = styled.div<Pick<ImageProps, 'rounded'>>`
   align-items: center;
   justify-content: center;
   border: 1px solid #ddd;
-  border-radius: ${({ rounded = false }) => (rounded ? '2em' : 0)};
+  border-radius: ${({ theme, rounded = false }) =>
+    rounded ? theme.border.radius : 0};
   overflow: hidden;
 
   .spinner {

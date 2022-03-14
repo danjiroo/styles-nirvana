@@ -1,10 +1,20 @@
 export type QuestionType = 'choice' | 'input' | 'confirmation'
 
-export interface QuestionProps {
+export interface QuestionActions {
+  handleEditQuestion: (id: string) => void
+  handlePreviewQuestion: (id: string) => void
+  handleRemoveQuestion: (id: string) => void
+}
+
+export interface QuestionProps extends Partial<QuestionActions> {
   /**
-   * Question ID / index
+   * UUID
    */
-  index: number
+  id: string
+  /**
+   * Question title / name
+   */
+  name: string
   /**
    * Question text
    */
@@ -12,7 +22,7 @@ export interface QuestionProps {
   /**
    * Type of question
    */
-  type: QuestionType
+  type?: QuestionType
   /**
    * Can select more than one answer?
    */

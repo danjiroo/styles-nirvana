@@ -3,7 +3,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import React, { useState } from 'react'
 
-import { Select, Container, Checkbox } from '../'
+import { Select, Container, Checkbox, Input } from '../'
 
 export default {
   title: 'Components/Select',
@@ -12,6 +12,12 @@ export default {
 } as ComponentMeta<typeof Select>
 
 const selectArgTypes = {
+  color: {
+    description: 'Theme color for select',
+  },
+  colorWeight: {
+    description: 'Theme color weight for select',
+  },
   selectOptions: {
     description: 'Array of options for the dropdown items',
   },
@@ -102,41 +108,44 @@ const selectArgTypes = {
   },
 }
 
-const SelectTemplate: ComponentStory<typeof Select> = (args) => {
+const SelectTemplate: ComponentStory<typeof Select | any> = (args) => {
+  const { tempGuide, ...realProps } = args
+
   const [details, setDetails] = useState({
-    username: '',
-    email: '',
+    username: [],
   })
 
-  const handleChange = (e) => {
-    console.log('Selected:', e)
-    const { name, value } = e.target as any
-    const { value: selectedValue } = value ?? {}
+  const handleChange = (data) => {
+    const { name, value } = data
 
     setDetails({
       ...details,
       [name]:
-        typeof selectedValue === 'string' || typeof selectedValue === 'number'
-          ? selectedValue
+        typeof value === 'string' || typeof value === 'number'
+          ? value
           : [...value],
     })
   }
 
   return (
     <Container size='sm'>
+      <h4>{tempGuide}</h4>
+      <br />
+      <Select {...realProps} handleChange={handleChange} />
       <Select
-        {...args}
-        name='username'
-        value={details?.username}
-        valueData={details?.username}
+        {...realProps}
         handleChange={handleChange}
+        innerIcon={true}
+        animatedLabel={true}
       />
-      <Select
-        {...args}
-        name='email'
-        value={details?.email}
-        valueData={details?.email}
-        handleChange={handleChange}
+      <Input
+        iconLeft='bell'
+        name='sample'
+        placeholder='Sample placeholder...'
+        type='text'
+        value=''
+        label='LABEL'
+        actions={{}}
       />
     </Container>
   )
@@ -154,42 +163,104 @@ const CheckboxTemplate: ComponentStory<typeof Checkbox> = (args) => {
   return <Checkbox {...args} checked={checked} onChange={handleChecked} />
 }
 
-export const SingleSelect = SelectTemplate.bind({})
-SingleSelect.args = {
+export const SingleSelectWithStringOptions = SelectTemplate.bind({})
+SingleSelectWithStringOptions.args = {
+  name: 'username',
   icon: 'box',
-  // selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
-  // selectOptions: [1, 2, 3],
-  selectOptions: [
-    { id: 1, name: 'Jayson', age: 29 },
-    { id: 2, name: 'Lee', age: 11 },
-    { id: 3, name: 'Avhy', age: 26 },
-  ],
-  label: 'Single Select Sample',
+  selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
   errorText: 'This field is required.',
-  labelKey: 'name',
-  valueKey: 'id',
   isClearable: true,
+  label: 'Single Select',
+  tempGuide: 'Single Select With Options as Array of Strings',
+  placeholder: 'type...',
 }
-SingleSelect.argTypes = selectArgTypes
+SingleSelectWithStringOptions.argTypes = selectArgTypes
 
-export const MultiSelect = SelectTemplate.bind({})
-MultiSelect.args = {
-  icon: 'mail',
-  label: 'Multi Select Sample',
-  // selectOptions: ['John Doe', 'John Smith', 'John Bruce'],
-  // selectOptions: [1, 2, 3],
+export const SingleSelectWithNumberOptions = SelectTemplate.bind({})
+SingleSelectWithNumberOptions.args = {
+  name: 'username',
+  icon: 'box',
+  selectOptions: [1, 2, 3],
+  errorText: 'This field is required.',
+  isClearable: true,
+  label: 'Single Select',
+  tempGuide: 'Single Select With Options as Array of Numbers',
+  value: 'sample',
+}
+SingleSelectWithNumberOptions.argTypes = selectArgTypes
+
+export const SingleSelectWithObjectOptions = SelectTemplate.bind({})
+SingleSelectWithObjectOptions.args = {
+  name: 'username',
+  icon: 'box',
   selectOptions: [
-    { id: 1, name: 'Jayson', age: 29 },
-    { id: 2, name: 'Lee', age: 11 },
-    { id: 3, name: 'Avhy', age: 26 },
+    { id: 'idjayson1', name: 'Jayson', age: 29 },
+    { id: 'idlee2', name: 'Lee', age: 11 },
+    { id: 'idavhy3', name: 'Avhy', age: 26 },
   ],
   errorText: 'This field is required.',
-  labelKey: 'name',
-  valueKey: 'id',
+  selectOptionsAsObject: {
+    labelKey: 'name',
+    valueKey: 'id',
+  },
+  isClearable: true,
+  label: 'Single Select',
+  tempGuide:
+    'Single Select With Options as Array of Objects (Control option display with labelKey, and value result with valueKey)',
+}
+SingleSelectWithObjectOptions.argTypes = selectArgTypes
+
+export const MultiSelectWithStringOptions = SelectTemplate.bind({})
+MultiSelectWithStringOptions.args = {
+  name: 'username',
+  icon: 'mail',
+  selectOptions: ['Justain', 'Jayson', 'Lee', 'Avhy'],
+  errorText: 'This field is required.',
   isClearable: true,
   isMulti: true,
+  label: 'Multi Select',
+  tempGuide: 'Multi Select With Options as Array of Strings',
 }
-MultiSelect.argTypes = selectArgTypes
+MultiSelectWithStringOptions.argTypes = selectArgTypes
+
+export const MultiSelectWithNumberOptions = SelectTemplate.bind({})
+MultiSelectWithNumberOptions.args = {
+  name: 'username',
+  icon: 'mail',
+  selectOptions: [1, 2, 3, 4],
+  errorText: 'This field is required.',
+  selectOptionsAsObject: {
+    labelKey: 'name',
+    valueKey: 'id',
+  },
+  isClearable: true,
+  isMulti: true,
+  label: 'Multi Select',
+  tempGuide: 'Multi Select With Options as Array of Strings',
+}
+MultiSelectWithNumberOptions.argTypes = selectArgTypes
+
+export const MultiSelectWithObjectOptions = SelectTemplate.bind({})
+MultiSelectWithObjectOptions.args = {
+  name: 'username',
+  icon: 'mail',
+  selectOptions: [
+    { id: 'idjayson1', name: 'Jayson', age: 29 },
+    { id: 'idlee2', name: 'Lee', age: 11 },
+    { id: 'idavhy3', name: 'Avhy', age: 26 },
+  ],
+  errorText: 'This field is required.',
+  selectOptionsAsObject: {
+    labelKey: 'name',
+    valueKey: 'id',
+  },
+  isClearable: true,
+  isMulti: true,
+  label: 'Multi Select',
+  tempGuide:
+    'Multi Select With Options as Array of Objects (Control option display with labelKey, and value result with valueKey)',
+}
+MultiSelectWithObjectOptions.argTypes = selectArgTypes
 
 export const CheckBox = CheckboxTemplate.bind({})
 CheckBox.args = {

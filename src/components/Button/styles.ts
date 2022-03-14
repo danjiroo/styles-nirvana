@@ -10,8 +10,9 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
   const {
     color = 'primary',
     colorWeight = 'DEFAULT',
+    hoverColorWeight = 'DEFAULT',
     rounded = true,
-    size = 'md',
+    size = 'xl',
     isDisabled = false,
     layout = 'solid',
     theme,
@@ -23,20 +24,31 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
     background: ${layout === 'solid'
       ? theme?.colors[color][colorWeight]
       : 'transparent'};
-    border: 2px
+    border: 1px
       ${layout === 'outline'
         ? `solid ${theme?.colors[color][colorWeight]}`
         : `${layout} ${theme?.colors[color][colorWeight]}`};
     border-radius: ${rounded ? theme?.border.radius : 0};
-    font-size: ${theme?.button[size].fontSize}px;
-    line-height: ${theme?.button[size].lineHeight}px;
-    padding: ${theme?.button[size].padding};
+    height: ${theme?.size[size].height};
+    font-size: 80%;
     opacity: ${!isDisabled ? 1 : 0.5};
 
     &:not(.close_btn):hover {
       color: ${layout !== 'solid' && '#fff'};
-      background: ${theme?.colors[color][!isDisabled ? '300' : 'DEFAULT']};
-      border-color: ${theme?.colors[color][!isDisabled ? '300' : 'DEFAULT']};
+      background: ${theme?.colors[color][
+        !isDisabled && hoverColorWeight
+          ? hoverColorWeight
+          : !isDisabled
+          ? '300'
+          : 'DEFAULT'
+      ]};
+      border-color: ${theme?.colors[color][
+        !isDisabled && hoverColorWeight
+          ? hoverColorWeight
+          : !isDisabled
+          ? '300'
+          : 'DEFAULT'
+      ]};
       opacity: ${!isDisabled && 1};
 
       svg {
@@ -69,14 +81,17 @@ export const StyledButton = styled.button<ButtonProps>`
   ${getDynamicStyles};
 
   .button-icon-div {
-    height: ${({ theme, size }) => theme?.button?.[size ?? 'md']?.fontSize}px;
     display: flex;
     align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
   }
 
   .button-icon-div.icon-right {
     left: unset;
-    right: 15px;
+    right: 12px;
   }
 
   .button-icon-div > i,
@@ -85,6 +100,6 @@ export const StyledButton = styled.button<ButtonProps>`
   }
 
   & > span {
-    padding: 0 8px;
+    padding: 0 30px;
   }
 `

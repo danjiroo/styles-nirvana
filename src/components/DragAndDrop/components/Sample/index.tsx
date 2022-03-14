@@ -13,7 +13,6 @@ import initialElements from './initialElements'
 
 // ! Types here are temporary, since this Component is just an example
 const onLoad = (reactFlowInstance: any) => {
-  console.log('Flow loaded:', reactFlowInstance)
   reactFlowInstance.fitView()
 }
 

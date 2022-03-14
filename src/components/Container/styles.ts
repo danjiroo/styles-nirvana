@@ -7,11 +7,13 @@ const getContainerStyles = (props: GetContainerStyles) => {
   if (size) {
     return css`
       width: 100%;
+
       @media screen and (min-width: 1200px) {
-        width: ${theme.size[size]};
+        width: ${theme.size[size].width};
       }
     `
   }
+
   return css`
     width: 100%;
   `
@@ -19,6 +21,7 @@ const getContainerStyles = (props: GetContainerStyles) => {
 
 export const StyledContainer = styled.div<GetContainerStyles>`
   ${getContainerStyles}
-
-  max-width: 100%
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
 `

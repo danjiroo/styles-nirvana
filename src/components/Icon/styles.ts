@@ -8,17 +8,18 @@ type StyleIconProps = IconProps & ThemeProvider
 
 export const StyledIconContainer = styled.div<StyleIconProps>`
   position: relative;
-  width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  width: ${({ size = 'md', theme }) => theme.size[size].iconHeight};
 `
 
 export const StyledIconDiv = styled.div<StyleIconProps>`
-  width: ${({ size = 'md', theme }) => theme.icon[size].height}px;
-  height: ${({ size = 'md', theme }) => theme.icon[size].height}px;
+  width: ${({ size = 'md', theme }) => theme.size[size].iconHeight};
+  height: ${({ size = 'md', theme }) => theme.size[size].iconHeight};
   cursor: ${({ clickable = false }) => (clickable ? 'pointer' : 'default')};
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  opacity: ${({ disabled = false }) => (disabled ? 0.6 : 1)};
 
   > svg {
     width: 100%;
@@ -28,8 +29,8 @@ export const StyledIconDiv = styled.div<StyleIconProps>`
   }
 
   > svg:hover {
-    stroke: ${({ color = 'primary', theme, hoverable }) =>
-      hoverable && theme.colors[color][300]};
+    stroke: ${({ color = 'primary', theme, hoverable, disabled }) =>
+      hoverable && !disabled && theme.colors[color][300]};
   }
 `
 

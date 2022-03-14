@@ -1,10 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { GlobalColors, GlobalSizes } from '../'
+
+export interface handleChangeResponse {
+  name: string
+  value: string | number | string[] | number[] | null
+  metadata?: Record<string, any>
+}
+
 export interface OnChangeData {
-  target: {
-    name: string
-    value: string | number
-  }
+  label: string
+  value: string | number
+  metadata?: Record<string, any>
+  optionAsObject?: boolean
 }
 
 export interface OptionsProps {
@@ -12,7 +20,18 @@ export interface OptionsProps {
   label: string
   data?: any
 }
-export interface SelectProps {
+
+export interface OnChangeActionDef {
+  action: string
+  name?: string
+  removedValues?: OnChangeData[]
+}
+
+export interface SelectProps extends GlobalColors, GlobalSizes {
+  /**
+   * Custom classname
+   */
+  className?: string
   /**
    * Error fetching options
    */
@@ -25,6 +44,10 @@ export interface SelectProps {
    * Icon name
    */
   icon?: string
+  /**
+   * Icon is inside the select component
+   */
+  innerIcon?: boolean
   /**
    * Is selection option clearable?
    */
@@ -50,13 +73,13 @@ export interface SelectProps {
    */
   label?: string
   /**
+   * Label with animation
+   */
+  animatedLabel?: boolean
+  /**
    * Placeholder text in input field
    */
   placeholder?: string
-  /**
-   * Array of options for the dropdown items
-   */
-  selectOptions: string[] | Record<string, any>[]
   /**
    * Enable multi selection
    */
@@ -70,46 +93,51 @@ export interface SelectProps {
    */
   name: string
   /**
-   * This is required when your select options are of type object
-   *
-   * Example:
-   *
-   * const options = [
-   *   {
-   *     name: 'Jason',
-   *     age: 29
-   *   },
-   *   {
-   *     name: 'Heart',
-   *     age: 11
-   *   },
-   * ]
-   *
-   * const labelKey = 'name'
-   *
-   * This 'name' key will be shown as an option for your select component
+   * Array of options for the dropdown items
    */
-  labelKey?: string
+  selectOptions: string[] | number[] | Record<string, any>[]
   /**
-   * Same as labelKey, but valueKey is for the selected value instead as the display label only.
-   *
-   * Based from the example above:
-   *
-   * const valueKey = 'age'
-   *
-   * This 'age' key will be the selected value upon clicking an option.
+   * Array of options are objects instead of strings or numbers
    */
-  valueKey: string
+  selectOptionsAsObject?: {
+    /**
+     * This is required when your select options are of type object
+     *
+     * Example:
+     *
+     * const options = [
+     *   {
+     *     name: 'Jason',
+     *     age: 29
+     *   },
+     *   {
+     *     name: 'Heart',
+     *     age: 11
+     *   },
+     * ]
+     *
+     * const labelKey = 'name'
+     *
+     * This 'name' key will be shown as an option for your select component
+     */
+    labelKey: string
+    /**
+     * Same as labelKey, but valueKey is for the selected value instead as the display label only.
+     *
+     * Based from the example above:
+     *
+     * const valueKey = 'age'
+     *
+     * This 'age' key will be the selected value upon clicking an option.
+     */
+    valueKey: string
+  }
   /**
    * The onChange handler from the parent component
    */
-  handleChange?: (data: OnChangeData) => void
+  handleChange?: (data: handleChangeResponse) => void
   /**
    * Selected option value
    */
   value?: string | Record<string, any>
-  /**
-   * Selected option value (?)
-   */
-  valueData?: string | number | OptionsProps
 }

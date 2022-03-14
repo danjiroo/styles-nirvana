@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -49,18 +53,18 @@ exports.StyledSpinner = styled_components_1.default.div `
   color: ${({ theme, color = 'dark', colorWeight = '100' }) => theme.colors[color][colorWeight]};
   display: inline-block;
   position: relative;
-  width: ${({ size = 'md', theme, inButton }) => `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`};
-  height: ${({ size = 'md', theme, inButton }) => `${theme.loader[size][inButton ? 'inButtonSize' : 'fontSize']}px`};
+  width: ${({ size = 'md', theme, inButton }) => `${theme.size[size][inButton ? 'loaderInButton' : 'loader']}px`};
+  height: ${({ size = 'md', theme, inButton }) => `${theme.size[size][inButton ? 'loaderInButton' : 'loader']}px`};
 
   div {
-    transform-origin: ${({ theme, size = 'md', inButton }) => (0, helper_1.transformCalc)(theme.loader[size][inButton ? 'inButtonSize' : 'fontSize'])};
+    transform-origin: ${({ theme, size = 'md', inButton }) => (0, helper_1.transformCalc)(theme.size[size][inButton ? 'loaderInButton' : 'loader'])};
     animation: ${frames} 1.2s linear infinite;
     &:after {
       content: ' ';
       display: block;
       position: absolute;
       top: ${({ rayWidth }) => (0, helper_1.topCalc)(rayWidth)};
-      left: ${({ theme, size = 'md', rayWidth, inButton }) => (0, helper_1.leftCalc)(theme.loader[size][inButton ? 'inButtonSize' : 'fontSize'], rayWidth)};
+      left: ${({ theme, size = 'md', rayWidth, inButton }) => (0, helper_1.leftCalc)(theme.size[size][inButton ? 'loaderInButton' : 'loader'], rayWidth)};
       width: ${({ rayWidth }) => `${rayWidth}px`};
       height: ${({ rayHeight }) => `${rayHeight}px`};
       border-radius: ${({ rayRadius }) => `${rayRadius}%`};

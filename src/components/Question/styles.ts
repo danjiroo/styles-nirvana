@@ -4,9 +4,8 @@ import { QuestionProps } from './types'
 
 export const StyledQuestion = styled.div<QuestionProps>`
   text-align: left;
-  padding: 10px;
-  margin-bottom: 5px;
-  box-shadow: 0 30px 20px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px 20px;
+  background: ${({ theme }) => theme.colors.primary[50]};
 
   .question-header {
     position: relative;
@@ -19,32 +18,39 @@ export const StyledQuestion = styled.div<QuestionProps>`
 
     span.question-close {
       position: absolute;
-      top: 5px;
+      top: -5px;
       right: 5px;
     }
   }
 
   .question-body {
+    word-break: break-all;
+
     .question-choices,
     .confirmation-choices {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      gap: 2px;
+      gap: 5px;
     }
 
     .question-choices > * {
-      width: ${({ type }) => (type === 'choice' ? '48%' : '100%')};
+      width: ${({ type }) => (type === 'choice' ? 'auto' : '100%')};
       margin: 0;
     }
+  }
 
-    .confirmation-choices > * {
-      width: 48%;
+  .link {
+    cursor: pointer;
+
+    &.default-text {
+      color: ${({ theme }) => theme.colors.primary['DEFAULT']};
+      font-size: inherit;
     }
 
-    p {
-      font-size: 14px;
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary[300]};
     }
   }
 `

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
@@ -24,6 +25,7 @@ Default.args = {
       Header: 'FIRST NAME',
       accessor: 'firstName',
       show: true,
+      width: 300,
     },
     {
       id: 'lastName',
@@ -61,5 +63,29 @@ Default.args = {
       show: true,
     },
   ] as ExtendedColumns[],
-  data: makeData(50),
-}
+  data: makeData(11),
+  options: {
+    pagination: {
+      currentPage: 1,
+      currentResultCount: 5,
+      totalPageCount: 3,
+      totalResultCount: 11,
+    },
+    config: {
+      enablePagination: true,
+      initialState: {
+        pageSize: 5,
+        pageIndex: 0,
+        paginationRange: 5,
+      },
+    },
+  },
+  actions: {
+    onNext: () => {},
+    onPrevious: () => {},
+    onJumpToFirst: () => {},
+    onJumpToLast: () => {},
+    onJumpToPage: () => {},
+    onChecked: () => {},
+  },
+} as TableProps

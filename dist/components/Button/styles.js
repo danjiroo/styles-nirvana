@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -23,27 +27,34 @@ exports.StyledButton = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importStar(require("styled-components"));
 const getDynamicStyles = (props) => {
-    const { color = 'primary', colorWeight = 'DEFAULT', rounded = true, size = 'md', isDisabled = false, layout = 'solid', theme, } = props;
+    const { color = 'primary', colorWeight = 'DEFAULT', hoverColorWeight = 'DEFAULT', rounded = true, size = 'xl', isDisabled = false, layout = 'solid', theme, } = props;
     return (0, styled_components_1.css) `
     cursor: ${!isDisabled ? 'pointer' : 'not-allowed'};
     color: ${layout === 'solid' ? '#fff' : theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]};
     background: ${layout === 'solid'
         ? theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]
         : 'transparent'};
-    border: 2px
+    border: 1px
       ${layout === 'outline'
         ? `solid ${theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]}`
         : `${layout} ${theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]}`};
     border-radius: ${rounded ? theme === null || theme === void 0 ? void 0 : theme.border.radius : 0};
-    font-size: ${theme === null || theme === void 0 ? void 0 : theme.button[size].fontSize}px;
-    line-height: ${theme === null || theme === void 0 ? void 0 : theme.button[size].lineHeight}px;
-    padding: ${theme === null || theme === void 0 ? void 0 : theme.button[size].padding};
+    height: ${theme === null || theme === void 0 ? void 0 : theme.size[size].height};
+    font-size: 80%;
     opacity: ${!isDisabled ? 1 : 0.5};
 
     &:not(.close_btn):hover {
       color: ${layout !== 'solid' && '#fff'};
-      background: ${theme === null || theme === void 0 ? void 0 : theme.colors[color][!isDisabled ? '300' : 'DEFAULT']};
-      border-color: ${theme === null || theme === void 0 ? void 0 : theme.colors[color][!isDisabled ? '300' : 'DEFAULT']};
+      background: ${theme === null || theme === void 0 ? void 0 : theme.colors[color][!isDisabled && hoverColorWeight
+        ? hoverColorWeight
+        : !isDisabled
+            ? '300'
+            : 'DEFAULT']};
+      border-color: ${theme === null || theme === void 0 ? void 0 : theme.colors[color][!isDisabled && hoverColorWeight
+        ? hoverColorWeight
+        : !isDisabled
+            ? '300'
+            : 'DEFAULT']};
       opacity: ${!isDisabled && 1};
 
       svg {
@@ -75,14 +86,17 @@ exports.StyledButton = styled_components_1.default.button `
   ${getDynamicStyles};
 
   .button-icon-div {
-    height: ${({ theme, size }) => { var _a, _b; return (_b = (_a = theme === null || theme === void 0 ? void 0 : theme.button) === null || _a === void 0 ? void 0 : _a[size !== null && size !== void 0 ? size : 'md']) === null || _b === void 0 ? void 0 : _b.fontSize; }}px;
     display: flex;
     align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
   }
 
   .button-icon-div.icon-right {
     left: unset;
-    right: 15px;
+    right: 12px;
   }
 
   .button-icon-div > i,
@@ -91,6 +105,6 @@ exports.StyledButton = styled_components_1.default.button `
   }
 
   & > span {
-    padding: 0 8px;
+    padding: 0 30px;
   }
 `;

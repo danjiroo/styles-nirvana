@@ -17,11 +17,15 @@ export const getResponsiveHeaders = ({ columns }: TableProps) => {
   return headers.join(';')
 }
 
+export const StyledTableContainer = styled.div`
+  position: relative;
+`
+
 export const StyledTable = styled(ReactTable)`
   border-spacing: 1;
   border-collapse: collapse;
   background: white;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.border.radius};
   width: 100%;
   max-width: 100%;
   /* margin: 0 auto; */
@@ -38,9 +42,9 @@ export const StyledTable = styled(ReactTable)`
     background: ${({ theme }) => theme.colors.light[100]};
     border-bottom: 1px solid #cccccc;
 
-    // tbody scroll
+    // ! tbody scroll
     display: block;
-    width: calc(100% - 1em);
+    /* width: calc(100% - 1em); */
   }
 
   thead tr {
@@ -49,9 +53,11 @@ export const StyledTable = styled(ReactTable)`
   }
 
   tbody {
-    // tbody scroll
+    // ! tbody scroll
     display: block;
     overflow: auto;
+
+    height: calc(100vh - 420px);
 
     tr {
       height: 48px;
@@ -61,8 +67,13 @@ export const StyledTable = styled(ReactTable)`
     }
   }
 
+  tbody tr:hover {
+    background: ${({ theme }) => theme.colors.primary[50]};
+    transition: all 0.2s linear;
+  }
+
   tr {
-    // tbody scroll
+    // ! tbody scroll
     display: table;
     width: 100%;
     table-layout: fixed;
@@ -71,10 +82,11 @@ export const StyledTable = styled(ReactTable)`
   th {
     color: ${({ theme }) => theme.colors.primary[300]};
     font-weight: bold;
+    font-size: ${({ theme }) => theme.text.size.md.fontSize};
   }
 
   td {
-    color: #898a8a;
+    color: ${({ theme }) => theme.colors.dark[50]};
   }
 
   th.checkbox,
@@ -139,4 +151,38 @@ export const StyledSortIconContainer = styled.span`
   display: inline-block;
   vertical-align: middle;
   padding-left: 10px;
+`
+
+export const StyledPagination = styled.div<Pick<TableProps, 'isLoading'>>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 30px 0;
+  position: relative;
+  color: ${({ theme }) => theme.colors.dark[50]};
+
+  .current-page {
+    position: absolute;
+    right: 15px;
+
+    > span {
+      border: 1px solid #cccccc;
+      padding: 7px 14px;
+      margin-left: 10px;
+      border-radius: ${({ theme }) => theme.border.radius};
+      font-size: 13px;
+    }
+  }
+
+  .active-page {
+    background: ${({ theme }) => theme.colors.primary[50]};
+    padding: 5px;
+    border-radius: ${({ theme }) => theme.border.radius};
+  }
+
+  .inactive,
+  .active-page {
+    width: auto;
+  }
 `

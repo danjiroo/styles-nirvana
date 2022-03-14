@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -26,8 +30,9 @@ const getContainerStyles = (props) => {
     if (size) {
         return (0, styled_components_1.css) `
       width: 100%;
+
       @media screen and (min-width: 1200px) {
-        width: ${theme.size[size]};
+        width: ${theme.size[size].width};
       }
     `;
     }
@@ -37,6 +42,7 @@ const getContainerStyles = (props) => {
 };
 exports.StyledContainer = styled_components_1.default.div `
   ${getContainerStyles}
-
-  max-width: 100%
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
 `;

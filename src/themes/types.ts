@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface BackgroundColor {
   card: string
@@ -26,18 +27,17 @@ export interface ColorDefinition {
 }
 
 export interface HeaderDefinition {
-  fontSize: number
+  fontSize: string
   fontWeight: number
   padding: string
 }
 
-type ContainerSizes = Exclude<Sizes, 'md'>
-type TSize = {
-  [P in ContainerSizes]: string | number
-}
-
-interface NewSizes extends TSize {
-  md: string | number
+export interface SizeDef {
+  width: string
+  height: string
+  iconHeight: string
+  loader: number
+  loaderInButton: number
 }
 
 export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -51,62 +51,38 @@ export type ColorTypes =
   | 'dark'
 export type Headers = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
+type TSize = {
+  [P in Sizes]: SizeDef
+}
 export interface ThemeDefinition {
-  badge: {
-    [P in Sizes]: ButtonDefinition
-  }
   bgColors: BackgroundColor
   border: Border
-  button: {
-    [P in Sizes]: ButtonDefinition
-  }
   colors: {
     [P in ColorTypes]: ColorDefinition
   }
   headers: {
     [P in Headers]?: HeaderDefinition
   }
-  icon: {
-    [P in Sizes]: {
-      height: number
-    }
-  }
-  input: {
-    border: number
-  }
-  loader: {
-    [P in Sizes]: {
-      inButtonSize?: number
-    } & Pick<ButtonDefinition, 'fontSize'>
-  }
   list: {
     padding: number
     listStyle: string
     size: {
-      [P in Sizes]: number
+      [P in Sizes]: string
     }
-  }
-  table: {
-    border?: number
   }
   text: {
     fontUrl: string
     fontFamily: string
     size: {
       [P in Sizes]: {
-        fontSize: number
+        fontSize: string
         fontWeight: number
       }
     }
   }
-  size: NewSizes
-  // size: {
-  //   xs: string
-  //   sm: string
-  //   md: string
-  //   lg: string
-  //   xl: string
-  // }
+  size: TSize & {
+    full: Pick<SizeDef, 'width' | 'height'>
+  }
 }
 
 export interface ThemeProvider {

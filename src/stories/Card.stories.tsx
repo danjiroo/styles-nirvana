@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-use-before-define */
 import { useState } from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
@@ -29,9 +32,7 @@ const CardWithChildrenTemplate: ComponentStory<typeof Card> = (args) => (
       name='card-input'
       placeholder='Lorem ipsum...'
       actions={{
-        handleChange: (data) => {
-          console.log('Card Input:', data)
-        },
+        handleChange: (data) => {},
       }}
     />
     <Button label='Click' rounded={false} block={true} />

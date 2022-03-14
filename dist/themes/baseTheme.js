@@ -8,71 +8,7 @@ exports.baseTheme = {
     },
     border: {
         width: 0,
-        radius: '6px',
-    },
-    badge: {
-        xs: {
-            fontSize: 13,
-            fontWeight: 300,
-            padding: '4px 8px',
-            lineHeight: 20,
-        },
-        sm: {
-            fontSize: 14,
-            fontWeight: 300,
-            padding: '5px 9px',
-            lineHeight: 20,
-        },
-        md: {
-            fontSize: 15,
-            fontWeight: 300,
-            padding: '6px 10px',
-            lineHeight: 20,
-        },
-        lg: {
-            fontSize: 16,
-            fontWeight: 300,
-            padding: '7px 11px',
-            lineHeight: 20,
-        },
-        xl: {
-            fontSize: 17,
-            fontWeight: 300,
-            padding: '8px 12px',
-            lineHeight: 20,
-        },
-    },
-    button: {
-        xs: {
-            fontSize: 12,
-            fontWeight: 300,
-            padding: '0 12px',
-            lineHeight: 36,
-        },
-        sm: {
-            fontSize: 13,
-            fontWeight: 300,
-            padding: '0 14px',
-            lineHeight: 38,
-        },
-        md: {
-            fontSize: 14,
-            fontWeight: 300,
-            padding: '0 16px',
-            lineHeight: 40,
-        },
-        lg: {
-            fontSize: 15,
-            fontWeight: 300,
-            padding: '0 18px',
-            lineHeight: 42,
-        },
-        xl: {
-            fontSize: 15,
-            fontWeight: 300,
-            padding: '0 20px',
-            lineHeight: 44,
-        },
+        radius: '0.375rem',
     },
     colors: {
         primary: {
@@ -130,131 +66,112 @@ exports.baseTheme = {
     },
     headers: {
         h1: {
-            fontSize: 2,
+            fontSize: '2rem',
             fontWeight: 700,
             padding: '5px 10px',
         },
         h2: {
-            fontSize: 1.5,
+            fontSize: '1.5rem',
             fontWeight: 700,
             padding: '5px 10px',
         },
         h3: {
-            fontSize: 1,
+            fontSize: '1.1rem',
             fontWeight: 700,
             padding: '5px 10px',
         },
         h4: {
-            fontSize: 0.875,
+            fontSize: '0.875rem',
             fontWeight: 500,
             padding: '5px 10px',
         },
         h5: {
-            fontSize: 0.75,
+            fontSize: '0.75rem',
             fontWeight: 500,
             padding: '5px 10px',
         },
         h6: {
-            fontSize: 0.7,
+            fontSize: '0.7rem',
             fontWeight: 500,
             padding: '5px 10px',
         },
-        // todo
-    },
-    icon: {
-        xs: {
-            height: 18,
-        },
-        sm: {
-            height: 21,
-        },
-        md: {
-            height: 25,
-        },
-        lg: {
-            height: 27,
-        },
-        xl: {
-            height: 30,
-        },
-    },
-    input: {
-        border: 0,
     },
     list: {
         padding: 0,
         listStyle: 'none',
         size: {
-            xs: 50,
-            sm: 100,
-            md: 150,
-            lg: 200,
-            xl: 250,
+            xs: '3.125rem',
+            sm: '6.25rem',
+            md: '9.375rem',
+            lg: '12.5rem',
+            xl: '15.625rem',
         },
     },
-    loader: {
-        xs: {
-            fontSize: 36,
-            inButtonSize: 13,
-        },
-        sm: {
-            fontSize: 38,
-            inButtonSize: 14,
-        },
-        md: {
-            fontSize: 40,
-            inButtonSize: 15,
-        },
-        lg: {
-            fontSize: 42,
-            inButtonSize: 16,
-        },
-        xl: {
-            fontSize: 44,
-            inButtonSize: 17,
-        },
-    },
-    table: {},
     text: {
         fontUrl: 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap',
         fontFamily: 'Poppins, sans-serif',
         size: {
             xs: {
-                fontSize: 10,
+                fontSize: '0.625rem',
                 fontWeight: 400,
             },
             sm: {
-                fontSize: 12,
+                fontSize: '0.75rem',
                 fontWeight: 400,
             },
             md: {
-                fontSize: 14,
+                fontSize: '0.875rem',
                 fontWeight: 400,
             },
             lg: {
-                fontSize: 18,
+                fontSize: '1.063rem',
                 fontWeight: 400,
             },
             xl: {
-                fontSize: 20,
+                fontSize: '1.188rem',
                 fontWeight: 400,
             },
         },
     },
     size: {
-        // master gibalik nako ang percentages,
-        // ga add kog breakpoint, if ang viewport
-        // wa pa kaabot 1200px kay 100% iya width
-        // master gene, todo discuss if ok ra
-        // xs: '320px',
-        // sm: '480px',
-        // md: '768px',
-        // lg: '1024px',
-        // xl: '1200px',
-        xs: '16.66666666666667%',
-        sm: '33.33333333333333%',
-        md: '50%',
-        lg: '66.66666666666667%',
-        xl: '83.33333333333334%',
+        xs: {
+            width: '16.67%',
+            height: '2.25rem',
+            iconHeight: '1.125rem',
+            loader: 36,
+            loaderInButton: 13,
+        },
+        sm: {
+            width: '33.34%',
+            height: '2.375rem',
+            iconHeight: '1.313rem',
+            loader: 38,
+            loaderInButton: 14,
+        },
+        md: {
+            width: '50%',
+            height: '2.5rem',
+            iconHeight: '1.563rem',
+            loader: 40,
+            loaderInButton: 15,
+        },
+        lg: {
+            width: '66.67%',
+            height: '2.625rem',
+            iconHeight: '1.688rem',
+            loader: 42,
+            loaderInButton: 16,
+        },
+        xl: {
+            width: '83.34%',
+            height: '2.75rem',
+            iconHeight: '1.875rem',
+            loader: 44,
+            loaderInButton: 17,
+        },
+        full: {
+            height: '100%',
+            width: '100%',
+        },
     },
 };

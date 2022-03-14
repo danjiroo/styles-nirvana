@@ -17,7 +17,7 @@ const Form: React.FC<FormProps> = (props) => {
   const actionsProp: ActionsProps = {
     handleChange: (data) => {
       const { name, value } = data
-      console.log('value:', data)
+
       setState((prev) => ({
         ...prev,
         [name]: value,

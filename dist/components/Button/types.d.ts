@@ -1,11 +1,15 @@
 import React, { MouseEvent } from 'react';
-import { GlobalProps } from '../';
+import { GlobalProps, GColorWeights } from '../';
 export interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'color'>, GlobalProps {
     ref?: any;
     /**
      * Button text
      */
     label?: string;
+    /**
+     * Button Custom Hover Color Weight
+     */
+    hoverColorWeight?: GColorWeights;
     /**
      * Button surface or edges
      */
