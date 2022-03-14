@@ -19,7 +19,6 @@ const MediaList = ({ file, mediaSource, mediaElement, onTimeUpdate }: any) => {
             {file.type === 'video/quicktime' && mediaSource?.src && (
               <video
                 className='video-dimensions'
-                controls
                 ref={mediaElement}
                 onTimeUpdate={onTimeUpdate}
               >

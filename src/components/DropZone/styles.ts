@@ -92,6 +92,7 @@ export const StyledDropZoneContainer = styled.section<StyledDropZoneContainer>`
   height: 22.875rem;
   display: flex;
   align-items: center;
+  background-color: ${({ theme }) => theme.colors.primary[400]};
   ${StyledDropZoneContainerStyles}
 `
 
