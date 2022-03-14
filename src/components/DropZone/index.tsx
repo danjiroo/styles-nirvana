@@ -10,7 +10,7 @@ import { StyledMain } from './styles'
 const DragAndDrop = (props: any) => {
   const { handleDropMedia, mediaSource, mediaElement, onTimeUpdate } = props
   const [file, setFile] = useState<Partial<any>>()
-  // console.log('mediaElement INNER:', mediaSource)
+
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.map((file: any) => {
       const reader = new FileReader()
@@ -45,7 +45,6 @@ const DragAndDrop = (props: any) => {
     // RETURNS ARRAY
     // setImages(
     //   acceptedFiles.map((file: any) => {
-    //     console.log('')
     //     return Object.assign(file, {
     //       ...images,
     //       preview: URL.createObjectURL(file),

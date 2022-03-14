@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react'
+import parse from 'html-react-parser'
 
 import { StyledQuestion } from './styles'
 import { QuestionProps } from './types'
@@ -72,9 +74,29 @@ const Question: React.FC<QuestionProps> = (props) => {
         </span>
       </div>
       <div className='question-body'>
-        <p>{question}</p>
+        <p>
+          {parse(question, {
+            replace: (domNode: any) => {
+              if (domNode.name === 'a') {
+                const node = domNode.children[0]
+
+                return (
+                  <span
+                    className={
+                      node.data[0] === '#'
+                        ? 'link sample-text'
+                        : 'link default-text'
+                    }
+                  >
+                    {node.data}
+                  </span>
+                )
+              }
+            },
+          })}
+        </p>
         <div className='question-choices'>
-          {type === 'choice' &&
+          {type.toLowerCase() === 'choice' &&
             !!choices?.length &&
             choices.map((choice, index) => (
               <Button
@@ -86,7 +108,7 @@ const Question: React.FC<QuestionProps> = (props) => {
                 size='xs'
               />
             ))}
-          {type === 'confirmation' && (
+          {type.toLowerCase() === 'confirmation' && (
             <div className='confirmation-choices'>
               <Button
                 size='xs'
@@ -104,7 +126,7 @@ const Question: React.FC<QuestionProps> = (props) => {
               />
             </div>
           )}
-          {type === 'input' && (
+          {type.toLowerCase() === 'input' && (
             <Input
               type='text'
               value={answer}
@@ -113,7 +135,6 @@ const Question: React.FC<QuestionProps> = (props) => {
               placeholder='Answer...'
               actions={{
                 handleChange: (data) => {
-                  console.log('', data)
                   setAnswer(data?.value ?? '')
                 },
               }}

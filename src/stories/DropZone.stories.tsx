@@ -9,10 +9,9 @@ export default {
   component: DropZone,
 } as ComponentMeta<typeof DropZone>
 
-const Template: ComponentStory<typeof DropZone> = (args) => {
-  console.log('')
-  return <DropZone {...args} />
-}
+const Template: ComponentStory<typeof DropZone> = (args) => (
+  <DropZone {...args} />
+)
 
 export const Default = Template.bind({})
 Default.args = {}

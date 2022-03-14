@@ -39,9 +39,18 @@ export const StyledQuestion = styled.div<QuestionProps>`
       width: ${({ type }) => (type === 'choice' ? 'auto' : '100%')};
       margin: 0;
     }
+  }
 
-    /* .confirmation-choices > * {
-      width: 65px;
-    } */
+  .link {
+    cursor: pointer;
+
+    &.default-text {
+      color: ${({ theme }) => theme.colors.primary['DEFAULT']};
+      font-size: inherit;
+    }
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary[300]};
+    }
   }
 `

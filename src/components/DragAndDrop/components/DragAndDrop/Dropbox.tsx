@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
@@ -71,14 +72,16 @@ const Dropbox: React.FC<DropboxProps> = ({
   dndOptions,
   className,
   initialNodes = [],
-  handleAddNode = () => console.log(''),
-  handleRemoveNodes = () => console.log(''),
-  handleSave = () => console.log(''),
+  handleAddNode = () => {},
+  handleRemoveNodes = () => {},
+  handleSave = () => {},
 }) => {
   const reactFlowWrapper = useRef<any>(null)
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null)
   const [elements, setElements] = useState<any>(initialNodes)
   const [dragStart, setDragStart] = useState(false)
+
+  useEffect(() => setElements(initialNodes), [initialNodes])
 
   // useEffect(() => {
   //   if (reactFlowInstance && elements.length > 1) {
@@ -145,10 +148,7 @@ const Dropbox: React.FC<DropboxProps> = ({
     // }
   }
 
-  const isValidConnection = (connection: Connection) => {
-    console.log('Is valid connection?', connection)
-    return true
-  }
+  const isValidConnection = (connection: Connection) => true
 
   const onDrop = (event: any) => {
     event.preventDefault()
