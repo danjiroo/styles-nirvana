@@ -74,6 +74,7 @@ const StyledDropZoneContainerStyles = ({
   if (hasFile) {
     return css`
       border: none;
+      background-color: black;
     `
   }
   if (!isActive)
@@ -92,6 +93,7 @@ export const StyledDropZoneContainer = styled.section<StyledDropZoneContainer>`
   height: 22.875rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   ${StyledDropZoneContainerStyles}
 `
 

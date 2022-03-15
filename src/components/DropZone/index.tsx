@@ -8,7 +8,7 @@ import Dropzone from './Dropzone'
 import { StyledMain } from './styles'
 
 const DragAndDrop = (props: any) => {
-  const { handleDropMedia, mediaSource, mediaElement, onTimeUpdate } = props
+  const { handleDropMedia, mediaElement, onTimeUpdate } = props
   const [file, setFile] = useState<Partial<any>>()
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -61,7 +61,6 @@ const DragAndDrop = (props: any) => {
         onDrop={onDrop}
         accept='image/*, image/jpg, image/jpeg, image/gif, video/*, video/quicktime'
         file={file}
-        mediaSource={mediaSource}
         mediaElement={mediaElement}
         onTimeUpdate={onTimeUpdate}
       />

@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Modifiers = exports.DropZone = exports.Tooltip = exports.Table = exports.Spinner = exports.Select = exports.Search = exports.RaySpinner = exports.Question = exports.Progress = exports.Page = exports.Navigation = exports.Menu = exports.Logo = exports.List = exports.Input = exports.Image = exports.Icon = exports.Header = exports.Form = exports.Droppable = exports.Draggable = exports.Container = exports.Checkbox = exports.Card = exports.Button = exports.Badge = void 0;
+exports.Modifiers = exports.DropZone = exports.Tooltip = exports.Table = exports.Spinner = exports.Select = exports.Search = exports.RaySpinner = exports.Question = exports.Progress = exports.ParsedText = exports.Page = exports.Navigation = exports.Menu = exports.Logo = exports.List = exports.Input = exports.Image = exports.Icon = exports.Header = exports.Form = exports.Droppable = exports.Draggable = exports.Container = exports.Checkbox = exports.Card = exports.Button = exports.Badge = void 0;
 var Badge_1 = require("./Badge");
 Object.defineProperty(exports, "Badge", { enumerable: true, get: function () { return __importDefault(Badge_1).default; } });
 var Button_1 = require("./Button");
@@ -48,6 +48,8 @@ var Navigation_1 = require("./Navigation");
 Object.defineProperty(exports, "Navigation", { enumerable: true, get: function () { return __importDefault(Navigation_1).default; } });
 var Page_1 = require("./Page");
 Object.defineProperty(exports, "Page", { enumerable: true, get: function () { return __importDefault(Page_1).default; } });
+var ParsedText_1 = require("./Question/ParsedText");
+Object.defineProperty(exports, "ParsedText", { enumerable: true, get: function () { return __importDefault(ParsedText_1).default; } });
 var Progress_1 = require("./Progress");
 Object.defineProperty(exports, "Progress", { enumerable: true, get: function () { return __importDefault(Progress_1).default; } });
 var Question_1 = require("./Question");
