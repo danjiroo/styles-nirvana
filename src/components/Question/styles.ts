@@ -40,7 +40,9 @@ export const StyledQuestion = styled.div<QuestionProps>`
       margin: 0;
     }
   }
+`
 
+export const StyledParsedText = styled.p`
   .link {
     cursor: pointer;
 
