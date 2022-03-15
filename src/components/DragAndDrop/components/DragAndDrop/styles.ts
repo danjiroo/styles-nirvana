@@ -75,9 +75,9 @@ export const StyledDropbox = styled.div<StyledDropboxProps>`
   }
 
   // svg edge
-  .react-flow__edges {
+  /* .react-flow__edges {
     z-index: 10;
-  }
+  } */
 
   .validationflow .react-flow__handle-connecting {
     background: #028d61;
@@ -204,14 +204,31 @@ export const StyledContainer = styled.div<StyledContainerProps>`
     border-radius: 50%;
     background: ${({ hasRule }) => (hasRule ? '#00e59e' : '#98A2B3')};
   }
+`
+
+export const StyledModalContainer = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.1);
 
   .custom-edige-card {
     position: relative;
     top: 10px;
-    width: 350px;
-    max-width: 350px;
+    width: 300px;
+    max-width: 300px;
     padding: 20px;
     align-items: flex-start;
+
+    > * {
+      font-size: 80%;
+    }
 
     .btm-btns {
       display: flex;

@@ -23,6 +23,7 @@ import { Button } from '../../../'
 
 import CustomNodeComponent from './CustomNode'
 import CustomEdgeComponent from './CustomEdge'
+import Modal from './Modal'
 
 const nodeTypes = {
   special: CustomNodeComponent,
@@ -81,7 +82,26 @@ const Dropbox: React.FC<DropboxProps> = ({
   const [elements, setElements] = useState<any>(initialNodes)
   const [dragStart, setDragStart] = useState(false)
 
-  useEffect(() => setElements(initialNodes), [initialNodes])
+  const [isOpen, setIsOpen] = useState(false)
+  const [rules, setRules] = useState<any>({})
+
+  const handleSaveRule = () => {
+    // temporary
+    setRules({
+      ...rules,
+      '1-rule': {
+        id: '1-rule',
+        rule: 'Test Rule',
+      },
+    })
+  }
+
+  const handleRemoveRule = () => {
+    // temporary
+    setRules({})
+  }
+
+  // useEffect(() => setElements(initialNodes), [initialNodes])
 
   // useEffect(() => {
   //   if (reactFlowInstance && elements.length > 1) {
@@ -107,8 +127,11 @@ const Dropbox: React.FC<DropboxProps> = ({
       className: 'reactflow-connector',
       type: 'buttonedge',
       data: {
-        rules: {},
         onEdgeUpdate,
+        setIsOpen,
+        setRules,
+        isOpen,
+        rules, // NEED TO FIX THIS: drill updated rules to customEdge
       },
       id: v4(),
     }
@@ -208,6 +231,15 @@ const Dropbox: React.FC<DropboxProps> = ({
         onNodeDragStop={onNodeDragStop}
         nodeTypes={nodeTypes}
       >
+        {isOpen && (
+          <Modal
+            setIsOpen={setIsOpen}
+            setRules={setRules}
+            rules={rules}
+            handleRemoveRule={handleRemoveRule}
+            handleSaveRule={handleSaveRule}
+          />
+        )}
         {elements.length ? <Controls /> : null}
         {elements.length ? (
           <div className='save-btn-div'>

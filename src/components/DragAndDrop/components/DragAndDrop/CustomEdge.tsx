@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { getBezierPath, getEdgeCenter, getMarkerEnd } from 'react-flow-renderer'
 
 import { StyledContainer } from './styles'
@@ -22,10 +22,8 @@ const CustomEdge: React.FC<any> = ({
   arrowHeadType,
   markerEndId,
 }) => {
-  const [rules, setRules] = useState<any[]>(
-    Object.values(data?.rules ?? {}) ?? []
-  )
-  const [isOpen, setIsOpen] = useState(false)
+  const { setIsOpen, isOpen, rules, setRules } = data ?? {}
+  const [hasRules, setHasRules] = useState(false)
 
   const edgePath = getBezierPath({
     sourceX,
@@ -49,20 +47,11 @@ const CustomEdge: React.FC<any> = ({
     setIsOpen(!isOpen)
   }
 
-  const handleSaveRule = () => {
-    // temporary
-    setRules([
-      {
-        id: '1-rule',
-        rule: 'Test Rule',
-      },
-    ])
-  }
-
-  const handleRemoveRule = () => {
-    // temporary
-    setRules([])
-  }
+  useEffect(() => {
+    if (Object.keys(rules ?? {})) {
+      setHasRules(!!Object.keys(rules)?.length)
+    }
+  }, [rules])
 
   return (
     <>
@@ -82,9 +71,9 @@ const CustomEdge: React.FC<any> = ({
         className='edgebutton-foreignobject'
         requiredExtensions='http://www.w3.org/1999/xhtml'
       >
-        <StyledContainer hasRule={!!rules?.length} pointerPosition='right'>
+        <StyledContainer hasRule={hasRules} pointerPosition='right'>
           <Icon
-            iconName={rules?.length ? 'check' : 'plus'}
+            iconName={hasRules ? 'check' : 'plus'}
             size='sm'
             color='light'
             colorWeight='50'
@@ -93,7 +82,7 @@ const CustomEdge: React.FC<any> = ({
             className='custom-edge-icon-btn'
             onClick={handleClick}
           />
-          {isOpen && (
+          {/* {isOpen && (
             <Card
               className='custom-edige-card'
               closeable
@@ -128,7 +117,7 @@ const CustomEdge: React.FC<any> = ({
                 )}
               </div>
             </Card>
-          )}
+          )} */}
         </StyledContainer>
       </foreignObject>
     </>
