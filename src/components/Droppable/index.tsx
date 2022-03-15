@@ -11,7 +11,7 @@ const Droppable: React.FC<DroppableProps> = ({
 }) => {
   const [collectedProps, dropRef] = useDrop(() => ({
     accept: dndEntity,
-    drop: (item) => getDroppedItems(item),
+    drop: (item: Record<string, unknown>) => getDroppedItems(item),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
