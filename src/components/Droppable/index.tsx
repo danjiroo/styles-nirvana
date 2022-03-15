@@ -4,18 +4,21 @@ import { useDrop } from 'react-dnd'
 import { StyledDroppable } from './styles'
 import { DroppableProps } from './types'
 
-const Droppable: React.FC<DroppableProps> = ({ children }) => {
-  const [{ canDrop, isOver }, dropRef] = useDrop(() => ({
-    accept: 'card',
-    drop: () => ({
-      name: 'sample',
-      allowedDropEffect: true,
-    }),
+const Droppable: React.FC<DroppableProps> = ({
+  children,
+  dndEntity = 'sample',
+  getDroppedItems,
+}) => {
+  const [collectedProps, dropRef] = useDrop(() => ({
+    accept: dndEntity,
+    drop: (item) => getDroppedItems(item),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
     }),
   }))
+
+  const { canDrop, isOver } = collectedProps
 
   const isActive = canDrop && isOver
 

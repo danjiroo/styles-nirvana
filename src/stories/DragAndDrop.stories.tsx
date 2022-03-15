@@ -15,7 +15,6 @@ export default {
 const DefaultDNDTemplate: ComponentStory<typeof DND> = (args) => (
   <StyledContainer>
     <DND.Provider {...args}>
-      <DND.Droppable droppableId='1' {...args} />
       <div>
         <DND.Draggable draggableId='1' type='card'>
           <h2>I AM DRAGGABLE</h2>
@@ -27,6 +26,7 @@ const DefaultDNDTemplate: ComponentStory<typeof DND> = (args) => (
           <h2>I AM DRAGGABLE 3</h2>
         </DND.Draggable>
       </div>
+      <DND.Droppable droppableId='1' {...args} />
     </DND.Provider>
   </StyledContainer>
 )

@@ -1,6 +1,6 @@
 export interface DraggableProps {
   draggableId?: string
-  type: string
+  dndEntity: string
 }
 
 export interface StyledDraggableProps {
