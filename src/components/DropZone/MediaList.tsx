@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { DropzonePreview, FileWrapper, StyledImage } from './styles'
-const MediaList = ({ file, mediaSource, mediaElement, onTimeUpdate }: any) => {
+const MediaList = ({ file, mediaElement, onTimeUpdate }: any) => {
   return (
     <DropzonePreview className='dropzone-preview'>
       <FileWrapper className='file-item'>
@@ -15,14 +15,14 @@ const MediaList = ({ file, mediaSource, mediaElement, onTimeUpdate }: any) => {
                 <source src={mediaSource.src} type='video/ogg'></source>
               </video>
             )} */}
-            {file.type === 'video/quicktime' && mediaSource?.src && (
+            {file.type === 'video/quicktime' && (
               <video
                 className='video-dimensions'
                 ref={mediaElement}
                 onTimeUpdate={onTimeUpdate}
               >
-                <source src={mediaSource.src} type='video/quicktiem'></source>
-                <source src={mediaSource.src} type='video/ogg'></source>
+                <source src={file.src} type='video/quicktime'></source>
+                <source src={file.src} type='video/ogg'></source>
               </video>
             )}
           </>
