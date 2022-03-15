@@ -6,15 +6,12 @@ import { DraggableProps } from './types'
 
 const Draggable: React.FC<DraggableProps> = ({
   children,
+  item,
   dndEntity = 'sample',
 }) => {
   const [{ opacity }, dragRef] = useDrag(() => ({
     type: dndEntity,
-    item: {
-      text: 'sample',
-      bati: 'nawng',
-      age: 99,
-    },
+    item: item ?? {},
     collect: (monitor) => ({
       opacity: monitor.isDragging() ? 0.5 : 1,
     }),
