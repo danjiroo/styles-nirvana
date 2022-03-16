@@ -41,6 +41,7 @@ const DefaultDNDTemplate: ComponentStory<typeof DND> = (args) => (
       <DND.Droppable
         droppableId='1'
         dndEntity='test'
+        position='0px'
         getDroppedItems={(data) => console.log('you dropped:', data)}
         {...args}
       >
