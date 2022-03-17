@@ -8,7 +8,7 @@ import { DroppableProps } from './types'
 const Droppable: React.FC<DroppableProps> = ({
   children,
   dndEntity = 'sample',
-  position = '0px',
+  position = 0,
   timeStart = 0,
   getDroppedItems,
 }) => {
@@ -46,15 +46,13 @@ const Droppable: React.FC<DroppableProps> = ({
 
   return (
     <StyledDroppable ref={dropRef} isActive={isActive} hasChildren={!!children}>
-      <div>
-        {children ? (
-          children
-        ) : (
-          <span className='overlay-text'>
-            {isActive ? 'Release to drop' : 'Drop something here'}
-          </span>
-        )}
-      </div>
+      {children ? (
+        children
+      ) : (
+        <span className='overlay-text'>
+          {isActive ? 'Release to drop' : 'Drop something here'}
+        </span>
+      )}
     </StyledDroppable>
   )
 }

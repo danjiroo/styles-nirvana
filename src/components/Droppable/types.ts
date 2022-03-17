@@ -5,7 +5,7 @@ export interface DroppableProps {
   getDroppedItems: (data: Record<string, unknown>) => void
   updateItems?: (o: any) => void
   items?: Record<string, any>
-  position: string
+  position: number
   timeStart?: number
   timeEnd?: number
 }
