@@ -38,6 +38,7 @@ const Form: React.FC<FormProps> = (props) => {
         {fields &&
           Object.entries(fields).map(([key, value], index: number) => (
             <Input
+              id={String(index)}
               key={`key--${index}`}
               value={state[key] ?? ''}
               type='text'

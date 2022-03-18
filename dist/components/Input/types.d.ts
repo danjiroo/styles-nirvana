@@ -1,5 +1,6 @@
 import { SuggestionDataItem } from 'react-mentions';
 import { GlobalProps } from '../';
+import { IconNames } from '../Icon/IconList';
 export interface data {
     value: string;
     name: string;
@@ -13,6 +14,7 @@ export interface CustomTheme {
     line_height?: string;
 }
 export interface FormInputProps extends GlobalProps {
+    id: string;
     /**
      * The actual value that will be stored inside a state
      */
@@ -38,10 +40,13 @@ export interface FormInputProps extends GlobalProps {
       - border_radius?: string;
      */
     customTheme?: CustomTheme;
-    iconLeft: string;
-    icon?: string;
+    iconLeft: IconNames | string;
+    icon?: IconNames | string;
     /**
      * Mention options
      */
     suggestions?: SuggestionDataItem[];
+    error?: boolean;
+    errorText?: string;
+    className?: string;
 }

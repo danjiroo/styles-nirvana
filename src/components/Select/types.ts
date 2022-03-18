@@ -2,6 +2,8 @@
 
 import { GlobalColors, GlobalSizes } from '../'
 
+import { IconNames } from '../Icon/IconList'
+
 export interface handleChangeResponse {
   name: string
   value: string | number | string[] | number[] | null
@@ -43,7 +45,7 @@ export interface SelectProps extends GlobalColors, GlobalSizes {
   /**
    * Icon name
    */
-  icon?: string
+  icon: IconNames | string
   /**
    * Icon is inside the select component
    */

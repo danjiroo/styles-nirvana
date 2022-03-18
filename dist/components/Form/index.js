@@ -42,7 +42,7 @@ const Form = (props) => {
     return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(__1.Modifiers, {}, void 0), (0, jsx_runtime_1.jsxs)(styles_1.StyledForm, Object.assign({ onSubmit: handleSubmit, className: 'styled-form' }, { children: [submitting && (0, jsx_runtime_1.jsx)("p", { children: "just a moment" }, void 0), fields &&
                         Object.entries(fields).map(([key, value], index) => {
                             var _a;
-                            return ((0, jsx_runtime_1.jsx)(__2.Input, { value: (_a = state[key]) !== null && _a !== void 0 ? _a : '', type: 'text', placeholder: value.place_holder, label: value.label, actions: actionsProp !== null && actionsProp !== void 0 ? actionsProp : {}, name: value.name, accessor: 'value', disabled: submitting, iconLeft: value.icon ? value.icon : '' }, `key--${index}`));
+                            return ((0, jsx_runtime_1.jsx)(__2.Input, { id: String(index), value: (_a = state[key]) !== null && _a !== void 0 ? _a : '', type: 'text', placeholder: value.place_holder, label: value.label, actions: actionsProp !== null && actionsProp !== void 0 ? actionsProp : {}, name: value.name, accessor: 'value', disabled: submitting, iconLeft: value.icon ? value.icon : '' }, `key--${index}`));
                         }), (0, jsx_runtime_1.jsx)(__3.Button, { onClick: handleSubmit, label: 'Submit' }, void 0)] }), void 0)] }, void 0));
 };
 exports.default = react_1.default.memo(Form);

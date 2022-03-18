@@ -108,6 +108,7 @@ const Question: React.FC<QuestionProps> = (props) => {
           )}
           {type.toLowerCase() === 'input' && (
             <Input
+              id='question-id'
               type='text'
               value={answer}
               name='sample'

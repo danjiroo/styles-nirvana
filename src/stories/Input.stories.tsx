@@ -21,7 +21,12 @@ const Template: ComponentStory<typeof Input> = (args) => {
       updateArgs({ value })
     },
   }
-  return <Input {...args} actions={actionsProp} />
+  return (
+    <>
+      <Input {...args} actions={actionsProp} />
+      <Input {...args} actions={actionsProp} />
+    </>
+  )
 }
 
 const Template2: ComponentStory<typeof Input> = (args) => {
@@ -53,6 +58,20 @@ Default.args = {
   accessor: 'value',
   disabled: false,
   size: 'md',
+}
+
+export const DefaultWithError = Template.bind({})
+DefaultWithError.args = {
+  type: 'text',
+  value: '',
+  placeholder: 'enter',
+  label: 'sample label',
+  name: 'text',
+  accessor: 'value',
+  disabled: false,
+  size: 'md',
+  error: true,
+  errorText: 'This field is required.',
 }
 
 export const TextArea = Template.bind({})

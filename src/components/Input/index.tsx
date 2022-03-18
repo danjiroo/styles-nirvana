@@ -4,6 +4,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Mention } from 'react-mentions'
 import { useTheme } from 'styled-components'
+import { v4 } from 'uuid'
 
 import {
   StyledInput,
@@ -12,13 +13,17 @@ import {
   Label,
   StyledIcon,
   StyledMentionsInput,
+  StyledError,
 } from './styles'
 import { FormInputProps } from './types'
 import { Icon } from '../'
 import { ThemeDefinition } from '../../themes'
 
+import { IconNames } from '../Icon/IconList'
+
 const Input: React.FC<FormInputProps> = (props) => {
   const {
+    id = v4(),
     value = '',
     placeholder,
     label,
@@ -34,6 +39,9 @@ const Input: React.FC<FormInputProps> = (props) => {
     size = 'md',
     color = 'primary',
     suggestions = [],
+    error = false,
+    errorText = '',
+    className,
   } = props
   const [is_input_active, setInputActive] = useState(false)
   const [is_label_click, setLabelClick] = useState(false)
@@ -94,7 +102,7 @@ const Input: React.FC<FormInputProps> = (props) => {
         <StyledIcon>
           <div className='button-icon-div'>
             <Icon
-              iconName={IconLeft}
+              iconName={IconLeft as IconNames}
               color={layout === 'solid' ? 'light' : color}
               size={size}
             />
@@ -115,6 +123,7 @@ const Input: React.FC<FormInputProps> = (props) => {
           disabled={disabled}
           name={name}
           customTheme={customTheme}
+          className={className}
         />
       )}
 
@@ -133,8 +142,6 @@ const Input: React.FC<FormInputProps> = (props) => {
 
       {type && type === 'textAreaMention' && (
         <StyledMentionsInput
-          // value={sourceValue}
-          // onChange={onSourceChange}
           name={name}
           value={value}
           onChange={(e) =>
@@ -202,6 +209,8 @@ const Input: React.FC<FormInputProps> = (props) => {
           />
         </StyledMentionsInput>
       )}
+
+      {error && <StyledError>{errorText}</StyledError>}
     </InputContainer>
   )
 }

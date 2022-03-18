@@ -49,6 +49,13 @@ export const StyledInput = styled.input<StyledInputProps>`
     color: ${({ theme }) => theme.colors.dark[50]};
   }
 `
+
+export const StyledError = styled.p`
+  color: ${({ theme }) => theme.colors.danger.DEFAULT};
+  margin: 0.4rem 0.8rem -0.2rem;
+  font-size: 80%;
+`
+
 export const StyledTextArea = styled.textarea<StyledInputProps>`
   width: 100%;
   min-height: 8rem;
