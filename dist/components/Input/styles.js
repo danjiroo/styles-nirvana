@@ -64,7 +64,7 @@ exports.StyledInput = styled_components_1.default.input `
 exports.StyledError = styled_components_1.default.p `
   color: ${({ theme }) => theme.colors.danger.DEFAULT};
   margin: 0.4rem 0.8rem -0.2rem;
-  font-size: 80%;
+  font-size: 80% !important;
 `;
 exports.StyledTextArea = styled_components_1.default.textarea `
   width: 100%;

@@ -53,7 +53,7 @@ export const StyledInput = styled.input<StyledInputProps>`
 export const StyledError = styled.p`
   color: ${({ theme }) => theme.colors.danger.DEFAULT};
   margin: 0.4rem 0.8rem -0.2rem;
-  font-size: 80%;
+  font-size: 80% !important;
 `
 
 export const StyledTextArea = styled.textarea<StyledInputProps>`

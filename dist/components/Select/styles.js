@@ -179,5 +179,5 @@ exports.Label = styled_components_1.default.label `
 exports.StyledError = styled_components_1.default.p `
   color: ${({ theme }) => theme.colors.danger.DEFAULT};
   margin: 0.4rem 0.8rem -0.2rem;
-  font-size: inherit;
+  font-size: inherit !important;
 `;
