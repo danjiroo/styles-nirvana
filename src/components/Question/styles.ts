@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import styled from 'styled-components'
 
 import { QuestionProps } from './types'
@@ -36,7 +37,8 @@ export const StyledQuestion = styled.div<QuestionProps>`
     }
 
     .question-choices > * {
-      width: ${({ type }) => (type === 'choice' ? 'auto' : '100%')};
+      width: ${({ type }) =>
+        type?.toLowerCase() === 'choice' ? 'auto' : '100%'};
       margin: 0;
     }
   }

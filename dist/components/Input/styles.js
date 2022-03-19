@@ -205,7 +205,7 @@ exports.StyledMentionsInput = (0, styled_components_1.default)(react_mentions_1.
     position: relative;
     z-index: 1;
     color: ${({ theme }) => theme.colors.primary['DEFAULT']} !important;
-    /* font-weight: bold; */
+    pointer-events: none;
   }
 
   div[class*='_suggestions'] {

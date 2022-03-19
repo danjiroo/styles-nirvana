@@ -206,7 +206,7 @@ export const StyledMentionsInput = styled(MentionsInput)`
     position: relative;
     z-index: 1;
     color: ${({ theme }) => theme.colors.primary['DEFAULT']} !important;
-    /* font-weight: bold; */
+    pointer-events: none;
   }
 
   div[class*='_suggestions'] {
