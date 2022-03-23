@@ -19,6 +19,7 @@ export const getResponsiveHeaders = ({ columns }: TableProps) => {
 
 export const StyledTableContainer = styled.div`
   position: relative;
+  overflow: auto;
 `
 
 export const StyledTable = styled(ReactTable)`
@@ -185,4 +186,8 @@ export const StyledPagination = styled.div<Pick<TableProps, 'isLoading'>>`
   .active-page {
     width: auto;
   }
+`
+
+export const StyledTableAndPaginationContainer = styled.div`
+  width: 100%;
 `

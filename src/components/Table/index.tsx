@@ -10,6 +10,7 @@ import {
   StyledSortIconContainer,
   StyledTableContainer,
   StyledTable,
+  StyledTableAndPaginationContainer,
 } from './styles'
 import { Checkbox, Icon } from '../'
 
@@ -87,7 +88,7 @@ const Table: React.FC<TableProps> = (props) => {
   }
 
   return (
-    <>
+    <StyledTableAndPaginationContainer>
       <StyledTableContainer className='table-container'>
         <StyledTable {...getTableProps()}>
           <Header>
@@ -159,8 +160,9 @@ const Table: React.FC<TableProps> = (props) => {
           </Body>
         </StyledTable>
       </StyledTableContainer>
+
       {enablePagination && <DefaultPagination {...paginationProps} />}
-    </>
+    </StyledTableAndPaginationContainer>
   )
 }
 
