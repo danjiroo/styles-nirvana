@@ -49,13 +49,22 @@ const getFlexPosition = (props: GetContainerStyles) => {
     `
 }
 
+const getContainerHeight = (props: GetContainerStyles) => {
+  const { theme, height = '' } = props
+  if (height)
+    return css`
+      height: ${theme.size[height].containerHeight};
+    `
+}
+
 export const StyledContainer = styled.div<GetContainerStyles>`
   display: flex;
   /* flex-direction: column; */
   flex-direction: ${({ direction }) =>
     direction === 'row' ? 'row' : 'column'};
   max-width: 100%;
+  background-color: ${({ customBg = 'FFF' }) => `#${customBg}`};
   ${getContainerStyles}
   ${getFlexPosition}
-  background-color: ${({ customBg = 'FFF' }) => `#${customBg}`};
+  ${getContainerHeight}
 `

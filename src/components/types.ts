@@ -7,7 +7,7 @@ export type GColors =
   | 'light'
   | 'dark'
 export type GColorWeights = '50' | '100' | '200' | 'DEFAULT' | '300' | '400'
-export type GSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+export type GSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
 export type GLayout = 'solid' | 'outline' | 'dashed' | 'dotted' | 'double'
 export type GAlignment = 'left' | 'center' | 'right'
 
@@ -27,6 +27,7 @@ export interface GlobalSizes {
    * Size of component
    */
   size?: GSizes
+  height?: GSizes
 }
 
 export interface GlobalBorderLayout {

@@ -137,6 +137,7 @@ export const baseTheme: ThemeDefinition = {
     xs: {
       width: '16.67%',
       height: '2.25rem',
+      containerHeight: '16.67%',
       iconHeight: '1.125rem',
       loader: 36,
       loaderInButton: 13,
@@ -144,6 +145,7 @@ export const baseTheme: ThemeDefinition = {
     sm: {
       width: '33.34%',
       height: '2.375rem',
+      containerHeight: '33.34%',
       iconHeight: '1.313rem',
       loader: 38,
       loaderInButton: 14,
@@ -151,6 +153,7 @@ export const baseTheme: ThemeDefinition = {
     md: {
       width: '50%',
       height: '2.5rem',
+      containerHeight: '50%',
       iconHeight: '1.563rem',
       loader: 40,
       loaderInButton: 15,
@@ -158,6 +161,7 @@ export const baseTheme: ThemeDefinition = {
     lg: {
       width: '66.67%',
       height: '2.625rem',
+      containerHeight: '66.67%',
       iconHeight: '1.688rem',
       loader: 42,
       loaderInButton: 16,
@@ -165,12 +169,14 @@ export const baseTheme: ThemeDefinition = {
     xl: {
       width: '83.34%',
       height: '2.75rem',
+      containerHeight: '83.34%',
       iconHeight: '1.875rem',
       loader: 44,
       loaderInButton: 17,
     },
     full: {
       height: '100%',
+      containerHeight: '100%',
       width: '100%',
     },
   },

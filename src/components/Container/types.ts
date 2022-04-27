@@ -24,6 +24,7 @@ export interface ContainerProps extends GlobalSizes {
   centerY?: boolean
   bgColor?: string
   customBg?: string
+  height?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
 
 import { ThemeProvider } from '../../themes'
