@@ -71,12 +71,20 @@ const getFlexPosition = (props) => {
       align-items: center;
     `;
 };
+const getContainerHeight = (props) => {
+    const { theme, height = '' } = props;
+    if (height)
+        return (0, styled_components_1.css) `
+      height: ${theme.size[height].containerHeight};
+    `;
+};
 exports.StyledContainer = styled_components_1.default.div `
   display: flex;
   /* flex-direction: column; */
   flex-direction: ${({ direction }) => direction === 'row' ? 'row' : 'column'};
   max-width: 100%;
+  background-color: ${({ customBg = 'FFF' }) => `#${customBg}`};
   ${getContainerStyles}
   ${getFlexPosition}
-  background-color: ${({ customBg = 'FFF' }) => `#${customBg}`};
+  ${getContainerHeight}
 `;
