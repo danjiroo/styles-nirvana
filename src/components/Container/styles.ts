@@ -19,9 +19,44 @@ const getContainerStyles = (props: GetContainerStyles) => {
   `
 }
 
+const getFlexPosition = (props: GetContainerStyles) => {
+  const { centerXY, centerX, centerY, direction } = props
+  if (direction === 'column') {
+    if (centerXY)
+      return css`
+        justify-content: center;
+        align-items: center;
+      `
+    if (centerX)
+      return css`
+        align-items: center;
+      `
+    if (centerY)
+      return css`
+        justify-content: center;
+      `
+  }
+  if (centerXY)
+    return css`
+      justify-content: center;
+      align-items: center;
+    `
+  if (centerX)
+    return css`
+      justify-content: center;
+    `
+  if (centerY)
+    return css`
+      align-items: center;
+    `
+}
+
 export const StyledContainer = styled.div<GetContainerStyles>`
-  ${getContainerStyles}
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  flex-direction: ${({ direction }) =>
+    direction === 'row' ? 'row' : 'column'};
   max-width: 100%;
+  ${getContainerStyles}
+  ${getFlexPosition}
 `
