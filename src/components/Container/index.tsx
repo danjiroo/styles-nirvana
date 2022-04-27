@@ -5,8 +5,16 @@ import { StyledContainer } from './styles'
 import { ContainerProps } from './types'
 
 const Container: React.FC<ContainerProps> = (props) => {
-  const { children, size, className, direction, centerXY, centerX, centerY } =
-    props
+  const {
+    children,
+    size,
+    className,
+    direction,
+    centerXY,
+    centerX,
+    centerY,
+    customBg,
+  } = props
   return (
     <StyledContainer
       size={size}
@@ -14,6 +22,7 @@ const Container: React.FC<ContainerProps> = (props) => {
       centerXY={centerXY}
       centerX={centerX}
       centerY={centerY}
+      customBg={customBg}
       className={cn('StyledContainer', className)}
     >
       {children}

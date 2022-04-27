@@ -23,6 +23,7 @@ export interface ContainerProps extends GlobalSizes {
   centerX?: boolean
   centerY?: boolean
   bgColor?: string
+  customBg?: string
 }
 
 import { ThemeProvider } from '../../themes'
@@ -33,4 +34,5 @@ export interface GetContainerStyles extends ThemeProvider, GlobalSizes {
   centerX?: boolean
   centerY?: boolean
   bgColor?: string
+  customBg?: string
 }

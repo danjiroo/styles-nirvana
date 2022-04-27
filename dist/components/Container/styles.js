@@ -78,4 +78,5 @@ exports.StyledContainer = styled_components_1.default.div `
   max-width: 100%;
   ${getContainerStyles}
   ${getFlexPosition}
+  background-color: ${({ customBg = 'FFF' }) => `#${customBg}`};
 `;

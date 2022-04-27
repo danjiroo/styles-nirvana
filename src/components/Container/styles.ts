@@ -3,7 +3,6 @@ import { GetContainerStyles } from './types'
 
 const getContainerStyles = (props: GetContainerStyles) => {
   const { theme, size = '' } = props
-
   if (size) {
     return css`
       width: 100%;
@@ -13,7 +12,6 @@ const getContainerStyles = (props: GetContainerStyles) => {
       }
     `
   }
-
   return css`
     width: 100%;
   `
@@ -59,4 +57,5 @@ export const StyledContainer = styled.div<GetContainerStyles>`
   max-width: 100%;
   ${getContainerStyles}
   ${getFlexPosition}
+  background-color: ${({ customBg = 'FFF' }) => `#${customBg}`};
 `
