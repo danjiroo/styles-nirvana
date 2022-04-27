@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -39,10 +43,10 @@ const Form = (props) => {
         event.preventDefault();
         onSubmit && onSubmit(state);
     };
-    return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(__1.Modifiers, {}, void 0), (0, jsx_runtime_1.jsxs)(styles_1.StyledForm, Object.assign({ onSubmit: handleSubmit, className: 'styled-form' }, { children: [submitting && (0, jsx_runtime_1.jsx)("p", { children: "just a moment" }, void 0), fields &&
+    return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(__1.Modifiers, {}), (0, jsx_runtime_1.jsxs)(styles_1.StyledForm, Object.assign({ onSubmit: handleSubmit, className: 'styled-form' }, { children: [submitting && (0, jsx_runtime_1.jsx)("p", { children: "just a moment" }), fields &&
                         Object.entries(fields).map(([key, value], index) => {
                             var _a;
                             return ((0, jsx_runtime_1.jsx)(__2.Input, { id: String(index), value: (_a = state[key]) !== null && _a !== void 0 ? _a : '', type: 'text', placeholder: value.place_holder, label: value.label, actions: actionsProp !== null && actionsProp !== void 0 ? actionsProp : {}, name: value.name, accessor: 'value', disabled: submitting, iconLeft: value.icon ? value.icon : '' }, `key--${index}`));
-                        }), (0, jsx_runtime_1.jsx)(__3.Button, { onClick: handleSubmit, label: 'Submit' }, void 0)] }), void 0)] }, void 0));
+                        }), (0, jsx_runtime_1.jsx)(__3.Button, { onClick: handleSubmit, label: 'Submit' })] }))] }));
 };
 exports.default = react_1.default.memo(Form);

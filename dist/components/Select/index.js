@@ -90,7 +90,7 @@ const SingleSelect = (_a) => {
     const SelectComponent = (isCreatable ? creatable_1.default : react_select_1.default);
     (0, react_1.useEffect)(() => setValue(initialValue), [propsValue]);
     const onChangeHandler = (changes, e) => {
-        var _a, _b, _c, _d, _e;
+        var _a, _b;
         setValue(changes);
         if (!isMulti) {
             if (handleChange) {
@@ -113,12 +113,12 @@ const SingleSelect = (_a) => {
         else {
             const multiData = {
                 name,
-                value: (_c = changes) === null || _c === void 0 ? void 0 : _c.map((field) => field === null || field === void 0 ? void 0 : field.value),
+                value: changes === null || changes === void 0 ? void 0 : changes.map((field) => field === null || field === void 0 ? void 0 : field.value),
             };
-            const hasMetadata = (_d = changes) === null || _d === void 0 ? void 0 : _d.some((field) => field === null || field === void 0 ? void 0 : field.metadata);
+            const hasMetadata = changes === null || changes === void 0 ? void 0 : changes.some((field) => field === null || field === void 0 ? void 0 : field.metadata);
             if (handleChange) {
                 handleChange(hasMetadata
-                    ? Object.assign(Object.assign({}, (multiData !== null && multiData !== void 0 ? multiData : {})), { metadata: (_e = changes) === null || _e === void 0 ? void 0 : _e.map((field) => field === null || field === void 0 ? void 0 : field.metadata) }) : multiData);
+                    ? Object.assign(Object.assign({}, (multiData !== null && multiData !== void 0 ? multiData : {})), { metadata: changes === null || changes === void 0 ? void 0 : changes.map((field) => field === null || field === void 0 ? void 0 : field.metadata) }) : multiData);
                 return;
             }
         }
@@ -170,9 +170,9 @@ const SingleSelect = (_a) => {
         multiValue: (styles) => (Object.assign(Object.assign({}, styles), { color: colors.dark[100] })),
         multiValueLabel: (styles) => (Object.assign(Object.assign({}, styles), { color: colors.dark[100] })),
     };
-    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledSelectContainer, Object.assign({}, styleProps, { className: (0, classnames_1.default)(className) }, { children: [!!icon && !innerIcon && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'select-icon-container' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: icon, color: 'dark', className: 'ICONN DEBUGGGG' }, void 0) }), void 0)), (0, jsx_runtime_1.jsxs)(styles_1.StyledField, Object.assign({}, styleProps, { children: [!!label && !animatedLabel && ((0, jsx_runtime_1.jsxs)("label", Object.assign({ className: 'select-label' }, { children: [label, " ", !!isRequired && (0, jsx_runtime_1.jsx)("span", Object.assign({ className: 'select-required' }, { children: "*" }), void 0)] }), void 0)), label && animatedLabel && ((0, jsx_runtime_1.jsx)(styles_1.Label, Object.assign({ isInputActive: isInputActive, onClick: handleLabelClick }, { children: label }), void 0)), !!icon && innerIcon && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'select-icon-container inner-icon' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: icon, color: 'dark', className: 'ICONN DEBUGGGG' }, void 0) }), void 0)), (0, jsx_runtime_1.jsx)(SelectComponent, Object.assign({}, restProps, { className: 'select-component', selected: true, isDisabled: isDisabled, isLoading: isLoading, isFocused: focus, isMulti: isMulti, value: value, placeholder: shouldDisplayPlaceHolder(), 
+    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledSelectContainer, Object.assign({}, styleProps, { className: (0, classnames_1.default)(className) }, { children: [!!icon && !innerIcon && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'select-icon-container' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: icon, color: 'dark', className: 'ICONN DEBUGGGG' }) }))), (0, jsx_runtime_1.jsxs)(styles_1.StyledField, Object.assign({}, styleProps, { children: [!!label && !animatedLabel && ((0, jsx_runtime_1.jsxs)("label", Object.assign({ className: 'select-label' }, { children: [label, " ", !!isRequired && (0, jsx_runtime_1.jsx)("span", Object.assign({ className: 'select-required' }, { children: "*" }))] }))), label && animatedLabel && ((0, jsx_runtime_1.jsx)(styles_1.Label, Object.assign({ isInputActive: isInputActive, onClick: handleLabelClick }, { children: label }))), !!icon && innerIcon && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'select-icon-container inner-icon' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: icon, color: 'dark', className: 'ICONN DEBUGGGG' }) }))), (0, jsx_runtime_1.jsx)(SelectComponent, Object.assign({}, restProps, { className: 'select-component', selected: true, isDisabled: isDisabled, isLoading: isLoading, isFocused: focus, isMulti: isMulti, value: value, placeholder: shouldDisplayPlaceHolder(), 
                         // onFocus={() => setFocus(true)}
                         // onBlur={() => setFocus(false)}
-                        onFocus: () => setIsInputActive(true), onClick: () => setIsInputActive(true), onBlur: handleBlurInput, ref: inputRef, options: optionFormatter, onChange: onChangeHandler, styles: colorStyles, theme: (theme) => (Object.assign(Object.assign({}, theme), { borderRadius: rounded ? 8 : 0, colors: Object.assign(Object.assign({}, theme.colors), { primary25: colors === null || colors === void 0 ? void 0 : colors[color][colorWeight], primary: colors === null || colors === void 0 ? void 0 : colors[color][colorWeight] }) })) }), void 0), error && (0, jsx_runtime_1.jsx)(styles_1.StyledError, { children: errorText }, void 0)] }), void 0)] }), void 0));
+                        onFocus: () => setIsInputActive(true), onClick: () => setIsInputActive(true), onBlur: handleBlurInput, ref: inputRef, options: optionFormatter, onChange: onChangeHandler, styles: colorStyles, theme: (theme) => (Object.assign(Object.assign({}, theme), { borderRadius: rounded ? 8 : 0, colors: Object.assign(Object.assign({}, theme.colors), { primary25: colors === null || colors === void 0 ? void 0 : colors[color][colorWeight], primary: colors === null || colors === void 0 ? void 0 : colors[color][colorWeight] }) })) })), error && (0, jsx_runtime_1.jsx)(styles_1.StyledError, { children: errorText })] }))] })));
 };
 exports.default = SingleSelect;
