@@ -63,7 +63,7 @@ export const StyledContainer = styled.div<GetContainerStyles>`
   flex-direction: ${({ direction }) =>
     direction === 'row' ? 'row' : 'column'};
   max-width: 100%;
-  background-color: ${({ customBg = 'FFF' }) => `#${customBg}`};
+  background-color: ${({ customBg }) => `#${customBg}`};
   ${getContainerStyles}
   ${getFlexPosition}
   ${getContainerHeight}

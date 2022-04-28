@@ -83,7 +83,7 @@ exports.StyledContainer = styled_components_1.default.div `
   /* flex-direction: column; */
   flex-direction: ${({ direction }) => direction === 'row' ? 'row' : 'column'};
   max-width: 100%;
-  background-color: ${({ customBg = 'FFF' }) => `#${customBg}`};
+  background-color: ${({ customBg }) => `#${customBg}`};
   ${getContainerStyles}
   ${getFlexPosition}
   ${getContainerHeight}
