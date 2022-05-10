@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import React from 'react'
 import React from 'react'
-import { Column, CellProps, TableState } from 'react-table'
+import { Column, CellProps, TableState, TableRowProps } from 'react-table'
 
 export interface OtherColumnProperties {
   show?: boolean
@@ -48,4 +48,5 @@ export interface TableProps {
   }
 
   isLoading?: boolean
+  customComponent?: (row: TableRowProps) => React.ReactNode
 }

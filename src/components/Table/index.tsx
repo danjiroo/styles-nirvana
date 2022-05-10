@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react'
 import { useTable, useSortBy, useRowSelect, usePagination } from 'react-table'
 
@@ -20,7 +21,14 @@ import DefaultPagination from './DefaultPagination'
 const { Header, Row, Cell, Body } = ReactTable
 
 const Table: React.FC<TableProps> = (props) => {
-  const { columns = [], data = [], actions, options, isLoading = false } = props
+  const {
+    columns = [],
+    data = [],
+    actions,
+    options,
+    isLoading = false,
+    customComponent,
+  } = props
 
   const { config } = options ?? {}
   const { enablePagination = true, initialState } = config ?? {}
@@ -127,6 +135,13 @@ const Table: React.FC<TableProps> = (props) => {
             {(enablePagination ? page : rows).map((row) => {
               const { getToggleRowSelectedProps } = row
               prepareRow(row)
+
+              if (customComponent) {
+                const Component: any = customComponent
+
+                return <Component {...row.getRowProps()} row={row} />
+              }
+
               return (
                 <Row {...row.getRowProps()}>
                   {checkboxColumn?.show && (

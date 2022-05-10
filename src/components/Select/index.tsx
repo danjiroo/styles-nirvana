@@ -114,9 +114,9 @@ const SingleSelect: React.FC<SelectProps> = ({
   const labelKey = optionLabel || 'label'
   const valueKey = optionValue || 'id'
 
-  const SelectComponent = (
-    isCreatable ? Creatable : Select
-  ) as React.ElementType
+  const SelectComponent = (isCreatable ? Creatable : Select) as
+    | React.ElementType
+    | any
 
   useEffect(() => setValue(initialValue), [propsValue])
 
