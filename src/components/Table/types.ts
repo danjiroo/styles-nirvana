@@ -48,5 +48,5 @@ export interface TableProps {
   }
 
   isLoading?: boolean
-  customComponent?: (row: TableRowProps) => React.ReactNode
+  customComponent?: (item: Record<string, any>) => void
 }

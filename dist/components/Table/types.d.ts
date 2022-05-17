@@ -1,5 +1,4 @@
-import React from 'react';
-import { Column, CellProps, TableRowProps } from 'react-table';
+import { Column, CellProps } from 'react-table';
 export interface OtherColumnProperties {
     show?: boolean;
     Cell?: (props?: CellProps<any>) => JSX.Element;
@@ -36,5 +35,5 @@ export interface TableProps {
         pagination?: TablePagination;
     };
     isLoading?: boolean;
-    customComponent?: (row: TableRowProps) => React.ReactNode;
+    customComponent?: (item: Record<string, any>) => void;
 }

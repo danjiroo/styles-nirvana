@@ -16,7 +16,34 @@ export default {
 const Template: ComponentStory<typeof Grid> = (args) => <Grid {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  appConfig: {
+    storage_key: 'incomplete-surveys',
+    query_entity: 'instances',
+    enablePagination: true,
+    columns: [
+      {
+        id: 'firstName',
+        Header: 'FIRST NAME',
+        accessor: 'firstName',
+        show: true,
+        width: 300,
+      },
+    ],
+    initialState: {
+      pageSize: 10,
+      pageIndex: 0,
+      paginationRange: 3,
+    },
+  },
+  appParams: {
+    // organizationCode: 'alliance',
+    resultsPerPage: 10,
+    page: 0,
+    // includeDeleted: true,
+    // includeUnpublishedVersions: true,
+  },
+}
 Default.parameters = {
   xstate: {
     height: '1000px',

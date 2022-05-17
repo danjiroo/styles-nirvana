@@ -17,6 +17,7 @@ import { Checkbox, Icon } from '../'
 
 import DefaultActionsColumn from './DefaultActionsColumn'
 import DefaultPagination from './DefaultPagination'
+import CustomComponentContainer from './CustomComponent'
 
 const { Header, Row, Cell, Body } = ReactTable
 
@@ -95,6 +96,15 @@ const Table: React.FC<TableProps> = (props) => {
     isLoading,
   }
 
+  if (customComponent) {
+    return (
+      <CustomComponentContainer
+        items={data}
+        customComponent={customComponent}
+      />
+    )
+  }
+
   return (
     <StyledTableAndPaginationContainer>
       <StyledTableContainer className='table-container'>
@@ -135,12 +145,6 @@ const Table: React.FC<TableProps> = (props) => {
             {(enablePagination ? page : rows).map((row) => {
               const { getToggleRowSelectedProps } = row
               prepareRow(row)
-
-              if (customComponent) {
-                const Component: any = customComponent
-
-                return <Component {...row.getRowProps()} row={row} />
-              }
 
               return (
                 <Row {...row.getRowProps()}>

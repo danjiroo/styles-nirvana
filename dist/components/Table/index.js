@@ -25,6 +25,7 @@ const styles_1 = require("./styles");
 const __1 = require("../");
 const DefaultActionsColumn_1 = __importDefault(require("./DefaultActionsColumn"));
 const DefaultPagination_1 = __importDefault(require("./DefaultPagination"));
+const CustomComponent_1 = __importDefault(require("./CustomComponent"));
 const { Header, Row, Cell, Body } = Table_1.default;
 const Table = (props) => {
     var _a;
@@ -63,13 +64,12 @@ const Table = (props) => {
         actions,
         isLoading,
     };
+    if (customComponent) {
+        return ((0, jsx_runtime_1.jsx)(CustomComponent_1.default, { items: data, customComponent: customComponent }));
+    }
     return ((0, jsx_runtime_1.jsxs)(styles_1.StyledTableAndPaginationContainer, { children: [(0, jsx_runtime_1.jsx)(styles_1.StyledTableContainer, Object.assign({ className: 'table-container' }, { children: (0, jsx_runtime_1.jsxs)(styles_1.StyledTable, Object.assign({}, getTableProps(), { children: [(0, jsx_runtime_1.jsx)(Header, { children: headerGroups.map((headerGroup) => ((0, jsx_runtime_1.jsxs)(Row, Object.assign({}, headerGroup.getHeaderGroupProps(), { children: [(checkboxColumn === null || checkboxColumn === void 0 ? void 0 : checkboxColumn.show) && ((0, jsx_runtime_1.jsx)(Cell, Object.assign({ header: true, className: 'checkbox' }, { children: (0, jsx_runtime_1.jsx)(CheckboxColumnComponent, Object.assign({}, getToggleAllRowsSelectedProps === null || getToggleAllRowsSelectedProps === void 0 ? void 0 : getToggleAllRowsSelectedProps())) }))), headerGroup.headers.map((column) => ((0, jsx_runtime_1.jsxs)(Cell, Object.assign({ header: true }, column.getHeaderProps(column.getSortByToggleProps()), { style: { width: column.width } }, { children: [column.render('Header'), (0, jsx_runtime_1.jsx)(styles_1.StyledSortIconContainer, { children: column.isSorted ? (column.isSortedDesc ? ((0, jsx_runtime_1.jsx)(__1.Icon, { iconName: 'chevron-down', size: 'xs' })) : ((0, jsx_runtime_1.jsx)(__1.Icon, { iconName: 'chevron-up', size: 'xs' }))) : null })] }))))] })))) }), (0, jsx_runtime_1.jsx)(Body, Object.assign({}, getTableBodyProps(), { children: (enablePagination ? page : rows).map((row) => {
                                 const { getToggleRowSelectedProps } = row;
                                 prepareRow(row);
-                                if (customComponent) {
-                                    const Component = customComponent;
-                                    return (0, jsx_runtime_1.jsx)(Component, Object.assign({}, row.getRowProps(), { row: row }));
-                                }
                                 return ((0, jsx_runtime_1.jsxs)(Row, Object.assign({}, row.getRowProps(), { children: [(checkboxColumn === null || checkboxColumn === void 0 ? void 0 : checkboxColumn.show) && ((0, jsx_runtime_1.jsx)(Cell, Object.assign({ className: 'checkbox' }, { children: (0, jsx_runtime_1.jsx)(CheckboxColumnComponent, Object.assign({}, getToggleRowSelectedProps === null || getToggleRowSelectedProps === void 0 ? void 0 : getToggleRowSelectedProps())) }))), row.cells.map((cell) => ((0, jsx_runtime_1.jsx)(Cell, Object.assign({ className: cell.column.id === 'actions' && 'table-actions' }, cell.getCellProps(), { style: {
                                                 width: cell.column.width,
                                             } }, { children: cell.column.id === 'actions' ? ((0, jsx_runtime_1.jsx)(ActionsColumnComponent, Object.assign({}, cell))) : (cell.render('Cell')) }))))] })));

@@ -93,19 +93,5 @@ Default.args = {}
 
 export const WithCustomComponent = Template.bind({})
 WithCustomComponent.args = {
-  customComponent: ({ row }) => (
-    <div>
-      {row.cells.map((cell) => (
-        <div
-          className='test-custom-component'
-          {...cell.getCellProps()}
-          style={{
-            width: cell.column.width,
-          }}
-        >
-          {cell.render('Cell')}
-        </div>
-      ))}
-    </div>
-  ),
+  customComponent: ({ id }) => <div>{id}</div>,
 }
