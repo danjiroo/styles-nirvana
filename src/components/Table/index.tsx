@@ -98,10 +98,13 @@ const Table: React.FC<TableProps> = (props) => {
 
   if (customComponent) {
     return (
-      <CustomComponentContainer
-        items={data}
-        customComponent={customComponent}
-      />
+      <StyledTableAndPaginationContainer>
+        <CustomComponentContainer
+          items={data}
+          customComponent={customComponent}
+        />
+        {enablePagination && <DefaultPagination {...paginationProps} />}
+      </StyledTableAndPaginationContainer>
     )
   }
 

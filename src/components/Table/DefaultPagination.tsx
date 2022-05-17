@@ -10,12 +10,15 @@ import { usePagination } from './usePagination'
 type DefaultPaginationProps = Pick<
   TableProps,
   'options' | 'actions' | 'isLoading'
->
+> & {
+  showCurrentPage?: boolean
+}
 
 const DefaultPagination: React.FC<DefaultPaginationProps> = ({
   options,
   actions,
   isLoading,
+  showCurrentPage = true,
 }) => {
   const { onNext, onPrevious, onJumpToFirst, onJumpToLast, onJumpToPage } =
     actions
@@ -124,10 +127,12 @@ const DefaultPagination: React.FC<DefaultPaginationProps> = ({
         hoverable={!isLoading || currentPage + 1 !== lastPage}
         clickable={!isLoading || currentPage + 1 !== lastPage}
       />
-      <div className='current-page'>
-        page
-        <span>{isLoading ? '...' : currentPage + 1}</span>
-      </div>
+      {showCurrentPage && (
+        <div className='current-page'>
+          page
+          <span>{isLoading ? '...' : currentPage + 1}</span>
+        </div>
+      )}
     </StyledPagination>
   )
 }

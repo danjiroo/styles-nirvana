@@ -14,6 +14,7 @@ export type ExtendedColumns = Column & OtherColumnProperties
 
 export interface TableConfig {
   enablePagination: boolean
+  showCurrentPage?: boolean
   initialState: {
     pageSize: number
     pageIndex: number
