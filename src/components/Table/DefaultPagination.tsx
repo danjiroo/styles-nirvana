@@ -60,7 +60,7 @@ const DefaultPagination: React.FC<DefaultPaginationProps> = ({
   }
 
   return (
-    <StyledPagination isLoading={isLoading}>
+    <StyledPagination isLoading={isLoading} className='defaultTablePagination'>
       <Icon
         iconName='chevrons-left'
         onClick={handleJumptToFirst}

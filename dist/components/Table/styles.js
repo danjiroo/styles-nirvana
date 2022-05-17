@@ -182,6 +182,12 @@ exports.StyledPagination = styled_components_1.default.div `
   position: relative;
   color: ${({ theme }) => theme.colors.dark[50]};
 
+  @media screen and (max-width: 500px) {
+    & {
+      transform: scale(0.75);
+    }
+  }
+
   .current-page {
     position: absolute;
     right: 15px;

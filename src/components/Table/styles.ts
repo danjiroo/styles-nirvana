@@ -163,6 +163,12 @@ export const StyledPagination = styled.div<Pick<TableProps, 'isLoading'>>`
   position: relative;
   color: ${({ theme }) => theme.colors.dark[50]};
 
+  @media screen and (max-width: 500px) {
+    & {
+      transform: scale(0.75);
+    }
+  }
+
   .current-page {
     position: absolute;
     right: 15px;
