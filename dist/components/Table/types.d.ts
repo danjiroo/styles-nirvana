@@ -9,8 +9,8 @@ export interface TableConfig {
     showCurrentPage?: boolean;
     initialState: {
         pageSize: number;
-        pageIndex: number;
-        paginationRange: number;
+        pageIndex?: number;
+        paginationRange?: number;
     };
 }
 export interface TablePagination {
