@@ -24,7 +24,7 @@ const components_1 = require("../../components");
 const utils_1 = require("../../utils");
 const Grid = (props) => {
     var _a;
-    const { appConfig } = props !== null && props !== void 0 ? props : {};
+    const { appConfig, customComponent } = props !== null && props !== void 0 ? props : {};
     const [config, setConfig] = (0, react_1.useState)({});
     const data = (0, react_1.useMemo)(() => (0, utils_1.makeData)(50), []);
     /* This is only temporary */
@@ -42,8 +42,10 @@ const Grid = (props) => {
                     onJumpToLast: () => { },
                     onJumpToPage: () => { },
                     onChecked: () => { },
-                }, customComponent: (item) => {
-                    return ((0, jsx_runtime_1.jsxs)("p", { children: [item === null || item === void 0 ? void 0 : item.id, " - ", item === null || item === void 0 ? void 0 : item.firstName] }));
-                } })] }));
+                }, options: {
+                    config: {
+                        showCurrentPage: appConfig === null || appConfig === void 0 ? void 0 : appConfig.showCurrentPage,
+                    },
+                }, customComponent: (item) => customComponent ? customComponent === null || customComponent === void 0 ? void 0 : customComponent(item) : null })] }));
 };
 exports.default = Grid;

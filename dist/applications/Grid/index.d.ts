@@ -1,3 +1,4 @@
 import React from 'react';
-declare const Grid: React.FC<any>;
+import { GridProps } from './types';
+declare const Grid: React.FC<GridProps>;
 export default Grid;

@@ -5,3 +5,11 @@ export interface GridApplicationConfig {
         columns?: ExtendedColumns[];
     };
 }
+export interface GridProps {
+    appConfig: any;
+    queryParams: any;
+    actions?: {
+        onFetch?: (params: any, accessToken: string) => Promise<any>;
+    };
+    customComponent?: (item: Record<string, any>) => void;
+}

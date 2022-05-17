@@ -10,10 +10,10 @@ import { Table } from '../../components'
 
 import { makeData } from '../../utils'
 
-import { GridApplicationConfig } from './types'
+import { GridApplicationConfig, GridProps } from './types'
 
-const Grid: React.FC<any> = (props) => {
-  const { appConfig } = props ?? {}
+const Grid: React.FC<GridProps> = (props) => {
+  const { appConfig, customComponent } = props ?? {}
 
   const [config, setConfig] = useState<GridApplicationConfig>({})
 
@@ -47,13 +47,14 @@ const Grid: React.FC<any> = (props) => {
           onJumpToPage: () => {},
           onChecked: () => {},
         }}
-        customComponent={(item) => {
-          return (
-            <p>
-              {item?.id} - {item?.firstName}
-            </p>
-          )
+        options={{
+          config: {
+            showCurrentPage: appConfig?.showCurrentPage,
+          },
         }}
+        customComponent={(item) =>
+          customComponent ? customComponent?.(item) : null
+        }
       />
     </div>
   )

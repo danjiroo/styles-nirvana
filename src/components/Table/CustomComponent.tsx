@@ -11,15 +11,15 @@ interface CustomComponentContainerProps {
 const CustomComponentContainer: React.FC<CustomComponentContainerProps> = (
   props
 ) => {
-  const { items, customComponent } = props
+  const { items = [], customComponent } = props
 
   const CustomComponent: any = customComponent
 
   return (
     <Container>
-      {items?.map((item) => (
-        <CustomComponent {...item} />
-      ))}
+      {items?.length
+        ? items?.map((item, index) => <CustomComponent {...item} key={index} />)
+        : null}
     </Container>
   )
 }

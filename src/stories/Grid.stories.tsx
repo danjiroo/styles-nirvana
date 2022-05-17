@@ -21,6 +21,7 @@ Default.args = {
     storage_key: 'incomplete-surveys',
     query_entity: 'instances',
     enablePagination: true,
+    showCurrentPage: false,
     columns: [
       {
         id: 'firstName',
@@ -36,14 +37,20 @@ Default.args = {
       paginationRange: 3,
     },
   },
-  appParams: {
+  queryParams: {
     // organizationCode: 'alliance',
     resultsPerPage: 10,
     page: 0,
     // includeDeleted: true,
     // includeUnpublishedVersions: true,
   },
+  customComponent: ({ id, status }) => (
+    <div>
+      gridStory ID: {id} {status}
+    </div>
+  ),
 }
+
 Default.parameters = {
   xstate: {
     height: '1000px',

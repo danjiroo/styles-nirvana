@@ -32,7 +32,11 @@ const Table: React.FC<TableProps> = (props) => {
   } = props
 
   const { config } = options ?? {}
-  const { enablePagination = true, initialState } = config ?? {}
+  const {
+    enablePagination = true,
+    initialState,
+    showCurrentPage = true,
+  } = config ?? {}
   const { paginationRange, ...restInitialState } = initialState ?? {}
 
   const [updatedColumns, setUpdatedColumns] =
@@ -103,7 +107,12 @@ const Table: React.FC<TableProps> = (props) => {
           items={data}
           customComponent={customComponent}
         />
-        {enablePagination && <DefaultPagination {...paginationProps} />}
+        {enablePagination && (
+          <DefaultPagination
+            {...paginationProps}
+            showCurrentPage={showCurrentPage}
+          />
+        )}
       </StyledTableAndPaginationContainer>
     )
   }
