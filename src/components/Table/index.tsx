@@ -102,7 +102,7 @@ const Table: React.FC<TableProps> = (props) => {
 
   if (customComponent) {
     return (
-      <StyledTableAndPaginationContainer>
+      <StyledTableAndPaginationContainer className='tableMainContainer'>
         <CustomComponentContainer
           items={data}
           customComponent={customComponent}
@@ -118,7 +118,7 @@ const Table: React.FC<TableProps> = (props) => {
   }
 
   return (
-    <StyledTableAndPaginationContainer>
+    <StyledTableAndPaginationContainer className='tableMainContainer'>
       <StyledTableContainer className='table-container'>
         <StyledTable {...getTableProps()}>
           <Header>
