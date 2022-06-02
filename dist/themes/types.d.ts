@@ -32,6 +32,7 @@ export interface SizeDef {
     iconHeight: string;
     loader: number;
     loaderInButton: number;
+    progressScale: number;
 }
 export declare type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export declare type ColorTypes = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'light' | 'dark';

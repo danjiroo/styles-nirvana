@@ -7,6 +7,8 @@ exports.StyledProgress = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importDefault(require("styled-components"));
 exports.StyledProgress = styled_components_1.default.div `
+  transform: scale(${({ theme, size }) => theme.size[size].progressScale});
+
   width: 150px;
   height: 150px;
   position: relative;

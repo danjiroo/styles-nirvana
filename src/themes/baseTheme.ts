@@ -141,6 +141,7 @@ export const baseTheme: ThemeDefinition = {
       iconHeight: '1.125rem',
       loader: 36,
       loaderInButton: 13,
+      progressScale: 0.4,
     },
     sm: {
       width: '33.34%',
@@ -149,6 +150,7 @@ export const baseTheme: ThemeDefinition = {
       iconHeight: '1.313rem',
       loader: 38,
       loaderInButton: 14,
+      progressScale: 0.65,
     },
     md: {
       width: '50%',
@@ -157,6 +159,7 @@ export const baseTheme: ThemeDefinition = {
       iconHeight: '1.563rem',
       loader: 40,
       loaderInButton: 15,
+      progressScale: 0.8,
     },
     lg: {
       width: '66.67%',
@@ -165,6 +168,7 @@ export const baseTheme: ThemeDefinition = {
       iconHeight: '1.688rem',
       loader: 42,
       loaderInButton: 16,
+      progressScale: 0.9,
     },
     xl: {
       width: '83.34%',
@@ -173,6 +177,7 @@ export const baseTheme: ThemeDefinition = {
       iconHeight: '1.875rem',
       loader: 44,
       loaderInButton: 17,
+      progressScale: 1,
     },
     full: {
       height: '100%',

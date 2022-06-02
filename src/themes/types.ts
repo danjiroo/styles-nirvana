@@ -39,6 +39,7 @@ export interface SizeDef {
   iconHeight: string
   loader: number
   loaderInButton: number
+  progressScale: number
 }
 
 export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'

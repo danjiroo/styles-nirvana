@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { ProgressProps } from './types'
 
 export const StyledProgress = styled.div<ProgressProps>`
+  transform: scale(${({ theme, size }) => theme.size[size].progressScale});
+
   width: 150px;
   height: 150px;
   position: relative;
