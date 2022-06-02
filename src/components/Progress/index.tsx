@@ -5,8 +5,8 @@ import { ProgressProps } from './types'
 
 const Progress: React.FC<ProgressProps> = ({
   progress = 0,
-  color,
-  colorWeight,
+  color = 'primary',
+  colorWeight = 'DEFAULT',
   size = 'xl',
 }) => (
   <StyledProgress

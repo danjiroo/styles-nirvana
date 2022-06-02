@@ -55,10 +55,14 @@ export const StyledProgress = styled.div<ProgressProps>`
 
   .num h2 {
     font-size: 48px;
+    color: ${({ theme, color = 'primary', colorWeight = 'DEFAULT' }) =>
+      theme.colors[color][colorWeight]};
   }
 
   .num h2 span {
     font-size: 24px;
+    color: ${({ theme, color = 'primary', colorWeight = 'DEFAULT' }) =>
+      theme.colors[color][colorWeight]};
   }
 
   .text {
