@@ -19,6 +19,8 @@ export interface TableConfig {
     pageSize: number
     pageIndex?: number
     paginationRange?: number
+    sortOrder?: 'ascending' | 'descending'
+    sortBy?: string
   }
 }
 

@@ -37,7 +37,12 @@ const Table: React.FC<TableProps> = (props) => {
     initialState,
     showCurrentPage = true,
   } = config ?? {}
-  const { paginationRange, ...restInitialState } = initialState ?? {}
+  const {
+    paginationRange,
+    sortOrder = 'descending',
+    sortBy,
+    ...restInitialState
+  } = initialState ?? {}
 
   const [updatedColumns, setUpdatedColumns] =
     useState<ExtendedColumns[]>(columns)
@@ -56,6 +61,10 @@ const Table: React.FC<TableProps> = (props) => {
       columns: updatedColumns,
       data,
       initialState: restInitialState,
+      state: {
+        sorting: 'ascending',
+      },
+      // onSortingChange: setSorting,
     },
     useSortBy,
     usePagination,
@@ -106,6 +115,7 @@ const Table: React.FC<TableProps> = (props) => {
         <CustomComponentContainer
           items={data}
           customComponent={customComponent}
+          sortOrder={sortOrder}
         />
         {enablePagination && (
           <DefaultPagination
