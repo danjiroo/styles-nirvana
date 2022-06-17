@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { IconNames } from 'components/Icon/IconList'
 import React from 'react'
 
 import { Icon, RaySpinner } from '../'
@@ -49,7 +50,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
         {!isLoading && IconLeft && (
           <div className='button-icon-div'>
             <Icon
-              iconName={IconLeft}
+              iconName={IconLeft as IconNames}
               color={layout === 'solid' ? 'light' : color}
               size='sm'
               clickable
@@ -76,7 +77,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
         {!isLoading && IconRight && (
           <div className='button-icon-div icon-right'>
             <Icon
-              iconName={IconRight}
+              iconName={IconRight as IconNames}
               color={layout === 'solid' ? 'light' : color}
               size='sm'
               clickable

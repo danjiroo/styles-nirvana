@@ -44,8 +44,8 @@ export interface FormInputProps extends GlobalProps {
     - border_radius?: string;
    */
   customTheme?: CustomTheme
-  iconLeft: IconNames | string
-  icon?: IconNames | string
+  iconLeft?: IconNames
+  icon?: IconNames
   /**
    * Mention options
    */

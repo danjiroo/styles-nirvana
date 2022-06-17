@@ -43,7 +43,7 @@ const Input = (props) => {
             setLabelClick(false);
         }
     };
-    const IconLeft = iconLeft || icon;
+    const IconLeft = iconLeft || icon || '';
     const shouldDisplayPlaceHolder = () => {
         if (label && is_input_active)
             return placeholder;

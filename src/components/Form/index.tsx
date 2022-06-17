@@ -6,6 +6,7 @@ import { Input } from '../'
 import { StyledForm } from './styles'
 import { Button } from '../'
 import { FormProps, ActionsProps, State } from './types'
+import { IconNames } from 'components/Icon/IconList'
 
 const Form: React.FC<FormProps> = (props) => {
   const { onSubmit, fields } = props
@@ -48,7 +49,9 @@ const Form: React.FC<FormProps> = (props) => {
               name={value.name}
               accessor='value'
               disabled={submitting}
-              iconLeft={value.icon ? value.icon : ''}
+              iconLeft={
+                value.icon ? (value.icon as IconNames) : ('' as IconNames)
+              }
             />
           ))}
         <Button onClick={handleSubmit} label='Submit' />

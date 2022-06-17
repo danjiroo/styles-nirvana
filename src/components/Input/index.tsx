@@ -80,7 +80,7 @@ const Input: React.FC<FormInputProps> = (props) => {
     }
   }
 
-  const IconLeft = iconLeft || icon
+  const IconLeft = iconLeft || icon || ''
   const shouldDisplayPlaceHolder = () => {
     if (label && is_input_active) return placeholder
     if (!label && !is_input_active) return placeholder

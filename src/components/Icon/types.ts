@@ -12,7 +12,7 @@ export interface IconProps extends GlobalProps {
   /**
    * Name of icon from the icon reference
    */
-  iconName?: IconNames | string
+  iconName?: IconNames
   /**
    * Is icon hoverable
    */
