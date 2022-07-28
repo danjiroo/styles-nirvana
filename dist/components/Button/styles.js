@@ -30,7 +30,11 @@ const getDynamicStyles = (props) => {
     const { color = 'primary', colorWeight = 'DEFAULT', hoverColorWeight = 'DEFAULT', rounded = true, size = 'xl', isDisabled = false, layout = 'solid', theme, } = props;
     return (0, styled_components_1.css) `
     cursor: ${!isDisabled ? 'pointer' : 'not-allowed'};
-    color: ${layout === 'solid' ? '#fff' : theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]};
+    color: ${layout === 'solid' && color !== 'light'
+        ? '#fff'
+        : color === 'light'
+            ? '#000'
+            : theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]};
     background: ${layout === 'solid'
         ? theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]
         : 'transparent'};
@@ -45,16 +49,16 @@ const getDynamicStyles = (props) => {
 
     &:not(.close_btn):hover {
       color: ${layout !== 'solid' && '#fff'};
-      background: ${theme === null || theme === void 0 ? void 0 : theme.colors[color][!isDisabled && hoverColorWeight
-        ? hoverColorWeight
-        : !isDisabled
-            ? '300'
-            : 'DEFAULT']};
-      border-color: ${theme === null || theme === void 0 ? void 0 : theme.colors[color][!isDisabled && hoverColorWeight
-        ? hoverColorWeight
-        : !isDisabled
-            ? '300'
-            : 'DEFAULT']};
+      background: ${isDisabled
+        ? theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]
+        : theme === null || theme === void 0 ? void 0 : theme.colors[color][hoverColorWeight ? hoverColorWeight : 'DEFAULT']};
+      border-color: ${isDisabled
+        ? theme === null || theme === void 0 ? void 0 : theme.colors[color][colorWeight]
+        : theme === null || theme === void 0 ? void 0 : theme.colors[color][!isDisabled && hoverColorWeight
+            ? hoverColorWeight
+            : !isDisabled
+                ? '300'
+                : 'DEFAULT']};
       opacity: ${!isDisabled && 1};
 
       svg {

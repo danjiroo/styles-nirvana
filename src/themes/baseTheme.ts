@@ -41,10 +41,12 @@ export const baseTheme: ThemeDefinition = {
       400: '#8f4003',
     },
     danger: {
+      50: '#fdf4f4',
       100: '#FDECEC',
       200: '#FBD0D0',
       DEFAULT: '#EF4444',
       300: '#F7A1A1',
+      400: '#ee8888',
     },
     light: {
       50: '#FFFFFF',

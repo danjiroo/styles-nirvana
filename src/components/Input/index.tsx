@@ -54,6 +54,10 @@ const Input: React.FC<FormInputProps> = (props) => {
     actions.handleChange?.({ value, name, accessor })
   }
 
+  const handleKeyDown = (event: any) => {
+    actions.handleKeyDown?.(event)
+  }
+
   const handleLabelClick = () => {
     setLabelClick(() => true)
   }
@@ -124,6 +128,7 @@ const Input: React.FC<FormInputProps> = (props) => {
           name={name}
           customTheme={customTheme}
           className={className}
+          onKeyDown={handleKeyDown}
         />
       )}
 

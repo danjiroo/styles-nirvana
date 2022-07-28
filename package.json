@@ -1,6 +1,6 @@
 {
   "name": "@pando-styles/nirvana",
-  "version": "1.2.84",
+  "version": "1.2.96",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SuggestionDataItem } from 'react-mentions'
 import { GlobalProps } from '../'
 
@@ -33,6 +34,7 @@ export interface FormInputProps extends GlobalProps {
   actions: {
     handleChange?: (data: data) => void
     handleAddMention?: (data: unknown) => void
+    handleKeyDown?: (data: any) => void
   }
   type: 'text' | 'textArea' | 'textAreaMention' | string
   disabled?: boolean

@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { IconNames } from 'components/Icon/IconList'
 import React from 'react'
@@ -60,7 +61,13 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
         {isLoading && (
           <div className='button-icon-div'>
             <RaySpinner
-              color={layout === 'solid' ? 'light' : color}
+              color={
+                color === 'light'
+                  ? 'dark'
+                  : layout === 'solid'
+                  ? 'light'
+                  : color
+              }
               colorWeight='100'
               size={size}
               rayHeight={3}
