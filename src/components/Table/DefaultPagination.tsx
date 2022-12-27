@@ -1,4 +1,3 @@
-import { IconNames } from 'components/Icon/IconList'
 import React from 'react'
 
 import { Icon } from '../'
@@ -95,7 +94,7 @@ const DefaultPagination: React.FC<DefaultPaginationProps> = ({
         return (
           <Icon
             key={pageNumber}
-            iconName={String(pageNumber) as IconNames}
+            iconName={String(pageNumber) as string}
             onClick={() => handleJumptToPage(Number(pageNumber) - 1)}
             color='dark'
             colorWeight='50'

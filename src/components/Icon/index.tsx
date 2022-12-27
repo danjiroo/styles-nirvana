@@ -17,9 +17,9 @@ const Icon: React.FC<IconProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false)
   const ref = useRef(null)
 
-  const SVGComponent =
-    isNaN(Number(iconName)) &&
-    require(`../../assets/svg/${iconName}.svg`).ReactComponent
+  // const SVGComponent =
+  //   isNaN(Number(iconName)) &&
+  //   require(`../../assets/svg/${iconName}.svg`).ReactComponent
 
   const handleClick = () => {
     if (disabled) return
@@ -49,7 +49,8 @@ const Icon: React.FC<IconProps> = (props) => {
   return (
     <StyledIconContainer ref={ref} {...rest} className={className}>
       <StyledIconDiv {...rest} onClick={handleClick}>
-        {isNaN(Number(iconName)) ? <SVGComponent /> : iconName}
+        {/* {isNaN(Number(iconName)) ? <SVGComponent /> : iconName} */}
+        {isNaN(Number(iconName)) ? <></> : iconName}
       </StyledIconDiv>
       {isOpen && hasDropdown && <DropdownComponent />}
     </StyledIconContainer>

@@ -1,6 +1,5 @@
 import { SuggestionDataItem } from 'react-mentions';
 import { GlobalProps } from '../';
-import { IconNames } from '../Icon/IconList';
 export interface data {
     value: string;
     name: string;
@@ -41,8 +40,8 @@ export interface FormInputProps extends GlobalProps {
       - border_radius?: string;
      */
     customTheme?: CustomTheme;
-    iconLeft?: IconNames;
-    icon?: IconNames;
+    iconLeft?: string;
+    icon?: string;
     /**
      * Mention options
      */

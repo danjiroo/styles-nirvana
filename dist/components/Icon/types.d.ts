@@ -1,11 +1,10 @@
 import React from 'react';
 import { GlobalProps } from '../';
-import { IconNames } from './IconList';
 export interface IconProps extends GlobalProps {
     /**
      * Name of icon from the icon reference
      */
-    iconName?: IconNames;
+    iconName?: string;
     /**
      * Is icon hoverable
      */

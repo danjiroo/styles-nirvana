@@ -254,7 +254,7 @@ const SingleSelect: React.FC<SelectProps> = ({
       {!!icon && !innerIcon && (
         <div className='select-icon-container'>
           <Icon
-            iconName={icon as IconNames}
+            iconName={icon as string}
             color='dark'
             className='ICONN DEBUGGGG'
           />
@@ -277,7 +277,7 @@ const SingleSelect: React.FC<SelectProps> = ({
         {!!icon && innerIcon && (
           <div className='select-icon-container inner-icon'>
             <Icon
-              iconName={icon as IconNames}
+              iconName={icon as string}
               color='dark'
               className='ICONN DEBUGGGG'
             />

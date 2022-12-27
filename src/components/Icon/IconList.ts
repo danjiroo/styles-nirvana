@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-function importAll(r: any) {
-  return r.keys().map((r: string) => r.replace(/.\/|.svg/g, ''))
-}
+// function importAll(r: any) {
+//   return r.keys().map((r: string) => r.replace(/.\/|.svg/g, ''))
+// }
 
-export const iconArray: string[] = importAll(
-  require.context('../../assets/svg/', false, /\.svg$/)
-)
+// export const iconArray: string[] = importAll(
+//   require.context('../../assets/svg/', false, /\.svg$/)
+// )
 
 export const iconArr = [
   'activity',

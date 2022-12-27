@@ -5,7 +5,6 @@ import { Icon } from '../'
 
 import { StyledCard } from './styles'
 import { CardProps } from './types'
-import { IconNames } from 'components/Icon/IconList'
 
 const Card: React.FC<CardProps> = ({
   className,
@@ -28,7 +27,7 @@ const Card: React.FC<CardProps> = ({
       <Icon
         onClick={handleClose}
         className='close_btn'
-        iconName={closeIconName as IconNames}
+        iconName={closeIconName as string}
         clickable
         hoverable
       />

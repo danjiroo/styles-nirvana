@@ -106,7 +106,7 @@ const Input: React.FC<FormInputProps> = (props) => {
         <StyledIcon>
           <div className='button-icon-div'>
             <Icon
-              iconName={IconLeft as IconNames}
+              iconName={IconLeft as string}
               color={layout === 'solid' ? 'light' : color}
               size={size}
             />
