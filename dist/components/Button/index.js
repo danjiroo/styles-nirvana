@@ -15,6 +15,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
+/* eslint-disable indent */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const react_1 = __importDefault(require("react"));
 const __1 = require("../");
 const styles_1 = require("./styles");
