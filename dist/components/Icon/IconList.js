@@ -170,6 +170,7 @@ exports.iconArr = [
     'message-square',
     'mic-off',
     'mic',
+    'mic-2',
     'minimize-2',
     'minimize',
     'minus-circle',
