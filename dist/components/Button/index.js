@@ -15,6 +15,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
+/* eslint-disable indent */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const react_1 = __importDefault(require("react"));
 const __1 = require("../");
@@ -35,6 +36,10 @@ const Button = react_1.default.forwardRef(function Button(_a, ref) {
     };
     const IconLeft = iconLeft || icon;
     const IconRight = iconRight;
-    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledButton, Object.assign({ type: 'button' }, other, usedProps, { disabled: isDisabled, ref: ref }, { children: [!isLoading && IconLeft && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'button-icon-div' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: IconLeft, color: layout === 'solid' ? 'light' : color, size: 'sm', clickable: true }) }))), isLoading && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'button-icon-div' }, { children: (0, jsx_runtime_1.jsx)(__1.RaySpinner, { color: layout === 'solid' ? 'light' : color, colorWeight: '100', size: size, rayHeight: 3, rayWidth: 2, inButton: true }) }))), isLoading ? ((0, jsx_runtime_1.jsx)("span", { children: loadingLabel })) : (label && (0, jsx_runtime_1.jsx)("span", { children: label })), !isLoading && IconRight && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'button-icon-div icon-right' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: IconRight, color: layout === 'solid' ? 'light' : color, size: 'sm', clickable: true }) })))] })));
+    return ((0, jsx_runtime_1.jsxs)(styles_1.StyledButton, Object.assign({ type: 'button' }, other, usedProps, { disabled: isDisabled, ref: ref }, { children: [!isLoading && IconLeft && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'button-icon-div' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: IconLeft, color: layout === 'solid' ? 'light' : color, size: 'sm', clickable: true }) }))), isLoading && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'button-icon-div' }, { children: (0, jsx_runtime_1.jsx)(__1.RaySpinner, { color: color === 'light'
+                        ? 'dark'
+                        : layout === 'solid'
+                            ? 'light'
+                            : color, colorWeight: '100', size: size, rayHeight: 3, rayWidth: 2, inButton: true }) }))), isLoading ? ((0, jsx_runtime_1.jsx)("span", { children: loadingLabel })) : (label && (0, jsx_runtime_1.jsx)("span", { children: label })), !isLoading && IconRight && ((0, jsx_runtime_1.jsx)("div", Object.assign({ className: 'button-icon-div icon-right' }, { children: (0, jsx_runtime_1.jsx)(__1.Icon, { iconName: IconRight, color: layout === 'solid' ? 'light' : color, size: 'sm', clickable: true }) })))] })));
 });
 exports.default = Button;

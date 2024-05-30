@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { Column, CellProps } from 'react-table';
 export interface OtherColumnProperties {
     show?: boolean;
@@ -7,10 +6,13 @@ export interface OtherColumnProperties {
 export declare type ExtendedColumns = Column & OtherColumnProperties;
 export interface TableConfig {
     enablePagination: boolean;
+    showCurrentPage?: boolean;
     initialState: {
         pageSize: number;
-        pageIndex: number;
-        paginationRange: number;
+        pageIndex?: number;
+        paginationRange?: number;
+        sortOrder?: 'ascending' | 'descending';
+        sortBy?: string;
     };
 }
 export interface TablePagination {
@@ -36,4 +38,5 @@ export interface TableProps {
         pagination?: TablePagination;
     };
     isLoading?: boolean;
+    customComponent?: (item: Record<string, any>) => void;
 }

@@ -4,12 +4,14 @@ import { useDrag } from 'react-dnd'
 import { StyledDraggable } from './styles'
 import { DraggableProps } from './types'
 
-const Draggable: React.FC<DraggableProps> = ({ children }) => {
+const Draggable: React.FC<DraggableProps> = ({
+  children,
+  item,
+  dndEntity = 'sample',
+}) => {
   const [{ opacity }, dragRef] = useDrag(() => ({
-    type: 'card',
-    item: {
-      text: 'sample',
-    },
+    type: dndEntity,
+    item: item ?? {},
     collect: (monitor) => ({
       opacity: monitor.isDragging() ? 0.5 : 1,
     }),

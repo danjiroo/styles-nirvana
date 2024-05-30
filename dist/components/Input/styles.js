@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StyledMentionsInput = exports.StyledIcon = exports.InputContainer = exports.Label = exports.StyledTextArea = exports.StyledInput = void 0;
+exports.StyledMentionsInput = exports.StyledIcon = exports.InputContainer = exports.Label = exports.StyledTextArea = exports.StyledError = exports.StyledInput = void 0;
 /* eslint-disable indent */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -64,6 +64,11 @@ exports.StyledInput = styled_components_1.default.input `
   &::placeholder {
     color: ${({ theme }) => theme.colors.dark[50]};
   }
+`;
+exports.StyledError = styled_components_1.default.p `
+  color: ${({ theme }) => theme.colors.danger.DEFAULT};
+  margin: 0.4rem 0.8rem -0.2rem;
+  font-size: 80% !important;
 `;
 exports.StyledTextArea = styled_components_1.default.textarea `
   width: 100%;
@@ -204,7 +209,7 @@ exports.StyledMentionsInput = (0, styled_components_1.default)(react_mentions_1.
     position: relative;
     z-index: 1;
     color: ${({ theme }) => theme.colors.primary['DEFAULT']} !important;
-    /* font-weight: bold; */
+    pointer-events: none;
   }
 
   div[class*='_suggestions'] {

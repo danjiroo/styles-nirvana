@@ -35,9 +35,11 @@ export interface HeaderDefinition {
 export interface SizeDef {
   width: string
   height: string
+  containerHeight: string
   iconHeight: string
   loader: number
   loaderInButton: number
+  progressScale: number
 }
 
 export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -81,7 +83,7 @@ export interface ThemeDefinition {
     }
   }
   size: TSize & {
-    full: Pick<SizeDef, 'width' | 'height'>
+    full: Pick<SizeDef, 'width' | 'height' | 'containerHeight'>
   }
 }
 

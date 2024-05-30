@@ -1,3 +1,4 @@
+import { IconNames } from '../Icon/IconList';
 export interface IFields {
     test: {
         label: string;
@@ -5,7 +6,7 @@ export interface IFields {
         place_holder: string;
         name: string;
         field_type?: 'text';
-        icon: string;
+        icon: IconNames | string;
     };
 }
 export interface State {
@@ -17,7 +18,7 @@ interface FieldValues {
     place_holder: string;
     name: string;
     field_type: string;
-    icon?: string;
+    icon?: IconNames | string;
 }
 interface Fields {
     [key: string]: FieldValues;

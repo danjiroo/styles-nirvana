@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StyledPagination = exports.StyledSortIconContainer = exports.StyledTable = exports.StyledTableContainer = exports.getResponsiveHeaders = void 0;
+exports.StyledTableAndPaginationContainer = exports.StyledPagination = exports.StyledSortIconContainer = exports.StyledTable = exports.StyledTableContainer = exports.getResponsiveHeaders = void 0;
 /* eslint-disable indent */
 const styled_components_1 = __importStar(require("styled-components"));
 const Table_1 = __importDefault(require("./Shell/Table"));
@@ -41,6 +41,7 @@ const getResponsiveHeaders = ({ columns }) => {
 exports.getResponsiveHeaders = getResponsiveHeaders;
 exports.StyledTableContainer = styled_components_1.default.div `
   position: relative;
+  overflow: auto;
 `;
 exports.StyledTable = (0, styled_components_1.default)(Table_1.default) `
   border-spacing: 1;
@@ -181,6 +182,12 @@ exports.StyledPagination = styled_components_1.default.div `
   position: relative;
   color: ${({ theme }) => theme.colors.dark[50]};
 
+  @media screen and (max-width: 500px) {
+    & {
+      transform: scale(0.75);
+    }
+  }
+
   .current-page {
     position: absolute;
     right: 15px;
@@ -204,4 +211,7 @@ exports.StyledPagination = styled_components_1.default.div `
   .active-page {
     width: auto;
   }
+`;
+exports.StyledTableAndPaginationContainer = styled_components_1.default.div `
+  width: 100%;
 `;

@@ -15,7 +15,6 @@ const Dropzone = ({
   onDrop,
   file,
   accept,
-  mediaSource,
   mediaElement,
   onTimeUpdate,
 }: any) => {
@@ -47,7 +46,6 @@ const Dropzone = ({
         ) : (
           <Media
             file={file}
-            mediaSource={mediaSource}
             onTimeUpdate={onTimeUpdate}
             mediaElement={mediaElement}
           />

@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import React from 'react'
 import React from 'react'
-import { Column, CellProps, TableState } from 'react-table'
+import { Column, CellProps, TableState, TableRowProps } from 'react-table'
 
 export interface OtherColumnProperties {
   show?: boolean
@@ -14,10 +14,13 @@ export type ExtendedColumns = Column & OtherColumnProperties
 
 export interface TableConfig {
   enablePagination: boolean
+  showCurrentPage?: boolean
   initialState: {
     pageSize: number
-    pageIndex: number
-    paginationRange: number
+    pageIndex?: number
+    paginationRange?: number
+    sortOrder?: 'ascending' | 'descending'
+    sortBy?: string
   }
 }
 
@@ -48,4 +51,5 @@ export interface TableProps {
   }
 
   isLoading?: boolean
+  customComponent?: (item: Record<string, any>) => void
 }

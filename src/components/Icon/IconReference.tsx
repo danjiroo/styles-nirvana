@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import React from 'react'
 
-import { iconArray } from './IconList'
+import { iconArr } from './IconList'
 import Icon from './'
 import { StyledIconReference } from './styles'
 
@@ -16,7 +16,7 @@ interface ListProps {
 
 const List: React.FC<ListProps> = ({ name, handleClick }) => (
   <li onClick={() => handleClick(name)}>
-    <Icon iconName={name} color='dark' />
+    <Icon iconName={name as string} color='dark' />
     <input type='text' readOnly value={name} />
   </li>
 )
@@ -26,7 +26,7 @@ const IconReference: React.FC<IconReferenceProps> = (props) => (
     <h1>Icon Reference</h1>
     <h2>SVG</h2>
     <ul>
-      {iconArray.map((name: string) => (
+      {iconArr.map((name: string) => (
         <List key={name} name={name} {...props} />
       ))}
     </ul>

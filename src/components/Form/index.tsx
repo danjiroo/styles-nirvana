@@ -38,6 +38,7 @@ const Form: React.FC<FormProps> = (props) => {
         {fields &&
           Object.entries(fields).map(([key, value], index: number) => (
             <Input
+              id={String(index)}
               key={`key--${index}`}
               value={state[key] ?? ''}
               type='text'
@@ -47,7 +48,7 @@ const Form: React.FC<FormProps> = (props) => {
               name={value.name}
               accessor='value'
               disabled={submitting}
-              iconLeft={value.icon ? value.icon : ''}
+              iconLeft={value.icon ? (value.icon as string) : ('' as string)}
             />
           ))}
         <Button onClick={handleSubmit} label='Submit' />

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SuggestionDataItem } from 'react-mentions'
 import { GlobalProps } from '../'
 
@@ -16,6 +17,7 @@ export interface CustomTheme {
 }
 
 export interface FormInputProps extends GlobalProps {
+  id: string
   /**
    * The actual value that will be stored inside a state
    */
@@ -30,6 +32,7 @@ export interface FormInputProps extends GlobalProps {
   actions: {
     handleChange?: (data: data) => void
     handleAddMention?: (data: unknown) => void
+    handleKeyDown?: (data: any) => void
   }
   type: 'text' | 'textArea' | 'textAreaMention' | string
   disabled?: boolean
@@ -41,10 +44,13 @@ export interface FormInputProps extends GlobalProps {
     - border_radius?: string;
    */
   customTheme?: CustomTheme
-  iconLeft: string
+  iconLeft?: string
   icon?: string
   /**
    * Mention options
    */
   suggestions?: SuggestionDataItem[]
+  error?: boolean
+  errorText?: string
+  className?: string
 }

@@ -27,7 +27,7 @@ const Card: React.FC<CardProps> = ({
       <Icon
         onClick={handleClose}
         className='close_btn'
-        iconName={closeIconName}
+        iconName={closeIconName as string}
         clickable
         hoverable
       />

@@ -49,6 +49,13 @@ export const StyledInput = styled.input<StyledInputProps>`
     color: ${({ theme }) => theme.colors.dark[50]};
   }
 `
+
+export const StyledError = styled.p`
+  color: ${({ theme }) => theme.colors.danger.DEFAULT};
+  margin: 0.4rem 0.8rem -0.2rem;
+  font-size: 80% !important;
+`
+
 export const StyledTextArea = styled.textarea<StyledInputProps>`
   width: 100%;
   min-height: 8rem;
@@ -199,7 +206,7 @@ export const StyledMentionsInput = styled(MentionsInput)`
     position: relative;
     z-index: 1;
     color: ${({ theme }) => theme.colors.primary['DEFAULT']} !important;
-    /* font-weight: bold; */
+    pointer-events: none;
   }
 
   div[class*='_suggestions'] {

@@ -16,7 +16,19 @@ export interface ContainerProps extends GlobalSizes {
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     children?: ReactChild | ReactChildren | JSX.Element[] | JSX.Element;
     className?: string;
+    direction?: string;
+    centerXY?: boolean;
+    centerX?: boolean;
+    centerY?: boolean;
+    bgColor?: string;
+    customBg?: string;
 }
 import { ThemeProvider } from '../../themes';
 export interface GetContainerStyles extends ThemeProvider, GlobalSizes {
+    direction?: string;
+    centerXY?: boolean;
+    centerX?: boolean;
+    centerY?: boolean;
+    bgColor?: string;
+    customBg?: string;
 }

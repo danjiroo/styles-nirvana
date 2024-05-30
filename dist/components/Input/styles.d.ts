@@ -3,6 +3,7 @@ interface StyledInputProps {
     customTheme?: CustomTheme;
 }
 export declare const StyledInput: import("styled-components").StyledComponent<"input", any, StyledInputProps, never>;
+export declare const StyledError: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const StyledTextArea: import("styled-components").StyledComponent<"textarea", any, StyledInputProps, never>;
 interface LabelProps {
     is_input_active: boolean;

@@ -15,18 +15,38 @@ export default {
 const DefaultDNDTemplate: ComponentStory<typeof DND> = (args) => (
   <StyledContainer>
     <DND.Provider {...args}>
-      <DND.Droppable droppableId='1' {...args} />
       <div>
-        <DND.Draggable draggableId='1' type='card'>
+        <DND.Draggable
+          draggableId='1'
+          dndEntity='test'
+          item={{ sample: 'dragme' }}
+        >
           <h2>I AM DRAGGABLE</h2>
         </DND.Draggable>
-        <DND.Draggable draggableId='2' type='card'>
+        <DND.Draggable
+          draggableId='2'
+          dndEntity='test'
+          item={{ sample: 'dragme' }}
+        >
           <h2>I AM DRAGGABLE 2</h2>
         </DND.Draggable>
-        <DND.Draggable draggableId='3' type='card'>
+        <DND.Draggable
+          draggableId='3'
+          dndEntity='test'
+          item={{ sample: 'dragme' }}
+        >
           <h2>I AM DRAGGABLE 3</h2>
         </DND.Draggable>
       </div>
+      <DND.Droppable
+        droppableId='1'
+        dndEntity='test'
+        position='0px'
+        getDroppedItems={(data) => console.log('you dropped:', data)}
+        {...args}
+      >
+        <div>sample childrejn</div>
+      </DND.Droppable>
     </DND.Provider>
   </StyledContainer>
 )

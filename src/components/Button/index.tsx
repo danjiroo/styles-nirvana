@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 
@@ -49,7 +50,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
         {!isLoading && IconLeft && (
           <div className='button-icon-div'>
             <Icon
-              iconName={IconLeft}
+              iconName={IconLeft as string}
               color={layout === 'solid' ? 'light' : color}
               size='sm'
               clickable
@@ -59,7 +60,13 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
         {isLoading && (
           <div className='button-icon-div'>
             <RaySpinner
-              color={layout === 'solid' ? 'light' : color}
+              color={
+                color === 'light'
+                  ? 'dark'
+                  : layout === 'solid'
+                  ? 'light'
+                  : color
+              }
               colorWeight='100'
               size={size}
               rayHeight={3}
@@ -76,7 +83,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef<any, ButtonProps>(
         {!isLoading && IconRight && (
           <div className='button-icon-div icon-right'>
             <Icon
-              iconName={IconRight}
+              iconName={IconRight as string}
               color={layout === 'solid' ? 'light' : color}
               size='sm'
               clickable

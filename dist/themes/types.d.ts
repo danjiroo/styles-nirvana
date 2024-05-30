@@ -28,9 +28,11 @@ export interface HeaderDefinition {
 export interface SizeDef {
     width: string;
     height: string;
+    containerHeight: string;
     iconHeight: string;
     loader: number;
     loaderInButton: number;
+    progressScale: number;
 }
 export declare type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export declare type ColorTypes = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'light' | 'dark';
@@ -65,7 +67,7 @@ export interface ThemeDefinition {
         };
     };
     size: TSize & {
-        full: Pick<SizeDef, 'width' | 'height'>;
+        full: Pick<SizeDef, 'width' | 'height' | 'containerHeight'>;
     };
 }
 export interface ThemeProvider {

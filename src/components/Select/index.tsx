@@ -13,7 +13,14 @@ import { ThemeDefinition } from '../../themes'
 import { capFirstLetterForEachWord } from '../../utils'
 
 import { OnChangeActionDef, OnChangeData, SelectProps } from './types'
-import { StyledField, StyledSelectContainer, Label } from './styles'
+import {
+  StyledField,
+  StyledSelectContainer,
+  Label,
+  StyledError,
+} from './styles'
+
+import { IconNames } from '../Icon/IconList'
 
 const SingleSelect: React.FC<SelectProps> = ({
   error,
@@ -107,9 +114,9 @@ const SingleSelect: React.FC<SelectProps> = ({
   const labelKey = optionLabel || 'label'
   const valueKey = optionValue || 'id'
 
-  const SelectComponent = (
-    isCreatable ? Creatable : Select
-  ) as React.ElementType
+  const SelectComponent = (isCreatable ? Creatable : Select) as
+    | React.ElementType
+    | any
 
   useEffect(() => setValue(initialValue), [propsValue])
 
@@ -246,7 +253,11 @@ const SingleSelect: React.FC<SelectProps> = ({
     <StyledSelectContainer {...styleProps} className={cn(className)}>
       {!!icon && !innerIcon && (
         <div className='select-icon-container'>
-          <Icon iconName={icon} color='dark' className='ICONN DEBUGGGG' />
+          <Icon
+            iconName={icon as string}
+            color='dark'
+            className='ICONN DEBUGGGG'
+          />
         </div>
       )}
 
@@ -265,7 +276,11 @@ const SingleSelect: React.FC<SelectProps> = ({
 
         {!!icon && innerIcon && (
           <div className='select-icon-container inner-icon'>
-            <Icon iconName={icon} color='dark' className='ICONN DEBUGGGG' />
+            <Icon
+              iconName={icon as string}
+              color='dark'
+              className='ICONN DEBUGGGG'
+            />
           </div>
         )}
 
@@ -299,14 +314,7 @@ const SingleSelect: React.FC<SelectProps> = ({
           })}
         />
 
-        {!!error && (
-          <span
-            className='select-error'
-            style={{ width: `calc(100% - ${icon && '28px'})` }}
-          >
-            {errorText}
-          </span>
-        )}
+        {error && <StyledError>{errorText}</StyledError>}
       </StyledField>
     </StyledSelectContainer>
   )

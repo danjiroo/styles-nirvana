@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Label = exports.StyledField = exports.StyledSelectContainer = void 0;
+exports.StyledError = exports.Label = exports.StyledField = exports.StyledSelectContainer = void 0;
 /* eslint-disable indent */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const styled_components_1 = __importStar(require("styled-components"));
@@ -36,7 +36,7 @@ const getStyles = (props) => {
         : label && !error
             ? '15px 0'
             : label && error
-                ? '25px 0'
+                ? '0'
                 : !label && error
                     ? '0 0 25px'
                     : '5px 0'};
@@ -45,20 +45,35 @@ const getStyles = (props) => {
     .select-label {
       top: ${label && !error ? '-5px' : label && error ? '5px' : 0};
     }
-    .select-error {
-      bottom: ${label && !error ? '-5px' : label && error ? '5px' : 0};
+
+    .select-icon-container {
+      margin-top: ${label && !error
+        ? '0'
+        : label && error
+            ? '15px'
+            : !label && error
+                ? '0 0 25px'
+                : '5px 0'};
     }
   `;
 };
 exports.StyledSelectContainer = styled_components_1.default.div `
-  margin-top: 5px;
+  margin: 5px 0 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .select-icon-container {
     padding-right: 5px;
-    margin-top: ${({ label, error }) => (!label && error ? '-25px' : 0)};
+    margin-top: ${({ error = false }) => (error ? '-15px' : '0')};
+  }
+
+  .select-icon-container.inner-icon {
+    position: absolute;
+    z-index: 10;
+    left: 10px;
+    opacity: 0.1;
+    margin-top: 9px;
   }
 
   > * {
@@ -77,20 +92,6 @@ exports.StyledField = styled_components_1.default.div `
     position: absolute;
   }
 
-  span.select-error {
-    color: ${({ theme }) => theme.colors.danger.DEFAULT};
-    font-size: 12px;
-    position: absolute;
-    bottom: 2px;
-  }
-
-  span.select-required {
-    color: ${({ theme }) => theme.colors.danger.DEFAULT};
-    font-size: 12px;
-    position: relative;
-    bottom: 0;
-  }
-
   div[class*='-control'] {
     min-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
     max-height: ${({ theme, size = 'xl' }) => theme.size[size].height};
@@ -107,13 +108,8 @@ exports.StyledField = styled_components_1.default.div `
     padding-left: ${({ innerIcon = false }) => (innerIcon ? '40px' : '5px')};
   }
 
-  .select-icon-container.inner-icon {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    left: 10px;
-    transform: translateY(-50%);
-    opacity: 0.1;
+  div[class*='-menu'] {
+    z-index: 11;
   }
 `;
 const move = (0, styled_components_1.keyframes) `
@@ -175,13 +171,17 @@ exports.Label = styled_components_1.default.label `
   border: none;
   padding: 0rem 0.3rem 0 0.3rem;
   margin: 0;
-  z-index: 100;
+  z-index: 10;
 
   &:hover {
     cursor: text;
   }
   box-sizing: border-box;
-  font-size: small;
 
   ${getLabelStyles}
+`;
+exports.StyledError = styled_components_1.default.p `
+  color: ${({ theme }) => theme.colors.danger.DEFAULT};
+  margin: 0.4rem 0.8rem -0.2rem;
+  font-size: inherit !important;
 `;

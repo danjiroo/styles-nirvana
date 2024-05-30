@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react'
-import parse from 'html-react-parser'
 
 import { StyledQuestion } from './styles'
 import { QuestionProps } from './types'
 
 import { Button, Input, Icon, List } from '../'
+import ParsedText from './ParsedText'
 
 const Question: React.FC<QuestionProps> = (props) => {
   const {
@@ -74,27 +74,7 @@ const Question: React.FC<QuestionProps> = (props) => {
         </span>
       </div>
       <div className='question-body'>
-        <p>
-          {parse(question, {
-            replace: (domNode: any) => {
-              if (domNode.name === 'a') {
-                const node = domNode.children[0]
-
-                return (
-                  <span
-                    className={
-                      node.data[0] === '#'
-                        ? 'link sample-text'
-                        : 'link default-text'
-                    }
-                  >
-                    {node.data}
-                  </span>
-                )
-              }
-            },
-          })}
-        </p>
+        <ParsedText data={question ?? ''} />
         <div className='question-choices'>
           {type.toLowerCase() === 'choice' &&
             !!choices?.length &&
@@ -128,6 +108,7 @@ const Question: React.FC<QuestionProps> = (props) => {
           )}
           {type.toLowerCase() === 'input' && (
             <Input
+              id='question-id'
               type='text'
               value={answer}
               name='sample'

@@ -47,20 +47,24 @@ export const StyledDroppable = styled.div<StyledDroppableProps>`
   width: 100%;
   height: auto;
 
-  div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  ${({ hasChildren = false }) =>
+    !hasChildren &&
+    css`
+      div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    ${getBackgroundColor}
+        ${getBackgroundColor}
 
-    > * {
-      ${getStyles}
-    }
-  }
+        > * {
+          ${getStyles}
+        }
+      }
+    `}
 `

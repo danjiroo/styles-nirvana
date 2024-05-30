@@ -40,9 +40,51 @@ const getContainerStyles = (props) => {
     width: 100%;
   `;
 };
+const getFlexPosition = (props) => {
+    const { centerXY, centerX, centerY, direction } = props;
+    if (direction === 'column') {
+        if (centerXY)
+            return (0, styled_components_1.css) `
+        justify-content: center;
+        align-items: center;
+      `;
+        if (centerX)
+            return (0, styled_components_1.css) `
+        align-items: center;
+      `;
+        if (centerY)
+            return (0, styled_components_1.css) `
+        justify-content: center;
+      `;
+    }
+    if (centerXY)
+        return (0, styled_components_1.css) `
+      justify-content: center;
+      align-items: center;
+    `;
+    if (centerX)
+        return (0, styled_components_1.css) `
+      justify-content: center;
+    `;
+    if (centerY)
+        return (0, styled_components_1.css) `
+      align-items: center;
+    `;
+};
+const getContainerHeight = (props) => {
+    const { theme, height = '' } = props;
+    if (height)
+        return (0, styled_components_1.css) `
+      height: ${theme.size[height].containerHeight};
+    `;
+};
 exports.StyledContainer = styled_components_1.default.div `
-  ${getContainerStyles}
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  flex-direction: ${({ direction }) => direction === 'row' ? 'row' : 'column'};
   max-width: 100%;
+  background-color: ${({ customBg }) => `#${customBg}`};
+  ${getContainerStyles}
+  ${getFlexPosition}
+  ${getContainerHeight}
 `;

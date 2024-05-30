@@ -26,6 +26,7 @@ const CardWithChildrenTemplate: ComponentStory<typeof Card> = (args) => (
     <h2>Card Title</h2>
     <Image alt='' src='' />
     <Input
+      id='1'
       type='text'
       iconLeft='user'
       value=''

@@ -146,6 +146,21 @@ const SelectTemplate: ComponentStory<typeof Select | any> = (args) => {
         value=''
         label='LABEL'
         actions={{}}
+        error
+        errorText='This is required.'
+        id='1'
+      />
+      <Input
+        iconLeft='bell'
+        name='sample'
+        placeholder='Sample placeholder...'
+        type='text'
+        value=''
+        label='LABEL 2'
+        actions={{}}
+        error
+        errorText='This is required.'
+        id='2'
       />
     </Container>
   )

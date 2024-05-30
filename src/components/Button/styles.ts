@@ -20,7 +20,11 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
 
   return css`
     cursor: ${!isDisabled ? 'pointer' : 'not-allowed'};
-    color: ${layout === 'solid' ? '#fff' : theme?.colors[color][colorWeight]};
+    color: ${layout === 'solid' && color !== 'light'
+      ? '#fff'
+      : color === 'light'
+      ? '#000'
+      : theme?.colors[color][colorWeight]};
     background: ${layout === 'solid'
       ? theme?.colors[color][colorWeight]
       : 'transparent'};
@@ -35,20 +39,20 @@ const getDynamicStyles = (props: ButtonWithThemeProvider) => {
 
     &:not(.close_btn):hover {
       color: ${layout !== 'solid' && '#fff'};
-      background: ${theme?.colors[color][
-        !isDisabled && hoverColorWeight
-          ? hoverColorWeight
-          : !isDisabled
-          ? '300'
-          : 'DEFAULT'
-      ]};
-      border-color: ${theme?.colors[color][
-        !isDisabled && hoverColorWeight
-          ? hoverColorWeight
-          : !isDisabled
-          ? '300'
-          : 'DEFAULT'
-      ]};
+      background: ${isDisabled
+        ? theme?.colors[color][colorWeight]
+        : theme?.colors[color][
+            hoverColorWeight ? hoverColorWeight : 'DEFAULT'
+          ]};
+      border-color: ${isDisabled
+        ? theme?.colors[color][colorWeight]
+        : theme?.colors[color][
+            !isDisabled && hoverColorWeight
+              ? hoverColorWeight
+              : !isDisabled
+              ? '300'
+              : 'DEFAULT'
+          ]};
       opacity: ${!isDisabled && 1};
 
       svg {

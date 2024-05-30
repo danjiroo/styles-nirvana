@@ -1,5 +1,6 @@
 import React, { MouseEvent } from 'react';
 import { GlobalProps, GColorWeights } from '../';
+import { IconNames } from '../Icon/IconList';
 export interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'color'>, GlobalProps {
     ref?: any;
     /**
@@ -33,7 +34,7 @@ export interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButtonElement
     /**
      * Shows only one icon inside the button; defaults to left
      */
-    icon?: string;
+    icon?: IconNames | string;
     /**
      * Shows an icon inside the button, left aligned
      */

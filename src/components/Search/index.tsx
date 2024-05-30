@@ -84,6 +84,7 @@ const Search: React.FC<SearchProps> = (props) => {
       </p>
       <StyledInputContainer ref={ref}>
         <Input
+          id='search-id'
           type='text'
           value={searchText}
           name='global-search'

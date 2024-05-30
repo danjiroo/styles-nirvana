@@ -4,3 +4,4 @@ export declare const StyledTableContainer: import("styled-components").StyledCom
 export declare const StyledTable: import("styled-components").StyledComponent<any, any, object, string | number | symbol>;
 export declare const StyledSortIconContainer: import("styled-components").StyledComponent<"span", any, {}, never>;
 export declare const StyledPagination: import("styled-components").StyledComponent<"div", any, Pick<TableProps, "isLoading">, never>;
+export declare const StyledTableAndPaginationContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
