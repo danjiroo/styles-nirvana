@@ -2,8 +2,7 @@
 
 We created a storybook to showcase components about how they look and work in our future projects. Also, these components are atomic components that are reusable across different projects that we will be creating soon.
 
-
-[Demo](https://pando-nirvana.netlify.app/)
+https://styles-nirvana.netlify.app/
 
 ## How to start storybook
 
